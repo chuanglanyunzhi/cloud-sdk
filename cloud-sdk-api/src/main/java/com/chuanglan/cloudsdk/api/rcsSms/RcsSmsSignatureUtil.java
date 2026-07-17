@@ -4,9 +4,9 @@ import com.chuanglan.cloudsdk.core.CloudSdkException;
 import com.chuanglan.cloudsdk.core.SignatureUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.security.SecureRandom;
 import java.util.Collection;
 import java.util.Map;
-import java.util.Random;
 import java.util.TreeMap;
 
 /**
@@ -23,7 +23,13 @@ import java.util.TreeMap;
 public final class RcsSmsSignatureUtil {
 
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private static final Random RANDOM = new Random();
+
+    /**
+     * 使用 ThreadLocal&lt;SecureRandom&gt; 避免多线程竞争，同时保证密码学安全。
+     * 不能用 {@link java.util.Random}，其线性同余算法可被预测，存在重放风险。
+     */
+    private static final ThreadLocal<SecureRandom> RNG = ThreadLocal.withInitial(SecureRandom::new);
+
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private RcsSmsSignatureUtil() {
@@ -33,9 +39,10 @@ public final class RcsSmsSignatureUtil {
      * 生成 32 位随机字符串。
      */
     public static String generateNonce() {
+        SecureRandom rng = RNG.get();
         StringBuilder sb = new StringBuilder(32);
         for (int i = 0; i < 32; i++) {
-            sb.append(CHARACTERS.charAt(RANDOM.nextInt(CHARACTERS.length())));
+            sb.append(CHARACTERS.charAt(rng.nextInt(CHARACTERS.length())));
         }
         return sb.toString();
     }

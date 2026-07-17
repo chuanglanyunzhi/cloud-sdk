@@ -17,8 +17,11 @@ import com.chuanglan.cloudsdk.core.HttpTransport;
 /**
  * 253 云 SDK 统一入口，聚合短信、国际短信、视频短信、号码、风控、携号转网、实名认证等全部 API，
  * 内部各业务线使用独立 HTTP 连接池，避免相互影响。
+ *
+ * <p>实现 {@link AutoCloseable}，业务方应在生命周期结束时通过 try-with-resources 或显式调用
+ * {@link #close()} 释放底层 OkHttp 连接池与 Dispatcher 线程池，避免在容器热部署/重启场景下资源泄漏。
  */
-public class CloudApiClient {
+public class CloudApiClient implements AutoCloseable {
 
     private final NumberClient numberClient;
     private final NumberCarrierClient numberCarrierClient;
@@ -31,6 +34,14 @@ public class CloudApiClient {
     private final BusinessClient businessClient;
     private final String intSmsEndpoint;
 
+    /** 持有的 HttpTransport 实例，close() 时统一释放。 */
+    private final HttpTransport apiHttpTransport;
+    private final HttpTransport smsHttpTransport;
+    private final HttpTransport intSmsHttpTransport;
+    private final HttpTransport rcsSmsHttpTransport;
+    private final HttpTransport realNameHttpTransport;
+    private final HttpTransport businessHttpTransport;
+
     public CloudApiClient() {
         this(new CloudApiConfig());
     }
@@ -39,12 +50,12 @@ public class CloudApiClient {
         if (config == null) {
             throw new IllegalArgumentException("CloudApiConfig must not be null");
         }
-        HttpTransport apiHttpTransport = new HttpTransport();
-        HttpTransport smsHttpTransport = new HttpTransport();
-        HttpTransport intSmsHttpTransport = new HttpTransport();
-        HttpTransport rcsSmsHttpTransport = new HttpTransport();
-        HttpTransport realNameHttpTransport = new HttpTransport();
-        HttpTransport businessHttpTransport = new HttpTransport();
+        this.apiHttpTransport = new HttpTransport();
+        this.smsHttpTransport = new HttpTransport();
+        this.intSmsHttpTransport = new HttpTransport();
+        this.rcsSmsHttpTransport = new HttpTransport();
+        this.realNameHttpTransport = new HttpTransport();
+        this.businessHttpTransport = new HttpTransport();
         this.numberClient = new NumberClient(buildNumberConfig(config), apiHttpTransport);
         this.numberCarrierClient = new NumberCarrierClient(buildNumberCarrierConfig(config), apiHttpTransport);
         this.riskClient = new RiskClient(buildRiskConfig(config), apiHttpTransport);
@@ -1390,5 +1401,36 @@ public class CloudApiClient {
      */
     public BusinessClient businessClient() {
         return businessClient;
+    }
+
+    /**
+     * 释放底层所有 HttpTransport 资源（OkHttp 连接池 + Dispatcher 线程池）。
+     *
+     * <p>建议在 Spring Bean 销毁、应用关闭、热部署等场景调用，或直接使用 try-with-resources：
+     * <pre>{@code
+     * try (CloudApiClient client = new CloudApiClient(config)) {
+     *     client.smsBatchSend(...);
+     * }
+     * }</pre>
+     */
+    @Override
+    public void close() {
+        closeQuietly(apiHttpTransport);
+        closeQuietly(smsHttpTransport);
+        closeQuietly(intSmsHttpTransport);
+        closeQuietly(rcsSmsHttpTransport);
+        closeQuietly(realNameHttpTransport);
+        closeQuietly(businessHttpTransport);
+    }
+
+    private static void closeQuietly(HttpTransport transport) {
+        if (transport == null) {
+            return;
+        }
+        try {
+            transport.close();
+        } catch (Exception ignored) {
+            // 释放资源时忽略异常，避免单个 transport 失败影响其他 transport
+        }
     }
 }

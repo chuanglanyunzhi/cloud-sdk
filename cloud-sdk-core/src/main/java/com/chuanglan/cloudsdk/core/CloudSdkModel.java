@@ -50,7 +50,6 @@ public abstract class CloudSdkModel {
                 String key = annotation != null ? annotation.value() : field.getName();
                 fieldNameMap.put(key, field.getName());
             }
-            ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> converted = new HashMap<>();
             for (Map.Entry<String, ?> entry : map.entrySet()) {
                 String fieldName = fieldNameMap.get(entry.getKey());
@@ -58,7 +57,7 @@ public abstract class CloudSdkModel {
                     converted.put(fieldName, entry.getValue());
                 }
             }
-            return mapper.convertValue(converted, clazz);
+            return MAPPER.convertValue(converted, clazz);
         } catch (Exception e) {
             throw new CloudSdkException("MapToModelError", "Map 转模型失败: " + e.getMessage(), null, 0, e);
         }

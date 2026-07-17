@@ -7,6 +7,12 @@ import java.time.Duration;
  */
 public class RuntimeOptions extends CloudSdkModel {
 
+    /**
+     * 整个请求的最大时长（含 DNS、连接、TLS、传输、重试），超过即取消。
+     * 防止服务端假死时请求永久挂起。
+     */
+    public static final int DEFAULT_CALL_TIMEOUT_MS = 30000;
+
     @NameInMap("autoretry")
     public Boolean autoretry = true;
 
@@ -18,6 +24,9 @@ public class RuntimeOptions extends CloudSdkModel {
 
     @NameInMap("readTimeout")
     public Integer readTimeout = 10000;
+
+    @NameInMap("callTimeout")
+    public Integer callTimeout = DEFAULT_CALL_TIMEOUT_MS;
 
     @NameInMap("backoffPolicy")
     public String backoffPolicy = "exponential";
@@ -42,6 +51,11 @@ public class RuntimeOptions extends CloudSdkModel {
 
     public Duration getReadTimeout() {
         return Duration.ofMillis(readTimeout != null ? readTimeout : 10000);
+    }
+
+    public Duration getCallTimeout() {
+        int value = callTimeout != null ? callTimeout : DEFAULT_CALL_TIMEOUT_MS;
+        return value > 0 ? Duration.ofMillis(value) : null;
     }
 
     public int getBackoffPeriod() {

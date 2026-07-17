@@ -1,10 +1,14 @@
 package com.chuanglan.cloudsdk.core;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 统一请求封装。
+ *
+ * <p>不可变对象。构造时对传入的 headers/query 做防御性拷贝并包装为不可变视图，
+ * 避免外部修改 Map 引发并发问题（尤其是异步路径下）。
  */
 public class Request {
 
@@ -18,9 +22,23 @@ public class Request {
                    Map<String, Object> query, String body) {
         this.method = method;
         this.url = url;
-        this.headers = headers != null ? headers : Collections.emptyMap();
-        this.query = query != null ? query : Collections.emptyMap();
+        this.headers = freezeHeaders(headers);
+        this.query = freezeQuery(query);
         this.body = body;
+    }
+
+    private static Map<String, String> freezeHeaders(Map<String, String> source) {
+        if (source == null || source.isEmpty()) {
+            return Collections.emptyMap();
+        }
+        return Collections.unmodifiableMap(new HashMap<>(source));
+    }
+
+    private static Map<String, Object> freezeQuery(Map<String, Object> source) {
+        if (source == null || source.isEmpty()) {
+            return Collections.emptyMap();
+        }
+        return Collections.unmodifiableMap(new HashMap<>(source));
     }
 
     public String getMethod() {
