@@ -188,6 +188,25 @@ public class RcsSmsClient {
 
     private SyncResponse execute(String appId, String appSecret, String url, CloudSdkModel request, String traceId) throws CloudSdkException {
         validateCredentials(appId, appSecret);
+
+        RuntimeOptions runtime = new RuntimeOptions();
+        if (config.connectTimeout != null) {
+            runtime.connectTimeout = config.connectTimeout;
+        }
+        if (config.readTimeout != null) {
+            runtime.readTimeout = config.readTimeout;
+        }
+        RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
+                runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
+
+        // 每次重试重新签名（基于最新 nonce/curTime 重算 HmacSHA256）
+        return httpTransport.send(
+                () -> buildSignedRequest(appId, appSecret, url, request, traceId),
+                runtime, retryPolicy);
+    }
+
+    private Request buildSignedRequest(String appId, String appSecret, String url,
+                                       CloudSdkModel request, String traceId) throws CloudSdkException {
         String nonce = RcsSmsSignatureUtil.generateNonce();
         String curTime = RcsSmsSignatureUtil.currentTimestamp();
 
@@ -210,24 +229,12 @@ public class RcsSmsClient {
             headers.put("X-Custom-TraceId", traceId);
         }
 
-        Request sdkRequest = Request.builder()
+        return Request.builder()
                 .method("POST")
                 .url(url)
                 .headers(headers)
                 .body(serializeRequest(request))
                 .build();
-
-        RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
-        }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
-        }
-        RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
-                runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
-
-        return httpTransport.send(sdkRequest, runtime, retryPolicy);
     }
 
     private String serializeRequest(Object request) throws CloudSdkException {

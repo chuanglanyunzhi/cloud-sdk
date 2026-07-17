@@ -173,6 +173,24 @@ public class IntSmsClient {
 
     private SyncResponse execute(String appId, String appSecret, String url, String body, String traceId) throws CloudSdkException {
         validateCredentials(appId, appSecret);
+
+        RuntimeOptions runtime = new RuntimeOptions();
+        if (config.connectTimeout != null) {
+            runtime.connectTimeout = config.connectTimeout;
+        }
+        if (config.readTimeout != null) {
+            runtime.readTimeout = config.readTimeout;
+        }
+        RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
+                runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
+
+        // 每次重试重新签名，刷新 Nonce/CurTime/CheckSum
+        return httpTransport.send(
+                () -> buildSignedRequest(appId, appSecret, url, body, traceId),
+                runtime, retryPolicy);
+    }
+
+    private Request buildSignedRequest(String appId, String appSecret, String url, String body, String traceId) {
         String nonce = IntSmsSignatureUtil.generateNonce();
         String curTime = IntSmsSignatureUtil.currentTimestamp();
         String checksum = IntSmsSignatureUtil.checksum(appSecret, nonce, curTime);
@@ -187,24 +205,12 @@ public class IntSmsClient {
             headers.put("X-Custom-TraceId", traceId);
         }
 
-        Request sdkRequest = Request.builder()
+        return Request.builder()
                 .method("POST")
                 .url(url)
                 .headers(headers)
                 .body(body)
                 .build();
-
-        RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
-        }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
-        }
-        RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
-                runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
-
-        return httpTransport.send(sdkRequest, runtime, retryPolicy);
     }
 
     private String serializeRequest(Object request) throws CloudSdkException {

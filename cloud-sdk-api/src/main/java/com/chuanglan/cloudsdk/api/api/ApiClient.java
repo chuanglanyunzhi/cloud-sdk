@@ -36,18 +36,12 @@ public abstract class ApiClient<C extends ApiConfig> {
 
     /**
      * 执行请求，可指定 Content-Type。
+     *
+     * <p>每次重试时通过 {@link java.util.function.Supplier} 重新构造 Request，
+     * 即重新生成 Nonce/CurTime/CheckSum，避免重试到第 N 次时 CurTime 已超出服务端允许的时间窗。
      */
     protected SyncResponse execute(String appId, String appSecret, String url, String body, String traceId, String contentType) throws CloudSdkException {
         validateCredentials(appId, appSecret);
-        Map<String, String> headers = ApiSignatureUtil.generateHeaders(appId, appSecret, traceId);
-        headers.put("Content-Type", contentType);
-
-        Request sdkRequest = Request.builder()
-                .method("POST")
-                .url(url)
-                .headers(headers)
-                .body(body)
-                .build();
 
         RuntimeOptions runtime = new RuntimeOptions();
         if (config.connectTimeout != null) {
@@ -59,7 +53,25 @@ public abstract class ApiClient<C extends ApiConfig> {
         RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
                 runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
 
-        return httpTransport.send(sdkRequest, runtime, retryPolicy);
+        return httpTransport.send(
+                () -> buildSignedRequest(appId, appSecret, url, body, traceId, contentType),
+                runtime, retryPolicy);
+    }
+
+    /**
+     * 构造已签名的 Request。每次重试都会调用一次，签名相关字段（Nonce/CurTime/CheckSum）会刷新。
+     */
+    private Request buildSignedRequest(String appId, String appSecret, String url,
+                                       String body, String traceId, String contentType) {
+        Map<String, String> headers = ApiSignatureUtil.generateHeaders(appId, appSecret, traceId);
+        headers.put("Content-Type", contentType);
+
+        return Request.builder()
+                .method("POST")
+                .url(url)
+                .headers(headers)
+                .body(body)
+                .build();
     }
 
     protected String serializeRequest(Object request) throws CloudSdkException {
