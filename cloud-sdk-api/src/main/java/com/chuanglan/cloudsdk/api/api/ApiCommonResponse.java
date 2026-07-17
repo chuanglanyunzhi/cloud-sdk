@@ -3,22 +3,22 @@ package com.chuanglan.cloudsdk.api.api;
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
 
 /**
- * API 通用响应基类。
+ * API common response base class.
  */
 public class ApiCommonResponse extends CloudSdkModel {
 
     /**
-     * 返回状态码，000000 代表成功。
+     * Return code, 000000 means success.
      */
     public String code;
 
     /**
-     * 响应 code 码解释。
+     * Response message.
      */
     public String msg;
 
     /**
-     * 流水号。
+     * Request ID.
      */
     public String requestId;
 
@@ -37,8 +37,20 @@ public class ApiCommonResponse extends CloudSdkModel {
         return this;
     }
 
+    protected String getCode() {
+        return code;
+    }
+
+    protected String getMsg() {
+        return msg;
+    }
+
+    protected String getRequestId() {
+        return requestId;
+    }
+
     /**
-     * 是否请求成功。
+     * Check if request is successful.
      */
     public boolean isSuccess() {
         return "000000".equals(code);

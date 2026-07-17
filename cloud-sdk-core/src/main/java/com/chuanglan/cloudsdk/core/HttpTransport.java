@@ -3,7 +3,10 @@ package com.chuanglan.cloudsdk.core;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +20,20 @@ import java.util.logging.Logger;
 public class HttpTransport {
 
     private static final Logger LOGGER = Logger.getLogger(HttpTransport.class.getName());
+
+    /**
+     * 系统属性开关：设置为 true 时输出完整 headers 与 body（包含敏感字段），仅用于本地调试。
+     * 默认关闭，避免敏感数据（手机号、身份证号、CheckSum 等）泄露到生产日志。
+     */
+    private static final boolean FULL_LOG = Boolean.getBoolean("cloudsdk.log.fullBody");
+
+    /**
+     * 敏感请求头名称（小写匹配），日志输出时做部分遮蔽。
+     */
+    private static final Set<String> SENSITIVE_HEADERS = new HashSet<>(Arrays.asList(
+            "appid", "checksum", "signature", "authorization", "cookie", "set-cookie",
+            "x-custom-traceid", "appkey", "appsecret", "token"
+    ));
 
     private final Map<String, OkHttpClient> clientCache = new ConcurrentHashMap<>();
 
@@ -169,25 +186,68 @@ public class HttpTransport {
     }
 
     private void logRequest(okhttp3.Request httpRequest, String body) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[CloudSdk HTTP Request] method=").append(httpRequest.method())
-                .append(", url=").append(httpRequest.url());
-        okhttp3.Headers headers = httpRequest.headers();
-        sb.append(", headers={");
-        for (String name : headers.names()) {
-            sb.append(name).append("=").append(headers.values(name)).append(", ");
+        String method = httpRequest.method();
+        String url = httpRequest.url().toString();
+        int bodySize = body == null ? 0 : body.length();
+
+        if (FULL_LOG) {
+            LOGGER.info("[CloudSdk HTTP Request] method=" + method
+                    + ", url=" + url
+                    + ", headers=" + formatHeaders(httpRequest.headers(), false)
+                    + ", body=" + (body != null ? body : ""));
+        } else {
+            LOGGER.info("[CloudSdk HTTP Request] method=" + method
+                    + ", url=" + url
+                    + ", bodySize=" + bodySize);
+            if (LOGGER.isLoggable(java.util.logging.Level.FINE)) {
+                LOGGER.fine("[CloudSdk HTTP Request Detail] headers="
+                        + formatHeaders(httpRequest.headers(), true));
+            }
         }
-        sb.append("}");
-        sb.append(", body=").append(body != null ? body : "");
-        LOGGER.info(sb.toString());
     }
 
     private void logResponse(int statusCode, Map<String, String> headers, String body) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[CloudSdk HTTP Response] status=").append(statusCode)
-                .append(", headers=").append(headers)
-                .append(", body=").append(body != null ? body : "");
-        LOGGER.info(sb.toString());
+        int bodySize = body == null ? 0 : body.length();
+
+        if (FULL_LOG) {
+            LOGGER.info("[CloudSdk HTTP Response] status=" + statusCode
+                    + ", headers=" + headers
+                    + ", body=" + (body != null ? body : ""));
+        } else {
+            LOGGER.info("[CloudSdk HTTP Response] status=" + statusCode
+                    + ", bodySize=" + bodySize);
+            if (LOGGER.isLoggable(java.util.logging.Level.FINE)) {
+                LOGGER.fine("[CloudSdk HTTP Response Detail] body="
+                        + (body != null ? body : ""));
+            }
+        }
+    }
+
+    private String formatHeaders(okhttp3.Headers headers, boolean mask) {
+        StringBuilder sb = new StringBuilder("{");
+        boolean first = true;
+        for (String name : headers.names()) {
+            if (!first) {
+                sb.append(", ");
+            }
+            first = false;
+            String value = String.join(",", headers.values(name));
+            sb.append(name).append("=").append(mask ? maskHeader(name, value) : value);
+        }
+        return sb.append("}").toString();
+    }
+
+    private static String maskHeader(String name, String value) {
+        if (name == null || value == null) {
+            return value;
+        }
+        if (!SENSITIVE_HEADERS.contains(name.toLowerCase())) {
+            return value;
+        }
+        if (value.length() <= 8) {
+            return "***";
+        }
+        return value.substring(0, 4) + "***" + value.substring(value.length() - 4);
     }
 
     private void sleep(long ms) {

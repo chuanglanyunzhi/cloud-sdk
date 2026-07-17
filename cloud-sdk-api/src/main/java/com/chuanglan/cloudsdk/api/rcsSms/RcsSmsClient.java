@@ -243,14 +243,7 @@ public class RcsSmsClient {
 
     private <T extends RcsSmsCommonResponse> T parseResponse(String body, Class<T> responseClass) throws CloudSdkException {
         if (body == null || body.isEmpty()) {
-            try {
-                T response = responseClass.getDeclaredConstructor().newInstance();
-                response.setCode("EmptyResponse");
-                response.setMsg("响应体为空");
-                return response;
-            } catch (Exception e) {
-                throw new CloudSdkException("ParseResponseError", "响应解析失败: " + e.getMessage(), null, 0, e);
-            }
+            body = "{}";
         }
         try {
             Map<String, Object> map = CloudSdkModel.parseJson(body);

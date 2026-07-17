@@ -1,13 +1,9 @@
 package com.chuanglan.cloudsdk.api.rcsSms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkException;
-import com.chuanglan.cloudsdk.core.HexUtil;
+import com.chuanglan.cloudsdk.core.SignatureUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.StandardCharsets;
-import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Random;
@@ -26,7 +22,6 @@ import java.util.TreeMap;
  */
 public final class RcsSmsSignatureUtil {
 
-    private static final String HMAC_SHA256 = "HmacSHA256";
     private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final Random RANDOM = new Random();
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -83,12 +78,7 @@ public final class RcsSmsSignatureUtil {
                 sb.append(entry.getKey()).append("=").append(formatValue(entry.getValue()));
             }
 
-            Mac mac = Mac.getInstance(HMAC_SHA256);
-            mac.init(new SecretKeySpec(appSecret.getBytes(StandardCharsets.UTF_8), HMAC_SHA256));
-            byte[] digest = mac.doFinal(sb.toString().getBytes(StandardCharsets.UTF_8));
-            return HexUtil.bytesToHex(digest);
-        } catch (NoSuchAlgorithmException e) {
-            throw new CloudSdkException("ChecksumError", "HmacSHA256 算法不可用", null, 0, e);
+            return SignatureUtil.hmac(appSecret, sb.toString());
         } catch (Exception e) {
             throw new CloudSdkException("ChecksumError", "签名计算失败: " + e.getMessage(), null, 0, e);
         }

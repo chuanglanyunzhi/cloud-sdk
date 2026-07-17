@@ -1,11 +1,9 @@
 package com.chuanglan.cloudsdk.api.api;
 
 import com.chuanglan.cloudsdk.core.CloudSdkException;
-import com.chuanglan.cloudsdk.core.HexUtil;
+import com.chuanglan.cloudsdk.core.SignatureAlgorithm;
+import com.chuanglan.cloudsdk.core.SignatureUtil;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -46,15 +44,7 @@ public final class ApiSignatureUtil {
      * 计算 CheckSum：SHA1(AppSecret + Nonce + CurTime)，结果为大写 16 进制字符串。
      */
     public static String checksum(String appSecret, String nonce, String curTime) throws CloudSdkException {
-        validate(appSecret, nonce, curTime);
-        String raw = appSecret + nonce + curTime;
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA1");
-            byte[] digest = md.digest(raw.getBytes(StandardCharsets.UTF_8));
-            return HexUtil.bytesToHex(digest).toUpperCase();
-        } catch (NoSuchAlgorithmException e) {
-            throw new CloudSdkException("ChecksumError", "SHA1 算法不可用", null, 0, e);
-        }
+        return SignatureUtil.digest(appSecret, nonce, curTime, SignatureAlgorithm.SHA1);
     }
 
     /**
@@ -85,17 +75,5 @@ public final class ApiSignatureUtil {
             headers.put("X-Custom-TraceId", traceId);
         }
         return headers;
-    }
-
-    private static void validate(String appSecret, String nonce, String curTime) {
-        if (appSecret == null || appSecret.isEmpty()) {
-            throw new CloudSdkException("ChecksumError", "appSecret 不能为空", null, 0);
-        }
-        if (nonce == null || nonce.isEmpty()) {
-            throw new CloudSdkException("ChecksumError", "nonce 不能为空", null, 0);
-        }
-        if (curTime == null || curTime.isEmpty()) {
-            throw new CloudSdkException("ChecksumError", "curTime 不能为空", null, 0);
-        }
     }
 }
