@@ -27,7 +27,9 @@ public class SmsBatchSendRequest extends CloudSdkModel {
     private String templateCode;
 
     /**
-     * 变量参数值，JSON 数组字符串格式。
+     * 变量参数值，JSON 数组字符串格式。条件必填：模板有变量时必传，无变量时可不传。
+     * 数组元素个数必须与 phoneNumbers 的手机号个数一致，键名依次使用 param1、param2、param3...
+     * 示例：[{\"param1\":\"张三\"},{\"param1\":\"李四\"}]
      */
     private String templateParam;
 

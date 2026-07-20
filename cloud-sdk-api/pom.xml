@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.chuanglan</groupId>
-        <artifactId>cloud-sdk</artifactId>
+        <artifactId>cloud-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 

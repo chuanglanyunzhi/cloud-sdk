@@ -2,10 +2,13 @@ package com.chuanglan.cloudsdk.spring;
 
 import com.chuanglan.cloudsdk.api.CloudApiClient;
 import com.chuanglan.cloudsdk.api.CloudApiConfig;
+import com.chuanglan.cloudsdk.core.HttpTransport;
+import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -61,5 +64,14 @@ public class CloudSdkAutoConfiguration {
         CloudApiClient client = new CloudApiClient(config);
         CloudSdkLoaderLogger.logReady(config);
         return client;
+    }
+
+    @Bean
+    public SmartInitializingSingleton cloudSdkLogConfigurer(ApplicationContext context) {
+        return () -> {
+            if (!context.getBeansWithAnnotation(CloudSdkSafeLog.class).isEmpty()) {
+                HttpTransport.setFullLog(false);
+            }
+        };
     }
 }

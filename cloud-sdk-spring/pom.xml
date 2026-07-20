@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>com.chuanglan</groupId>
-        <artifactId>cloud-sdk</artifactId>
+        <artifactId>cloud-sdk-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>cloud-sdk-spring</artifactId>
-    <name>cloud-sdk-spring</name>
+    <artifactId>cloud-sdk</artifactId>
+    <name>cloud-sdk</name>
     <description>Spring / Spring Boot 自动装配支持：集成后即随项目启动自动注册 CloudApiClient 等 Bean</description>
 
     <properties>
@@ -24,6 +24,18 @@
             <groupId>com.chuanglan</groupId>
             <artifactId>cloud-sdk-api</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- cloud-sdk-core 运行时依赖，shade 后需显式声明，否则 reduced pom 中丢失 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
         </dependency>
 
         <!-- Spring Core：XML 命名空间与 BeanFactory 支持（旧版 Spring 也只需要这个） -->
@@ -79,4 +91,44 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <!-- 只把自己的两个子模块打进来，Spring/OkHttp 等保持传递依赖 -->
+                            <artifactSet>
+                                <includes>
+                                    <include>com.chuanglan:cloud-sdk-api</include>
+                                    <include>com.chuanglan:cloud-sdk-core</include>
+                                </includes>
+                            </artifactSet>
+                            <!-- 生成精简 pom，移除已内嵌的 api/core，避免下游重复拉取 -->
+                            <createDependencyReducedPom>true</createDependencyReducedPom>
+                            <dependencyReducedPomLocation>
+                                ${project.build.directory}/dependency-reduced-pom.xml
+                            </dependencyReducedPomLocation>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.chuanglan</groupId>
-    <artifactId>cloud-sdk</artifactId>
+    <artifactId>cloud-sdk-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>cloud-sdk</name>
+    <name>cloud-sdk-parent</name>
     <description>Cloud SDK Java 基础架构</description>
 
     <modules>

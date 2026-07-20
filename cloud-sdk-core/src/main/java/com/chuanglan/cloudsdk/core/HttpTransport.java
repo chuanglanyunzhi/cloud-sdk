@@ -48,10 +48,14 @@ public class HttpTransport implements AutoCloseable {
     private static final int DEFAULT_MAX_REQUESTS_PER_HOST = 100;
 
     /**
-     * 系统属性开关：设置为 true 时输出完整 headers 与 body（包含敏感字段），仅用于本地调试。
-     * 默认关闭，避免敏感数据（手机号、身份证号、CheckSum 等）泄露到生产日志。
+     * 全量日志开关，默认开启（打印完整请求/响应 body）。
+     * 若需隐藏敏感字段（手机号、身份证号等），在 Spring Boot 启动类加 {@code @CloudSdkSafeLog} 注解即可关闭。
      */
-    private static final boolean FULL_LOG = Boolean.getBoolean("cloudsdk.log.fullBody");
+    private static volatile boolean fullLog = true;
+
+    public static void setFullLog(boolean enabled) {
+        fullLog = enabled;
+    }
 
     /**
      * 敏感请求头名称（小写匹配），日志输出时做部分遮蔽。
@@ -298,7 +302,7 @@ public class HttpTransport implements AutoCloseable {
         String url = httpRequest.url().toString();
         int bodySize = body == null ? 0 : body.length();
 
-        if (FULL_LOG) {
+        if (fullLog) {
             LOGGER.info("[CloudSdk HTTP Request] method=" + method
                     + ", url=" + url
                     + ", headers=" + formatHeaders(httpRequest.headers(), false)
@@ -317,7 +321,7 @@ public class HttpTransport implements AutoCloseable {
     private void logResponse(int statusCode, Map<String, String> headers, String body) {
         int bodySize = body == null ? 0 : body.length();
 
-        if (FULL_LOG) {
+        if (fullLog) {
             LOGGER.info("[CloudSdk HTTP Response] status=" + statusCode
                     + ", headers=" + headers
                     + ", body=" + (body != null ? body : ""));

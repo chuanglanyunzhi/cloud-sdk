@@ -1,7 +1,6 @@
 package com.chuanglan.cloudsdk.api.sms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkException;
-import com.chuanglan.cloudsdk.core.SignatureAlgorithm;
 import com.chuanglan.cloudsdk.core.SignatureUtil;
 
 /**
@@ -27,9 +26,13 @@ public final class SmsSignatureUtil {
     }
 
     /**
-     * 计算 CheckSum：SHA256(AppSecret + Nonce + CurTime)，结果为小写 16 进制字符串。
+     * 计算 CheckSum：使用业务方 PMD5Utils.encodeBySHA1(AppSecret + Nonce + CurTime)，转小写。
      */
     public static String checksum(String appSecret, String nonce, String curTime) throws CloudSdkException {
-        return SignatureUtil.digest(appSecret, nonce, curTime, SignatureAlgorithm.SHA256);
+        if (appSecret == null || nonce == null || curTime == null) {
+            throw new CloudSdkException("ChecksumError", "签名参数不能为空", null, 0);
+        }
+        String input = appSecret + nonce + curTime;
+        return PMD5Utils.encodeBySHA1(input).toLowerCase();
     }
 }
