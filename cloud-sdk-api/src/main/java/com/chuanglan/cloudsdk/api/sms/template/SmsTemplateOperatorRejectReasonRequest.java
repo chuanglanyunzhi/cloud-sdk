@@ -9,8 +9,8 @@ import java.util.List;
  */
 public class SmsTemplateOperatorRejectReasonRequest extends CloudSdkModel {
 
-    public String productType;
-    public List<String> templateCodes;
+    private String productType;
+    private List<String> templateCodes;
 
     public SmsTemplateOperatorRejectReasonRequest setProductType(String productType) {
         this.productType = productType;
@@ -20,5 +20,13 @@ public class SmsTemplateOperatorRejectReasonRequest extends CloudSdkModel {
     public SmsTemplateOperatorRejectReasonRequest setTemplateCodes(List<String> templateCodes) {
         this.templateCodes = templateCodes;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public List<String> getTemplateCodes() {
+        return this.templateCodes;
     }
 }

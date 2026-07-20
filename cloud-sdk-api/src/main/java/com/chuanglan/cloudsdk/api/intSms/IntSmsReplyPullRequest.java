@@ -10,10 +10,14 @@ public class IntSmsReplyPullRequest extends CloudSdkModel {
     /**
      * 拉取数据条数，默认 20，上限 100。
      */
-    public String count;
+    private String count;
 
     public IntSmsReplyPullRequest setCount(String count) {
         this.count = count;
         return this;
+    }
+
+    public String getCount() {
+        return this.count;
     }
 }

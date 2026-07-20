@@ -12,37 +12,37 @@ public class EnterpriseBiddingRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entname;
+    private String entname;
 
     /**
      * 注册号。
      */
-    public String regno;
+    private String regno;
 
     /**
      * 角色（作为招标方 0；作为中标方 1，全部不用填）。
      */
-    public String btype;
+    private String btype;
 
     /**
      * 公告开始日期，格式：2023-01-01。
      */
-    public String publishStartTime;
+    private String publishStartTime;
 
     /**
      * 公告结束日期，格式：2023-01-01。
      */
-    public String publishEndTime;
+    private String publishEndTime;
 
     /**
      * 当前页数（默认第 1 页）。
      */
-    public String page;
+    private String page;
 
     /**
      * 每页条数（默认 20 条，最大 20 条）。
      */
-    public String size;
+    private String size;
 
     public EnterpriseBiddingRequest setEntname(String entname) {
         this.entname = entname;
@@ -77,5 +77,33 @@ public class EnterpriseBiddingRequest extends CloudSdkModel {
     public EnterpriseBiddingRequest setSize(String size) {
         this.size = size;
         return this;
+    }
+
+    public String getEntname() {
+        return this.entname;
+    }
+
+    public String getRegno() {
+        return this.regno;
+    }
+
+    public String getBtype() {
+        return this.btype;
+    }
+
+    public String getPublishStartTime() {
+        return this.publishStartTime;
+    }
+
+    public String getPublishEndTime() {
+        return this.publishEndTime;
+    }
+
+    public String getPage() {
+        return this.page;
+    }
+
+    public String getSize() {
+        return this.size;
     }
 }

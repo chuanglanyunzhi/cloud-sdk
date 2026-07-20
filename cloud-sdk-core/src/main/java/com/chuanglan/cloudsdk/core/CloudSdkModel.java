@@ -16,11 +16,15 @@ public abstract class CloudSdkModel {
 
     /**
      * 将当前对象转换为 Map，key 使用 @NameInMap 指定的线上参数名。
+     *
+     * <p>遍历完整继承链上的所有已声明字段（包含 private），而非仅 public 字段，
+     * 因为 SDK 内的模型字段普遍为 private。
      */
     public Map<String, Object> toMap() throws CloudSdkException {
         Map<String, Object> map = new HashMap<>();
         try {
-            for (Field field : this.getClass().getFields()) {
+            for (Field field : collectFields(this.getClass())) {
+                field.setAccessible(true);
                 Object value = field.get(this);
                 if (value == null) {
                     continue;
@@ -36,6 +40,21 @@ public abstract class CloudSdkModel {
     }
 
     /**
+     * 收集从当前类到 {@link CloudSdkModel} 的完整继承链上的所有已声明字段，跳过静态字段。
+     */
+    private static java.util.List<Field> collectFields(Class<?> clazz) {
+        java.util.List<Field> fields = new java.util.ArrayList<>();
+        for (Class<?> c = clazz; c != null && CloudSdkModel.class.isAssignableFrom(c); c = c.getSuperclass()) {
+            for (Field field : c.getDeclaredFields()) {
+                if (!java.lang.reflect.Modifier.isStatic(field.getModifiers())) {
+                    fields.add(field);
+                }
+            }
+        }
+        return fields;
+    }
+
+    /**
      * 从 Map 构建模型对象，key 使用 @NameInMap 指定的线上参数名。
      */
     public static <T extends CloudSdkModel> T build(Map<String, ?> map, Class<T> clazz) throws CloudSdkException {
@@ -43,9 +62,8 @@ public abstract class CloudSdkModel {
             return null;
         }
         try {
-            T instance = clazz.getDeclaredConstructor().newInstance();
             Map<String, String> fieldNameMap = new HashMap<>();
-            for (Field field : clazz.getFields()) {
+            for (Field field : collectFields(clazz)) {
                 NameInMap annotation = field.getAnnotation(NameInMap.class);
                 String key = annotation != null ? annotation.value() : field.getName();
                 fieldNameMap.put(key, field.getName());

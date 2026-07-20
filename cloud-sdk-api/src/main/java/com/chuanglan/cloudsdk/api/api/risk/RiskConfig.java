@@ -17,13 +17,14 @@ public class RiskConfig extends ApiConfig {
      */
     public static final String DEFAULT_WOOL_ENDPOINT = "https://wsapi.253.com";
 
-    /**
-     * 羊毛党检测接入地址。
-     */
-    public String woolEndpoint = DEFAULT_WOOL_ENDPOINT;
+    private String woolEndpoint = DEFAULT_WOOL_ENDPOINT;
+
+    public String getWoolEndpoint() {
+        return woolEndpoint;
+    }
 
     public RiskConfig() {
-        this.endpoint = DEFAULT_ENDPOINT;
+        super.setEndpoint(DEFAULT_ENDPOINT);
     }
 
     public RiskConfig setWoolEndpoint(String woolEndpoint) {

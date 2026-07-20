@@ -8,10 +8,14 @@ public class SmsBatchSendResponse extends SmsCommonResponse {
     /**
      * 返回的数据结构。
      */
-    public SmsBatchSendResponseData data;
+    private SmsBatchSendResponseData data;
 
     public SmsBatchSendResponse setData(SmsBatchSendResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public SmsBatchSendResponseData getData() {
+        return this.data;
     }
 }

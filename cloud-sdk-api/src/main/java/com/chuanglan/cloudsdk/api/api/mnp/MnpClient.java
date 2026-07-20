@@ -36,12 +36,12 @@ public class MnpClient extends ApiClient<MnpConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "MnpCarriersSftpRequest 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_SFTP_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_SFTP_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), MnpCarriersSftpResponse.class);
     }
 
@@ -59,12 +59,12 @@ public class MnpClient extends ApiClient<MnpConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "MnpCarriersNewRequest 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_NEW_SFTP_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_NEW_SFTP_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), MnpCarriersNewResponse.class);
     }
 }

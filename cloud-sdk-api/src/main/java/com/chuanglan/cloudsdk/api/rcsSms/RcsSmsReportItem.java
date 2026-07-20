@@ -10,32 +10,32 @@ public class RcsSmsReportItem extends CloudSdkModel {
     /**
      * 消息 ID。
      */
-    public String messageId;
+    private String messageId;
 
     /**
      * 接收手机号。
      */
-    public String phone;
+    private String phone;
 
     /**
      * 发送状态。
      */
-    public String status;
+    private String status;
 
     /**
      * 状态码。
      */
-    public String statusCode;
+    private String statusCode;
 
     /**
      * 发送时间。
      */
-    public String sendTime;
+    private String sendTime;
 
     /**
      * 回执时间。
      */
-    public String receiveTime;
+    private String receiveTime;
 
     public RcsSmsReportItem setMessageId(String messageId) {
         this.messageId = messageId;
@@ -65,5 +65,29 @@ public class RcsSmsReportItem extends CloudSdkModel {
     public RcsSmsReportItem setReceiveTime(String receiveTime) {
         this.receiveTime = receiveTime;
         return this;
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getStatusCode() {
+        return this.statusCode;
+    }
+
+    public String getSendTime() {
+        return this.sendTime;
+    }
+
+    public String getReceiveTime() {
+        return this.receiveTime;
     }
 }

@@ -12,17 +12,17 @@ public class RcsSmsTemplateListRequest extends CloudSdkModel {
     /**
      * 当前页码，从 1 开始。
      */
-    public Integer page;
+    private Integer page;
 
     /**
      * 每页数量。
      */
-    public Integer size;
+    private Integer size;
 
     /**
      * 模板状态。
      */
-    public String status;
+    private String status;
 
     public RcsSmsTemplateListRequest setPage(Integer page) {
         this.page = page;
@@ -37,5 +37,17 @@ public class RcsSmsTemplateListRequest extends CloudSdkModel {
     public RcsSmsTemplateListRequest setStatus(String status) {
         this.status = status;
         return this;
+    }
+
+    public Integer getPage() {
+        return this.page;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 }

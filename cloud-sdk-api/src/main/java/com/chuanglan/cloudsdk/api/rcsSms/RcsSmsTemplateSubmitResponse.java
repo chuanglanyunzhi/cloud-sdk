@@ -12,7 +12,7 @@ public class RcsSmsTemplateSubmitResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsTemplateSubmitResponse setData(Data data) {
         this.data = data;
@@ -27,17 +27,17 @@ public class RcsSmsTemplateSubmitResponse extends RcsSmsCommonResponse {
         /**
          * 消息 ID。
          */
-        public String messageId;
+        private String messageId;
 
         /**
          * 错误手机号列表。
          */
-        public List<String> errorPhone;
+        private List<String> errorPhone;
 
         /**
          * 成功发送数量。
          */
-        public Integer total;
+        private Integer total;
 
         public Data setMessageId(String messageId) {
             this.messageId = messageId;
@@ -53,5 +53,21 @@ public class RcsSmsTemplateSubmitResponse extends RcsSmsCommonResponse {
             this.total = total;
             return this;
         }
+
+        public String getMessageId() {
+            return this.messageId;
+        }
+
+        public List<String> getErrorPhone() {
+            return this.errorPhone;
+        }
+
+        public Integer getTotal() {
+            return this.total;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

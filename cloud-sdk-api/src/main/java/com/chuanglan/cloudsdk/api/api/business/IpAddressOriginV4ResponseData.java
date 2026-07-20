@@ -10,17 +10,17 @@ public class IpAddressOriginV4ResponseData extends CloudSdkModel {
     /**
      * 底层服务返回码，200：成功。
      */
-    public Integer code;
+    private Integer code;
 
     /**
      * 底层服务响应说明。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 业务数据对象。
      */
-    public IpAddressOriginV4InnerData data;
+    private IpAddressOriginV4InnerData data;
 
     public IpAddressOriginV4ResponseData setCode(Integer code) {
         this.code = code;
@@ -35,5 +35,17 @@ public class IpAddressOriginV4ResponseData extends CloudSdkModel {
     public IpAddressOriginV4ResponseData setData(IpAddressOriginV4InnerData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public IpAddressOriginV4InnerData getData() {
+        return this.data;
     }
 }

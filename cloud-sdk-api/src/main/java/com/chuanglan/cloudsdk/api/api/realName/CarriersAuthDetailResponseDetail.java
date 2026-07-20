@@ -10,12 +10,12 @@ public class CarriersAuthDetailResponseDetail extends CloudSdkModel {
     /**
      * 详细的返回代码。
      */
-    public String code;
+    private String code;
 
     /**
      * 详细描述。
      */
-    public String remark;
+    private String remark;
 
     public CarriersAuthDetailResponseDetail setCode(String code) {
         this.code = code;
@@ -25,5 +25,13 @@ public class CarriersAuthDetailResponseDetail extends CloudSdkModel {
     public CarriersAuthDetailResponseDetail setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

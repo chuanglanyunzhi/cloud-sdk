@@ -8,17 +8,17 @@ public class BankCardThreeAuthResponse extends RealNameCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public BankCardThreeAuthResponseData data;
+    private BankCardThreeAuthResponseData data;
 
     public BankCardThreeAuthResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class BankCardThreeAuthResponse extends RealNameCommonResponse {
     public BankCardThreeAuthResponse setData(BankCardThreeAuthResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public BankCardThreeAuthResponseData getData() {
+        return this.data;
     }
 }

@@ -10,22 +10,22 @@ public class IpFacialRecognitionInnerData extends CloudSdkModel {
     /**
      * 互联网服务提供商。
      */
-    public String isp;
+    private String isp;
 
     /**
      * ASN 号。
      */
-    public String asn;
+    private String asn;
 
     /**
      * 秒拨概率，0%~100%。值越高，表明该 IP 越可能存在秒速拨号行为。
      */
-    public String mb_rate;
+    private String mb_rate;
 
     /**
      * 真人概率，0%~99%。值越接近 0%，越趋近机器行为。
      */
-    public String real;
+    private String real;
 
     public IpFacialRecognitionInnerData setIsp(String isp) {
         this.isp = isp;
@@ -45,5 +45,21 @@ public class IpFacialRecognitionInnerData extends CloudSdkModel {
     public IpFacialRecognitionInnerData setReal(String real) {
         this.real = real;
         return this;
+    }
+
+    public String getIsp() {
+        return this.isp;
+    }
+
+    public String getAsn() {
+        return this.asn;
+    }
+
+    public String getMb_rate() {
+        return this.mb_rate;
+    }
+
+    public String getReal() {
+        return this.real;
     }
 }

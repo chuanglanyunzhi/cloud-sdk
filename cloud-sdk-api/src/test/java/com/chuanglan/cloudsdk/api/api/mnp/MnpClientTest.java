@@ -48,18 +48,18 @@ class MnpClientTest {
         MnpCarriersSftpResponse response = client.carriersSftp("APP_ID", "SECRET_KEY", request, "trace_mnp_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("000000", response.code);
-        assertEquals("iOvR1222600239535120384", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertNotNull(response.data);
-        assertEquals("iOvR1222600239535120384", response.data.batchNo);
-        assertNotNull(response.data.queryResult);
-        assertEquals(1, response.data.queryResult.size());
-        assertEquals("0", response.data.queryResult.get(0).result);
-        assertEquals("1", response.data.queryResult.get(0).before);
-        assertEquals("13767641540", response.data.queryResult.get(0).mobile);
-        assertEquals("1", response.data.queryResult.get(0).after);
+        assertEquals("success", response.getMsg());
+        assertEquals("000000", response.getCode());
+        assertEquals("iOvR1222600239535120384", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertNotNull(response.getData());
+        assertEquals("iOvR1222600239535120384", response.getData().getBatchNo());
+        assertNotNull(response.getData().getQueryResult());
+        assertEquals(1, response.getData().getQueryResult().size());
+        assertEquals("0", response.getData().getQueryResult().get(0).getResult());
+        assertEquals("1", response.getData().getQueryResult().get(0).getBefore());
+        assertEquals("13767641540", response.getData().getQueryResult().get(0).getMobile());
+        assertEquals("1", response.getData().getQueryResult().get(0).getAfter());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/sftp"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_mnp_001")));

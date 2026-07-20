@@ -10,22 +10,22 @@ public class RcsSmsSignInfo extends CloudSdkModel {
     /**
      * 签名 ID。
      */
-    public String signId;
+    private String signId;
 
     /**
      * 签名名称。
      */
-    public String signName;
+    private String signName;
 
     /**
      * 签名状态。
      */
-    public String status;
+    private String status;
 
     /**
      * 创建时间。
      */
-    public String createTime;
+    private String createTime;
 
     public RcsSmsSignInfo setSignId(String signId) {
         this.signId = signId;
@@ -45,5 +45,21 @@ public class RcsSmsSignInfo extends CloudSdkModel {
     public RcsSmsSignInfo setCreateTime(String createTime) {
         this.createTime = createTime;
         return this;
+    }
+
+    public String getSignId() {
+        return this.signId;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
     }
 }

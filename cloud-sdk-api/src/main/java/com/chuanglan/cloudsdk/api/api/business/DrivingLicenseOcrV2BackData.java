@@ -10,17 +10,17 @@ public class DrivingLicenseOcrV2BackData extends CloudSdkModel {
     /**
      * 档案编号。
      */
-    public String fileNumber;
+    private String fileNumber;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 驾驶证号。
      */
-    public String id;
+    private String id;
 
     public DrivingLicenseOcrV2BackData setFileNumber(String fileNumber) {
         this.fileNumber = fileNumber;
@@ -35,5 +35,17 @@ public class DrivingLicenseOcrV2BackData extends CloudSdkModel {
     public DrivingLicenseOcrV2BackData setId(String id) {
         this.id = id;
         return this;
+    }
+
+    public String getFileNumber() {
+        return this.fileNumber;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getId() {
+        return this.id;
     }
 }

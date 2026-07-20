@@ -10,42 +10,42 @@ public class BankCardThreeAuthResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 查询时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 银行卡所属银行。
      */
-    public String bankName;
+    private String bankName;
 
     /**
      * 银行卡类型。
      */
-    public String cardType;
+    private String cardType;
 
     /**
      * 银行卡类别。
      */
-    public String cardCategory;
+    private String cardCategory;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     /**
      * 认证结果：01 一致（收费），02 不一致（收费），03 不确定（不收费），04 失败（不收费）。
      */
-    public String result;
+    private String result;
 
     /**
      * result 具体解释。
      */
-    public String innerresult;
+    private String innerresult;
 
     public BankCardThreeAuthResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -85,5 +85,37 @@ public class BankCardThreeAuthResponseData extends CloudSdkModel {
     public BankCardThreeAuthResponseData setInnerresult(String innerresult) {
         this.innerresult = innerresult;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    public String getCardType() {
+        return this.cardType;
+    }
+
+    public String getCardCategory() {
+        return this.cardCategory;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getInnerresult() {
+        return this.innerresult;
     }
 }

@@ -17,13 +17,14 @@ public class RealNameConfig extends ApiConfig {
      */
     public static final String DEFAULT_API_ENDPOINT = "https://api.253.com";
 
-    /**
-     * 实名认证业务详细版 API 接入地址。
-     */
-    public String apiEndpoint = DEFAULT_API_ENDPOINT;
+    private String apiEndpoint = DEFAULT_API_ENDPOINT;
+
+    public String getApiEndpoint() {
+        return apiEndpoint;
+    }
 
     public RealNameConfig() {
-        this.endpoint = DEFAULT_ENDPOINT;
+        super.setEndpoint(DEFAULT_ENDPOINT);
     }
 
     @Override

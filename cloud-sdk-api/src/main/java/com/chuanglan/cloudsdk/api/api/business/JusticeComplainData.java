@@ -11,22 +11,22 @@ public class JusticeComplainData extends CloudSdkModel {
     /**
      * 法院公告数组。
      */
-    public List<JusticeComplainFygg> fyggents;
+    private List<JusticeComplainFygg> fyggents;
 
     /**
      * 法院公告总条数。
      */
-    public String fyggentsCount;
+    private String fyggentsCount;
 
     /**
      * 开庭公告数组。
      */
-    public List<JusticeComplainKtgg> ktggents;
+    private List<JusticeComplainKtgg> ktggents;
 
     /**
      * 开庭公告总条数。
      */
-    public String ktggentsCount;
+    private String ktggentsCount;
 
     public JusticeComplainData setFyggents(List<JusticeComplainFygg> fyggents) {
         this.fyggents = fyggents;
@@ -46,5 +46,21 @@ public class JusticeComplainData extends CloudSdkModel {
     public JusticeComplainData setKtggentsCount(String ktggentsCount) {
         this.ktggentsCount = ktggentsCount;
         return this;
+    }
+
+    public List<JusticeComplainFygg> getFyggents() {
+        return this.fyggents;
+    }
+
+    public String getFyggentsCount() {
+        return this.fyggentsCount;
+    }
+
+    public List<JusticeComplainKtgg> getKtggents() {
+        return this.ktggents;
+    }
+
+    public String getKtggentsCount() {
+        return this.ktggentsCount;
     }
 }

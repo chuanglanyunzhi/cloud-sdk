@@ -10,12 +10,12 @@ public class IntSmsBalanceResponseData extends CloudSdkModel {
     /**
      * 账号。
      */
-    public String account;
+    private String account;
 
     /**
      * 账号余额。
      */
-    public Double balance;
+    private Double balance;
 
     public IntSmsBalanceResponseData setAccount(String account) {
         this.account = account;
@@ -25,5 +25,13 @@ public class IntSmsBalanceResponseData extends CloudSdkModel {
     public IntSmsBalanceResponseData setBalance(Double balance) {
         this.balance = balance;
         return this;
+    }
+
+    public String getAccount() {
+        return this.account;
+    }
+
+    public Double getBalance() {
+        return this.balance;
     }
 }

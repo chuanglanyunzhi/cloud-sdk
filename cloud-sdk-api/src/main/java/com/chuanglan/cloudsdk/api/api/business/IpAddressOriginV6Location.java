@@ -10,87 +10,87 @@ public class IpAddressOriginV6Location extends CloudSdkModel {
     /**
      * 查询的 IP。
      */
-    public String ip;
+    private String ip;
 
     /**
      * 所属七大洲。
      */
-    public String continent;
+    private String continent;
 
     /**
      * 国家。
      */
-    public String country;
+    private String country;
 
     /**
      * 国家英文简写。
      */
-    public String country_code;
+    private String country_code;
 
     /**
      * 省份。
      */
-    public String province;
+    private String province;
 
     /**
      * 城市。
      */
-    public String city;
+    private String city;
 
     /**
      * 区县。
      */
-    public String district;
+    private String district;
 
     /**
      * 街道。
      */
-    public String street;
+    private String street;
 
     /**
      * 行政区码。
      */
-    public String area_code;
+    private String area_code;
 
     /**
      * 城市代码（区号）。
      */
-    public String city_code;
+    private String city_code;
 
     /**
      * 邮编。
      */
-    public String zip_code;
+    private String zip_code;
 
     /**
      * 经度。
      */
-    public String longitude;
+    private String longitude;
 
     /**
      * 纬度。
      */
-    public String latitude;
+    private String latitude;
 
     /**
      * 海拔。
      */
-    public String elevation;
+    private String elevation;
 
     /**
      * 时区。
      */
-    public String time_zone;
+    private String time_zone;
 
     /**
      * 气象站。
      */
-    public String weather_station;
+    private String weather_station;
 
     /**
      * 运营商。
      */
-    public String isp;
+    private String isp;
 
     public IpAddressOriginV6Location setIp(String ip) {
         this.ip = ip;
@@ -175,5 +175,73 @@ public class IpAddressOriginV6Location extends CloudSdkModel {
     public IpAddressOriginV6Location setIsp(String isp) {
         this.isp = isp;
         return this;
+    }
+
+    public String getIp() {
+        return this.ip;
+    }
+
+    public String getContinent() {
+        return this.continent;
+    }
+
+    public String getCountry() {
+        return this.country;
+    }
+
+    public String getCountry_code() {
+        return this.country_code;
+    }
+
+    public String getProvince() {
+        return this.province;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getDistrict() {
+        return this.district;
+    }
+
+    public String getStreet() {
+        return this.street;
+    }
+
+    public String getArea_code() {
+        return this.area_code;
+    }
+
+    public String getCity_code() {
+        return this.city_code;
+    }
+
+    public String getZip_code() {
+        return this.zip_code;
+    }
+
+    public String getLongitude() {
+        return this.longitude;
+    }
+
+    public String getLatitude() {
+        return this.latitude;
+    }
+
+    public String getElevation() {
+        return this.elevation;
+    }
+
+    public String getTime_zone() {
+        return this.time_zone;
+    }
+
+    public String getWeather_station() {
+        return this.weather_station;
+    }
+
+    public String getIsp() {
+        return this.isp;
     }
 }

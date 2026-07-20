@@ -10,12 +10,12 @@ public class EnterpriseQueryData extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entname;
+    private String entname;
 
     /**
      * 统一社会信用代码。
      */
-    public String creditCode;
+    private String creditCode;
 
     public EnterpriseQueryData setEntname(String entname) {
         this.entname = entname;
@@ -25,5 +25,13 @@ public class EnterpriseQueryData extends CloudSdkModel {
     public EnterpriseQueryData setCreditCode(String creditCode) {
         this.creditCode = creditCode;
         return this;
+    }
+
+    public String getEntname() {
+        return this.entname;
+    }
+
+    public String getCreditCode() {
+        return this.creditCode;
     }
 }

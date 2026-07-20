@@ -10,22 +10,22 @@ public class IntSmsPriceCarrierItem extends CloudSdkModel {
     /**
      * 国家码。
      */
-    public String countryCode;
+    private String countryCode;
 
     /**
      * 运营商名称。
      */
-    public String carrier;
+    private String carrier;
 
     /**
      * 对应运营商单价。
      */
-    public Double settleUnitPrice;
+    private Double settleUnitPrice;
 
     /**
      * 计价币种。
      */
-    public String settleCurrency;
+    private String settleCurrency;
 
     public IntSmsPriceCarrierItem setCountryCode(String countryCode) {
         this.countryCode = countryCode;
@@ -45,5 +45,21 @@ public class IntSmsPriceCarrierItem extends CloudSdkModel {
     public IntSmsPriceCarrierItem setSettleCurrency(String settleCurrency) {
         this.settleCurrency = settleCurrency;
         return this;
+    }
+
+    public String getCountryCode() {
+        return this.countryCode;
+    }
+
+    public String getCarrier() {
+        return this.carrier;
+    }
+
+    public Double getSettleUnitPrice() {
+        return this.settleUnitPrice;
+    }
+
+    public String getSettleCurrency() {
+        return this.settleCurrency;
     }
 }

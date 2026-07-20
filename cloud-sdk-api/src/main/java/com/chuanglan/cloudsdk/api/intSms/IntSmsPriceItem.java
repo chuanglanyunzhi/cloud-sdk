@@ -11,27 +11,27 @@ public class IntSmsPriceItem extends CloudSdkModel {
     /**
      * 国家中文名称。
      */
-    public String countryName;
+    private String countryName;
 
     /**
      * 标准国家码。
      */
-    public String countryCode;
+    private String countryCode;
 
     /**
      * 结算币种。
      */
-    public String settleCurrency;
+    private String settleCurrency;
 
     /**
      * 统一结算单价。
      */
-    public Double settleUnitPrice;
+    private Double settleUnitPrice;
 
     /**
      * 细分运营商价格明细。
      */
-    public List<IntSmsPriceCarrierItem> accountSendPricelist;
+    private List<IntSmsPriceCarrierItem> accountSendPricelist;
 
     public IntSmsPriceItem setCountryName(String countryName) {
         this.countryName = countryName;
@@ -56,5 +56,25 @@ public class IntSmsPriceItem extends CloudSdkModel {
     public IntSmsPriceItem setAccountSendPricelist(List<IntSmsPriceCarrierItem> accountSendPricelist) {
         this.accountSendPricelist = accountSendPricelist;
         return this;
+    }
+
+    public String getCountryName() {
+        return this.countryName;
+    }
+
+    public String getCountryCode() {
+        return this.countryCode;
+    }
+
+    public String getSettleCurrency() {
+        return this.settleCurrency;
+    }
+
+    public Double getSettleUnitPrice() {
+        return this.settleUnitPrice;
+    }
+
+    public List<IntSmsPriceCarrierItem> getAccountSendPricelist() {
+        return this.accountSendPricelist;
     }
 }

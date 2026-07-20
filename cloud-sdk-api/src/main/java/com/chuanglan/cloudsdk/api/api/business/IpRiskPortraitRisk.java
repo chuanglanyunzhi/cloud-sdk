@@ -12,32 +12,32 @@ public class IpRiskPortraitRisk extends CloudSdkModel {
     /**
      * 代理类型 / 是否代理，无代理时可能为空。
      */
-    public String proxy;
+    private String proxy;
 
     /**
      * 风险评分，根据风险证据、风险标签、代理类型发生时间及风险类型综合评分。
      */
-    public Integer risk_score;
+    private Integer risk_score;
 
     /**
      * 风险等级，根据风险评分进行等级划分。
      */
-    public String risk_level;
+    private String risk_level;
 
     /**
      * 秒拨概率，0%~100%。值越高，表明该 IP 越可能存在秒速拨号行为。
      */
-    public String mb_rate;
+    private String mb_rate;
 
     /**
      * 真人概率，0%~99%。值越接近 0%，越趋近机器行为。
      */
-    public String real;
+    private String real;
 
     /**
      * 风险标签数组，采集 IP 在使用中疑似发生的风险行为。
      */
-    public List<IpRiskPortraitRiskTag> risk_tag;
+    private List<IpRiskPortraitRiskTag> risk_tag;
 
     public IpRiskPortraitRisk setProxy(String proxy) {
         this.proxy = proxy;
@@ -67,5 +67,29 @@ public class IpRiskPortraitRisk extends CloudSdkModel {
     public IpRiskPortraitRisk setRisk_tag(List<IpRiskPortraitRiskTag> risk_tag) {
         this.risk_tag = risk_tag;
         return this;
+    }
+
+    public String getProxy() {
+        return this.proxy;
+    }
+
+    public Integer getRisk_score() {
+        return this.risk_score;
+    }
+
+    public String getRisk_level() {
+        return this.risk_level;
+    }
+
+    public String getMb_rate() {
+        return this.mb_rate;
+    }
+
+    public String getReal() {
+        return this.real;
+    }
+
+    public List<IpRiskPortraitRiskTag> getRisk_tag() {
+        return this.risk_tag;
     }
 }

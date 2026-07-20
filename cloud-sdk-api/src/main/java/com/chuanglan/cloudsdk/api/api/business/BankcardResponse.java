@@ -8,17 +8,17 @@ public class BankcardResponse extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public BankcardData data;
+    private BankcardData data;
 
     public BankcardResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class BankcardResponse extends BusinessCommonResponse {
     public BankcardResponse setData(BankcardData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public BankcardData getData() {
+        return this.data;
     }
 }

@@ -10,22 +10,22 @@ public class RiskAntiHarassmentResponseItem extends CloudSdkModel {
     /**
      * MD5 手机号码。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 是否拦截：0 非风险号码不拦截，1 风险号码拦截，2 超频号码拦截，3 库无。
      */
-    public Integer forbid;
+    private Integer forbid;
 
     /**
      * 中文描述。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 吉祥号等级。
      */
-    public String luckyLevel;
+    private String luckyLevel;
 
     public RiskAntiHarassmentResponseItem setMobile(String mobile) {
         this.mobile = mobile;
@@ -45,5 +45,21 @@ public class RiskAntiHarassmentResponseItem extends CloudSdkModel {
     public RiskAntiHarassmentResponseItem setLuckyLevel(String luckyLevel) {
         this.luckyLevel = luckyLevel;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public Integer getForbid() {
+        return this.forbid;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getLuckyLevel() {
+        return this.luckyLevel;
     }
 }

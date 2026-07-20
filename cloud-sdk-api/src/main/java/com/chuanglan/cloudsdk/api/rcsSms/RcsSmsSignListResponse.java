@@ -12,7 +12,7 @@ public class RcsSmsSignListResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsSignListResponse setData(Data data) {
         this.data = data;
@@ -27,12 +27,12 @@ public class RcsSmsSignListResponse extends RcsSmsCommonResponse {
         /**
          * 总数。
          */
-        public Long total;
+        private Long total;
 
         /**
          * 签名列表。
          */
-        public List<RcsSmsSignInfo> list;
+        private List<RcsSmsSignInfo> list;
 
         public Data setTotal(Long total) {
             this.total = total;
@@ -43,5 +43,17 @@ public class RcsSmsSignListResponse extends RcsSmsCommonResponse {
             this.list = list;
             return this;
         }
+
+        public Long getTotal() {
+            return this.total;
+        }
+
+        public List<RcsSmsSignInfo> getList() {
+            return this.list;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

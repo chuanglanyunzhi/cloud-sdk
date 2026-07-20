@@ -10,17 +10,17 @@ public class LifeCheckMotion extends CloudSdkModel {
     /**
      * 单个动作分值，大于 0.2 表示通过，小于等于 0.2 表示不通过。
      */
-    public Double score;
+    private Double score;
 
     /**
      * 用户动作序列。
      */
-    public String motion;
+    private String motion;
 
     /**
      * 单个动作检测结果。
      */
-    public Boolean passed;
+    private Boolean passed;
 
     public LifeCheckMotion setScore(Double score) {
         this.score = score;
@@ -35,5 +35,17 @@ public class LifeCheckMotion extends CloudSdkModel {
     public LifeCheckMotion setPassed(Boolean passed) {
         this.passed = passed;
         return this;
+    }
+
+    public Double getScore() {
+        return this.score;
+    }
+
+    public String getMotion() {
+        return this.motion;
+    }
+
+    public Boolean getPassed() {
+        return this.passed;
     }
 }

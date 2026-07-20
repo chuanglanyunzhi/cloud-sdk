@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 253 视频短信（RCS）服务 SDK 入口。
  */
-public class RcsSmsClient {
+public class RcsSmsClient implements AutoCloseable {
 
     private static final String ADD_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/addVideo";
     private static final String FIND_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/findTemplate";
@@ -27,17 +27,11 @@ public class RcsSmsClient {
     private final String endpoint;
     private final HttpTransport httpTransport;
     private final ObjectMapper objectMapper;
+    /** 仅当自行创建 httpTransport 时才在 close() 中释放，避免误关闭外部注入的共享连接池。 */
+    private final boolean ownsTransport;
 
     public RcsSmsClient(RcsSmsConfig config) {
-        if (config == null) {
-            throw new IllegalArgumentException("RcsSmsConfig must not be null");
-        }
-        this.config = config;
-        this.endpoint = (config.endpoint != null && !config.endpoint.isEmpty())
-                ? config.endpoint
-                : RcsSmsConfig.DEFAULT_ENDPOINT;
-        this.httpTransport = new HttpTransport();
-        this.objectMapper = CloudSdkModel.getMapper();
+        this(config, null);
     }
 
     public RcsSmsClient(RcsSmsConfig config, HttpTransport httpTransport) {
@@ -45,11 +39,22 @@ public class RcsSmsClient {
             throw new IllegalArgumentException("RcsSmsConfig must not be null");
         }
         this.config = config;
-        this.endpoint = (config.endpoint != null && !config.endpoint.isEmpty())
-                ? config.endpoint
+        this.endpoint = (config.getEndpoint() != null && !config.getEndpoint().isEmpty())
+                ? config.getEndpoint()
                 : RcsSmsConfig.DEFAULT_ENDPOINT;
+        this.ownsTransport = httpTransport == null;
         this.httpTransport = httpTransport != null ? httpTransport : new HttpTransport();
         this.objectMapper = CloudSdkModel.getMapper();
+    }
+
+    /**
+     * 释放本实例自行创建的底层 OkHttp 连接池；若 httpTransport 由外部注入则不关闭。
+     */
+    @Override
+    public void close() {
+        if (ownsTransport) {
+            httpTransport.close();
+        }
     }
 
     // ================== 视频模板管理 ==================
@@ -112,10 +117,10 @@ public class RcsSmsClient {
 
     public RcsSmsTemplateSubmitResponse submitVideoTemplate(String appId, String appSecret, RcsSmsTemplateSubmitRequest request, String traceId) throws CloudSdkException {
         validateRequest(request, "RcsSmsTemplateSubmitRequest");
-        if (request.templateId == null || request.templateId.isEmpty()) {
+        if (request.getTemplateId() == null || request.getTemplateId().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "templateId 不能为空", null, 0);
         }
-        if (request.phoneNumbers == null || request.phoneNumbers.isEmpty()) {
+        if (request.getPhoneNumbers() == null || request.getPhoneNumbers().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "phoneNumbers 不能为空", null, 0);
         }
         SyncResponse syncResponse = execute(appId, appSecret, endpoint + SUBMIT_VIDEO_TEMPLATE_PATH, request, traceId);
@@ -164,7 +169,7 @@ public class RcsSmsClient {
 
     public RcsSmsSignAddResponse addSign(String appId, String appSecret, RcsSmsSignAddRequest request, String traceId) throws CloudSdkException {
         validateRequest(request, "RcsSmsSignAddRequest");
-        if (request.signName == null || request.signName.isEmpty()) {
+        if (request.getSignName() == null || request.getSignName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "signName 不能为空", null, 0);
         }
         SyncResponse syncResponse = execute(appId, appSecret, endpoint + ADD_SIGN_PATH, request, traceId);
@@ -177,7 +182,7 @@ public class RcsSmsClient {
 
     public RcsSmsAccountAddressUpdateResponse updateAccountAddress(String appId, String appSecret, RcsSmsAccountAddressUpdateRequest request, String traceId) throws CloudSdkException {
         validateRequest(request, "RcsSmsAccountAddressUpdateRequest");
-        if (request.address == null || request.address.isEmpty()) {
+        if (request.getAddress() == null || request.getAddress().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "address 不能为空", null, 0);
         }
         SyncResponse syncResponse = execute(appId, appSecret, endpoint + UPDATE_ADDRESS_PATH, request, traceId);
@@ -190,11 +195,11 @@ public class RcsSmsClient {
         validateCredentials(appId, appSecret);
 
         RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
+        if (config.getConnectTimeout() != null) {
+            runtime.setConnectTimeout(config.getConnectTimeout());
         }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
+        if (config.getReadTimeout() != null) {
+            runtime.setReadTimeout(config.getReadTimeout());
         }
         RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
                 runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());

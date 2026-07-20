@@ -8,17 +8,17 @@ public class NumberPhoneAttributionV2Response extends NumberCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 归属地业务数据。
      */
-    public NumberPhoneAttributionV2ResponseData data;
+    private NumberPhoneAttributionV2ResponseData data;
 
     public NumberPhoneAttributionV2Response setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class NumberPhoneAttributionV2Response extends NumberCommonResponse {
     public NumberPhoneAttributionV2Response setData(NumberPhoneAttributionV2ResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public NumberPhoneAttributionV2ResponseData getData() {
+        return this.data;
     }
 }

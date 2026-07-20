@@ -8,17 +8,17 @@ public class RiskWoolCheckResponse extends RiskCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回结果对象。
      */
-    public RiskWoolCheckResponseData data;
+    private RiskWoolCheckResponseData data;
 
     public RiskWoolCheckResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class RiskWoolCheckResponse extends RiskCommonResponse {
     public RiskWoolCheckResponse setData(RiskWoolCheckResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public RiskWoolCheckResponseData getData() {
+        return this.data;
     }
 }

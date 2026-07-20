@@ -12,10 +12,14 @@ public class CompanyLevelRequest extends CloudSdkModel {
     /**
      * 信用代码/注册号/组织机构代码/企业名称。
      */
-    public String key;
+    private String key;
 
     public CompanyLevelRequest setKey(String key) {
         this.key = key;
         return this;
+    }
+
+    public String getKey() {
+        return this.key;
     }
 }

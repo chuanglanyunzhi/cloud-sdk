@@ -12,17 +12,17 @@ public class EnterpriseThreeAuthRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entName;
+    private String entName;
 
     /**
      * 法人姓名。
      */
-    public String legalPerName;
+    private String legalPerName;
 
     /**
      * 统一社会信用代码。
      */
-    public String creditCode;
+    private String creditCode;
 
     public EnterpriseThreeAuthRequest setEntName(String entName) {
         this.entName = entName;
@@ -37,5 +37,17 @@ public class EnterpriseThreeAuthRequest extends CloudSdkModel {
     public EnterpriseThreeAuthRequest setCreditCode(String creditCode) {
         this.creditCode = creditCode;
         return this;
+    }
+
+    public String getEntName() {
+        return this.entName;
+    }
+
+    public String getLegalPerName() {
+        return this.legalPerName;
+    }
+
+    public String getCreditCode() {
+        return this.creditCode;
     }
 }

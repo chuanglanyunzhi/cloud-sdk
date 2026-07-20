@@ -10,47 +10,47 @@ public class ForeignIdMatchResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 处理时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 最终返回结果：01 一致（收费），02 不一致（收费），03 库无（不收费），04 认证失败（不收费）。
      */
-    public String result;
+    private String result;
 
     /**
      * 身份证核验结果。
      */
-    public String idcardResult;
+    private String idcardResult;
 
     /**
      * 身份证核验结果说明。
      */
-    public String idcardMessage;
+    private String idcardMessage;
 
     /**
      * 图像结果。
      */
-    public String photoResult;
+    private String photoResult;
 
     /**
      * 图像结果说明。
      */
-    public String photoMessage;
+    private String photoMessage;
 
     /**
      * 证件是否有效：0 证件无效，1 证件有效，2 无法确认。
      */
-    public String isValid;
+    private String isValid;
 
     /**
      * 结果说明。
      */
-    public String remark;
+    private String remark;
 
     public ForeignIdMatchResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -95,5 +95,41 @@ public class ForeignIdMatchResponseData extends CloudSdkModel {
     public ForeignIdMatchResponseData setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getIdcardResult() {
+        return this.idcardResult;
+    }
+
+    public String getIdcardMessage() {
+        return this.idcardMessage;
+    }
+
+    public String getPhotoResult() {
+        return this.photoResult;
+    }
+
+    public String getPhotoMessage() {
+        return this.photoMessage;
+    }
+
+    public String getIsValid() {
+        return this.isValid;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

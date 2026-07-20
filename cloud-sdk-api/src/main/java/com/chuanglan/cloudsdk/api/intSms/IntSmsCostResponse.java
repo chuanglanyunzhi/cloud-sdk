@@ -10,10 +10,14 @@ public class IntSmsCostResponse extends IntSmsCommonResponse {
     /**
      * 每日消耗数据集合。
      */
-    public List<IntSmsCostItem> data;
+    private List<IntSmsCostItem> data;
 
     public IntSmsCostResponse setData(List<IntSmsCostItem> data) {
         this.data = data;
         return this;
+    }
+
+    public List<IntSmsCostItem> getData() {
+        return this.data;
     }
 }

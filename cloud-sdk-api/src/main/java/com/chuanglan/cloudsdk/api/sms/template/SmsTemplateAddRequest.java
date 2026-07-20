@@ -7,17 +7,17 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsTemplateAddRequest extends CloudSdkModel {
 
-    public String productType;
-    public String Content;
-    public String contentname;
-    public String signName;
-    public String needUnsubscribe;
-    public String businessCategory;
-    public String businessSubcategory;
-    public String guideUrl;
-    public String guidePhone;
-    public String variableParams;
-    public String remark;
+    private String productType;
+    private String Content;
+    private String contentname;
+    private String signName;
+    private String needUnsubscribe;
+    private String businessCategory;
+    private String businessSubcategory;
+    private String guideUrl;
+    private String guidePhone;
+    private String variableParams;
+    private String remark;
 
     public SmsTemplateAddRequest setProductType(String productType) {
         this.productType = productType;
@@ -72,5 +72,49 @@ public class SmsTemplateAddRequest extends CloudSdkModel {
     public SmsTemplateAddRequest setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getContent() {
+        return this.Content;
+    }
+
+    public String getContentname() {
+        return this.contentname;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getNeedUnsubscribe() {
+        return this.needUnsubscribe;
+    }
+
+    public String getBusinessCategory() {
+        return this.businessCategory;
+    }
+
+    public String getBusinessSubcategory() {
+        return this.businessSubcategory;
+    }
+
+    public String getGuideUrl() {
+        return this.guideUrl;
+    }
+
+    public String getGuidePhone() {
+        return this.guidePhone;
+    }
+
+    public String getVariableParams() {
+        return this.variableParams;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

@@ -8,15 +8,23 @@ import com.chuanglan.cloudsdk.api.sms.SmsCommonResponse;
 public class SmsQualificationAddResponse extends SmsCommonResponse {
 
     /** 响应数据。 */
-    public Data data;
+    private Data data;
 
     public static class Data {
         /** 终端客户ID。 */
-        public String endCustomerId;
+        private String endCustomerId;
+
+        public String getEndCustomerId() {
+            return this.endCustomerId;
+        }
     }
 
     public SmsQualificationAddResponse setData(Data data) {
         this.data = data;
         return this;
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

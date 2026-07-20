@@ -10,10 +10,14 @@ public class IpAddressOriginV4InnerData extends CloudSdkModel {
     /**
      * 归属地详细信息。
      */
-    public IpAddressOriginV4Location location;
+    private IpAddressOriginV4Location location;
 
     public IpAddressOriginV4InnerData setLocation(IpAddressOriginV4Location location) {
         this.location = location;
         return this;
+    }
+
+    public IpAddressOriginV4Location getLocation() {
+        return this.location;
     }
 }

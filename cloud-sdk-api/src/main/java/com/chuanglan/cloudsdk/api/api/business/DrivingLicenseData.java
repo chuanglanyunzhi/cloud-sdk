@@ -10,62 +10,62 @@ public class DrivingLicenseData extends CloudSdkModel {
     /**
      * 交易号，唯一。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     /**
      * 证件号。
      */
-    public String number;
+    private String number;
 
     /**
      * 有效时间。
      */
-    public String expiryTime;
+    private String expiryTime;
 
     /**
      * 准驾类型。
      */
-    public String carType;
+    private String carType;
 
     /**
      * 住址。
      */
-    public String address;
+    private String address;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 国籍。
      */
-    public String nationality;
+    private String nationality;
 
     /**
      * 生日。
      */
-    public String birth;
+    private String birth;
 
     /**
      * 性别。
      */
-    public String sex;
+    private String sex;
 
     /**
      * 初次领证时间。
      */
-    public String firstGetCard;
+    private String firstGetCard;
 
     /**
      * 驾驶证检测业务返回码，0 成功，其他失败。
      */
-    public String code;
+    private String code;
 
     /**
      * 驾驶证检测业务返回码对应说明。
      */
-    public String msg;
+    private String msg;
 
     public DrivingLicenseData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
@@ -125,5 +125,53 @@ public class DrivingLicenseData extends CloudSdkModel {
     public DrivingLicenseData setMsg(String msg) {
         this.msg = msg;
         return this;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public String getExpiryTime() {
+        return this.expiryTime;
+    }
+
+    public String getCarType() {
+        return this.carType;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getNationality() {
+        return this.nationality;
+    }
+
+    public String getBirth() {
+        return this.birth;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+
+    public String getFirstGetCard() {
+        return this.firstGetCard;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
     }
 }

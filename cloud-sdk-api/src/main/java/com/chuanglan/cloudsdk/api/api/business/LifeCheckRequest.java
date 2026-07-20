@@ -12,17 +12,17 @@ public class LifeCheckRequest extends CloudSdkModel {
     /**
      * 用户动作序列：BLINK - 眨眼；MOUTH - 张嘴；NOD - 点头；YAW - 摇头。
      */
-    public String motions;
+    private String motions;
 
     /**
      * 视频文件，适合本地文件上传，file 和 url 二选一。
      */
-    public String file;
+    private String file;
 
     /**
      * 视频文件地址，下载限时 10 秒，file 和 url 二选一。
      */
-    public String url;
+    private String url;
 
     public LifeCheckRequest setMotions(String motions) {
         this.motions = motions;
@@ -37,5 +37,17 @@ public class LifeCheckRequest extends CloudSdkModel {
     public LifeCheckRequest setUrl(String url) {
         this.url = url;
         return this;
+    }
+
+    public String getMotions() {
+        return this.motions;
+    }
+
+    public String getFile() {
+        return this.file;
+    }
+
+    public String getUrl() {
+        return this.url;
     }
 }

@@ -12,12 +12,12 @@ public class IdOcrV2Request extends CloudSdkModel {
     /**
      * 识别图片，支持 url 或 base64，图片大小不能大于 2M，支持 jpg/png/bmp。
      */
-    public String image;
+    private String image;
 
     /**
      * 图片类型，枚举值：URL-图片路径；BASE64-图片 BASE64 编码。
      */
-    public String imageType;
+    private String imageType;
 
     public IdOcrV2Request setImage(String image) {
         this.image = image;
@@ -27,5 +27,13 @@ public class IdOcrV2Request extends CloudSdkModel {
     public IdOcrV2Request setImageType(String imageType) {
         this.imageType = imageType;
         return this;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public String getImageType() {
+        return this.imageType;
     }
 }

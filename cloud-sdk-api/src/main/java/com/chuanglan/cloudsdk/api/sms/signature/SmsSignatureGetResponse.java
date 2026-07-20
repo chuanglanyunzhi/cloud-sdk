@@ -11,10 +11,14 @@ import java.util.List;
 public class SmsSignatureGetResponse extends SmsCommonResponse {
 
     /** 签名详情数据。 */
-    public SmsSignatureInfo data;
+    private SmsSignatureInfo data;
 
     public SmsSignatureGetResponse setData(SmsSignatureInfo data) {
         this.data = data;
         return this;
+    }
+
+    public SmsSignatureInfo getData() {
+        return this.data;
     }
 }

@@ -12,17 +12,17 @@ public class ForeignIdCardAuthRequest extends CloudSdkModel {
     /**
      * 证件号。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 国家名英文缩写，除港澳以外参照 ISO3166 标准，华侨和港澳人员使用 CHN。
      */
-    public String nation;
+    private String nation;
 
     /**
      * 证件类型。
@@ -31,7 +31,7 @@ public class ForeignIdCardAuthRequest extends CloudSdkModel {
      * 511：台湾居民来往大陆通行证；
      * 553：外国人永久居留身份证。
      */
-    public String idType;
+    private String idType;
 
     public ForeignIdCardAuthRequest setIdNum(String idNum) {
         this.idNum = idNum;
@@ -51,5 +51,21 @@ public class ForeignIdCardAuthRequest extends CloudSdkModel {
     public ForeignIdCardAuthRequest setIdType(String idType) {
         this.idType = idType;
         return this;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getNation() {
+        return this.nation;
+    }
+
+    public String getIdType() {
+        return this.idType;
     }
 }

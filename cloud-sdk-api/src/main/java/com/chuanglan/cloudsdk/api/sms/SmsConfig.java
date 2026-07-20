@@ -7,25 +7,26 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsConfig extends CloudSdkModel {
 
-    /**
-     * 短信业务端点地址，默认 https://smssh.253.com。
-     */
-    public String endpoint = "https://smssh.253.com";
+    private String endpoint = "https://smssh.253.com";
+    private String apiEndpoint = "https://api.chuanglan.com";
+    private Integer connectTimeout = 10000;
+    private Integer readTimeout = 10000;
 
-    /**
-     * 资质/签名/模板等管理类端点地址，默认 https://api.chuanglan.com。
-     */
-    public String apiEndpoint = "https://api.chuanglan.com";
+    public String getEndpoint() {
+        return endpoint;
+    }
 
-    /**
-     * 连接超时，单位毫秒。
-     */
-    public Integer connectTimeout = 10000;
+    public String getApiEndpoint() {
+        return apiEndpoint;
+    }
 
-    /**
-     * 读取超时，单位毫秒。
-     */
-    public Integer readTimeout = 10000;
+    public Integer getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public Integer getReadTimeout() {
+        return readTimeout;
+    }
 
     public SmsConfig setEndpoint(String endpoint) {
         this.endpoint = endpoint;

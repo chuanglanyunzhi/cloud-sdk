@@ -12,22 +12,22 @@ public class ForeignIdMatchRequest extends CloudSdkModel {
     /**
      * 人脸照，base64 字符串，需去掉头部描述，图片大小不能大于 50K。
      */
-    public String image;
+    private String image;
 
     /**
      * 证件号。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 国家名英文缩写，除港澳以外参照 ISO3166 标准，华侨和港澳人员使用 CHN。
      */
-    public String nation;
+    private String nation;
 
     /**
      * 证件类型。
@@ -36,7 +36,7 @@ public class ForeignIdMatchRequest extends CloudSdkModel {
      * 511：台湾居民来往大陆通行证；
      * 553：外国人永久居留证。
      */
-    public String type;
+    private String type;
 
     public ForeignIdMatchRequest setImage(String image) {
         this.image = image;
@@ -61,5 +61,25 @@ public class ForeignIdMatchRequest extends CloudSdkModel {
     public ForeignIdMatchRequest setType(String type) {
         this.type = type;
         return this;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getNation() {
+        return this.nation;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

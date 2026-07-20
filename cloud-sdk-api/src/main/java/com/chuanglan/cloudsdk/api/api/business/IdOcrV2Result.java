@@ -10,52 +10,52 @@ public class IdOcrV2Result extends CloudSdkModel {
     /**
      * 证件号（仅正面返回）。
      */
-    public String number;
+    private String number;
 
     /**
      * 地址（仅正面返回）。
      */
-    public String address;
+    private String address;
 
     /**
      * 出生月份（仅正面返回）。
      */
-    public String month;
+    private String month;
 
     /**
      * 民族（仅正面返回）。
      */
-    public String nation;
+    private String nation;
 
     /**
      * 出生年（仅正面返回）。
      */
-    public String year;
+    private String year;
 
     /**
      * 性别（仅正面返回）。
      */
-    public String sex;
+    private String sex;
 
     /**
      * 姓名（仅正面返回）。
      */
-    public String name;
+    private String name;
 
     /**
      * 出生日（仅正面返回）。
      */
-    public String day;
+    private String day;
 
     /**
      * 签发机关（仅背面返回）。
      */
-    public String authority;
+    private String authority;
 
     /**
      * 身份证有效期（仅背面返回）。
      */
-    public String timelimit;
+    private String timelimit;
 
     public IdOcrV2Result setNumber(String number) {
         this.number = number;
@@ -105,5 +105,45 @@ public class IdOcrV2Result extends CloudSdkModel {
     public IdOcrV2Result setTimelimit(String timelimit) {
         this.timelimit = timelimit;
         return this;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getMonth() {
+        return this.month;
+    }
+
+    public String getNation() {
+        return this.nation;
+    }
+
+    public String getYear() {
+        return this.year;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDay() {
+        return this.day;
+    }
+
+    public String getAuthority() {
+        return this.authority;
+    }
+
+    public String getTimelimit() {
+        return this.timelimit;
     }
 }

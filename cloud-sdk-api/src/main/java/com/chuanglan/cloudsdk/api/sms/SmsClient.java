@@ -12,25 +12,22 @@ import java.util.Map;
 /**
  * 253 短信服务 SDK 入口。
  */
-public class SmsClient {
+public class SmsClient implements AutoCloseable {
 
     private static final String BATCH_SEND_PATH = "/sms/v2/batchSend";
 
     private final SmsConfig config;
     private final HttpTransport httpTransport;
     private final ObjectMapper objectMapper;
+    /** 仅当自行创建 httpTransport 时才在 close() 中释放，避免误关闭外部注入的共享连接池。 */
+    private final boolean ownsTransport;
 
     public SmsClient() {
         this(new SmsConfig());
     }
 
     public SmsClient(SmsConfig config) {
-        if (config == null) {
-            throw new IllegalArgumentException("SmsConfig must not be null");
-        }
-        this.config = config;
-        this.httpTransport = new HttpTransport();
-        this.objectMapper = CloudSdkModel.getMapper();
+        this(config, null);
     }
 
     public SmsClient(SmsConfig config, HttpTransport httpTransport) {
@@ -38,8 +35,19 @@ public class SmsClient {
             throw new IllegalArgumentException("SmsConfig must not be null");
         }
         this.config = config;
+        this.ownsTransport = httpTransport == null;
         this.httpTransport = httpTransport != null ? httpTransport : new HttpTransport();
         this.objectMapper = CloudSdkModel.getMapper();
+    }
+
+    /**
+     * 释放本实例自行创建的底层 OkHttp 连接池；若 httpTransport 由外部注入则不关闭。
+     */
+    @Override
+    public void close() {
+        if (ownsTransport) {
+            httpTransport.close();
+        }
     }
 
     // ================== 短信发送 ==================
@@ -52,7 +60,7 @@ public class SmsClient {
         validateBatchSendRequest(request);
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.endpoint + BATCH_SEND_PATH, body, traceId);
+                config.getEndpoint() + BATCH_SEND_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), SmsBatchSendResponse.class);
     }
 
@@ -66,7 +74,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsQualificationAddRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/qualification/add", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/qualification/add", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsQualificationAddResponse.class);
     }
 
@@ -78,7 +86,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsQualificationListRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/qualification/list", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/qualification/list", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsQualificationListResponse.class);
     }
 
@@ -90,7 +98,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsQualificationUpdateRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/qualification/update", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/qualification/update", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsQualificationUpdateResponse.class);
     }
 
@@ -102,7 +110,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsQualificationDeleteRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/qualification/delete", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/qualification/delete", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsQualificationDeleteResponse.class);
     }
 
@@ -116,7 +124,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureAddRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/add", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/add", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureAddResponse.class);
     }
 
@@ -128,7 +136,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/getSingleSignatureInfo", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/getSingleSignatureInfo", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureGetResponse.class);
     }
 
@@ -140,7 +148,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureListRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/list", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/list", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureListResponse.class);
     }
 
@@ -152,7 +160,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureOperatorRejectReasonRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/operatorRejectReason", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/operatorRejectReason", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureOperatorRejectReasonResponse.class);
     }
 
@@ -164,7 +172,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureRealNameUpdateRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/realNameUpdate", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/realNameUpdate", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureRealNameUpdateResponse.class);
     }
 
@@ -176,7 +184,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsSignatureDeleteRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/signature/delete", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/signature/delete", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureDeleteResponse.class);
     }
 
@@ -190,7 +198,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateAddRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/add", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/add", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateAddResponse.class);
     }
 
@@ -202,7 +210,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateTypeEnumRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/queryTypeEnum", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/queryTypeEnum", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateTypeEnumResponse.class);
     }
 
@@ -214,7 +222,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateListRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/list", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/list", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateListResponse.class);
     }
 
@@ -226,7 +234,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/getSingleTemplateInfo", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/getSingleTemplateInfo", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateGetResponse.class);
     }
 
@@ -238,7 +246,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateOperatorRejectReasonRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/operatorRejectReason", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/operatorRejectReason", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateOperatorRejectReasonResponse.class);
     }
 
@@ -250,7 +258,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateUpdateRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/update", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/update", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateUpdateResponse.class);
     }
 
@@ -262,7 +270,7 @@ public class SmsClient {
         validateBaseRequest(request, "SmsTemplateDeleteRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.apiEndpoint + "/sms/v2/template/delete", body, traceId);
+                config.getApiEndpoint() + "/sms/v2/template/delete", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateDeleteResponse.class);
     }
 
@@ -272,11 +280,11 @@ public class SmsClient {
         validateCredentials(appId, appSecret);
 
         RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
+        if (config.getConnectTimeout() != null) {
+            runtime.setConnectTimeout(config.getConnectTimeout());
         }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
+        if (config.getReadTimeout() != null) {
+            runtime.setReadTimeout(config.getReadTimeout());
         }
         RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
                 runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
@@ -341,13 +349,13 @@ public class SmsClient {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "SmsBatchSendRequest 不能为空", null, 0);
         }
-        if (request.productType == null || request.productType.isEmpty()) {
+        if (request.getProductType() == null || request.getProductType().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "productType 不能为空", null, 0);
         }
-        if (request.phoneNumbers == null || request.phoneNumbers.isEmpty()) {
+        if (request.getPhoneNumbers() == null || request.getPhoneNumbers().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "phoneNumbers 不能为空", null, 0);
         }
-        if (request.templateCode == null || request.templateCode.isEmpty()) {
+        if (request.getTemplateCode() == null || request.getTemplateCode().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "templateCode 不能为空", null, 0);
         }
     }

@@ -36,12 +36,12 @@ public class NumberClient extends ApiClient<NumberConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "NumberStatusCheckRequest 不能为空", null, 0);
         }
-        if (request.mobiles == null || request.mobiles.isEmpty()) {
+        if (request.getMobiles() == null || request.getMobiles().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobiles 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BATCH_UCHECK_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BATCH_UCHECK_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), NumberStatusCheckResponse.class);
     }
 
@@ -59,15 +59,15 @@ public class NumberClient extends ApiClient<NumberConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "NumberPhoneAttributionV2Request 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
-        if (request.orderNo == null || request.orderNo.isEmpty()) {
+        if (request.getOrderNo() == null || request.getOrderNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "orderNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + PHONE_ATTRIBUTION_V2_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + PHONE_ATTRIBUTION_V2_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), NumberPhoneAttributionV2Response.class);
     }
 }

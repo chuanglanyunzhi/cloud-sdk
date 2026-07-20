@@ -12,22 +12,22 @@ public class RcsSmsAccountAddressUpdateRequest extends CloudSdkModel {
     /**
      * 地址信息。
      */
-    public String address;
+    private String address;
 
     /**
      * 联系人姓名。
      */
-    public String contactName;
+    private String contactName;
 
     /**
      * 联系人电话。
      */
-    public String contactPhone;
+    private String contactPhone;
 
     /**
      * 邮政编码。
      */
-    public String postCode;
+    private String postCode;
 
     public RcsSmsAccountAddressUpdateRequest setAddress(String address) {
         this.address = address;
@@ -47,5 +47,21 @@ public class RcsSmsAccountAddressUpdateRequest extends CloudSdkModel {
     public RcsSmsAccountAddressUpdateRequest setPostCode(String postCode) {
         this.postCode = postCode;
         return this;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getContactName() {
+        return this.contactName;
+    }
+
+    public String getContactPhone() {
+        return this.contactPhone;
+    }
+
+    public String getPostCode() {
+        return this.postCode;
     }
 }

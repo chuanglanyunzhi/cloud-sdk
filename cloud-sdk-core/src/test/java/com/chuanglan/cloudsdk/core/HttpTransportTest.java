@@ -56,7 +56,7 @@ class HttpTransportTest {
                 .url(baseUrl() + "/error")
                 .build();
         RuntimeOptions runtime = new RuntimeOptions();
-        runtime.maxAttempts = 2;
+        runtime.setMaxAttempts(2);
         RetryPolicy retry = new ExponentialBackoffRetryPolicy(2, 10, 100);
 
         CloudSdkException exception = assertThrows(CloudSdkException.class,

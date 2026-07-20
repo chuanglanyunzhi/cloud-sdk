@@ -12,22 +12,22 @@ public class NumberSecondHandRequest extends CloudSdkModel {
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 回溯时间，格式 yyyyMMdd。
      */
-    public String sinceDate;
+    private String sinceDate;
 
     /**
      * 订单号（透传返回）。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 是否加密：默认不加密；1 表示 MD5 加密；2 表示 SHA256 加密。
      */
-    public Integer type;
+    private Integer type;
 
     public NumberSecondHandRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -47,5 +47,21 @@ public class NumberSecondHandRequest extends CloudSdkModel {
     public NumberSecondHandRequest setType(Integer type) {
         this.type = type;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getSinceDate() {
+        return this.sinceDate;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public Integer getType() {
+        return this.type;
     }
 }

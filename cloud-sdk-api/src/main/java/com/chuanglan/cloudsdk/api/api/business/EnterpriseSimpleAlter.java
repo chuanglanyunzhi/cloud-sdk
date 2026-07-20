@@ -10,22 +10,22 @@ public class EnterpriseSimpleAlter extends CloudSdkModel {
     /**
      * 变更事项。
      */
-    public String altitem;
+    private String altitem;
 
     /**
      * 变更前内容。
      */
-    public String altbe;
+    private String altbe;
 
     /**
      * 变更后内容。
      */
-    public String altaf;
+    private String altaf;
 
     /**
      * 变更日期。
      */
-    public String altdate;
+    private String altdate;
 
     public EnterpriseSimpleAlter setAltitem(String altitem) {
         this.altitem = altitem;
@@ -45,5 +45,21 @@ public class EnterpriseSimpleAlter extends CloudSdkModel {
     public EnterpriseSimpleAlter setAltdate(String altdate) {
         this.altdate = altdate;
         return this;
+    }
+
+    public String getAltitem() {
+        return this.altitem;
+    }
+
+    public String getAltbe() {
+        return this.altbe;
+    }
+
+    public String getAltaf() {
+        return this.altaf;
+    }
+
+    public String getAltdate() {
+        return this.altdate;
     }
 }

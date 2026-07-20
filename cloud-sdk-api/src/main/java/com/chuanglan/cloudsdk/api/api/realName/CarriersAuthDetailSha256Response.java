@@ -8,17 +8,17 @@ public class CarriersAuthDetailSha256Response extends RealNameCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public CarriersAuthDetailSha256ResponseData data;
+    private CarriersAuthDetailSha256ResponseData data;
 
     public CarriersAuthDetailSha256Response setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class CarriersAuthDetailSha256Response extends RealNameCommonResponse {
     public CarriersAuthDetailSha256Response setData(CarriersAuthDetailSha256ResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public CarriersAuthDetailSha256ResponseData getData() {
+        return this.data;
     }
 }

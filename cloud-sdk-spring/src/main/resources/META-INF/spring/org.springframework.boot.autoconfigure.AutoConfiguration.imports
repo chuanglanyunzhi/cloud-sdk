@@ -1,0 +1,2 @@
+# Spring Boot 3.x auto-configuration entry point
+com.chuanglan.cloudsdk.spring.CloudSdkAutoConfiguration

@@ -8,17 +8,17 @@ public class FaceCheckResponse extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public FaceCheckData data;
+    private FaceCheckData data;
 
     public FaceCheckResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class FaceCheckResponse extends BusinessCommonResponse {
     public FaceCheckResponse setData(FaceCheckData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public FaceCheckData getData() {
+        return this.data;
     }
 }

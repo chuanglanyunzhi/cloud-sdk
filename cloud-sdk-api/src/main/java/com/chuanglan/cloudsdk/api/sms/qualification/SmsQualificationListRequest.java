@@ -8,15 +8,15 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsQualificationListRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 企业名称。 */
-    public String companyName;
+    private String companyName;
     /** 终端类型。 */
-    public String endType;
+    private String endType;
     /** 页码。 */
-    public Integer pageNo;
+    private Integer pageNo;
     /** 每页条数。 */
-    public Integer pageSize;
+    private Integer pageSize;
 
     public SmsQualificationListRequest setProductType(String productType) {
         this.productType = productType;
@@ -41,5 +41,25 @@ public class SmsQualificationListRequest extends CloudSdkModel {
     public SmsQualificationListRequest setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public String getEndType() {
+        return this.endType;
+    }
+
+    public Integer getPageNo() {
+        return this.pageNo;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 }

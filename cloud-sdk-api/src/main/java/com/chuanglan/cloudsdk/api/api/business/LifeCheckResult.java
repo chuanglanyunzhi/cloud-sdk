@@ -10,27 +10,27 @@ public class LifeCheckResult extends CloudSdkModel {
     /**
      * 活体成功之后，抓取的人脸照片（链接有效期一天）。
      */
-    public String face_image_url;
+    private String face_image_url;
 
     /**
      * 防 hack 检测分数，阈值为 0.98，大于 0.98 是 hack 行为，小于等于 0.98 是正常活人。
      */
-    public Double hack_score;
+    private Double hack_score;
 
     /**
      * 用户动作序列检测结果。
      */
-    public LifeCheckMotion motions;
+    private LifeCheckMotion motions;
 
     /**
      * 总体检测结果，true - 通过，false - 未通过。
      */
-    public Boolean passed;
+    private Boolean passed;
 
     /**
      * 活体检查失败的原因。
      */
-    public String desc;
+    private String desc;
 
     public LifeCheckResult setFace_image_url(String face_image_url) {
         this.face_image_url = face_image_url;
@@ -55,5 +55,25 @@ public class LifeCheckResult extends CloudSdkModel {
     public LifeCheckResult setDesc(String desc) {
         this.desc = desc;
         return this;
+    }
+
+    public String getFace_image_url() {
+        return this.face_image_url;
+    }
+
+    public Double getHack_score() {
+        return this.hack_score;
+    }
+
+    public LifeCheckMotion getMotions() {
+        return this.motions;
+    }
+
+    public Boolean getPassed() {
+        return this.passed;
+    }
+
+    public String getDesc() {
+        return this.desc;
     }
 }

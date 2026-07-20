@@ -11,37 +11,37 @@ public class TableOcrTableColumns extends CloudSdkModel {
     /**
      * 单元格所占的列数。
      */
-    public Integer endColumn;
+    private Integer endColumn;
 
     /**
      * 单元格所占的行数。
      */
-    public Integer endRow;
+    private Integer endRow;
 
     /**
      * 图片上单元格的高度。
      */
-    public Integer height;
+    private Integer height;
 
     /**
      * 单元格的起始列。
      */
-    public Integer startColumn;
+    private Integer startColumn;
 
     /**
      * 单元格的起始行。
      */
-    public Integer startRow;
+    private Integer startRow;
 
     /**
      * 文本，每行（row）文字为一个 block。
      */
-    public List<String> texts;
+    private List<String> texts;
 
     /**
      * 宽。
      */
-    public Integer width;
+    private Integer width;
 
     public TableOcrTableColumns setEndColumn(Integer endColumn) {
         this.endColumn = endColumn;
@@ -76,5 +76,33 @@ public class TableOcrTableColumns extends CloudSdkModel {
     public TableOcrTableColumns setWidth(Integer width) {
         this.width = width;
         return this;
+    }
+
+    public Integer getEndColumn() {
+        return this.endColumn;
+    }
+
+    public Integer getEndRow() {
+        return this.endRow;
+    }
+
+    public Integer getHeight() {
+        return this.height;
+    }
+
+    public Integer getStartColumn() {
+        return this.startColumn;
+    }
+
+    public Integer getStartRow() {
+        return this.startRow;
+    }
+
+    public List<String> getTexts() {
+        return this.texts;
+    }
+
+    public Integer getWidth() {
+        return this.width;
     }
 }

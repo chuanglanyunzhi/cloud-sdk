@@ -52,21 +52,21 @@ class RealNameClientTest {
         IdCardAuthResponse response = client.idCardAuth("DEV_7BW8WF4UIBM", "AAABBBCCC", request, "trace_realName_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("F655A8D5B967440B8683DAD6FF8D230E", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("ORD001", response.data.orderNo);
-        assertEquals("20240101120000", response.data.handleTime);
-        assertEquals("浙江", response.data.province);
-        assertEquals("杭州", response.data.city);
-        assertEquals("西湖区", response.data.country);
-        assertEquals("19900101", response.data.birthday);
-        assertEquals("34", response.data.age);
-        assertEquals("1", response.data.gender);
-        assertEquals("一致", response.data.remark);
-        assertEquals("01", response.data.result);
+        assertEquals("success", response.getMsg());
+        assertEquals("F655A8D5B967440B8683DAD6FF8D230E", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("ORD001", response.getData().getOrderNo());
+        assertEquals("20240101120000", response.getData().getHandleTime());
+        assertEquals("浙江", response.getData().getProvince());
+        assertEquals("杭州", response.getData().getCity());
+        assertEquals("西湖区", response.getData().getCountry());
+        assertEquals("19900101", response.getData().getBirthday());
+        assertEquals("34", response.getData().getAge());
+        assertEquals("1", response.getData().getGender());
+        assertEquals("一致", response.getData().getRemark());
+        assertEquals("01", response.getData().getResult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/idcard/id-card-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_realName_001")));
@@ -146,21 +146,21 @@ class RealNameClientTest {
         IdCardAuthResponse response = client.idCardAuthV2("APP_ID", "SECRET_KEY", request, "trace_v2_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_V2_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("ORD_V2_001", response.data.orderNo);
-        assertEquals("2026-06-26 14:06:49", response.data.handleTime);
-        assertEquals("江西省", response.data.province);
-        assertEquals("抚州地区", response.data.city);
-        assertEquals("金溪县", response.data.country);
-        assertEquals("19930404", response.data.birthday);
-        assertEquals("34", response.data.age);
-        assertEquals("1", response.data.gender);
-        assertEquals("一致", response.data.remark);
-        assertEquals("01", response.data.result);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_V2_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("ORD_V2_001", response.getData().getOrderNo());
+        assertEquals("2026-06-26 14:06:49", response.getData().getHandleTime());
+        assertEquals("江西省", response.getData().getProvince());
+        assertEquals("抚州地区", response.getData().getCity());
+        assertEquals("金溪县", response.getData().getCountry());
+        assertEquals("19930404", response.getData().getBirthday());
+        assertEquals("34", response.getData().getAge());
+        assertEquals("1", response.getData().getGender());
+        assertEquals("一致", response.getData().getRemark());
+        assertEquals("01", response.getData().getResult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/idcard/id-card-auth/vs"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_v2_001")));
@@ -236,16 +236,16 @@ class RealNameClientTest {
         ForeignIdCardAuthResponse response = client.foreignIdCardAuth("APP_ID", "SECRET_KEY", request, "trace_foreign_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_FOREIGN_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("ORD_FOREIGN_001", response.data.orderNo);
-        assertEquals("2026-06-26 14:18:10", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("一致", response.data.remark);
-        assertEquals("1", response.data.isValid);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_FOREIGN_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("ORD_FOREIGN_001", response.getData().getOrderNo());
+        assertEquals("2026-06-26 14:18:10", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("一致", response.getData().getRemark());
+        assertEquals("1", response.getData().getIsValid());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/idcard/id-card-auth-foreign-sign"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_foreign_001")));
@@ -350,19 +350,19 @@ class RealNameClientTest {
         IdMatchResponse response = client.idMatch("APP_ID", "SECRET_KEY", request, "trace_match_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("成功", response.msg);
-        assertEquals("REQ_MATCH_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("ORD_MATCH_001", response.data.orderNo);
-        assertEquals("2026-04-14 10:32:16", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("01", response.data.idcardResult);
-        assertEquals("一致", response.data.idcardMessage);
-        assertEquals("01", response.data.photoResult);
-        assertEquals("判断为同一人", response.data.photoMessage);
-        assertEquals("99", response.data.photoScore);
+        assertEquals("成功", response.getMsg());
+        assertEquals("REQ_MATCH_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("ORD_MATCH_001", response.getData().getOrderNo());
+        assertEquals("2026-04-14 10:32:16", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("01", response.getData().getIdcardResult());
+        assertEquals("一致", response.getData().getIdcardMessage());
+        assertEquals("01", response.getData().getPhotoResult());
+        assertEquals("判断为同一人", response.getData().getPhotoMessage());
+        assertEquals("99", response.getData().getPhotoScore());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/idmatch/idmatch-new"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_match_001")));
@@ -443,16 +443,16 @@ class RealNameClientTest {
         ForeignIdMatchResponse response = client.foreignIdMatch("APP_ID", "SECRET_KEY", request, "trace_foreign_match_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_FOREIGN_MATCH_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("ORD_FOREIGN_MATCH_001", response.data.orderNo);
-        assertEquals("2026-06-26 16:49:25", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("1", response.data.isValid);
-        assertEquals("一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_FOREIGN_MATCH_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("ORD_FOREIGN_MATCH_001", response.getData().getOrderNo());
+        assertEquals("2026-06-26 16:49:25", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("1", response.getData().getIsValid());
+        assertEquals("一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/idmatch/idmatch-abroad"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_foreign_match_001")));
@@ -561,16 +561,16 @@ class RealNameClientTest {
         CarriersTwoAuthResponse response = client.carriersTwoAuth("APP_ID", "SECRET_KEY", request, "trace_carriers_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011649859552865265", response.data.orderNo);
-        assertEquals("2022-04-13 22:19:12", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("1", response.data.type);
-        assertEquals("认证一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011649859552865265", response.getData().getOrderNo());
+        assertEquals("2022-04-13 22:19:12", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("1", response.getData().getType());
+        assertEquals("认证一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-two-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_001")));
@@ -631,18 +631,18 @@ class RealNameClientTest {
         CarriersTwoAuthIdNumResponse response = client.carriersTwoAuthIdNum("APP_ID", "SECRET_KEY", request, "trace_carriers_idnum_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_IDNUM_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011743662503100016", response.data.orderNo);
-        assertEquals("2025-04-03 14:41:43", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("1", response.data.type);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("2", response.data.gender);
-        assertEquals("30", response.data.age);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_IDNUM_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011743662503100016", response.getData().getOrderNo());
+        assertEquals("2025-04-03 14:41:43", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("1", response.getData().getType());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("2", response.getData().getGender());
+        assertEquals("30", response.getData().getAge());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-two-auth-idnum"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_idnum_001")));
@@ -703,16 +703,16 @@ class RealNameClientTest {
         CarriersTwoAuthResponse response = client.carriersTwoAuthMd5("APP_ID", "SECRET_KEY", request, "trace_carriers_md5_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_MD5_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011650510527100048", response.data.orderNo);
-        assertEquals("2022-04-21 11:08:47", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("1", response.data.type);
-        assertEquals("认证一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_MD5_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011650510527100048", response.getData().getOrderNo());
+        assertEquals("2022-04-21 11:08:47", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("1", response.getData().getType());
+        assertEquals("认证一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-two-auth-md5"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_md5_001")));
@@ -775,18 +775,18 @@ class RealNameClientTest {
         CarriersAuthResponse response = client.carriersAuth("APP_ID", "SECRET_KEY", request, "trace_carriers_auth_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_AUTH_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011743662503100017", response.data.orderNo);
-        assertEquals("2025-04-03 14:41:43", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("2", response.data.gender);
-        assertEquals("30", response.data.age);
-        assertEquals("01", response.data.result);
-        assertEquals("认证一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_AUTH_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011743662503100017", response.getData().getOrderNo());
+        assertEquals("2025-04-03 14:41:43", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("2", response.getData().getGender());
+        assertEquals("30", response.getData().getAge());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("认证一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_auth_001")));
@@ -863,16 +863,16 @@ class RealNameClientTest {
         CarriersAuthMd5Response response = client.carriersAuthMd5("APP_ID", "SECRET_KEY", request, "trace_carriers_auth_md5_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_AUTH_MD5_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011650008483922698", response.data.orderNo);
-        assertEquals("2022-04-15 15:41:23", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("01", response.data.result);
-        assertEquals("认证一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_AUTH_MD5_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011650008483922698", response.getData().getOrderNo());
+        assertEquals("2022-04-15 15:41:23", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("认证一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-md5"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_auth_md5_001")));
@@ -949,19 +949,19 @@ class RealNameClientTest {
         CarriersAuthDetailResponse response = client.carriersAuthDetail("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011649859598865640", response.data.orderNo);
-        assertEquals("2022-04-13 22:19:58", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("1", response.data.type);
-        assertEquals("2", response.data.gender);
-        assertEquals("24", response.data.age);
-        assertNull(response.data.detail);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011649859598865640", response.getData().getOrderNo());
+        assertEquals("2022-04-13 22:19:58", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("1", response.getData().getType());
+        assertEquals("2", response.getData().getGender());
+        assertEquals("24", response.getData().getAge());
+        assertNull(response.getData().getDetail());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_001")));
@@ -989,21 +989,21 @@ class RealNameClientTest {
         CarriersAuthDetailResponse response = client.carriersAuthDetail("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011649859598865641", response.data.orderNo);
-        assertEquals("2022-04-13 22:20:10", response.data.handleTime);
-        assertEquals("02", response.data.result);
-        assertEquals("认证不一致", response.data.remark);
-        assertEquals("1", response.data.type);
-        assertEquals("2", response.data.gender);
-        assertEquals("24", response.data.age);
-        assertNotNull(response.data.detail);
-        assertEquals("03", response.data.detail.code);
-        assertEquals("手机号已实名，手机号和证件号一致，姓名不一致", response.data.detail.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011649859598865641", response.getData().getOrderNo());
+        assertEquals("2022-04-13 22:20:10", response.getData().getHandleTime());
+        assertEquals("02", response.getData().getResult());
+        assertEquals("认证不一致", response.getData().getRemark());
+        assertEquals("1", response.getData().getType());
+        assertEquals("2", response.getData().getGender());
+        assertEquals("24", response.getData().getAge());
+        assertNotNull(response.getData().getDetail());
+        assertEquals("03", response.getData().getDetail().getCode());
+        assertEquals("手机号已实名，手机号和证件号一致，姓名不一致", response.getData().getDetail().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_002")));
@@ -1080,17 +1080,17 @@ class RealNameClientTest {
         CarriersAuthDetailMd5Response response = client.carriersAuthDetailMd5("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_md5_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_MD5_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011650510506100046", response.data.orderNo);
-        assertEquals("2022-04-21 11:08:26", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("01", response.data.result);
-        assertEquals("认证一致", response.data.remark);
-        assertNull(response.data.detail);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_MD5_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011650510506100046", response.getData().getOrderNo());
+        assertEquals("2022-04-21 11:08:26", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertNull(response.getData().getDetail());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail-md5"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_md5_001")));
@@ -1118,19 +1118,19 @@ class RealNameClientTest {
         CarriersAuthDetailMd5Response response = client.carriersAuthDetailMd5("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_md5_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_MD5_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("011650510506100047", response.data.orderNo);
-        assertEquals("2022-04-21 11:09:10", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("02", response.data.result);
-        assertEquals("认证不一致", response.data.remark);
-        assertNotNull(response.data.detail);
-        assertEquals("04", response.data.detail.code);
-        assertEquals("手机号已实名，手机号和姓名一致，身份证不一致", response.data.detail.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_MD5_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("011650510506100047", response.getData().getOrderNo());
+        assertEquals("2022-04-21 11:09:10", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("02", response.getData().getResult());
+        assertEquals("认证不一致", response.getData().getRemark());
+        assertNotNull(response.getData().getDetail());
+        assertEquals("04", response.getData().getDetail().getCode());
+        assertEquals("手机号已实名，手机号和姓名一致，身份证不一致", response.getData().getDetail().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail-md5"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_md5_002")));
@@ -1207,17 +1207,17 @@ class RealNameClientTest {
         CarriersAuthDetailSha256Response response = client.carriersAuthDetailSha256("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_sha256_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_SHA256_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("021669619646506904", response.data.orderNo);
-        assertEquals("2022-12-06 15:14:06", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("01", response.data.result);
-        assertEquals("认证一致", response.data.remark);
-        assertNull(response.data.detail);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_SHA256_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("021669619646506904", response.getData().getOrderNo());
+        assertEquals("2022-12-06 15:14:06", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertNull(response.getData().getDetail());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail-sha256"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_sha256_001")));
@@ -1245,19 +1245,19 @@ class RealNameClientTest {
         CarriersAuthDetailSha256Response response = client.carriersAuthDetailSha256("APP_ID", "SECRET_KEY", request, "trace_carriers_detail_sha256_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_DETAIL_SHA256_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("021669619646506905", response.data.orderNo);
-        assertEquals("2022-12-06 15:14:10", response.data.handleTime);
-        assertEquals("1", response.data.type);
-        assertEquals("02", response.data.result);
-        assertEquals("认证不一致", response.data.remark);
-        assertNotNull(response.data.detail);
-        assertEquals("03", response.data.detail.code);
-        assertEquals("手机号已实名，手机号和证件号一致，姓名不一致", response.data.detail.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_DETAIL_SHA256_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("021669619646506905", response.getData().getOrderNo());
+        assertEquals("2022-12-06 15:14:10", response.getData().getHandleTime());
+        assertEquals("1", response.getData().getType());
+        assertEquals("02", response.getData().getResult());
+        assertEquals("认证不一致", response.getData().getRemark());
+        assertNotNull(response.getData().getDetail());
+        assertEquals("03", response.getData().getDetail().getCode());
+        assertEquals("手机号已实名，手机号和证件号一致，姓名不一致", response.getData().getDetail().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriers-auth-detail-sha256"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_detail_sha256_002")));
@@ -1334,16 +1334,16 @@ class RealNameClientTest {
         CarriersAuthSha256Response response = client.carriersAuthSha256("APP_ID", "SECRET_KEY", request, "trace_carriers_sha256_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_CARRIERS_SHA256_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("fZBS1064590140277043200", response.data.orderNo);
-        assertEquals("2025-04-16 17:01:08", response.data.handleTime);
-        assertEquals("2", response.data.type);
-        assertEquals("01", response.data.result);
-        assertEquals("一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_CARRIERS_SHA256_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("fZBS1064590140277043200", response.getData().getOrderNo());
+        assertEquals("2025-04-16 17:01:08", response.getData().getHandleTime());
+        assertEquals("2", response.getData().getType());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/carriers/carriersAuthSha256"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_carriers_sha256_001")));
@@ -1418,18 +1418,18 @@ class RealNameClientTest {
         BankCardTwoAuthResponse response = client.bankCardTwoAuth("APP_ID", "SECRET_KEY", request, "trace_bank_card_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-two-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_001")));
@@ -1492,19 +1492,19 @@ class RealNameClientTest {
         BankCardThreeAuthResponse response = client.bankCardThreeAuth("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_001")));
@@ -1583,19 +1583,19 @@ class RealNameClientTest {
         BankCardThreeAuthTypeResponse response = client.bankCardThreeAuthType("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_type_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_TYPE_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_TYPE_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth-type"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_type_001")));
@@ -1623,14 +1623,14 @@ class RealNameClientTest {
         BankCardThreeAuthTypeResponse response = client.bankCardThreeAuthType("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_type_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_TYPE_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240641", response.data.orderNo);
-        assertEquals("01", response.data.result);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_TYPE_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240641", response.getData().getOrderNo());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth-type"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_type_002")));
@@ -1711,19 +1711,19 @@ class RealNameClientTest {
         BankCardThreeAuthDetailResponse response = client.bankCardThreeAuthDetail("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_detail_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_DETAIL_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_DETAIL_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth-detail"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_detail_001")));
@@ -1802,19 +1802,19 @@ class RealNameClientTest {
         BankCardThreeAuthPrecisionResponse response = client.bankCardThreeAuthPrecision("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_precision_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_PRECISION_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_PRECISION_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth-precision"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_precision_001")));
@@ -1842,14 +1842,14 @@ class RealNameClientTest {
         BankCardThreeAuthPrecisionResponse response = client.bankCardThreeAuthPrecision("APP_ID", "SECRET_KEY", request, "trace_bank_card_three_precision_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_THREE_PRECISION_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240641", response.data.orderNo);
-        assertEquals("01", response.data.result);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_THREE_PRECISION_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240641", response.getData().getOrderNo());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-three-auth-precision"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_three_precision_002")));
@@ -1932,19 +1932,19 @@ class RealNameClientTest {
         BankCardFourAuthResponse response = client.bankCardFourAuth("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_001")));
@@ -2038,19 +2038,19 @@ class RealNameClientTest {
         BankCardFourSecretResponse response = client.bankCardFourSecret("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_secret_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_SECRET_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_SECRET_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-secret"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_secret_001")));
@@ -2155,19 +2155,19 @@ class RealNameClientTest {
         BankCardFourAuthDetailResponse response = client.bankCardFourAuthDetail("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_detail_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_DETAIL_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_DETAIL_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-detail"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_detail_001")));
@@ -2195,14 +2195,14 @@ class RealNameClientTest {
         BankCardFourAuthDetailResponse response = client.bankCardFourAuthDetail("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_detail_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_DETAIL_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240641", response.data.orderNo);
-        assertEquals("01", response.data.result);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_DETAIL_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240641", response.getData().getOrderNo());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-detail"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_detail_002")));
@@ -2287,19 +2287,19 @@ class RealNameClientTest {
         BankCardFourAuthTypeResponse response = client.bankCardFourAuthType("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_type_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_TYPE_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_TYPE_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-type"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_type_001")));
@@ -2329,14 +2329,14 @@ class RealNameClientTest {
         BankCardFourAuthTypeResponse response = client.bankCardFourAuthType("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_type_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_TYPE_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240641", response.data.orderNo);
-        assertEquals("01", response.data.result);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_TYPE_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240641", response.getData().getOrderNo());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-type"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_type_002")));
@@ -2438,19 +2438,19 @@ class RealNameClientTest {
         BankCardFourAuthPrecisionResponse response = client.bankCardFourAuthPrecision("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_precision_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_PRECISION_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240640", response.data.orderNo);
-        assertEquals("2026-06-26 17:38:35", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证一致", response.data.remark);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_PRECISION_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240640", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:38:35", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证一致", response.getData().getRemark());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-precision"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_precision_001")));
@@ -2480,14 +2480,14 @@ class RealNameClientTest {
         BankCardFourAuthPrecisionResponse response = client.bankCardFourAuthPrecision("APP_ID", "SECRET_KEY", request, "trace_bank_card_four_precision_002");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FOUR_PRECISION_002", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222600670032240641", response.data.orderNo);
-        assertEquals("01", response.data.result);
-        assertEquals("0101", response.data.innerresult);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FOUR_PRECISION_002", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222600670032240641", response.getData().getOrderNo());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("0101", response.getData().getInnerresult());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-auth-precision"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_four_precision_002")));
@@ -2574,19 +2574,19 @@ class RealNameClientTest {
         BankCardFiveAuthResponse response = client.bankCardFiveAuth("APP_ID", "SECRET_KEY", request, "trace_bank_card_five_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BANK_CARD_FIVE_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222601507819298816", response.data.orderNo);
-        assertEquals("2026-06-26 17:41:54", response.data.handleTime);
-        assertEquals("01", response.data.result);
-        assertEquals("1", response.data.bankAccountType);
-        assertEquals("上海银行", response.data.bankName);
-        assertEquals("首发纪念版IC卡", response.data.cardType);
-        assertEquals("借记卡", response.data.cardCategory);
-        assertEquals("认证信息匹配", response.data.remark);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BANK_CARD_FIVE_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222601507819298816", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:41:54", response.getData().getHandleTime());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("1", response.getData().getBankAccountType());
+        assertEquals("上海银行", response.getData().getBankName());
+        assertEquals("首发纪念版IC卡", response.getData().getCardType());
+        assertEquals("借记卡", response.getData().getCardCategory());
+        assertEquals("认证信息匹配", response.getData().getRemark());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/bankcard/card-five-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bank_card_five_001")));
@@ -2675,20 +2675,20 @@ class RealNameClientTest {
         IpGsdQueryResponse response = client.ipGsdQuery("APP_ID", "SECRET_KEY", request, "trace_ip_gsd_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_IP_GSD_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("01", response.data.result);
-        assertEquals("936a15e2-22ca-4501-980b-2d6fca61c79b", response.data.orderNo);
-        assertEquals("2026-06-22 20:19:03", response.data.handleTime);
-        assertEquals("218.1.221.132", response.data.ipAddr);
-        assertEquals("中国", response.data.country);
-        assertEquals("上海", response.data.province);
-        assertEquals("上海", response.data.city);
-        assertEquals("徐汇", response.data.area);
-        assertEquals("中国电信", response.data.line);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_IP_GSD_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("01", response.getData().getResult());
+        assertEquals("936a15e2-22ca-4501-980b-2d6fca61c79b", response.getData().getOrderNo());
+        assertEquals("2026-06-22 20:19:03", response.getData().getHandleTime());
+        assertEquals("218.1.221.132", response.getData().getIpAddr());
+        assertEquals("中国", response.getData().getCountry());
+        assertEquals("上海", response.getData().getProvince());
+        assertEquals("上海", response.getData().getCity());
+        assertEquals("徐汇", response.getData().getArea());
+        assertEquals("中国电信", response.getData().getLine());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/ipgsdcx/ipgsd"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_gsd_001")));
@@ -2741,19 +2741,19 @@ class RealNameClientTest {
         EnterpriseFourAuthResponse response = client.enterpriseFourAuth("APP_ID", "SECRET_KEY", request, "trace_enterprise_four_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_ENTERPRISE_FOUR_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("PhcE1222601718394331136", response.data.orderNo);
-        assertEquals("2026-06-26 17:42:44", response.data.handleTime);
-        assertEquals("02", response.data.result);
-        assertEquals("不一致", response.data.remark);
-        assertEquals("1", response.data.companyNameMatch);
-        assertEquals("1", response.data.creditCodeMatch);
-        assertEquals("2", response.data.legalPerNameMatch);
-        assertEquals("2", response.data.idNoMatch);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_ENTERPRISE_FOUR_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("PhcE1222601718394331136", response.getData().getOrderNo());
+        assertEquals("2026-06-26 17:42:44", response.getData().getHandleTime());
+        assertEquals("02", response.getData().getResult());
+        assertEquals("不一致", response.getData().getRemark());
+        assertEquals("1", response.getData().getCompanyNameMatch());
+        assertEquals("1", response.getData().getCreditCodeMatch());
+        assertEquals("2", response.getData().getLegalPerNameMatch());
+        assertEquals("2", response.getData().getIdNoMatch());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/auth/gsxx/business-four-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_enterprise_four_001")));

@@ -12,12 +12,12 @@ public class BankCardTwoAuthRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 银行卡号，限单个。
      */
-    public String cardNo;
+    private String cardNo;
 
     public BankCardTwoAuthRequest setName(String name) {
         this.name = name;
@@ -27,5 +27,13 @@ public class BankCardTwoAuthRequest extends CloudSdkModel {
     public BankCardTwoAuthRequest setCardNo(String cardNo) {
         this.cardNo = cardNo;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCardNo() {
+        return this.cardNo;
     }
 }

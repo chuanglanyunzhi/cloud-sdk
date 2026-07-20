@@ -12,12 +12,12 @@ public class SmsPageData<T> extends CloudSdkModel {
     /**
      * 列表总数。
      */
-    public Integer total;
+    private Integer total;
 
     /**
      * 数据列表。
      */
-    public List<T> list;
+    private List<T> list;
 
     public SmsPageData<T> setTotal(Integer total) {
         this.total = total;
@@ -27,5 +27,13 @@ public class SmsPageData<T> extends CloudSdkModel {
     public SmsPageData<T> setList(List<T> list) {
         this.list = list;
         return this;
+    }
+
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    public List<T> getList() {
+        return this.list;
     }
 }

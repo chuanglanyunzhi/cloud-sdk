@@ -7,20 +7,21 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class ApiConfig extends CloudSdkModel {
 
-    /**
-     * 业务接入地址。
-     */
-    public String endpoint;
+    private String endpoint;
+    private Integer connectTimeout = 10000;
+    private Integer readTimeout = 10000;
 
-    /**
-     * 连接超时，单位毫秒。
-     */
-    public Integer connectTimeout = 10000;
+    public String getEndpoint() {
+        return endpoint;
+    }
 
-    /**
-     * 读取超时，单位毫秒。
-     */
-    public Integer readTimeout = 10000;
+    public Integer getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public Integer getReadTimeout() {
+        return readTimeout;
+    }
 
     public ApiConfig setEndpoint(String endpoint) {
         this.endpoint = endpoint;

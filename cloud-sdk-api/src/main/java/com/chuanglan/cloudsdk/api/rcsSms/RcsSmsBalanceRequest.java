@@ -12,10 +12,14 @@ public class RcsSmsBalanceRequest extends CloudSdkModel {
     /**
      * 产品类型，视频短信固定填写相应产品类型。
      */
-    public String productType;
+    private String productType;
 
     public RcsSmsBalanceRequest setProductType(String productType) {
         this.productType = productType;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
     }
 }

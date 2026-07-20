@@ -8,9 +8,9 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsSignatureGetRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 签名ID。 */
-    public String signId;
+    private String signId;
 
     public SmsSignatureGetRequest setProductType(String productType) {
         this.productType = productType;
@@ -20,5 +20,13 @@ public class SmsSignatureGetRequest extends CloudSdkModel {
     public SmsSignatureGetRequest setSignId(String signId) {
         this.signId = signId;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getSignId() {
+        return this.signId;
     }
 }

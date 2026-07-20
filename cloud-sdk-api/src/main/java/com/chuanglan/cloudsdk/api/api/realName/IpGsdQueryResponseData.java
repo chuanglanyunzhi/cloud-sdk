@@ -10,47 +10,47 @@ public class IpGsdQueryResponseData extends CloudSdkModel {
     /**
      * 结果，01 表示成功。
      */
-    public String result;
+    private String result;
 
     /**
      * 业务流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 处理时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 查询的 IP 地址。
      */
-    public String ipAddr;
+    private String ipAddr;
 
     /**
      * 国家。
      */
-    public String country;
+    private String country;
 
     /**
      * 省份。
      */
-    public String province;
+    private String province;
 
     /**
      * 城市。
      */
-    public String city;
+    private String city;
 
     /**
      * 区县。
      */
-    public String area;
+    private String area;
 
     /**
      * 运营商线路。
      */
-    public String line;
+    private String line;
 
     public IpGsdQueryResponseData setResult(String result) {
         this.result = result;
@@ -95,5 +95,41 @@ public class IpGsdQueryResponseData extends CloudSdkModel {
     public IpGsdQueryResponseData setLine(String line) {
         this.line = line;
         return this;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getIpAddr() {
+        return this.ipAddr;
+    }
+
+    public String getCountry() {
+        return this.country;
+    }
+
+    public String getProvince() {
+        return this.province;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getArea() {
+        return this.area;
+    }
+
+    public String getLine() {
+        return this.line;
     }
 }

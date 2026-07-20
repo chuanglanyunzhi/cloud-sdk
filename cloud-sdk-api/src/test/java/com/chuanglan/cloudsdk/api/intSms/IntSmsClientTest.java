@@ -53,10 +53,10 @@ class IntSmsClientTest {
         IntSmsSubmitResponse response = client.submit("APP_xxxx", "AAABBBCCC", baseUrl(), request, "trace_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("20260527150000xxxx", response.requestId);
-        assertNotNull(response.data);
-        assertEquals("754398108056510464", response.data.messageId);
+        assertEquals("success", response.getMsg());
+        assertEquals("20260527150000xxxx", response.getRequestId());
+        assertNotNull(response.getData());
+        assertEquals("754398108056510464", response.getData().getMessageId());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/intsms/v2/sms/submit"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_001")));
@@ -78,11 +78,11 @@ class IntSmsClientTest {
         IntSmsSubmitResponse response = client.submit("APP_xxxx", "AAABBBCCC", baseUrl(), request);
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals("BATCH-20260424160000", response.data.messageId);
-        assertNotNull(response.data.errorPhone);
-        assertEquals(1, response.data.errorPhone.size());
-        assertEquals("+8613800138999", response.data.errorPhone.get(0));
+        assertNotNull(response.getData());
+        assertEquals("BATCH-20260424160000", response.getData().getMessageId());
+        assertNotNull(response.getData().getErrorPhone());
+        assertEquals(1, response.getData().getErrorPhone().size());
+        assertEquals("+8613800138999", response.getData().getErrorPhone().get(0));
     }
 
     @Test

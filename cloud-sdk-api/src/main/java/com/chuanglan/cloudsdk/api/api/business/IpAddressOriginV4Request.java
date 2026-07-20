@@ -12,10 +12,14 @@ public class IpAddressOriginV4Request extends CloudSdkModel {
     /**
      * IP 地址，支持 IPv4。
      */
-    public String ip;
+    private String ip;
 
     public IpAddressOriginV4Request setIp(String ip) {
         this.ip = ip;
         return this;
+    }
+
+    public String getIp() {
+        return this.ip;
     }
 }

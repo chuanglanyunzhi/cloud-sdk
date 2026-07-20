@@ -10,37 +10,37 @@ public class JusticeComplainKtgg extends CloudSdkModel {
     /**
      * 立案时间。
      */
-    public String sdate;
+    private String sdate;
 
     /**
      * 案号。
      */
-    public String caseno;
+    private String caseno;
 
     /**
      * 标题。
      */
-    public String title;
+    private String title;
 
     /**
      * 法院名称。
      */
-    public String court;
+    private String court;
 
     /**
      * 当事人。
      */
-    public String pname;
+    private String pname;
 
     /**
      * 角色（主题类型）。
      */
-    public String ptype;
+    private String ptype;
 
     /**
      * 案由。
      */
-    public String causename;
+    private String causename;
 
     public JusticeComplainKtgg setSdate(String sdate) {
         this.sdate = sdate;
@@ -75,5 +75,33 @@ public class JusticeComplainKtgg extends CloudSdkModel {
     public JusticeComplainKtgg setCausename(String causename) {
         this.causename = causename;
         return this;
+    }
+
+    public String getSdate() {
+        return this.sdate;
+    }
+
+    public String getCaseno() {
+        return this.caseno;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getCourt() {
+        return this.court;
+    }
+
+    public String getPname() {
+        return this.pname;
+    }
+
+    public String getPtype() {
+        return this.ptype;
+    }
+
+    public String getCausename() {
+        return this.causename;
     }
 }

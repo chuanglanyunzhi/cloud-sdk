@@ -11,10 +11,14 @@ public class TableOcrTableRows extends CloudSdkModel {
     /**
      * 表格列数据。
      */
-    public List<TableOcrTableColumns> tableColumns;
+    private List<TableOcrTableColumns> tableColumns;
 
     public TableOcrTableRows setTableColumns(List<TableOcrTableColumns> tableColumns) {
         this.tableColumns = tableColumns;
         return this;
+    }
+
+    public List<TableOcrTableColumns> getTableColumns() {
+        return this.tableColumns;
     }
 }

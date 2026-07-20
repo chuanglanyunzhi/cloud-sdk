@@ -10,27 +10,27 @@ public class NumberOnlineDurationResponseData extends CloudSdkModel {
     /**
      * 结果状态描述。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 返回状态码：0 成功，503 查无，500 其他失败。
      */
-    public String code;
+    private String code;
 
     /**
      * 是否收费：0 不收费，1 收费。
      */
-    public Integer fee;
+    private Integer fee;
 
     /**
      * 交易流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 在网时长结果。
      */
-    public NumberOnlineDurationResult result;
+    private NumberOnlineDurationResult result;
 
     public NumberOnlineDurationResponseData setMsg(String msg) {
         this.msg = msg;
@@ -55,5 +55,25 @@ public class NumberOnlineDurationResponseData extends CloudSdkModel {
     public NumberOnlineDurationResponseData setResult(NumberOnlineDurationResult result) {
         this.result = result;
         return this;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public Integer getFee() {
+        return this.fee;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public NumberOnlineDurationResult getResult() {
+        return this.result;
     }
 }

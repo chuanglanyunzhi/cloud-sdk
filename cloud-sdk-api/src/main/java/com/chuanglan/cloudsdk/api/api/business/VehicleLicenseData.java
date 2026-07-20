@@ -10,67 +10,67 @@ public class VehicleLicenseData extends CloudSdkModel {
     /**
      * 品牌型号。
      */
-    public String brandModel;
+    private String brandModel;
 
     /**
      * 发证日期。
      */
-    public String openingDate;
+    private String openingDate;
 
     /**
      * 使用性质。
      */
-    public String usingProperties;
+    private String usingProperties;
 
     /**
      * 发动机号码。
      */
-    public String engineNo;
+    private String engineNo;
 
     /**
      * 车牌号。
      */
-    public String plateNo;
+    private String plateNo;
 
     /**
      * 所有人。
      */
-    public String possessor;
+    private String possessor;
 
     /**
      * 住址。
      */
-    public String address;
+    private String address;
 
     /**
      * 注册日期。
      */
-    public String registrationDate;
+    private String registrationDate;
 
     /**
      * 车辆识别代号。
      */
-    public String vin;
+    private String vin;
 
     /**
      * 车辆类型。
      */
-    public String vehicleType;
+    private String vehicleType;
 
     /**
      * 行驶证检测业务返回码，0 成功，其他失败。
      */
-    public String code;
+    private String code;
 
     /**
      * 行驶证检测业务返回码对应说明。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 交易号，唯一。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     public VehicleLicenseData setBrandModel(String brandModel) {
         this.brandModel = brandModel;
@@ -135,5 +135,57 @@ public class VehicleLicenseData extends CloudSdkModel {
     public VehicleLicenseData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
         return this;
+    }
+
+    public String getBrandModel() {
+        return this.brandModel;
+    }
+
+    public String getOpeningDate() {
+        return this.openingDate;
+    }
+
+    public String getUsingProperties() {
+        return this.usingProperties;
+    }
+
+    public String getEngineNo() {
+        return this.engineNo;
+    }
+
+    public String getPlateNo() {
+        return this.plateNo;
+    }
+
+    public String getPossessor() {
+        return this.possessor;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getRegistrationDate() {
+        return this.registrationDate;
+    }
+
+    public String getVin() {
+        return this.vin;
+    }
+
+    public String getVehicleType() {
+        return this.vehicleType;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
     }
 }

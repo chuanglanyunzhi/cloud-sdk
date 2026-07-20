@@ -10,17 +10,17 @@ public class IntSmsCostItem extends CloudSdkModel {
     /**
      * 业务账号。
      */
-    public String account;
+    private String account;
 
     /**
      * 统计日期。
      */
-    public String pttDay;
+    private String pttDay;
 
     /**
      * 当日短信消耗金额。
      */
-    public String costTotal;
+    private String costTotal;
 
     public IntSmsCostItem setAccount(String account) {
         this.account = account;
@@ -35,5 +35,17 @@ public class IntSmsCostItem extends CloudSdkModel {
     public IntSmsCostItem setCostTotal(String costTotal) {
         this.costTotal = costTotal;
         return this;
+    }
+
+    public String getAccount() {
+        return this.account;
+    }
+
+    public String getPttDay() {
+        return this.pttDay;
+    }
+
+    public String getCostTotal() {
+        return this.costTotal;
     }
 }

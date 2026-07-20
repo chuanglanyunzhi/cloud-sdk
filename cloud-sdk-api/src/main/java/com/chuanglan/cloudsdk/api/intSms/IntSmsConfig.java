@@ -7,24 +7,20 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class IntSmsConfig extends CloudSdkModel {
 
-    /** 上海节点。 */
     public static final String SHANGHAI_ENDPOINT = "https://intapi.tig253.com";
-
-    /** 新加坡节点。 */
     public static final String SINGAPORE_ENDPOINT = "https://sg-intapi.tig253.com";
-
-    /** 印尼节点。 */
     public static final String INDONESIA_ENDPOINT = "https://id-api.tig253.com";
 
-    /**
-     * 连接超时，单位毫秒。
-     */
-    public Integer connectTimeout = 10000;
+    private Integer connectTimeout = 10000;
+    private Integer readTimeout = 10000;
 
-    /**
-     * 读取超时，单位毫秒。
-     */
-    public Integer readTimeout = 10000;
+    public Integer getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public Integer getReadTimeout() {
+        return readTimeout;
+    }
 
     public IntSmsConfig setConnectTimeout(Integer connectTimeout) {
         this.connectTimeout = connectTimeout;

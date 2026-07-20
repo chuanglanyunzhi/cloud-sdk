@@ -10,177 +10,177 @@ public class EnterpriseSimpleBasic extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entname;
+    private String entname;
 
     /**
      * 企业曾用名。
      */
-    public String entnameold;
+    private String entnameold;
 
     /**
      * 统一社会信用代码。
      */
-    public String creditcode;
+    private String creditcode;
 
     /**
      * 注册号。
      */
-    public String regno;
+    private String regno;
 
     /**
      * 法定代表人。
      */
-    public String frname;
+    private String frname;
 
     /**
      * 成立日期。
      */
-    public String esdate;
+    private String esdate;
 
     /**
      * 行业门类代码。
      */
-    public String industrycocode;
+    private String industrycocode;
 
     /**
      * 行业门类名称。
      */
-    public String industryconame;
+    private String industryconame;
 
     /**
      * 注册资本。
      */
-    public String regcap;
+    private String regcap;
 
     /**
      * 注册资本币种。
      */
-    public String regcapcur;
+    private String regcapcur;
 
     /**
      * 实收资本。
      */
-    public String reccap;
+    private String reccap;
 
     /**
      * 登记机关。
      */
-    public String regorg;
+    private String regorg;
 
     /**
      * 企业状态。
      */
-    public String entstatus;
+    private String entstatus;
 
     /**
      * 企业类型。
      */
-    public String enttype;
+    private String enttype;
 
     /**
      * 经营期限自。
      */
-    public String opfrom;
+    private String opfrom;
 
     /**
      * 经营期限至。
      */
-    public String opto;
+    private String opto;
 
     /**
      * 登记机关省份。
      */
-    public String regorgprovince;
+    private String regorgprovince;
 
     /**
      * 登记机关城市。
      */
-    public String regorgcity;
+    private String regorgcity;
 
     /**
      * 登记机关区县。
      */
-    public String regorgdistrict;
+    private String regorgdistrict;
 
     /**
      * 邮箱。
      */
-    public String email;
+    private String email;
 
     /**
      * 住所。
      */
-    public String dom;
+    private String dom;
 
     /**
      * 经营范围。
      */
-    public String abuitem;
+    private String abuitem;
 
     /**
      * 年报年份。
      */
-    public String ancheyear;
+    private String ancheyear;
 
     /**
      * 电话。
      */
-    public String tel;
+    private String tel;
 
     /**
      * 从业人数。
      */
-    public String empnum;
+    private String empnum;
 
     /**
      * 撤销日期。
      */
-    public String revdate;
+    private String revdate;
 
     /**
      * 吊销日期。
      */
-    public String candate;
+    private String candate;
 
     /**
      * 核准日期。
      */
-    public String apprdate;
+    private String apprdate;
 
     /**
      * 住所行政区划。
      */
-    public String domdistrict;
+    private String domdistrict;
 
     /**
      * 登记机关代码。
      */
-    public String regorgcode;
+    private String regorgcode;
 
     /**
      * 企业类型代码。
      */
-    public String enttypecode;
+    private String enttypecode;
 
     /**
      * 行业门类代码。
      */
-    public String industryphycode;
+    private String industryphycode;
 
     /**
      * 行业门类名称。
      */
-    public String industryphyname;
+    private String industryphyname;
 
     /**
      * 行业代码及名称。
      */
-    public String industrycoall;
+    private String industrycoall;
 
     /**
      * 行业门类代码及名称。
      */
-    public String industryphyall;
+    private String industryphyall;
 
     public EnterpriseSimpleBasic setEntname(String entname) {
         this.entname = entname;
@@ -355,5 +355,145 @@ public class EnterpriseSimpleBasic extends CloudSdkModel {
     public EnterpriseSimpleBasic setIndustryphyall(String industryphyall) {
         this.industryphyall = industryphyall;
         return this;
+    }
+
+    public String getEntname() {
+        return this.entname;
+    }
+
+    public String getEntnameold() {
+        return this.entnameold;
+    }
+
+    public String getCreditcode() {
+        return this.creditcode;
+    }
+
+    public String getRegno() {
+        return this.regno;
+    }
+
+    public String getFrname() {
+        return this.frname;
+    }
+
+    public String getEsdate() {
+        return this.esdate;
+    }
+
+    public String getIndustrycocode() {
+        return this.industrycocode;
+    }
+
+    public String getIndustryconame() {
+        return this.industryconame;
+    }
+
+    public String getRegcap() {
+        return this.regcap;
+    }
+
+    public String getRegcapcur() {
+        return this.regcapcur;
+    }
+
+    public String getReccap() {
+        return this.reccap;
+    }
+
+    public String getRegorg() {
+        return this.regorg;
+    }
+
+    public String getEntstatus() {
+        return this.entstatus;
+    }
+
+    public String getEnttype() {
+        return this.enttype;
+    }
+
+    public String getOpfrom() {
+        return this.opfrom;
+    }
+
+    public String getOpto() {
+        return this.opto;
+    }
+
+    public String getRegorgprovince() {
+        return this.regorgprovince;
+    }
+
+    public String getRegorgcity() {
+        return this.regorgcity;
+    }
+
+    public String getRegorgdistrict() {
+        return this.regorgdistrict;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getDom() {
+        return this.dom;
+    }
+
+    public String getAbuitem() {
+        return this.abuitem;
+    }
+
+    public String getAncheyear() {
+        return this.ancheyear;
+    }
+
+    public String getTel() {
+        return this.tel;
+    }
+
+    public String getEmpnum() {
+        return this.empnum;
+    }
+
+    public String getRevdate() {
+        return this.revdate;
+    }
+
+    public String getCandate() {
+        return this.candate;
+    }
+
+    public String getApprdate() {
+        return this.apprdate;
+    }
+
+    public String getDomdistrict() {
+        return this.domdistrict;
+    }
+
+    public String getRegorgcode() {
+        return this.regorgcode;
+    }
+
+    public String getEnttypecode() {
+        return this.enttypecode;
+    }
+
+    public String getIndustryphycode() {
+        return this.industryphycode;
+    }
+
+    public String getIndustryphyname() {
+        return this.industryphyname;
+    }
+
+    public String getIndustrycoall() {
+        return this.industrycoall;
+    }
+
+    public String getIndustryphyall() {
+        return this.industryphyall;
     }
 }

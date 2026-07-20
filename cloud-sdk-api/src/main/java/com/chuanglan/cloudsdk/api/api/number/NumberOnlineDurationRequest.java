@@ -12,22 +12,22 @@ public class NumberOnlineDurationRequest extends CloudSdkModel {
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 加密类型：md5 小写 或 sha256。
      */
-    public String encrypt;
+    private String encrypt;
 
     /**
      * 加密数据字段，例如 mobile。
      */
-    public String encryptFields;
+    private String encryptFields;
 
     /**
      * 交易流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     public NumberOnlineDurationRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -47,5 +47,21 @@ public class NumberOnlineDurationRequest extends CloudSdkModel {
     public NumberOnlineDurationRequest setOrderNo(String orderNo) {
         this.orderNo = orderNo;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getEncrypt() {
+        return this.encrypt;
+    }
+
+    public String getEncryptFields() {
+        return this.encryptFields;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
     }
 }

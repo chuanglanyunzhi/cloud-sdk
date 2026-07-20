@@ -10,10 +10,14 @@ public class IpRiskPortraitInnerData extends CloudSdkModel {
     /**
      * 风险画像结果。
      */
-    public IpRiskPortraitRisk risk;
+    private IpRiskPortraitRisk risk;
 
     public IpRiskPortraitInnerData setRisk(IpRiskPortraitRisk risk) {
         this.risk = risk;
         return this;
+    }
+
+    public IpRiskPortraitRisk getRisk() {
+        return this.risk;
     }
 }

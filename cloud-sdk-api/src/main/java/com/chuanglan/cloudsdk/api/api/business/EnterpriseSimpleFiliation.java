@@ -10,47 +10,47 @@ public class EnterpriseSimpleFiliation extends CloudSdkModel {
     /**
      * 分支机构名称。
      */
-    public String brname;
+    private String brname;
 
     /**
      * 分支机构统一社会信用代码。
      */
-    public String brncreditcode;
+    private String brncreditcode;
 
     /**
      * 分支机构注册号。
      */
-    public String brregno;
+    private String brregno;
 
     /**
      * 分支机构登记机关。
      */
-    public String brnregorg;
+    private String brnregorg;
 
     /**
      * 分支机构成立日期。
      */
-    public String brnEsdate;
+    private String brnEsdate;
 
     /**
      * 分支机构企业状态。
      */
-    public String brnEntStatus;
+    private String brnEntStatus;
 
     /**
      * 分支机构企业状态代码。
      */
-    public String brnEntStatusCode;
+    private String brnEntStatusCode;
 
     /**
      * 分支机构省份代码。
      */
-    public String brnProvinceCode;
+    private String brnProvinceCode;
 
     /**
      * 分支机构省份名称。
      */
-    public String brnProvinceName;
+    private String brnProvinceName;
 
     public EnterpriseSimpleFiliation setBrname(String brname) {
         this.brname = brname;
@@ -95,5 +95,41 @@ public class EnterpriseSimpleFiliation extends CloudSdkModel {
     public EnterpriseSimpleFiliation setBrnProvinceName(String brnProvinceName) {
         this.brnProvinceName = brnProvinceName;
         return this;
+    }
+
+    public String getBrname() {
+        return this.brname;
+    }
+
+    public String getBrncreditcode() {
+        return this.brncreditcode;
+    }
+
+    public String getBrregno() {
+        return this.brregno;
+    }
+
+    public String getBrnregorg() {
+        return this.brnregorg;
+    }
+
+    public String getBrnEsdate() {
+        return this.brnEsdate;
+    }
+
+    public String getBrnEntStatus() {
+        return this.brnEntStatus;
+    }
+
+    public String getBrnEntStatusCode() {
+        return this.brnEntStatusCode;
+    }
+
+    public String getBrnProvinceCode() {
+        return this.brnProvinceCode;
+    }
+
+    public String getBrnProvinceName() {
+        return this.brnProvinceName;
     }
 }

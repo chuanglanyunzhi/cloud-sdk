@@ -10,37 +10,37 @@ public class EnterpriseSimpleShareholder extends CloudSdkModel {
     /**
      * 股东名称。
      */
-    public String shareholder_name;
+    private String shareholder_name;
 
     /**
      * 认缴出资额。
      */
-    public String subscrib_amt;
+    private String subscrib_amt;
 
     /**
      * 认缴出资方式。
      */
-    public String subscrib_form;
+    private String subscrib_form;
 
     /**
      * 认缴出资日期。
      */
-    public String subscrib_date;
+    private String subscrib_date;
 
     /**
      * 实缴出资额。
      */
-    public String actual_amt;
+    private String actual_amt;
 
     /**
      * 实缴出资方式。
      */
-    public String actual_form;
+    private String actual_form;
 
     /**
      * 实缴出资日期。
      */
-    public String actual_date;
+    private String actual_date;
 
     public EnterpriseSimpleShareholder setShareholder_name(String shareholder_name) {
         this.shareholder_name = shareholder_name;
@@ -75,5 +75,33 @@ public class EnterpriseSimpleShareholder extends CloudSdkModel {
     public EnterpriseSimpleShareholder setActual_date(String actual_date) {
         this.actual_date = actual_date;
         return this;
+    }
+
+    public String getShareholder_name() {
+        return this.shareholder_name;
+    }
+
+    public String getSubscrib_amt() {
+        return this.subscrib_amt;
+    }
+
+    public String getSubscrib_form() {
+        return this.subscrib_form;
+    }
+
+    public String getSubscrib_date() {
+        return this.subscrib_date;
+    }
+
+    public String getActual_amt() {
+        return this.actual_amt;
+    }
+
+    public String getActual_form() {
+        return this.actual_form;
+    }
+
+    public String getActual_date() {
+        return this.actual_date;
     }
 }

@@ -12,22 +12,22 @@ public class BankCardFourAuthPrecisionRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 身份证号码。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 银行卡号。
      */
-    public String cardNo;
+    private String cardNo;
 
     /**
      * 银行预留手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 证件类型（默认不填为身份证）。
@@ -36,7 +36,7 @@ public class BankCardFourAuthPrecisionRequest extends CloudSdkModel {
      * 15：港澳居民来往内地通行证（回乡证），18：台湾居民居住证，
      * 19：港澳居民居住证，20：外国护照，21：旅行证，22：出入境通行证。
      */
-    public String idType;
+    private String idType;
 
     public BankCardFourAuthPrecisionRequest setName(String name) {
         this.name = name;
@@ -61,5 +61,25 @@ public class BankCardFourAuthPrecisionRequest extends CloudSdkModel {
     public BankCardFourAuthPrecisionRequest setIdType(String idType) {
         this.idType = idType;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getCardNo() {
+        return this.cardNo;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getIdType() {
+        return this.idType;
     }
 }

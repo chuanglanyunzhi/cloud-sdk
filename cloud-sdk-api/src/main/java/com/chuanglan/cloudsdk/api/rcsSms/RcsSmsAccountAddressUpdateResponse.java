@@ -10,7 +10,7 @@ public class RcsSmsAccountAddressUpdateResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsAccountAddressUpdateResponse setData(Data data) {
         this.data = data;
@@ -25,12 +25,12 @@ public class RcsSmsAccountAddressUpdateResponse extends RcsSmsCommonResponse {
         /**
          * 是否更新成功。
          */
-        public Boolean success;
+        private Boolean success;
 
         /**
          * 处理状态。
          */
-        public String status;
+        private String status;
 
         public Data setSuccess(Boolean success) {
             this.success = success;
@@ -41,5 +41,17 @@ public class RcsSmsAccountAddressUpdateResponse extends RcsSmsCommonResponse {
             this.status = status;
             return this;
         }
+
+        public Boolean getSuccess() {
+            return this.success;
+        }
+
+        public String getStatus() {
+            return this.status;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

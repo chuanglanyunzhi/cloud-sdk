@@ -8,10 +8,14 @@ public class IntSmsSubmitResponse extends IntSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public IntSmsSubmitResponseData data;
+    private IntSmsSubmitResponseData data;
 
     public IntSmsSubmitResponse setData(IntSmsSubmitResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public IntSmsSubmitResponseData getData() {
+        return this.data;
     }
 }

@@ -12,17 +12,17 @@ public class CarriersAuthRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 身份证号。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     public CarriersAuthRequest setName(String name) {
         this.name = name;
@@ -37,5 +37,17 @@ public class CarriersAuthRequest extends CloudSdkModel {
     public CarriersAuthRequest setMobile(String mobile) {
         this.mobile = mobile;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getMobile() {
+        return this.mobile;
     }
 }

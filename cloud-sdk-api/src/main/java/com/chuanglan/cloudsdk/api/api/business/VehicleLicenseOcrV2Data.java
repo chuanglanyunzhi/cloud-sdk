@@ -10,12 +10,12 @@ public class VehicleLicenseOcrV2Data extends CloudSdkModel {
     /**
      * 正页数据。
      */
-    public VehicleLicenseOcrV2FrontData front;
+    private VehicleLicenseOcrV2FrontData front;
 
     /**
      * 副页数据。
      */
-    public VehicleLicenseOcrV2BackData back;
+    private VehicleLicenseOcrV2BackData back;
 
     public VehicleLicenseOcrV2Data setFront(VehicleLicenseOcrV2FrontData front) {
         this.front = front;
@@ -25,5 +25,13 @@ public class VehicleLicenseOcrV2Data extends CloudSdkModel {
     public VehicleLicenseOcrV2Data setBack(VehicleLicenseOcrV2BackData back) {
         this.back = back;
         return this;
+    }
+
+    public VehicleLicenseOcrV2FrontData getFront() {
+        return this.front;
+    }
+
+    public VehicleLicenseOcrV2BackData getBack() {
+        return this.back;
     }
 }

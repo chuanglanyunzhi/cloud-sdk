@@ -10,22 +10,22 @@ public class RcsSmsReplyItem extends CloudSdkModel {
     /**
      * 消息 ID。
      */
-    public String messageId;
+    private String messageId;
 
     /**
      * 接收手机号。
      */
-    public String phone;
+    private String phone;
 
     /**
      * 回复内容。
      */
-    public String content;
+    private String content;
 
     /**
      * 回复时间。
      */
-    public String replyTime;
+    private String replyTime;
 
     public RcsSmsReplyItem setMessageId(String messageId) {
         this.messageId = messageId;
@@ -45,5 +45,21 @@ public class RcsSmsReplyItem extends CloudSdkModel {
     public RcsSmsReplyItem setReplyTime(String replyTime) {
         this.replyTime = replyTime;
         return this;
+    }
+
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getReplyTime() {
+        return this.replyTime;
     }
 }

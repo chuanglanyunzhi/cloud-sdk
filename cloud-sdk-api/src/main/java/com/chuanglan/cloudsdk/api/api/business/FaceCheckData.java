@@ -10,22 +10,22 @@ public class FaceCheckData extends CloudSdkModel {
     /**
      * 人脸 ID。
      */
-    public String faceId;
+    private String faceId;
 
     /**
      * 是否活体：0 非活体，1 活体。
      */
-    public String isLived;
+    private String isLived;
 
     /**
      * 活体分数，范围 0-100。
      */
-    public Float score;
+    private Float score;
 
     /**
      * 结果描述。
      */
-    public String msg;
+    private String msg;
 
     public FaceCheckData setFaceId(String faceId) {
         this.faceId = faceId;
@@ -45,5 +45,21 @@ public class FaceCheckData extends CloudSdkModel {
     public FaceCheckData setMsg(String msg) {
         this.msg = msg;
         return this;
+    }
+
+    public String getFaceId() {
+        return this.faceId;
+    }
+
+    public String getIsLived() {
+        return this.isLived;
+    }
+
+    public Float getScore() {
+        return this.score;
+    }
+
+    public String getMsg() {
+        return this.msg;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 253 国际短信服务 SDK 入口。
  */
-public class IntSmsClient {
+public class IntSmsClient implements AutoCloseable {
 
     private static final String SUBMIT_PATH = "/intsms/v2/sms/submit";
 
@@ -26,14 +26,11 @@ public class IntSmsClient {
     private final IntSmsConfig config;
     private final HttpTransport httpTransport;
     private final ObjectMapper objectMapper;
+    /** 仅当自行创建 httpTransport 时才在 close() 中释放，避免误关闭外部注入的共享连接池。 */
+    private final boolean ownsTransport;
 
     public IntSmsClient(IntSmsConfig config) {
-        if (config == null) {
-            throw new IllegalArgumentException("IntSmsConfig must not be null");
-        }
-        this.config = config;
-        this.httpTransport = new HttpTransport();
-        this.objectMapper = CloudSdkModel.getMapper();
+        this(config, null);
     }
 
     public IntSmsClient(IntSmsConfig config, HttpTransport httpTransport) {
@@ -41,8 +38,19 @@ public class IntSmsClient {
             throw new IllegalArgumentException("IntSmsConfig must not be null");
         }
         this.config = config;
+        this.ownsTransport = httpTransport == null;
         this.httpTransport = httpTransport != null ? httpTransport : new HttpTransport();
         this.objectMapper = CloudSdkModel.getMapper();
+    }
+
+    /**
+     * 释放本实例自行创建的底层 OkHttp 连接池；若 httpTransport 由外部注入则不关闭。
+     */
+    @Override
+    public void close() {
+        if (ownsTransport) {
+            httpTransport.close();
+        }
     }
 
     /**
@@ -175,11 +183,11 @@ public class IntSmsClient {
         validateCredentials(appId, appSecret);
 
         RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
+        if (config.getConnectTimeout() != null) {
+            runtime.setConnectTimeout(config.getConnectTimeout());
         }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
+        if (config.getReadTimeout() != null) {
+            runtime.setReadTimeout(config.getReadTimeout());
         }
         RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
                 runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
@@ -241,13 +249,13 @@ public class IntSmsClient {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IntSmsSubmitRequest 不能为空", null, 0);
         }
-        if (request.productType == null || request.productType.isEmpty()) {
+        if (request.getProductType() == null || request.getProductType().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "productType 不能为空", null, 0);
         }
-        if (request.message == null || request.message.isEmpty()) {
+        if (request.getMessage() == null || request.getMessage().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "message 不能为空", null, 0);
         }
-        if (request.phoneNumbers == null || request.phoneNumbers.isEmpty()) {
+        if (request.getPhoneNumbers() == null || request.getPhoneNumbers().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "phoneNumbers 不能为空", null, 0);
         }
     }
@@ -256,10 +264,10 @@ public class IntSmsClient {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IntSmsCostRequest 不能为空", null, 0);
         }
-        if (request.startDate == null || request.startDate.isEmpty()) {
+        if (request.getStartDate() == null || request.getStartDate().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "startDate 不能为空", null, 0);
         }
-        if (request.endDate == null || request.endDate.isEmpty()) {
+        if (request.getEndDate() == null || request.getEndDate().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "endDate 不能为空", null, 0);
         }
     }

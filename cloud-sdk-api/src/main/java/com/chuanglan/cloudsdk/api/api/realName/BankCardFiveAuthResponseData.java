@@ -10,42 +10,42 @@ public class BankCardFiveAuthResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 查询时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 银行卡所属银行。
      */
-    public String bankName;
+    private String bankName;
 
     /**
      * 银行卡类型。
      */
-    public String cardType;
+    private String cardType;
 
     /**
      * 银行卡类别。
      */
-    public String cardCategory;
+    private String cardCategory;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     /**
      * 认证结果：01 认证信息匹配（收费），02 不匹配（收费），03 无法验证（收费），04 认证失败（不收费）。
      */
-    public String result;
+    private String result;
 
     /**
      * 银行账户类型：0 暂不支持，1 疑似 I 类，2 II 类，3 III 类，4 II 或 III 类，5 贷记卡，7 未知。
      */
-    public String bankAccountType;
+    private String bankAccountType;
 
     public BankCardFiveAuthResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -85,5 +85,37 @@ public class BankCardFiveAuthResponseData extends CloudSdkModel {
     public BankCardFiveAuthResponseData setBankAccountType(String bankAccountType) {
         this.bankAccountType = bankAccountType;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    public String getCardType() {
+        return this.cardType;
+    }
+
+    public String getCardCategory() {
+        return this.cardCategory;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getBankAccountType() {
+        return this.bankAccountType;
     }
 }

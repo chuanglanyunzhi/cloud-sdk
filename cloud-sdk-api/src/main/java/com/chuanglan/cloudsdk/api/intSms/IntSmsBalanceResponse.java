@@ -8,10 +8,14 @@ public class IntSmsBalanceResponse extends IntSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public IntSmsBalanceResponseData data;
+    private IntSmsBalanceResponseData data;
 
     public IntSmsBalanceResponse setData(IntSmsBalanceResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public IntSmsBalanceResponseData getData() {
+        return this.data;
     }
 }

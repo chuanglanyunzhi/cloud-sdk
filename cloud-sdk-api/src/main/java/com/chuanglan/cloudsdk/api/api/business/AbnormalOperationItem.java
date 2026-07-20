@@ -10,32 +10,32 @@ public class AbnormalOperationItem extends CloudSdkModel {
     /**
      * 列入日期。
      */
-    public String indate;
+    private String indate;
 
     /**
      * 列入机关。
      */
-    public String inorg;
+    private String inorg;
 
     /**
      * 列入原因。
      */
-    public String inreason;
+    private String inreason;
 
     /**
      * 移出日期。
      */
-    public String outdate;
+    private String outdate;
 
     /**
      * 移出机关。
      */
-    public String outorg;
+    private String outorg;
 
     /**
      * 移出原因。
      */
-    public String outreason;
+    private String outreason;
 
     public AbnormalOperationItem setIndate(String indate) {
         this.indate = indate;
@@ -65,5 +65,29 @@ public class AbnormalOperationItem extends CloudSdkModel {
     public AbnormalOperationItem setOutreason(String outreason) {
         this.outreason = outreason;
         return this;
+    }
+
+    public String getIndate() {
+        return this.indate;
+    }
+
+    public String getInorg() {
+        return this.inorg;
+    }
+
+    public String getInreason() {
+        return this.inreason;
+    }
+
+    public String getOutdate() {
+        return this.outdate;
+    }
+
+    public String getOutorg() {
+        return this.outorg;
+    }
+
+    public String getOutreason() {
+        return this.outreason;
     }
 }

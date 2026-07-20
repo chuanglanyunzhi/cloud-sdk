@@ -3,6 +3,8 @@ package com.chuanglan.cloudsdk.core;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -122,8 +124,9 @@ public class HttpTransport implements AutoCloseable {
         if (lastException instanceof CloudSdkException) {
             throw (CloudSdkException) lastException;
         }
-        throw new CloudSdkException("RequestError",
-                "请求最终失败，已尝试 " + attempt + " 次: " + lastException.getMessage(),
+        String cause = lastException != null ? lastException.getMessage() : "重试策略 maxAttempts 配置非法，未发起任何请求";
+        throw new CloudSdkRequestException("RequestError",
+                "请求最终失败，已尝试 " + attempt + " 次: " + cause,
                 null, 0, lastException);
     }
 
@@ -229,11 +232,19 @@ public class HttpTransport implements AutoCloseable {
         String url = request.getUrl();
         if (request.getQuery() != null && !request.getQuery().isEmpty()) {
             String query = request.getQuery().entrySet().stream()
-                    .map(e -> e.getKey() + "=" + e.getValue())
+                    .map(e -> encodeQueryParam(e.getKey()) + "=" + encodeQueryParam(String.valueOf(e.getValue())))
                     .collect(Collectors.joining("&"));
             url = url + (url.contains("?") ? "&" : "?") + query;
         }
         return url;
+    }
+
+    private static String encodeQueryParam(String value) {
+        try {
+            return URLEncoder.encode(value, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return value; // UTF-8 is always available
+        }
     }
 
     private SyncResponse handleResponse(okhttp3.Response response) throws IOException, CloudSdkException {
@@ -255,7 +266,7 @@ public class HttpTransport implements AutoCloseable {
             } catch (CloudSdkException ignored) {
                 // body 不是 JSON，使用默认错误码
             }
-            throw new CloudSdkException(code, buildErrorMessage(statusCode, code, body), requestId, statusCode);
+            throw new CloudSdkRequestException(code, buildErrorMessage(statusCode, code, body), requestId, statusCode);
         }
         return new SyncResponse(statusCode, headers, body);
     }

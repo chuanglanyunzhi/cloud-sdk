@@ -12,42 +12,42 @@ public class RcsSmsTemplateUpdateRequest extends CloudSdkModel {
     /**
      * 模板 ID。
      */
-    public String templateId;
+    private String templateId;
 
     /**
      * 模板名称。
      */
-    public String templateName;
+    private String templateName;
 
     /**
      * 模板签名。
      */
-    public String sign;
+    private String sign;
 
     /**
      * 视频资源 URL。
      */
-    public String videoUrl;
+    private String videoUrl;
 
     /**
      * 视频封面 URL。
      */
-    public String coverUrl;
+    private String coverUrl;
 
     /**
      * 视频短信文本内容。
      */
-    public String content;
+    private String content;
 
     /**
      * 模板状态。
      */
-    public String status;
+    private String status;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     public RcsSmsTemplateUpdateRequest setTemplateId(String templateId) {
         this.templateId = templateId;
@@ -87,5 +87,37 @@ public class RcsSmsTemplateUpdateRequest extends CloudSdkModel {
     public RcsSmsTemplateUpdateRequest setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getTemplateId() {
+        return this.templateId;
+    }
+
+    public String getTemplateName() {
+        return this.templateName;
+    }
+
+    public String getSign() {
+        return this.sign;
+    }
+
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public String getCoverUrl() {
+        return this.coverUrl;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

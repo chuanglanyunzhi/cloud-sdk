@@ -8,12 +8,12 @@ public class IdOcrResponse extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 返回数据。
      */
-    public IdOcrData data;
+    private IdOcrData data;
 
     public IdOcrResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -23,5 +23,13 @@ public class IdOcrResponse extends BusinessCommonResponse {
     public IdOcrResponse setData(IdOcrData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public IdOcrData getData() {
+        return this.data;
     }
 }

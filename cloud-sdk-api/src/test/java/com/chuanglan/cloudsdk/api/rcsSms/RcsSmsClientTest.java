@@ -51,11 +51,11 @@ class RcsSmsClientTest {
         RcsSmsTemplateAddResponse response = client.addVideoTemplate("APP_xxxx", "AAABBBCCC", request, "trace_rcs_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("202607150001", response.requestId);
-        assertNotNull(response.data);
-        assertEquals("TPL_123", response.data.templateId);
-        assertEquals("1", response.data.status);
+        assertEquals("success", response.getMsg());
+        assertEquals("202607150001", response.getRequestId());
+        assertNotNull(response.getData());
+        assertEquals("TPL_123", response.getData().getTemplateId());
+        assertEquals("1", response.getData().getStatus());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/rcs/api/v2/template/addVideo"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_rcs_001")));
@@ -79,10 +79,10 @@ class RcsSmsClientTest {
         RcsSmsTemplateSubmitResponse response = client.submitVideoTemplate("APP_xxxx", "AAABBBCCC", request);
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals("MSG_456", response.data.messageId);
-        assertEquals(Integer.valueOf(2), response.data.total);
-        assertNotNull(response.data.errorPhone);
+        assertNotNull(response.getData());
+        assertEquals("MSG_456", response.getData().getMessageId());
+        assertEquals(Integer.valueOf(2), response.getData().getTotal());
+        assertNotNull(response.getData().getErrorPhone());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/rcs/api/v2/msg/submitVideoTemplate"))
                 .withRequestBody(containing("+8613800138000")));
@@ -99,9 +99,9 @@ class RcsSmsClientTest {
         RcsSmsBalanceResponse response = client.getBalance("APP_xxxx", "AAABBBCCC", new RcsSmsBalanceRequest().setProductType("rcs"));
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals("1234.56", response.data.balance);
-        assertEquals("条", response.data.unit);
+        assertNotNull(response.getData());
+        assertEquals("1234.56", response.getData().getBalance());
+        assertEquals("条", response.getData().getUnit());
     }
 
     @Test

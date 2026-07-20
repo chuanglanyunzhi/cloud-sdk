@@ -8,17 +8,17 @@ public class NumberMobStatusBasicResponse extends NumberCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 号码实时基础版业务数据。
      */
-    public NumberMobStatusBasicResponseData data;
+    private NumberMobStatusBasicResponseData data;
 
     public NumberMobStatusBasicResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class NumberMobStatusBasicResponse extends NumberCommonResponse {
     public NumberMobStatusBasicResponse setData(NumberMobStatusBasicResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public NumberMobStatusBasicResponseData getData() {
+        return this.data;
     }
 }

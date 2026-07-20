@@ -10,17 +10,17 @@ public class AdministrativeSanctionQueryResponse extends BusinessCommonResponse 
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public String chargeCount;
+    private String chargeCount;
 
     /**
      * 行政处罚列表。
      */
-    public List<AdministrativeSanctionItem> data;
+    private List<AdministrativeSanctionItem> data;
 
     public AdministrativeSanctionQueryResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -39,6 +39,18 @@ public class AdministrativeSanctionQueryResponse extends BusinessCommonResponse 
 
     @Override
     public boolean isSuccess() {
-        return "200000".equals(code) || super.isSuccess();
+        return "200000".equals(getCode()) || super.isSuccess();
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public String getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public List<AdministrativeSanctionItem> getData() {
+        return this.data;
     }
 }

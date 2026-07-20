@@ -8,17 +8,17 @@ public class NumberOnlineDurationResponse extends NumberCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 号码在网时长业务数据。
      */
-    public NumberOnlineDurationResponseData data;
+    private NumberOnlineDurationResponseData data;
 
     public NumberOnlineDurationResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class NumberOnlineDurationResponse extends NumberCommonResponse {
     public NumberOnlineDurationResponse setData(NumberOnlineDurationResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public NumberOnlineDurationResponseData getData() {
+        return this.data;
     }
 }

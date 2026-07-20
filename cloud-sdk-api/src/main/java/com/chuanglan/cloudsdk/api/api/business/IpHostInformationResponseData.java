@@ -10,17 +10,17 @@ public class IpHostInformationResponseData extends CloudSdkModel {
     /**
      * 底层服务返回码，200：成功。
      */
-    public Integer code;
+    private Integer code;
 
     /**
      * 底层服务响应说明。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 业务数据对象。
      */
-    public IpHostInformationInnerData data;
+    private IpHostInformationInnerData data;
 
     public IpHostInformationResponseData setCode(Integer code) {
         this.code = code;
@@ -35,5 +35,17 @@ public class IpHostInformationResponseData extends CloudSdkModel {
     public IpHostInformationResponseData setData(IpHostInformationInnerData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public IpHostInformationInnerData getData() {
+        return this.data;
     }
 }

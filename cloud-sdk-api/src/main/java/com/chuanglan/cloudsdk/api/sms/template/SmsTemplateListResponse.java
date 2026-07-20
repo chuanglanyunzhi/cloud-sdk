@@ -8,10 +8,14 @@ import com.chuanglan.cloudsdk.api.sms.SmsPageData;
  */
 public class SmsTemplateListResponse extends SmsCommonResponse {
 
-    public SmsPageData<SmsTemplateListItem> data;
+    private SmsPageData<SmsTemplateListItem> data;
 
     public SmsTemplateListResponse setData(SmsPageData<SmsTemplateListItem> data) {
         this.data = data;
         return this;
+    }
+
+    public SmsPageData<SmsTemplateListItem> getData() {
+        return this.data;
     }
 }

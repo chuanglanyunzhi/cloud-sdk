@@ -8,11 +8,13 @@ import java.util.Map;
 /**
  * API 业务 SDK 客户端基类，封装通用请求发送、序列化与响应解析逻辑。
  */
-public abstract class ApiClient<C extends ApiConfig> {
+public abstract class ApiClient<C extends ApiConfig> implements AutoCloseable {
 
     protected final C config;
     protected final HttpTransport httpTransport;
     protected final ObjectMapper objectMapper;
+    /** 仅当本实例自行创建 httpTransport（未从外部注入）时才在 close() 中释放，避免误关闭被多个客户端共享的连接池。 */
+    private final boolean ownsTransport;
 
     protected ApiClient(C config) {
         this(config, null);
@@ -23,8 +25,20 @@ public abstract class ApiClient<C extends ApiConfig> {
             throw new IllegalArgumentException("config must not be null");
         }
         this.config = config;
+        this.ownsTransport = httpTransport == null;
         this.httpTransport = httpTransport != null ? httpTransport : new HttpTransport();
         this.objectMapper = CloudSdkModel.getMapper();
+    }
+
+    /**
+     * 释放本实例自行创建的底层 OkHttp 连接池；若 httpTransport 由外部注入（如通过 {@code CloudApiClient} 共享），
+     * 则不会关闭，调用方应自行管理该共享实例的生命周期。
+     */
+    @Override
+    public void close() {
+        if (ownsTransport) {
+            httpTransport.close();
+        }
     }
 
     /**
@@ -44,11 +58,11 @@ public abstract class ApiClient<C extends ApiConfig> {
         validateCredentials(appId, appSecret);
 
         RuntimeOptions runtime = new RuntimeOptions();
-        if (config.connectTimeout != null) {
-            runtime.connectTimeout = config.connectTimeout;
+        if (config.getConnectTimeout() != null) {
+            runtime.setConnectTimeout(config.getConnectTimeout());
         }
-        if (config.readTimeout != null) {
-            runtime.readTimeout = config.readTimeout;
+        if (config.getReadTimeout() != null) {
+            runtime.setReadTimeout(config.getReadTimeout());
         }
         RetryPolicy retryPolicy = new ExponentialBackoffRetryPolicy(
                 runtime.getMaxAttempts(), runtime.getBackoffPeriod(), runtime.getMaxBackoff());
@@ -102,6 +116,17 @@ public abstract class ApiClient<C extends ApiConfig> {
         } catch (Exception e) {
             throw new CloudSdkException("ParseResponseError", "响应解析失败: " + e.getMessage(), null, 0, e);
         }
+    }
+
+    /**
+     * 泛型模板方法：序列化 → 执行 → 反序列化，消除业务方法重复代码。
+     */
+    protected <Req, Resp extends ApiCommonResponse> Resp call(
+            String appId, String appSecret, String url, Req request,
+            Class<Resp> responseClass, String traceId) throws CloudSdkException {
+        String body = serializeRequest(request);
+        SyncResponse syncResponse = execute(appId, appSecret, url, body, traceId);
+        return parseResponse(syncResponse.getBody(), responseClass);
     }
 
     private void validateCredentials(String appId, String appSecret) {

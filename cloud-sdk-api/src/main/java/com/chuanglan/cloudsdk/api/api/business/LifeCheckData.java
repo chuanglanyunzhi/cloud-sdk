@@ -10,12 +10,12 @@ public class LifeCheckData extends CloudSdkModel {
     /**
      * 检测结果。
      */
-    public LifeCheckResult result;
+    private LifeCheckResult result;
 
     /**
      * 流水号。
      */
-    public String request_id;
+    private String request_id;
 
     public LifeCheckData setResult(LifeCheckResult result) {
         this.result = result;
@@ -25,5 +25,13 @@ public class LifeCheckData extends CloudSdkModel {
     public LifeCheckData setRequest_id(String request_id) {
         this.request_id = request_id;
         return this;
+    }
+
+    public LifeCheckResult getResult() {
+        return this.result;
+    }
+
+    public String getRequest_id() {
+        return this.request_id;
     }
 }

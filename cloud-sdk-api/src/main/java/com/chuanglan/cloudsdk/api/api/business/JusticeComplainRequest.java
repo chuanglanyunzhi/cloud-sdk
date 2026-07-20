@@ -12,27 +12,27 @@ public class JusticeComplainRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entName;
+    private String entName;
 
     /**
      * 页码，默认 1。
      */
-    public String pageNum;
+    private String pageNum;
 
     /**
      * 每页数量，默认 20，最大 50。
      */
-    public String pageSize;
+    private String pageSize;
 
     /**
      * 数据类型。
      */
-    public String dataType;
+    private String dataType;
 
     /**
      * 数据时间，yyyy-mm-dd。
      */
-    public String sortTime;
+    private String sortTime;
 
     public JusticeComplainRequest setEntName(String entName) {
         this.entName = entName;
@@ -57,5 +57,25 @@ public class JusticeComplainRequest extends CloudSdkModel {
     public JusticeComplainRequest setSortTime(String sortTime) {
         this.sortTime = sortTime;
         return this;
+    }
+
+    public String getEntName() {
+        return this.entName;
+    }
+
+    public String getPageNum() {
+        return this.pageNum;
+    }
+
+    public String getPageSize() {
+        return this.pageSize;
+    }
+
+    public String getDataType() {
+        return this.dataType;
+    }
+
+    public String getSortTime() {
+        return this.sortTime;
     }
 }

@@ -10,22 +10,22 @@ public class SmsCommonResponse extends CloudSdkModel {
     /**
      * 请求状态码，000000 代表成功。
      */
-    public String code;
+    private String code;
 
     /**
      * 状态说明：success=成功，error=失败。
      */
-    public String status;
+    private String status;
 
     /**
      * 提示信息。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 请求 ID。
      */
-    public String requestId;
+    private String requestId;
 
     public SmsCommonResponse setCode(String code) {
         this.code = code;
@@ -51,6 +51,22 @@ public class SmsCommonResponse extends CloudSdkModel {
      * 是否请求成功。
      */
     public boolean isSuccess() {
-        return "000000".equals(code);
+        return "000000".equals(getCode());
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getRequestId() {
+        return this.requestId;
     }
 }

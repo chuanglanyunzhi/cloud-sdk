@@ -7,10 +7,14 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsTemplateTypeEnumRequest extends CloudSdkModel {
 
-    public String productType;
+    private String productType;
 
     public SmsTemplateTypeEnumRequest setProductType(String productType) {
         this.productType = productType;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
     }
 }

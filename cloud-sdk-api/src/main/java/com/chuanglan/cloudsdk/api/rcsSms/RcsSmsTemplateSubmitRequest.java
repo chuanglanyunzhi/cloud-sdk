@@ -14,27 +14,27 @@ public class RcsSmsTemplateSubmitRequest extends CloudSdkModel {
     /**
      * 模板 ID。
      */
-    public String templateId;
+    private String templateId;
 
     /**
      * 接收手机号列表，多个手机号使用英文逗号分隔或传入列表。
      */
-    public List<String> phoneNumbers;
+    private List<String> phoneNumbers;
 
     /**
      * 模板变量参数，JSON 字符串。
      */
-    public String params;
+    private String params;
 
     /**
      * 状态回执回调地址。
      */
-    public String callbackUrl;
+    private String callbackUrl;
 
     /**
      * 业务方自定义流水号。
      */
-    public String outId;
+    private String outId;
 
     public RcsSmsTemplateSubmitRequest setTemplateId(String templateId) {
         this.templateId = templateId;
@@ -59,5 +59,25 @@ public class RcsSmsTemplateSubmitRequest extends CloudSdkModel {
     public RcsSmsTemplateSubmitRequest setOutId(String outId) {
         this.outId = outId;
         return this;
+    }
+
+    public String getTemplateId() {
+        return this.templateId;
+    }
+
+    public List<String> getPhoneNumbers() {
+        return this.phoneNumbers;
+    }
+
+    public String getParams() {
+        return this.params;
+    }
+
+    public String getCallbackUrl() {
+        return this.callbackUrl;
+    }
+
+    public String getOutId() {
+        return this.outId;
     }
 }

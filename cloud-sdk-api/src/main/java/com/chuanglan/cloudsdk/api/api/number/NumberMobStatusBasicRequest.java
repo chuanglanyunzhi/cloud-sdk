@@ -12,22 +12,22 @@ public class NumberMobStatusBasicRequest extends CloudSdkModel {
     /**
      * 手机号码。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 加密类型：md5（32 位小写）或 sha256。
      */
-    public String encrypt;
+    private String encrypt;
 
     /**
      * 加密数据字段，例如 mobile。
      */
-    public String encryptFields;
+    private String encryptFields;
 
     public NumberMobStatusBasicRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -47,5 +47,21 @@ public class NumberMobStatusBasicRequest extends CloudSdkModel {
     public NumberMobStatusBasicRequest setEncryptFields(String encryptFields) {
         this.encryptFields = encryptFields;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getEncrypt() {
+        return this.encrypt;
+    }
+
+    public String getEncryptFields() {
+        return this.encryptFields;
     }
 }

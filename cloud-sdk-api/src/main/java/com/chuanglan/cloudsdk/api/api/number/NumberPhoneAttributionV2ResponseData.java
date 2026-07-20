@@ -10,52 +10,52 @@ public class NumberPhoneAttributionV2ResponseData extends CloudSdkModel {
     /**
      * 业务唯一订单号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 查询时间，样例：2018-04-09 15:05:01。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 省份。
      */
-    public String province;
+    private String province;
 
     /**
      * 城市。
      */
-    public String city;
+    private String city;
 
     /**
      * 省份编码。
      */
-    public String provinceCode;
+    private String provinceCode;
 
     /**
      * 市区编码。
      */
-    public String cityCode;
+    private String cityCode;
 
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 邮编。
      */
-    public String postCode;
+    private String postCode;
 
     /**
      * 原来运营商。
      */
-    public String originalIsp;
+    private String originalIsp;
 
     /**
      * 现在运营商。
      */
-    public String latestIsp;
+    private String latestIsp;
 
     public NumberPhoneAttributionV2ResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -105,5 +105,45 @@ public class NumberPhoneAttributionV2ResponseData extends CloudSdkModel {
     public NumberPhoneAttributionV2ResponseData setLatestIsp(String latestIsp) {
         this.latestIsp = latestIsp;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getProvince() {
+        return this.province;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getProvinceCode() {
+        return this.provinceCode;
+    }
+
+    public String getCityCode() {
+        return this.cityCode;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getPostCode() {
+        return this.postCode;
+    }
+
+    public String getOriginalIsp() {
+        return this.originalIsp;
+    }
+
+    public String getLatestIsp() {
+        return this.latestIsp;
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class SmsTemplateOperatorRejectReasonResponse extends SmsCommonResponse {
 
-    public List<SmsTemplateRejectReasonInfo> data;
+    private List<SmsTemplateRejectReasonInfo> data;
 
     public SmsTemplateOperatorRejectReasonResponse setData(List<SmsTemplateRejectReasonInfo> data) {
         this.data = data;
@@ -18,9 +18,29 @@ public class SmsTemplateOperatorRejectReasonResponse extends SmsCommonResponse {
     }
 
     public static class SmsTemplateRejectReasonInfo extends SmsCommonResponse {
-        public String templateCode;
-        public List<SmsOperatorRejectReason> cmOperatorRejectReason;
-        public List<SmsOperatorRejectReason> ctOperatorRejectReason;
-        public List<SmsOperatorRejectReason> cuOperatorRejectReason;
+        private String templateCode;
+        private List<SmsOperatorRejectReason> cmOperatorRejectReason;
+        private List<SmsOperatorRejectReason> ctOperatorRejectReason;
+        private List<SmsOperatorRejectReason> cuOperatorRejectReason;
+
+        public String getTemplateCode() {
+            return this.templateCode;
+        }
+
+        public List<SmsOperatorRejectReason> getCmOperatorRejectReason() {
+            return this.cmOperatorRejectReason;
+        }
+
+        public List<SmsOperatorRejectReason> getCtOperatorRejectReason() {
+            return this.ctOperatorRejectReason;
+        }
+
+        public List<SmsOperatorRejectReason> getCuOperatorRejectReason() {
+            return this.cuOperatorRejectReason;
+        }
+    }
+
+    public List<SmsTemplateRejectReasonInfo> getData() {
+        return this.data;
     }
 }

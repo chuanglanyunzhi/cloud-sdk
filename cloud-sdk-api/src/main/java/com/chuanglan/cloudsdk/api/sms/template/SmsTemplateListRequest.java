@@ -7,11 +7,11 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsTemplateListRequest extends CloudSdkModel {
 
-    public String productType;
-    public Integer pageNo;
-    public Integer pageSize;
-    public String signName;
-    public String contentName;
+    private String productType;
+    private Integer pageNo;
+    private Integer pageSize;
+    private String signName;
+    private String contentName;
 
     public SmsTemplateListRequest setProductType(String productType) {
         this.productType = productType;
@@ -36,5 +36,25 @@ public class SmsTemplateListRequest extends CloudSdkModel {
     public SmsTemplateListRequest setContentName(String contentName) {
         this.contentName = contentName;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public Integer getPageNo() {
+        return this.pageNo;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getContentName() {
+        return this.contentName;
     }
 }

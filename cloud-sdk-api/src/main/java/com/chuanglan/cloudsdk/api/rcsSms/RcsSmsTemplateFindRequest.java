@@ -12,10 +12,14 @@ public class RcsSmsTemplateFindRequest extends CloudSdkModel {
     /**
      * 模板 ID。
      */
-    public String templateId;
+    private String templateId;
 
     public RcsSmsTemplateFindRequest setTemplateId(String templateId) {
         this.templateId = templateId;
         return this;
+    }
+
+    public String getTemplateId() {
+        return this.templateId;
     }
 }

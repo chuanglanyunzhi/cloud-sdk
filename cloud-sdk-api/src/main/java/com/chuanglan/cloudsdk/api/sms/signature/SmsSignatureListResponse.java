@@ -9,10 +9,14 @@ import com.chuanglan.cloudsdk.api.sms.SmsPageData;
 public class SmsSignatureListResponse extends SmsCommonResponse {
 
     /** 签名分页数据。 */
-    public SmsPageData<SmsSignatureListItem> data;
+    private SmsPageData<SmsSignatureListItem> data;
 
     public SmsSignatureListResponse setData(SmsPageData<SmsSignatureListItem> data) {
         this.data = data;
         return this;
+    }
+
+    public SmsPageData<SmsSignatureListItem> getData() {
+        return this.data;
     }
 }

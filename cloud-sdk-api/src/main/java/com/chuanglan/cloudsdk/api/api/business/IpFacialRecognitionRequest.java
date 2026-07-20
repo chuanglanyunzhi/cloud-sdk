@@ -12,10 +12,14 @@ public class IpFacialRecognitionRequest extends CloudSdkModel {
     /**
      * IP 地址，支持 IPv4。
      */
-    public String ip;
+    private String ip;
 
     public IpFacialRecognitionRequest setIp(String ip) {
         this.ip = ip;
         return this;
+    }
+
+    public String getIp() {
+        return this.ip;
     }
 }

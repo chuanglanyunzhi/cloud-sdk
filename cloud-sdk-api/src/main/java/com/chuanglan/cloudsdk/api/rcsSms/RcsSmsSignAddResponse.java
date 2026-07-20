@@ -10,7 +10,7 @@ public class RcsSmsSignAddResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsSignAddResponse setData(Data data) {
         this.data = data;
@@ -25,12 +25,12 @@ public class RcsSmsSignAddResponse extends RcsSmsCommonResponse {
         /**
          * 签名 ID。
          */
-        public String signId;
+        private String signId;
 
         /**
          * 签名状态。
          */
-        public String status;
+        private String status;
 
         public Data setSignId(String signId) {
             this.signId = signId;
@@ -41,5 +41,17 @@ public class RcsSmsSignAddResponse extends RcsSmsCommonResponse {
             this.status = status;
             return this;
         }
+
+        public String getSignId() {
+            return this.signId;
+        }
+
+        public String getStatus() {
+            return this.status;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

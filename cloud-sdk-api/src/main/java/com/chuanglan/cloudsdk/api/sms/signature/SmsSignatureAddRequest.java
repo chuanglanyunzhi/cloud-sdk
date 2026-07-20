@@ -10,35 +10,35 @@ import java.util.List;
 public class SmsSignatureAddRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 签名类型。 */
-    public String signType;
+    private String signType;
     /** 签名名称。 */
-    public String signatureName;
+    private String signatureName;
     /** 签名场景类型。 */
-    public Integer signatureSceneType;
+    private Integer signatureSceneType;
     /** 终端客户ID/资质ID。 */
-    public String endCustomerid;
+    private String endCustomerid;
     /** 应用/网站URL。 */
-    public String appUrl;
+    private String appUrl;
     /** 应用图片。 */
-    public String appImg;
+    private String appImg;
     /** App打开截图。 */
-    public String appOpenScreenshotImg;
+    private String appOpenScreenshotImg;
     /** 主体截图。 */
-    public String sbjScreenshotImg;
+    private String sbjScreenshotImg;
     /** 商标图片。 */
-    public String trademarkImg;
+    private String trademarkImg;
     /** 商标授权书图片。 */
-    public String trademarkAuthImg;
+    private String trademarkAuthImg;
     /** 机构证件图片。 */
-    public String institutionImg;
+    private String institutionImg;
     /** 企业唯一标识截图。 */
-    public String companyUniqueScreenshotImg;
+    private String companyUniqueScreenshotImg;
     /** 签名授权书图片。 */
-    public String signAuthImg;
+    private String signAuthImg;
     /** 其他补充材料图片列表。 */
-    public List<String> additionalAttachmentsImg;
+    private List<String> additionalAttachmentsImg;
 
     public SmsSignatureAddRequest setProductType(String productType) {
         this.productType = productType;
@@ -113,5 +113,65 @@ public class SmsSignatureAddRequest extends CloudSdkModel {
     public SmsSignatureAddRequest setAdditionalAttachmentsImg(List<String> additionalAttachmentsImg) {
         this.additionalAttachmentsImg = additionalAttachmentsImg;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getSignType() {
+        return this.signType;
+    }
+
+    public String getSignatureName() {
+        return this.signatureName;
+    }
+
+    public Integer getSignatureSceneType() {
+        return this.signatureSceneType;
+    }
+
+    public String getEndCustomerid() {
+        return this.endCustomerid;
+    }
+
+    public String getAppUrl() {
+        return this.appUrl;
+    }
+
+    public String getAppImg() {
+        return this.appImg;
+    }
+
+    public String getAppOpenScreenshotImg() {
+        return this.appOpenScreenshotImg;
+    }
+
+    public String getSbjScreenshotImg() {
+        return this.sbjScreenshotImg;
+    }
+
+    public String getTrademarkImg() {
+        return this.trademarkImg;
+    }
+
+    public String getTrademarkAuthImg() {
+        return this.trademarkAuthImg;
+    }
+
+    public String getInstitutionImg() {
+        return this.institutionImg;
+    }
+
+    public String getCompanyUniqueScreenshotImg() {
+        return this.companyUniqueScreenshotImg;
+    }
+
+    public String getSignAuthImg() {
+        return this.signAuthImg;
+    }
+
+    public List<String> getAdditionalAttachmentsImg() {
+        return this.additionalAttachmentsImg;
     }
 }

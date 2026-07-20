@@ -8,17 +8,17 @@ public class MnpCarriersSftpResponse extends MnpCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 业务数据。
      */
-    public MnpCarriersSftpResponseData data;
+    private MnpCarriersSftpResponseData data;
 
     public MnpCarriersSftpResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class MnpCarriersSftpResponse extends MnpCommonResponse {
     public MnpCarriersSftpResponse setData(MnpCarriersSftpResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public MnpCarriersSftpResponseData getData() {
+        return this.data;
     }
 }

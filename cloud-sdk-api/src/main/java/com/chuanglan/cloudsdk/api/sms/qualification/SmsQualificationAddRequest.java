@@ -8,47 +8,47 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsQualificationAddRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 企业名称。 */
-    public String enterpriseName;
+    private String enterpriseName;
     /** 统一社会信用代码。 */
-    public String unifiedSocialCreditCode;
+    private String unifiedSocialCreditCode;
     /** 业务联系人/经办人。 */
-    public String attentionLine;
+    private String attentionLine;
     /** 经办人身份证号。 */
-    public String attentionIdCard;
+    private String attentionIdCard;
     /** 法人姓名。 */
-    public String legalName;
+    private String legalName;
     /** 联系电话。 */
-    public String phoneNum;
+    private String phoneNum;
     /** 终端类型/客户类型。 */
-    public String endType;
+    private String endType;
     /** 共享类型。 */
-    public String shareType;
+    private String shareType;
     /** 证件类型。 */
-    public String identityType;
+    private String identityType;
     /** 代理人授权书图片（Base64或URL）。 */
-    public String agentAuthorizationLetterImg;
+    private String agentAuthorizationLetterImg;
     /** 营业执照图片。 */
-    public String businessLicenseImg;
+    private String businessLicenseImg;
     /** 身份证国徽面图片。 */
-    public String nationalEmblemIdentityImg;
+    private String nationalEmblemIdentityImg;
     /** 身份证人像面图片。 */
-    public String figureIdentityImg;
+    private String figureIdentityImg;
     /** 法人身份证国徽面图片。 */
-    public String legalNationalEmblemIdentityImg;
+    private String legalNationalEmblemIdentityImg;
     /** 法人身份证人像面图片。 */
-    public String legalFigureIdentityImg;
+    private String legalFigureIdentityImg;
     /** 手持证件照/办公场景照片。 */
-    public String identityOfficePhotoImg;
+    private String identityOfficePhotoImg;
     /** 合同首页图片。 */
-    public String contractHeadImg;
+    private String contractHeadImg;
     /** 合同有效期页图片。 */
-    public String contractValidityImg;
+    private String contractValidityImg;
     /** 合同尾页图片。 */
-    public String contractTailImg;
+    private String contractTailImg;
     /** 备注。 */
-    public String remark;
+    private String remark;
 
     public SmsQualificationAddRequest setProductType(String productType) {
         this.productType = productType;
@@ -153,5 +153,89 @@ public class SmsQualificationAddRequest extends CloudSdkModel {
     public SmsQualificationAddRequest setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getEnterpriseName() {
+        return this.enterpriseName;
+    }
+
+    public String getUnifiedSocialCreditCode() {
+        return this.unifiedSocialCreditCode;
+    }
+
+    public String getAttentionLine() {
+        return this.attentionLine;
+    }
+
+    public String getAttentionIdCard() {
+        return this.attentionIdCard;
+    }
+
+    public String getLegalName() {
+        return this.legalName;
+    }
+
+    public String getPhoneNum() {
+        return this.phoneNum;
+    }
+
+    public String getEndType() {
+        return this.endType;
+    }
+
+    public String getShareType() {
+        return this.shareType;
+    }
+
+    public String getIdentityType() {
+        return this.identityType;
+    }
+
+    public String getAgentAuthorizationLetterImg() {
+        return this.agentAuthorizationLetterImg;
+    }
+
+    public String getBusinessLicenseImg() {
+        return this.businessLicenseImg;
+    }
+
+    public String getNationalEmblemIdentityImg() {
+        return this.nationalEmblemIdentityImg;
+    }
+
+    public String getFigureIdentityImg() {
+        return this.figureIdentityImg;
+    }
+
+    public String getLegalNationalEmblemIdentityImg() {
+        return this.legalNationalEmblemIdentityImg;
+    }
+
+    public String getLegalFigureIdentityImg() {
+        return this.legalFigureIdentityImg;
+    }
+
+    public String getIdentityOfficePhotoImg() {
+        return this.identityOfficePhotoImg;
+    }
+
+    public String getContractHeadImg() {
+        return this.contractHeadImg;
+    }
+
+    public String getContractValidityImg() {
+        return this.contractValidityImg;
+    }
+
+    public String getContractTailImg() {
+        return this.contractTailImg;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

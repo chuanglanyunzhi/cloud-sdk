@@ -11,102 +11,102 @@ public class InvoiceOcrData extends CloudSdkModel {
     /**
      * 校验码。
      */
-    public String antiFakeCode;
+    private String antiFakeCode;
 
     /**
      * 复核人。
      */
-    public String checker;
+    private String checker;
 
     /**
      * 开票人。
      */
-    public String clerk;
+    private String clerk;
 
     /**
      * 价税合计。
      */
-    public String invoiceAmount;
+    private String invoiceAmount;
 
     /**
      * 发票代码。
      */
-    public String invoiceCode;
+    private String invoiceCode;
 
     /**
      * 开票日期。
      */
-    public String invoiceDate;
+    private String invoiceDate;
 
     /**
      * 发票号码。
      */
-    public String invoiceNo;
+    private String invoiceNo;
 
     /**
      * 服务名称。
      */
-    public List<String> itemName;
+    private List<String> itemName;
 
     /**
      * 收款人。
      */
-    public String payee;
+    private String payee;
 
     /**
      * 销售方地址。
      */
-    public String payeeAddress;
+    private String payeeAddress;
 
     /**
      * 销售方名称。
      */
-    public String payeeName;
+    private String payeeName;
 
     /**
      * 销售方开户行及账号。
      */
-    public String payeeBankName;
+    private String payeeBankName;
 
     /**
      * 销售方纳税人识别号。
      */
-    public String payeeRegisterNo;
+    private String payeeRegisterNo;
 
     /**
      * 购买方地址电话。
      */
-    public String payerAddress;
+    private String payerAddress;
 
     /**
      * 购买方开户行及账号。
      */
-    public String payerBankName;
+    private String payerBankName;
 
     /**
      * 购买方名称。
      */
-    public String payerName;
+    private String payerName;
 
     /**
      * 购买方纳税人识别号。
      */
-    public String payerRegisterNo;
+    private String payerRegisterNo;
 
     /**
      * 价税合计（大写）。
      */
-    public String sumAmount;
+    private String sumAmount;
 
     /**
      * 合计税额。
      */
-    public String taxAmount;
+    private String taxAmount;
 
     /**
      * 合计金额。
      */
-    public String withoutTaxAmount;
+    private String withoutTaxAmount;
 
     public InvoiceOcrData setAntiFakeCode(String antiFakeCode) {
         this.antiFakeCode = antiFakeCode;
@@ -206,5 +206,85 @@ public class InvoiceOcrData extends CloudSdkModel {
     public InvoiceOcrData setWithoutTaxAmount(String withoutTaxAmount) {
         this.withoutTaxAmount = withoutTaxAmount;
         return this;
+    }
+
+    public String getAntiFakeCode() {
+        return this.antiFakeCode;
+    }
+
+    public String getChecker() {
+        return this.checker;
+    }
+
+    public String getClerk() {
+        return this.clerk;
+    }
+
+    public String getInvoiceAmount() {
+        return this.invoiceAmount;
+    }
+
+    public String getInvoiceCode() {
+        return this.invoiceCode;
+    }
+
+    public String getInvoiceDate() {
+        return this.invoiceDate;
+    }
+
+    public String getInvoiceNo() {
+        return this.invoiceNo;
+    }
+
+    public List<String> getItemName() {
+        return this.itemName;
+    }
+
+    public String getPayee() {
+        return this.payee;
+    }
+
+    public String getPayeeAddress() {
+        return this.payeeAddress;
+    }
+
+    public String getPayeeName() {
+        return this.payeeName;
+    }
+
+    public String getPayeeBankName() {
+        return this.payeeBankName;
+    }
+
+    public String getPayeeRegisterNo() {
+        return this.payeeRegisterNo;
+    }
+
+    public String getPayerAddress() {
+        return this.payerAddress;
+    }
+
+    public String getPayerBankName() {
+        return this.payerBankName;
+    }
+
+    public String getPayerName() {
+        return this.payerName;
+    }
+
+    public String getPayerRegisterNo() {
+        return this.payerRegisterNo;
+    }
+
+    public String getSumAmount() {
+        return this.sumAmount;
+    }
+
+    public String getTaxAmount() {
+        return this.taxAmount;
+    }
+
+    public String getWithoutTaxAmount() {
+        return this.withoutTaxAmount;
     }
 }

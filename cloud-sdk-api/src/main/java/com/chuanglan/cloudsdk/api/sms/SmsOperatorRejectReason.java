@@ -10,22 +10,22 @@ public class SmsOperatorRejectReason extends CloudSdkModel {
     /**
      * 问题类型。
      */
-    public Integer issueType;
+    private Integer issueType;
 
     /**
      * 问题描述。
      */
-    public String issueDesc;
+    private String issueDesc;
 
     /**
      * 操作建议。
      */
-    public String operationRecommend;
+    private String operationRecommend;
 
     /**
      * 修改模块。
      */
-    public String modifyModules;
+    private String modifyModules;
 
     public SmsOperatorRejectReason setIssueType(Integer issueType) {
         this.issueType = issueType;
@@ -45,5 +45,21 @@ public class SmsOperatorRejectReason extends CloudSdkModel {
     public SmsOperatorRejectReason setModifyModules(String modifyModules) {
         this.modifyModules = modifyModules;
         return this;
+    }
+
+    public Integer getIssueType() {
+        return this.issueType;
+    }
+
+    public String getIssueDesc() {
+        return this.issueDesc;
+    }
+
+    public String getOperationRecommend() {
+        return this.operationRecommend;
+    }
+
+    public String getModifyModules() {
+        return this.modifyModules;
     }
 }

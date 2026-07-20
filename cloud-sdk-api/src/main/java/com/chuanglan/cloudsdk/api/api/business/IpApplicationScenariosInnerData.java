@@ -10,10 +10,14 @@ public class IpApplicationScenariosInnerData extends CloudSdkModel {
     /**
      * 应用场景识别结果。
      */
-    public IpApplicationScenariosScenes scenes;
+    private IpApplicationScenariosScenes scenes;
 
     public IpApplicationScenariosInnerData setScenes(IpApplicationScenariosScenes scenes) {
         this.scenes = scenes;
         return this;
+    }
+
+    public IpApplicationScenariosScenes getScenes() {
+        return this.scenes;
     }
 }

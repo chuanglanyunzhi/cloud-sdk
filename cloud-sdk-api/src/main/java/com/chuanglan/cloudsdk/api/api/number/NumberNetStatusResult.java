@@ -10,12 +10,12 @@ public class NumberNetStatusResult extends CloudSdkModel {
     /**
      * 当前归属运营商：1 移动，2 电信，3 联通，4 广电；负数为携号转网。
      */
-    public Integer provider;
+    private Integer provider;
 
     /**
      * 状态：1 正常，2 停机，3 在网但不可用，4 销号/空号。
      */
-    public Integer status;
+    private Integer status;
 
     public NumberNetStatusResult setProvider(Integer provider) {
         this.provider = provider;
@@ -25,5 +25,13 @@ public class NumberNetStatusResult extends CloudSdkModel {
     public NumberNetStatusResult setStatus(Integer status) {
         this.status = status;
         return this;
+    }
+
+    public Integer getProvider() {
+        return this.provider;
+    }
+
+    public Integer getStatus() {
+        return this.status;
     }
 }

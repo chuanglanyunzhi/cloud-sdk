@@ -35,12 +35,12 @@ public class RiskClient extends ApiClient<RiskConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "RiskAntiHarassmentRequest 不能为空", null, 0);
         }
-        if (request.mobiles == null || request.mobiles.isEmpty()) {
+        if (request.getMobiles() == null || request.getMobiles().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobiles 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BFORBID_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BFORBID_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), RiskAntiHarassmentResponse.class);
     }
 
@@ -58,12 +58,12 @@ public class RiskClient extends ApiClient<RiskConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "RiskWoolCheckRequest 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.woolEndpoint + WOOL_CHECK_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getWoolEndpoint() + WOOL_CHECK_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), RiskWoolCheckResponse.class);
     }
 }

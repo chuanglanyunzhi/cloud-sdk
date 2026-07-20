@@ -11,12 +11,12 @@ public class TableOcrData extends CloudSdkModel {
     /**
      * 文件内容。
      */
-    public String fileContent;
+    private String fileContent;
 
     /**
      * 表格数据。
      */
-    public List<TableOcrTableData> tables;
+    private List<TableOcrTableData> tables;
 
     public TableOcrData setFileContent(String fileContent) {
         this.fileContent = fileContent;
@@ -26,5 +26,13 @@ public class TableOcrData extends CloudSdkModel {
     public TableOcrData setTables(List<TableOcrTableData> tables) {
         this.tables = tables;
         return this;
+    }
+
+    public String getFileContent() {
+        return this.fileContent;
+    }
+
+    public List<TableOcrTableData> getTables() {
+        return this.tables;
     }
 }

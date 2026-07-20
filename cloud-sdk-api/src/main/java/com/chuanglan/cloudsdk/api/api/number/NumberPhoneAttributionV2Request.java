@@ -12,17 +12,17 @@ public class NumberPhoneAttributionV2Request extends CloudSdkModel {
     /**
      * 用户手机号（明文，或按 type 指定的加密方式）。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 订单号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 0 或空：明文手机号；1：32 位小写 MD5 手机号；2：64 位 SHA256 手机号。
      */
-    public Integer type;
+    private Integer type;
 
     public NumberPhoneAttributionV2Request setMobile(String mobile) {
         this.mobile = mobile;
@@ -37,5 +37,17 @@ public class NumberPhoneAttributionV2Request extends CloudSdkModel {
     public NumberPhoneAttributionV2Request setType(Integer type) {
         this.type = type;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public Integer getType() {
+        return this.type;
     }
 }

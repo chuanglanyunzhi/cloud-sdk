@@ -49,12 +49,12 @@ class SmsClientTest {
         SmsBatchSendResponse response = client.batchSend("DEV_7BW8WF4UIBM", "AAABBBCCC", request, "trace_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("F655A8D5B967440B8683DAD6FF8D230E", response.requestId);
-        assertNotNull(response.data);
-        assertEquals("1", response.data.successNum);
-        assertEquals("0", response.data.failNum);
-        assertEquals("26052211411700902253000000000073", response.data.msgId);
+        assertEquals("success", response.getMsg());
+        assertEquals("F655A8D5B967440B8683DAD6FF8D230E", response.getRequestId());
+        assertNotNull(response.getData());
+        assertEquals("1", response.getData().getSuccessNum());
+        assertEquals("0", response.getData().getFailNum());
+        assertEquals("26052211411700902253000000000073", response.getData().getMsgId());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/sms/v2/batchSend"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_001")));

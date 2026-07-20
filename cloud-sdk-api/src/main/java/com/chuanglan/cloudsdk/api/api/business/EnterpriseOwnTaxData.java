@@ -12,12 +12,12 @@ public class EnterpriseOwnTaxData extends CloudSdkModel {
     /**
      * 欠税公告列表。
      */
-    public List<EnterpriseOwnTaxItem> items;
+    private List<EnterpriseOwnTaxItem> items;
 
     /**
      * 总数。
      */
-    public Integer total;
+    private Integer total;
 
     public EnterpriseOwnTaxData setItems(List<EnterpriseOwnTaxItem> items) {
         this.items = items;
@@ -27,5 +27,13 @@ public class EnterpriseOwnTaxData extends CloudSdkModel {
     public EnterpriseOwnTaxData setTotal(Integer total) {
         this.total = total;
         return this;
+    }
+
+    public List<EnterpriseOwnTaxItem> getItems() {
+        return this.items;
+    }
+
+    public Integer getTotal() {
+        return this.total;
     }
 }

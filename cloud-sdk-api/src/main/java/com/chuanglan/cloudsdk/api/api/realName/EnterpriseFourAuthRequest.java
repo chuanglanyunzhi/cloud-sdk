@@ -12,22 +12,22 @@ public class EnterpriseFourAuthRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entName;
+    private String entName;
 
     /**
      * 法人姓名。
      */
-    public String legalPerName;
+    private String legalPerName;
 
     /**
      * 统一社会信用代码。
      */
-    public String creditCode;
+    private String creditCode;
 
     /**
      * 法人身份证。
      */
-    public String idNum;
+    private String idNum;
 
     public EnterpriseFourAuthRequest setEntName(String entName) {
         this.entName = entName;
@@ -47,5 +47,21 @@ public class EnterpriseFourAuthRequest extends CloudSdkModel {
     public EnterpriseFourAuthRequest setIdNum(String idNum) {
         this.idNum = idNum;
         return this;
+    }
+
+    public String getEntName() {
+        return this.entName;
+    }
+
+    public String getLegalPerName() {
+        return this.legalPerName;
+    }
+
+    public String getCreditCode() {
+        return this.creditCode;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
     }
 }

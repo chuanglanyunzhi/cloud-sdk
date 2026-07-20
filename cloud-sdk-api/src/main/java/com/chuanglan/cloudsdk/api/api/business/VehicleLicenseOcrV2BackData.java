@@ -10,52 +10,52 @@ public class VehicleLicenseOcrV2BackData extends CloudSdkModel {
     /**
      * 号牌号码。
      */
-    public String plateNo;
+    private String plateNo;
 
     /**
      * 核定载人数。
      */
-    public String approvedPassenger;
+    private String approvedPassenger;
 
     /**
      * 总质量。
      */
-    public String grossMass;
+    private String grossMass;
 
     /**
      * 整备质量。
      */
-    public String unladenMass;
+    private String unladenMass;
 
     /**
      * 核定载质量。
      */
-    public String approvedLoad;
+    private String approvedLoad;
 
     /**
      * 外廓尺寸。
      */
-    public String overallDimension;
+    private String overallDimension;
 
     /**
      * 准牵引总质量。
      */
-    public String tractionMass;
+    private String tractionMass;
 
     /**
      * 检验记录。
      */
-    public String inspectionRecord;
+    private String inspectionRecord;
 
     /**
      * 燃油类型。
      */
-    public String energyType;
+    private String energyType;
 
     /**
      * 档案编号。
      */
-    public String fileNumber;
+    private String fileNumber;
 
     public VehicleLicenseOcrV2BackData setPlateNo(String plateNo) {
         this.plateNo = plateNo;
@@ -105,5 +105,45 @@ public class VehicleLicenseOcrV2BackData extends CloudSdkModel {
     public VehicleLicenseOcrV2BackData setFileNumber(String fileNumber) {
         this.fileNumber = fileNumber;
         return this;
+    }
+
+    public String getPlateNo() {
+        return this.plateNo;
+    }
+
+    public String getApprovedPassenger() {
+        return this.approvedPassenger;
+    }
+
+    public String getGrossMass() {
+        return this.grossMass;
+    }
+
+    public String getUnladenMass() {
+        return this.unladenMass;
+    }
+
+    public String getApprovedLoad() {
+        return this.approvedLoad;
+    }
+
+    public String getOverallDimension() {
+        return this.overallDimension;
+    }
+
+    public String getTractionMass() {
+        return this.tractionMass;
+    }
+
+    public String getInspectionRecord() {
+        return this.inspectionRecord;
+    }
+
+    public String getEnergyType() {
+        return this.energyType;
+    }
+
+    public String getFileNumber() {
+        return this.fileNumber;
     }
 }

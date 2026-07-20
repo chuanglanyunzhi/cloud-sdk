@@ -14,47 +14,47 @@ public class SmsBatchSendRequest extends CloudSdkModel {
     /**
      * 产品类型：notify/market/verify/2ec/finance/game/acquisition。
      */
-    public String productType;
+    private String productType;
 
     /**
      * 短信接收手机号，多个使用英文逗号间隔，一次不要超过 1000 个。
      */
-    public String phoneNumbers;
+    private String phoneNumbers;
 
     /**
      * 模板 ID。
      */
-    public String templateCode;
+    private String templateCode;
 
     /**
      * 变量参数值，JSON 数组字符串格式。
      */
-    public String templateParam;
+    private String templateParam;
 
     /**
      * 短信签名，模板未关联签名时必填。
      */
-    public String signName;
+    private String signName;
 
     /**
      * 状态回执开关，传 "true" 开启。
      */
-    public String report;
+    private String report;
 
     /**
      * 状态回执回调地址，需带 http 协议头。
      */
-    public String callbackUrl;
+    private String callbackUrl;
 
     /**
      * 下发短信号码扩展码，用于匹配上行回复。
      */
-    public String smsUpExtendCode;
+    private String smsUpExtendCode;
 
     /**
      * 自定义参数，如订单号或流水号，状态回执会回传。
      */
-    public String outId;
+    private String outId;
 
     public static SmsBatchSendRequest build(Map<String, ?> map) throws Exception {
         return build(map, SmsBatchSendRequest.class);
@@ -103,5 +103,41 @@ public class SmsBatchSendRequest extends CloudSdkModel {
     public SmsBatchSendRequest setOutId(String outId) {
         this.outId = outId;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getPhoneNumbers() {
+        return this.phoneNumbers;
+    }
+
+    public String getTemplateCode() {
+        return this.templateCode;
+    }
+
+    public String getTemplateParam() {
+        return this.templateParam;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getReport() {
+        return this.report;
+    }
+
+    public String getCallbackUrl() {
+        return this.callbackUrl;
+    }
+
+    public String getSmsUpExtendCode() {
+        return this.smsUpExtendCode;
+    }
+
+    public String getOutId() {
+        return this.outId;
     }
 }

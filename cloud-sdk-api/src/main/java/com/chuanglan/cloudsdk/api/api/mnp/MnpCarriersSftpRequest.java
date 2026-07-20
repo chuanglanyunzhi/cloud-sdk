@@ -12,12 +12,12 @@ public class MnpCarriersSftpRequest extends CloudSdkModel {
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 加密类型：1-MD5，2-SHA256，3-SM3。
      */
-    public String type;
+    private String type;
 
     public MnpCarriersSftpRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -27,5 +27,13 @@ public class MnpCarriersSftpRequest extends CloudSdkModel {
     public MnpCarriersSftpRequest setType(String type) {
         this.type = type;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

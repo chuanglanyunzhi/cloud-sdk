@@ -10,42 +10,42 @@ public class EnterpriseFourAuthResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 处理时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 返回结果码：01 一致；02 不一致；03 不确定；04 通道调用异常。
      */
-    public String result;
+    private String result;
 
     /**
      * result 结果码描述说明。
      */
-    public String remark;
+    private String remark;
 
     /**
      * 企业名称核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String companyNameMatch;
+    private String companyNameMatch;
 
     /**
      * 社会统一信用号核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String creditCodeMatch;
+    private String creditCodeMatch;
 
     /**
      * 法人姓名核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String legalPerNameMatch;
+    private String legalPerNameMatch;
 
     /**
      * 法人证件号核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String idNoMatch;
+    private String idNoMatch;
 
     public EnterpriseFourAuthResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -85,5 +85,37 @@ public class EnterpriseFourAuthResponseData extends CloudSdkModel {
     public EnterpriseFourAuthResponseData setIdNoMatch(String idNoMatch) {
         this.idNoMatch = idNoMatch;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public String getCompanyNameMatch() {
+        return this.companyNameMatch;
+    }
+
+    public String getCreditCodeMatch() {
+        return this.creditCodeMatch;
+    }
+
+    public String getLegalPerNameMatch() {
+        return this.legalPerNameMatch;
+    }
+
+    public String getIdNoMatch() {
+        return this.idNoMatch;
     }
 }

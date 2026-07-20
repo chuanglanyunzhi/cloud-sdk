@@ -12,17 +12,17 @@ public class CarriersAuthSha256Request extends CloudSdkModel {
     /**
      * 姓名，SHA256 加密形式（64 位小写）。
      */
-    public String chName;
+    private String chName;
 
     /**
      * 身份证号，SHA256 加密形式（64 位小写）。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 手机号，SHA256 加密形式（64 位小写）。
      */
-    public String chTel;
+    private String chTel;
 
     public CarriersAuthSha256Request setChName(String chName) {
         this.chName = chName;
@@ -37,5 +37,17 @@ public class CarriersAuthSha256Request extends CloudSdkModel {
     public CarriersAuthSha256Request setChTel(String chTel) {
         this.chTel = chTel;
         return this;
+    }
+
+    public String getChName() {
+        return this.chName;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getChTel() {
+        return this.chTel;
     }
 }

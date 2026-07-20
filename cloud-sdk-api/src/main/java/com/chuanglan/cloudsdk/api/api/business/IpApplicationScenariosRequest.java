@@ -12,10 +12,14 @@ public class IpApplicationScenariosRequest extends CloudSdkModel {
     /**
      * IP 地址，支持 IPv4。
      */
-    public String ip;
+    private String ip;
 
     public IpApplicationScenariosRequest setIp(String ip) {
         this.ip = ip;
         return this;
+    }
+
+    public String getIp() {
+        return this.ip;
     }
 }

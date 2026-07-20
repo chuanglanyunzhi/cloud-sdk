@@ -10,17 +10,17 @@ public class NumberStatusCheckResponse extends NumberCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 检测结果列表。
      */
-    public List<NumberStatusCheckResponseItem> data;
+    private List<NumberStatusCheckResponseItem> data;
 
     public NumberStatusCheckResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -35,5 +35,17 @@ public class NumberStatusCheckResponse extends NumberCommonResponse {
     public NumberStatusCheckResponse setData(List<NumberStatusCheckResponseItem> data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public List<NumberStatusCheckResponseItem> getData() {
+        return this.data;
     }
 }

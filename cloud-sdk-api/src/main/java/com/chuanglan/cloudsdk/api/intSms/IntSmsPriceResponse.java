@@ -10,10 +10,14 @@ public class IntSmsPriceResponse extends IntSmsCommonResponse {
     /**
      * 国家单价数据列表。
      */
-    public List<IntSmsPriceItem> data;
+    private List<IntSmsPriceItem> data;
 
     public IntSmsPriceResponse setData(List<IntSmsPriceItem> data) {
         this.data = data;
         return this;
+    }
+
+    public List<IntSmsPriceItem> getData() {
+        return this.data;
     }
 }

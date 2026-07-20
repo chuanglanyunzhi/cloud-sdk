@@ -10,67 +10,67 @@ public class IdOcrData extends CloudSdkModel {
     /**
      * 交易号，唯一。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     /**
      * 身份证上地址（仅 ocrType 为 0 时返回）。
      */
-    public String address;
+    private String address;
 
     /**
      * 身份证上出生日期（仅 ocrType 为 0 时返回）。
      */
-    public String birth;
+    private String birth;
 
     /**
      * 身份证上姓名（仅 ocrType 为 0 时返回）。
      */
-    public String name;
+    private String name;
 
     /**
      * 身份证编号（仅 ocrType 为 0 时返回）。
      */
-    public String cardNum;
+    private String cardNum;
 
     /**
      * 身份证上性别（仅 ocrType 为 0 时返回）。
      */
-    public String sex;
+    private String sex;
 
     /**
      * 身份证上民族（仅 ocrType 为 0 时返回）。
      */
-    public String nation;
+    private String nation;
 
     /**
      * 签发机关（仅 ocrType 为 1 时返回）。
      */
-    public String issuingAuthority;
+    private String issuingAuthority;
 
     /**
      * 签发日期（仅 ocrType 为 1 时返回）。
      */
-    public String issuingDate;
+    private String issuingDate;
 
     /**
      * 有效日期（仅 ocrType 为 1 时返回）。
      */
-    public String expiryDate;
+    private String expiryDate;
 
     /**
      * 图像状态：normal/reversed_side/non_idcard/blurred/not_complete/over_dark/over_exposure/unknown。
      */
-    public String imageStatus;
+    private String imageStatus;
 
     /**
      * 身份证风险类型：normal-正常身份证；copy-复印件。
      */
-    public String riskType;
+    private String riskType;
 
     /**
      * 图像方向：-1 未定义；0 正向；1 逆时针 90 度；2 逆时针 180 度；3 逆时针 270 度。
      */
-    public String direction;
+    private String direction;
 
     public IdOcrData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
@@ -135,5 +135,57 @@ public class IdOcrData extends CloudSdkModel {
     public IdOcrData setDirection(String direction) {
         this.direction = direction;
         return this;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getBirth() {
+        return this.birth;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getCardNum() {
+        return this.cardNum;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+
+    public String getNation() {
+        return this.nation;
+    }
+
+    public String getIssuingAuthority() {
+        return this.issuingAuthority;
+    }
+
+    public String getIssuingDate() {
+        return this.issuingDate;
+    }
+
+    public String getExpiryDate() {
+        return this.expiryDate;
+    }
+
+    public String getImageStatus() {
+        return this.imageStatus;
+    }
+
+    public String getRiskType() {
+        return this.riskType;
+    }
+
+    public String getDirection() {
+        return this.direction;
     }
 }

@@ -15,8 +15,7 @@ import com.chuanglan.cloudsdk.core.CloudSdkException;
 import com.chuanglan.cloudsdk.core.HttpTransport;
 
 /**
- * 253 云 SDK 统一入口，聚合短信、国际短信、视频短信、号码、风控、携号转网、实名认证等全部 API，
- * 内部各业务线使用独立 HTTP 连接池，避免相互影响。
+ * 253 云 SDK 统一入口，聚合短信、国际短信、视频短信、号码、风控、携号转网、实名认证等全部 API。
  *
  * <p>实现 {@link AutoCloseable}，业务方应在生命周期结束时通过 try-with-resources 或显式调用
  * {@link #close()} 释放底层 OkHttp 连接池与 Dispatcher 线程池，避免在容器热部署/重启场景下资源泄漏。
@@ -34,13 +33,10 @@ public class CloudApiClient implements AutoCloseable {
     private final BusinessClient businessClient;
     private final String intSmsEndpoint;
 
-    /** 持有的 HttpTransport 实例，close() 时统一释放。 */
-    private final HttpTransport apiHttpTransport;
+    /** SMS 独立连接池，避免批量发送时与其他业务线竞争全局并发槽。 */
     private final HttpTransport smsHttpTransport;
-    private final HttpTransport intSmsHttpTransport;
-    private final HttpTransport rcsSmsHttpTransport;
-    private final HttpTransport realNameHttpTransport;
-    private final HttpTransport businessHttpTransport;
+    /** 其余业务线共享连接池（号码、风控、携号转网、国际短信、视频短信、实名、企业信息）。 */
+    private final HttpTransport httpTransport;
 
     public CloudApiClient() {
         this(new CloudApiConfig());
@@ -50,87 +46,83 @@ public class CloudApiClient implements AutoCloseable {
         if (config == null) {
             throw new IllegalArgumentException("CloudApiConfig must not be null");
         }
-        this.apiHttpTransport = new HttpTransport();
         this.smsHttpTransport = new HttpTransport();
-        this.intSmsHttpTransport = new HttpTransport();
-        this.rcsSmsHttpTransport = new HttpTransport();
-        this.realNameHttpTransport = new HttpTransport();
-        this.businessHttpTransport = new HttpTransport();
-        this.numberClient = new NumberClient(buildNumberConfig(config), apiHttpTransport);
-        this.numberCarrierClient = new NumberCarrierClient(buildNumberCarrierConfig(config), apiHttpTransport);
-        this.riskClient = new RiskClient(buildRiskConfig(config), apiHttpTransport);
-        this.mnpClient = new MnpClient(buildMnpConfig(config), apiHttpTransport);
+        this.httpTransport = new HttpTransport();
+        this.numberClient = new NumberClient(buildNumberConfig(config), httpTransport);
+        this.numberCarrierClient = new NumberCarrierClient(buildNumberCarrierConfig(config), httpTransport);
+        this.riskClient = new RiskClient(buildRiskConfig(config), httpTransport);
+        this.mnpClient = new MnpClient(buildMnpConfig(config), httpTransport);
         this.smsClient = new SmsClient(buildSmsConfig(config), smsHttpTransport);
-        this.intSmsClient = new IntSmsClient(buildIntSmsConfig(config), intSmsHttpTransport);
-        this.rcsSmsClient = new RcsSmsClient(buildRcsSmsConfig(config), rcsSmsHttpTransport);
-        this.realNameClient = new RealNameClient(buildRealNameConfig(config), realNameHttpTransport);
-        this.businessClient = new BusinessClient(buildBusinessConfig(config), businessHttpTransport);
-        this.intSmsEndpoint = config.intSmsEndpoint;
+        this.intSmsClient = new IntSmsClient(buildIntSmsConfig(config), httpTransport);
+        this.rcsSmsClient = new RcsSmsClient(buildRcsSmsConfig(config), httpTransport);
+        this.realNameClient = new RealNameClient(buildRealNameConfig(config), httpTransport);
+        this.businessClient = new BusinessClient(buildBusinessConfig(config), httpTransport);
+        this.intSmsEndpoint = config.getIntSmsEndpoint();
     }
 
     private NumberConfig buildNumberConfig(CloudApiConfig config) {
         return new NumberConfig()
-                .setEndpoint(config.numberEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getNumberEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private NumberCarrierConfig buildNumberCarrierConfig(CloudApiConfig config) {
         return new NumberCarrierConfig()
-                .setEndpoint(config.numberCarrierEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getNumberCarrierEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private RiskConfig buildRiskConfig(CloudApiConfig config) {
         return new RiskConfig()
-                .setEndpoint(config.riskEndpoint)
-                .setWoolEndpoint(config.woolEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getRiskEndpoint())
+                .setWoolEndpoint(config.getWoolEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private MnpConfig buildMnpConfig(CloudApiConfig config) {
         return new MnpConfig()
-                .setEndpoint(config.mnpEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getMnpEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private SmsConfig buildSmsConfig(CloudApiConfig config) {
         return new SmsConfig()
-                .setEndpoint(config.smsEndpoint)
-                .setApiEndpoint(config.smsApiEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getSmsEndpoint())
+                .setApiEndpoint(config.getSmsApiEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private IntSmsConfig buildIntSmsConfig(CloudApiConfig config) {
         return new IntSmsConfig()
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private RcsSmsConfig buildRcsSmsConfig(CloudApiConfig config) {
         return new RcsSmsConfig()
-                .setEndpoint(config.rcsSmsEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getRcsSmsEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private RealNameConfig buildRealNameConfig(CloudApiConfig config) {
         return new RealNameConfig()
-                .setEndpoint(config.realNameEndpoint)
-                .setApiEndpoint(config.realNameApiEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getRealNameEndpoint())
+                .setApiEndpoint(config.getRealNameApiEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     private BusinessConfig buildBusinessConfig(CloudApiConfig config) {
         return new BusinessConfig()
-                .setEndpoint(config.businessEndpoint)
-                .setConnectTimeout(config.connectTimeout)
-                .setReadTimeout(config.readTimeout);
+                .setEndpoint(config.getBusinessEndpoint())
+                .setConnectTimeout(config.getConnectTimeout())
+                .setReadTimeout(config.getReadTimeout());
     }
 
     // ================== 号码业务 ==================
@@ -1415,12 +1407,8 @@ public class CloudApiClient implements AutoCloseable {
      */
     @Override
     public void close() {
-        closeQuietly(apiHttpTransport);
         closeQuietly(smsHttpTransport);
-        closeQuietly(intSmsHttpTransport);
-        closeQuietly(rcsSmsHttpTransport);
-        closeQuietly(realNameHttpTransport);
-        closeQuietly(businessHttpTransport);
+        closeQuietly(httpTransport);
     }
 
     private static void closeQuietly(HttpTransport transport) {

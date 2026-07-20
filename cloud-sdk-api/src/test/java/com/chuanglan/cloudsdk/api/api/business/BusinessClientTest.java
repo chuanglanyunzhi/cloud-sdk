@@ -29,7 +29,7 @@ class BusinessClientTest {
     @Test
     void testBusinessConfigDefaultEndpoint() {
         BusinessConfig config = new BusinessConfig();
-        assertEquals("https://wsapi.253.com", config.endpoint);
+        assertEquals("https://wsapi.253.com", config.getEndpoint());
     }
 
     @Test
@@ -59,8 +59,8 @@ class BusinessClientTest {
         BusinessCommonResponse response = client.invoke("APP_ID", "SECRET_KEY", "/api/v2/business/demo", "{\"name\":\"test\"}", "trace_business_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("REQ_BUSINESS_001", response.requestId);
+        assertEquals("success", response.getMsg());
+        assertEquals("REQ_BUSINESS_001", response.getRequestId());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/business/demo"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_business_001")));
@@ -102,32 +102,32 @@ class BusinessClientTest {
         IpAddressOriginV4Response response = client.ipAddressOriginV4("APP_ID", "SECRET_KEY", request, "trace_ip_v4_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221157582366162944", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.location);
-        assertEquals("218.1.221.132", response.data.data.location.ip);
-        assertEquals("亚洲", response.data.data.location.continent);
-        assertEquals("中国", response.data.data.location.country);
-        assertEquals("CN", response.data.data.location.country_code);
-        assertEquals("上海", response.data.data.location.province);
-        assertEquals("上海", response.data.data.location.city);
-        assertEquals("浦东", response.data.data.location.district);
-        assertEquals("", response.data.data.location.street);
-        assertEquals("310115", response.data.data.location.area_code);
-        assertEquals("021", response.data.data.location.city_code);
-        assertEquals("200120", response.data.data.location.zip_code);
-        assertEquals("121.5447", response.data.data.location.longitude);
-        assertEquals("31.22249", response.data.data.location.latitude);
-        assertEquals("15", response.data.data.location.elevation);
-        assertEquals("Asia/Shanghai", response.data.data.location.time_zone);
-        assertEquals("CHXX0116", response.data.data.location.weather_station);
-        assertEquals("电信", response.data.data.location.isp);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221157582366162944", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getLocation());
+        assertEquals("218.1.221.132", response.getData().getData().getLocation().getIp());
+        assertEquals("亚洲", response.getData().getData().getLocation().getContinent());
+        assertEquals("中国", response.getData().getData().getLocation().getCountry());
+        assertEquals("CN", response.getData().getData().getLocation().getCountry_code());
+        assertEquals("上海", response.getData().getData().getLocation().getProvince());
+        assertEquals("上海", response.getData().getData().getLocation().getCity());
+        assertEquals("浦东", response.getData().getData().getLocation().getDistrict());
+        assertEquals("", response.getData().getData().getLocation().getStreet());
+        assertEquals("310115", response.getData().getData().getLocation().getArea_code());
+        assertEquals("021", response.getData().getData().getLocation().getCity_code());
+        assertEquals("200120", response.getData().getData().getLocation().getZip_code());
+        assertEquals("121.5447", response.getData().getData().getLocation().getLongitude());
+        assertEquals("31.22249", response.getData().getData().getLocation().getLatitude());
+        assertEquals("15", response.getData().getData().getLocation().getElevation());
+        assertEquals("Asia/Shanghai", response.getData().getData().getLocation().getTime_zone());
+        assertEquals("CHXX0116", response.getData().getData().getLocation().getWeather_station());
+        assertEquals("电信", response.getData().getData().getLocation().getIsp());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/addressOriginV4"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_v4_001")));
@@ -183,32 +183,32 @@ class BusinessClientTest {
         IpAddressOriginV6Response response = client.ipAddressOriginV6("APP_ID", "SECRET_KEY", request, "trace_ip_v6_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221156677700927488", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.location);
-        assertEquals("240e:0471:3610:6cec:ede4:e48b:72d4:d7e5", response.data.data.location.ip);
-        assertEquals("亚洲", response.data.data.location.continent);
-        assertEquals("中国", response.data.data.location.country);
-        assertEquals("CN", response.data.data.location.country_code);
-        assertEquals("浙江", response.data.data.location.province);
-        assertEquals("温州", response.data.data.location.city);
-        assertEquals("瑞安", response.data.data.location.district);
-        assertEquals("", response.data.data.location.street);
-        assertEquals("330381", response.data.data.location.area_code);
-        assertEquals("0577", response.data.data.location.city_code);
-        assertEquals("325000", response.data.data.location.zip_code);
-        assertEquals("120.631025", response.data.data.location.longitude);
-        assertEquals("27.827523", response.data.data.location.latitude);
-        assertEquals("12", response.data.data.location.elevation);
-        assertEquals("Asia/Shanghai", response.data.data.location.time_zone);
-        assertEquals("CHXX0462", response.data.data.location.weather_station);
-        assertEquals("电信", response.data.data.location.isp);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221156677700927488", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getLocation());
+        assertEquals("240e:0471:3610:6cec:ede4:e48b:72d4:d7e5", response.getData().getData().getLocation().getIp());
+        assertEquals("亚洲", response.getData().getData().getLocation().getContinent());
+        assertEquals("中国", response.getData().getData().getLocation().getCountry());
+        assertEquals("CN", response.getData().getData().getLocation().getCountry_code());
+        assertEquals("浙江", response.getData().getData().getLocation().getProvince());
+        assertEquals("温州", response.getData().getData().getLocation().getCity());
+        assertEquals("瑞安", response.getData().getData().getLocation().getDistrict());
+        assertEquals("", response.getData().getData().getLocation().getStreet());
+        assertEquals("330381", response.getData().getData().getLocation().getArea_code());
+        assertEquals("0577", response.getData().getData().getLocation().getCity_code());
+        assertEquals("325000", response.getData().getData().getLocation().getZip_code());
+        assertEquals("120.631025", response.getData().getData().getLocation().getLongitude());
+        assertEquals("27.827523", response.getData().getData().getLocation().getLatitude());
+        assertEquals("12", response.getData().getData().getLocation().getElevation());
+        assertEquals("Asia/Shanghai", response.getData().getData().getLocation().getTime_zone());
+        assertEquals("CHXX0462", response.getData().getData().getLocation().getWeather_station());
+        assertEquals("电信", response.getData().getData().getLocation().getIsp());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/addressOriginV6"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_v6_001")));
@@ -264,28 +264,28 @@ class BusinessClientTest {
         IpRiskPortraitResponse response = client.ipRiskPortrait("APP_ID", "SECRET_KEY", request, "trace_ip_risk_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221154995613057024", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.risk);
-        assertEquals("是", response.data.data.risk.proxy);
-        assertEquals("高", response.data.data.risk.risk_level);
-        assertEquals(Integer.valueOf(93), response.data.data.risk.risk_score);
-        assertEquals("100.00%", response.data.data.risk.mb_rate);
-        assertEquals("1%", response.data.data.risk.real);
-        assertNotNull(response.data.data.risk.risk_tag);
-        assertEquals(2, response.data.data.risk.risk_tag.size());
-        assertEquals("suspectFakeMobile", response.data.data.risk.risk_tag.get(0).label);
-        assertEquals("疑似虚假号码", response.data.data.risk.risk_tag.get(0).label_name);
-        assertEquals("2026-06-19", response.data.data.risk.risk_tag.get(0).last_time);
-        assertEquals("webCrawler", response.data.data.risk.risk_tag.get(1).label);
-        assertEquals("网络爬虫", response.data.data.risk.risk_tag.get(1).label_name);
-        assertEquals("2026-06-19", response.data.data.risk.risk_tag.get(1).last_time);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221154995613057024", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getRisk());
+        assertEquals("是", response.getData().getData().getRisk().getProxy());
+        assertEquals("高", response.getData().getData().getRisk().getRisk_level());
+        assertEquals(Integer.valueOf(93), response.getData().getData().getRisk().getRisk_score());
+        assertEquals("100.00%", response.getData().getData().getRisk().getMb_rate());
+        assertEquals("1%", response.getData().getData().getRisk().getReal());
+        assertNotNull(response.getData().getData().getRisk().getRisk_tag());
+        assertEquals(2, response.getData().getData().getRisk().getRisk_tag().size());
+        assertEquals("suspectFakeMobile", response.getData().getData().getRisk().getRisk_tag().get(0).getLabel());
+        assertEquals("疑似虚假号码", response.getData().getData().getRisk().getRisk_tag().get(0).getLabel_name());
+        assertEquals("2026-06-19", response.getData().getData().getRisk().getRisk_tag().get(0).getLast_time());
+        assertEquals("webCrawler", response.getData().getData().getRisk().getRisk_tag().get(1).getLabel());
+        assertEquals("网络爬虫", response.getData().getData().getRisk().getRisk_tag().get(1).getLabel_name());
+        assertEquals("2026-06-19", response.getData().getData().getRisk().getRisk_tag().get(1).getLast_time());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/riskPortrait"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_risk_001")));
@@ -341,18 +341,18 @@ class BusinessClientTest {
         IpFacialRecognitionResponse response = client.ipFacialRecognition("APP_ID", "SECRET_KEY", request, "trace_ip_facial_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221152784359211008", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertEquals("电信", response.data.data.isp);
-        assertEquals("AS4812", response.data.data.asn);
-        assertEquals("100.00%", response.data.data.mb_rate);
-        assertEquals("54%", response.data.data.real);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221152784359211008", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertEquals("电信", response.getData().getData().getIsp());
+        assertEquals("AS4812", response.getData().getData().getAsn());
+        assertEquals("100.00%", response.getData().getData().getMb_rate());
+        assertEquals("54%", response.getData().getData().getReal());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/facialRecognition"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_facial_001")));
@@ -408,18 +408,18 @@ class BusinessClientTest {
         IpApplicationScenariosResponse response = client.ipApplicationScenarios("APP_ID", "SECRET_KEY", request, "trace_ip_scene_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221157582366162945", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.scenes);
-        assertEquals("电信", response.data.data.scenes.isp);
-        assertEquals("家庭宽带", response.data.data.scenes.usage_type);
-        assertEquals("AS4134", response.data.data.scenes.asn);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221157582366162945", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getScenes());
+        assertEquals("电信", response.getData().getData().getScenes().getIsp());
+        assertEquals("家庭宽带", response.getData().getData().getScenes().getUsage_type());
+        assertEquals("AS4134", response.getData().getData().getScenes().getAsn());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/applicationScenarios"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_scene_001")));
@@ -475,18 +475,18 @@ class BusinessClientTest {
         IpProxyIdentificationResponse response = client.ipProxyIdentification("APP_ID", "SECRET_KEY", request, "trace_ip_proxy_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221146576063676416", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.proxy);
-        assertEquals("vpn", response.data.data.proxy.proxy);
-        assertEquals("2026-06-21 07:06:33", response.data.data.proxy.proxy_time);
-        assertEquals("是", response.data.data.proxy.is_proxy);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221146576063676416", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getProxy());
+        assertEquals("vpn", response.getData().getData().getProxy().getProxy());
+        assertEquals("2026-06-21 07:06:33", response.getData().getData().getProxy().getProxy_time());
+        assertEquals("是", response.getData().getData().getProxy().getIs_proxy());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/proxyIdentification"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_proxy_001")));
@@ -545,13 +545,13 @@ class BusinessClientTest {
         EnterpriseTwoElementsCheckResponse response = client.enterpriseTwoElementsCheck("APP_ID", "SECRET_KEY", request, "trace_enterprise_two_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("2702703855033257988", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("1", response.data.ent_name_match);
-        assertEquals("1", response.data.credit_code_match);
+        assertEquals("success", response.getMsg());
+        assertEquals("2702703855033257988", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("1", response.getData().getEnt_name_match());
+        assertEquals("1", response.getData().getCredit_code_match());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/dynamic2/gsxx/twoElementsCheck"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_enterprise_two_001")));
@@ -627,13 +627,13 @@ class BusinessClientTest {
         EnterpriseThreeAuthResponse response = client.enterpriseThreeAuth("APP_ID", "SECRET_KEY", request, "trace_enterprise_three_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("3063006183620030483", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertNotNull(response.data);
-        assertEquals("1", response.data.entNameMatch);
-        assertEquals("1", response.data.creditCodeMatch);
-        assertEquals("1", response.data.legalPerNameMatch);
+        assertEquals("success", response.getMsg());
+        assertEquals("3063006183620030483", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertNotNull(response.getData());
+        assertEquals("1", response.getData().getEntNameMatch());
+        assertEquals("1", response.getData().getCreditCodeMatch());
+        assertEquals("1", response.getData().getLegalPerNameMatch());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/business-three-auth"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_enterprise_three_001")));
@@ -724,16 +724,16 @@ class BusinessClientTest {
         EnterpriseQueryResponse response = client.enterpriseQuery("APP_ID", "SECRET_KEY", request, "trace_enterprise_query_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("4279011161960366774", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(2, response.data.size());
-        assertEquals("xx科技有限责任公司", response.data.get(0).entname);
-        assertEquals("91110xx66318H", response.data.get(0).creditCode);
-        assertEquals("xx通讯技术有限公司", response.data.get(1).entname);
-        assertEquals("91110xx66318H", response.data.get(1).creditCode);
+        assertEquals("success", response.getMsg());
+        assertEquals("4279011161960366774", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(2, response.getData().size());
+        assertEquals("xx科技有限责任公司", response.getData().get(0).getEntname());
+        assertEquals("91110xx66318H", response.getData().get(0).getCreditCode());
+        assertEquals("xx通讯技术有限公司", response.getData().get(1).getEntname());
+        assertEquals("91110xx66318H", response.getData().get(1).getCreditCode());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/enterpriseQuery"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_enterprise_query_001")));
@@ -789,19 +789,19 @@ class BusinessClientTest {
         AbnormalOperationResponse response = client.abnormalOperation("APP_ID", "SECRET_KEY", request, "trace_abnormal_operation_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1168220961079795712", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(2, response.data.size());
-        assertEquals("2015-07-27", response.data.get(0).indate);
-        assertEquals("应县市场监督管理局", response.data.get(0).inorg);
-        assertEquals("未依照《企业信息公示暂行条例》第八条规定的期限公示年度报告的", response.data.get(0).inreason);
-        assertEquals("2016-03-04", response.data.get(0).outdate);
-        assertEquals("应县市场监督管理局", response.data.get(0).outorg);
-        assertEquals("列入经营异常名录3年内且依照《经营异常名录管理办法》第六条规定被列入经营异常名录的企业，可以在补报未报年份的年度报告并公示后，申请移出", response.data.get(0).outreason);
-        assertEquals("2015-07-10", response.data.get(1).indate);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1168220961079795712", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(2, response.getData().size());
+        assertEquals("2015-07-27", response.getData().get(0).getIndate());
+        assertEquals("应县市场监督管理局", response.getData().get(0).getInorg());
+        assertEquals("未依照《企业信息公示暂行条例》第八条规定的期限公示年度报告的", response.getData().get(0).getInreason());
+        assertEquals("2016-03-04", response.getData().get(0).getOutdate());
+        assertEquals("应县市场监督管理局", response.getData().get(0).getOutorg());
+        assertEquals("列入经营异常名录3年内且依照《经营异常名录管理办法》第六条规定被列入经营异常名录的企业，可以在补报未报年份的年度报告并公示后，申请移出", response.getData().get(0).getOutreason());
+        assertEquals("2015-07-10", response.getData().get(1).getIndate());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/abnormalOperation"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_abnormal_operation_001")));
@@ -823,8 +823,8 @@ class BusinessClientTest {
         AbnormalOperationResponse response = client.abnormalOperation("APP_ID", "SECRET_KEY", request);
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals(0, response.data.size());
+        assertNotNull(response.getData());
+        assertEquals(0, response.getData().size());
     }
 
     @Test
@@ -864,29 +864,29 @@ class BusinessClientTest {
         AdministrativeSanctionQueryResponse response = client.administrativeSanctionQuery("APP_ID", "SECRET_KEY", request, "trace_admin_sanction_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1167887003884429312", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(1, response.data.size());
-        AdministrativeSanctionItem item = response.data.get(0);
-        assertEquals("（鄂托克旗）应急罚（2025）危化1-16号", item.pendecno);
-        assertEquals("违法行为类型", item.casetype);
-        assertEquals("罚款", item.pentype);
-        assertEquals("主要违法事实", item.illegfact);
-        assertEquals("行政处罚内容", item.content);
-        assertEquals("", item.penam);
-        assertEquals("", item.confiscate);
-        assertEquals("鄂托克旗应急管理局", item.penauth);
-        assertEquals("2025-12-16", item.pendecissdate);
-        assertEquals("2025-12-18", item.pubdate);
-        assertEquals("中华人民共和国安全生产法", item.penbasis);
-        assertEquals("", item.penresult);
-        assertEquals("", item.penexest);
-        assertEquals("2099-12-31", item.peneffdate);
-        assertEquals("2026-03-18", item.pubenddate);
-        assertEquals("", item.isUsed);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1167887003884429312", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(1, response.getData().size());
+        AdministrativeSanctionItem item = response.getData().get(0);
+        assertEquals("（鄂托克旗）应急罚（2025）危化1-16号", item.getPendecno());
+        assertEquals("违法行为类型", item.getCasetype());
+        assertEquals("罚款", item.getPentype());
+        assertEquals("主要违法事实", item.getIllegfact());
+        assertEquals("行政处罚内容", item.getContent());
+        assertEquals("", item.getPenam());
+        assertEquals("", item.getConfiscate());
+        assertEquals("鄂托克旗应急管理局", item.getPenauth());
+        assertEquals("2025-12-16", item.getPendecissdate());
+        assertEquals("2025-12-18", item.getPubdate());
+        assertEquals("中华人民共和国安全生产法", item.getPenbasis());
+        assertEquals("", item.getPenresult());
+        assertEquals("", item.getPenexest());
+        assertEquals("2099-12-31", item.getPeneffdate());
+        assertEquals("2026-03-18", item.getPubenddate());
+        assertEquals("", item.getIsUsed());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/administrativeSanctionQuery"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_admin_sanction_001")));
@@ -946,29 +946,29 @@ class BusinessClientTest {
         JusticeComplainResponse response = client.justiceComplain("APP_ID", "SECRET_KEY", request, "trace_justice_complain_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1167863707545608192", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertNotNull(response.data.fyggents);
-        assertEquals(2, response.data.fyggents.size());
-        assertEquals("", response.data.fyggents.get(0).title);
-        assertEquals("上海市松江区人民法院", response.data.fyggents.get(0).court);
-        assertEquals("上海创蓝文化传播有限公司,北京新华浩淼文化科技有限公司", response.data.fyggents.get(0).pname);
-        assertEquals("裁判", response.data.fyggents.get(0).gtype);
-        assertEquals("2020-10-11", response.data.fyggents.get(0).sdate);
-        assertEquals("7", response.data.fyggentsCount);
-        assertNotNull(response.data.ktggents);
-        assertEquals(1, response.data.ktggents.size());
-        assertEquals("（2024）沪0117民初15259号", response.data.ktggents.get(0).caseno);
-        assertEquals("开庭公告", response.data.ktggents.get(0).title);
-        assertEquals("", response.data.ktggents.get(0).court);
-        assertEquals("服务合同纠纷", response.data.ktggents.get(0).causename);
-        assertEquals("上海创蓝云智信息科技股份有限公司", response.data.ktggents.get(0).pname);
-        assertEquals("2024-09-04", response.data.ktggents.get(0).sdate);
-        assertEquals("原告", response.data.ktggents.get(0).ptype);
-        assertEquals("27", response.data.ktggentsCount);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1167863707545608192", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertNotNull(response.getData().getFyggents());
+        assertEquals(2, response.getData().getFyggents().size());
+        assertEquals("", response.getData().getFyggents().get(0).getTitle());
+        assertEquals("上海市松江区人民法院", response.getData().getFyggents().get(0).getCourt());
+        assertEquals("上海创蓝文化传播有限公司,北京新华浩淼文化科技有限公司", response.getData().getFyggents().get(0).getPname());
+        assertEquals("裁判", response.getData().getFyggents().get(0).getGtype());
+        assertEquals("2020-10-11", response.getData().getFyggents().get(0).getSdate());
+        assertEquals("7", response.getData().getFyggentsCount());
+        assertNotNull(response.getData().getKtggents());
+        assertEquals(1, response.getData().getKtggents().size());
+        assertEquals("（2024）沪0117民初15259号", response.getData().getKtggents().get(0).getCaseno());
+        assertEquals("开庭公告", response.getData().getKtggents().get(0).getTitle());
+        assertEquals("", response.getData().getKtggents().get(0).getCourt());
+        assertEquals("服务合同纠纷", response.getData().getKtggents().get(0).getCausename());
+        assertEquals("上海创蓝云智信息科技股份有限公司", response.getData().getKtggents().get(0).getPname());
+        assertEquals("2024-09-04", response.getData().getKtggents().get(0).getSdate());
+        assertEquals("原告", response.getData().getKtggents().get(0).getPtype());
+        assertEquals("27", response.getData().getKtggentsCount());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/justiceComplain"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_justice_complain_001")));
@@ -1024,19 +1024,19 @@ class BusinessClientTest {
         IpHostInformationResponse response = client.ipHostInformation("APP_ID", "SECRET_KEY", request, "trace_ip_host_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("tIYK1221130560935936000", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(200), response.data.code);
-        assertEquals("success", response.data.msg);
-        assertNotNull(response.data.data);
-        assertNotNull(response.data.data.host_information);
-        assertEquals("电信", response.data.data.host_information.owner);
-        assertEquals("枫林雅苑", response.data.data.host_information.business);
-        assertEquals("电信", response.data.data.host_information.isp);
-        assertEquals("商务住宅;住宅区;别墅", response.data.data.host_information.industry);
+        assertEquals("success", response.getMsg());
+        assertEquals("tIYK1221130560935936000", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(200), response.getData().getCode());
+        assertEquals("success", response.getData().getMsg());
+        assertNotNull(response.getData().getData());
+        assertNotNull(response.getData().getData().getHost_information());
+        assertEquals("电信", response.getData().getData().getHost_information().getOwner());
+        assertEquals("枫林雅苑", response.getData().getData().getHost_information().getBusiness());
+        assertEquals("电信", response.getData().getData().getHost_information().getIsp());
+        assertEquals("商务住宅;住宅区;别墅", response.getData().getData().getHost_information().getIndustry());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ipgsdcx/hostInformation"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ip_host_001")));
@@ -1092,13 +1092,13 @@ class BusinessClientTest {
         CompanyLevelResponse response = client.companyLevel("APP_ID", "SECRET_KEY", request, "trace_company_level_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1167832108548464640", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("中型", response.data.level);
-        assertEquals("基于最新上市财报数据、工商年报数据及小微企业名录进行划型", response.data.type);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1167832108548464640", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("中型", response.getData().getLevel());
+        assertEquals("基于最新上市财报数据、工商年报数据及小微企业名录进行划型", response.getData().getType());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/companyLevel"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_company_level_001")));
@@ -1154,44 +1154,44 @@ class BusinessClientTest {
         EnterpriseSimpleResponse response = client.enterpriseSimple("APP_ID", "SECRET_KEY", request, "trace_enterprise_simple_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1169292359135109120", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertNotNull(response.data.basic);
-        assertEquals("上海创蓝文化传播有限公司", response.data.basic.entname);
-        assertEquals("91110000123456789X", response.data.basic.creditcode);
-        assertEquals("123456789", response.data.basic.regno);
-        assertEquals("张三", response.data.basic.frname);
-        assertEquals("2011-04-19", response.data.basic.esdate);
-        assertEquals("其他科技推广服务业", response.data.basic.industryconame);
-        assertEquals("1000", response.data.basic.regcap);
-        assertEquals("人民币元", response.data.basic.regcapcur);
-        assertEquals("在营（开业）", response.data.basic.entstatus);
-        assertEquals("股份有限公司", response.data.basic.enttype);
-        assertEquals("长期", response.data.basic.opto);
-        assertEquals("M", response.data.basic.industryphycode);
-        assertEquals("科学xxxx技术服务业", response.data.basic.industryphyname);
-        assertNotNull(response.data.shareholders);
-        assertEquals(0, response.data.shareholders.size());
-        assertNotNull(response.data.filiations);
-        assertEquals(1, response.data.filiations.size());
-        assertEquals("上海XXX", response.data.filiations.get(0).brname);
-        assertEquals("xxx", response.data.filiations.get(0).brncreditcode);
-        assertEquals("xx", response.data.filiations.get(0).brregno);
-        assertEquals("XX", response.data.filiations.get(0).brnregorg);
-        assertEquals("2013-01-15", response.data.filiations.get(0).brnEsdate);
-        assertEquals("注销", response.data.filiations.get(0).brnEntStatus);
-        assertEquals("3", response.data.filiations.get(0).brnEntStatusCode);
-        assertEquals("xx", response.data.filiations.get(0).brnProvinceCode);
-        assertEquals("广东省", response.data.filiations.get(0).brnProvinceName);
-        assertNotNull(response.data.alters);
-        assertEquals(1, response.data.alters.size());
-        assertEquals("实收资本变更", response.data.alters.get(0).altitem);
-        assertEquals("10.000000", response.data.alters.get(0).altbe);
-        assertEquals("1000.000000", response.data.alters.get(0).altaf);
-        assertEquals("2012-01-16", response.data.alters.get(0).altdate);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1169292359135109120", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertNotNull(response.getData().getBasic());
+        assertEquals("上海创蓝文化传播有限公司", response.getData().getBasic().getEntname());
+        assertEquals("91110000123456789X", response.getData().getBasic().getCreditcode());
+        assertEquals("123456789", response.getData().getBasic().getRegno());
+        assertEquals("张三", response.getData().getBasic().getFrname());
+        assertEquals("2011-04-19", response.getData().getBasic().getEsdate());
+        assertEquals("其他科技推广服务业", response.getData().getBasic().getIndustryconame());
+        assertEquals("1000", response.getData().getBasic().getRegcap());
+        assertEquals("人民币元", response.getData().getBasic().getRegcapcur());
+        assertEquals("在营（开业）", response.getData().getBasic().getEntstatus());
+        assertEquals("股份有限公司", response.getData().getBasic().getEnttype());
+        assertEquals("长期", response.getData().getBasic().getOpto());
+        assertEquals("M", response.getData().getBasic().getIndustryphycode());
+        assertEquals("科学xxxx技术服务业", response.getData().getBasic().getIndustryphyname());
+        assertNotNull(response.getData().getShareholders());
+        assertEquals(0, response.getData().getShareholders().size());
+        assertNotNull(response.getData().getFiliations());
+        assertEquals(1, response.getData().getFiliations().size());
+        assertEquals("上海XXX", response.getData().getFiliations().get(0).getBrname());
+        assertEquals("xxx", response.getData().getFiliations().get(0).getBrncreditcode());
+        assertEquals("xx", response.getData().getFiliations().get(0).getBrregno());
+        assertEquals("XX", response.getData().getFiliations().get(0).getBrnregorg());
+        assertEquals("2013-01-15", response.getData().getFiliations().get(0).getBrnEsdate());
+        assertEquals("注销", response.getData().getFiliations().get(0).getBrnEntStatus());
+        assertEquals("3", response.getData().getFiliations().get(0).getBrnEntStatusCode());
+        assertEquals("xx", response.getData().getFiliations().get(0).getBrnProvinceCode());
+        assertEquals("广东省", response.getData().getFiliations().get(0).getBrnProvinceName());
+        assertNotNull(response.getData().getAlters());
+        assertEquals(1, response.getData().getAlters().size());
+        assertEquals("实收资本变更", response.getData().getAlters().get(0).getAltitem());
+        assertEquals("10.000000", response.getData().getAlters().get(0).getAltbe());
+        assertEquals("1000.000000", response.getData().getAlters().get(0).getAltaf());
+        assertEquals("2012-01-16", response.getData().getAlters().get(0).getAltdate());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/enterpriseSimple"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_enterprise_simple_001")));
@@ -1250,24 +1250,24 @@ class BusinessClientTest {
         EnterpriseBiddingResponse response = client.enterpriseBidding("APP_ID", "SECRET_KEY", request, "trace_bidding_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1168209653206851584", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("116", response.data.BID_COUNT);
-        assertNotNull(response.data.DETAILS_BASIC);
-        assertEquals(2, response.data.DETAILS_BASIC.size());
-        assertEquals("279380115", response.data.DETAILS_BASIC.get(0).bid);
-        assertEquals("2025年红旗欧洲智能网联平台-短信平台续费立项报告", response.data.DETAILS_BASIC.get(0).title);
-        assertEquals("IA-251110-0001-1", response.data.DETAILS_BASIC.get(0).pronum);
-        assertEquals("", response.data.DETAILS_BASIC.get(0).bidnum);
-        assertEquals("中国第一汽车集团进出口有限公司", response.data.DETAILS_BASIC.get(0).tenderee);
-        assertEquals("吉林", response.data.DETAILS_BASIC.get(0).region);
-        assertEquals("0", response.data.DETAILS_BASIC.get(0).totalamount);
-        assertEquals("中标公告", response.data.DETAILS_BASIC.get(0).bidtype);
-        assertEquals("2025-11-19", response.data.DETAILS_BASIC.get(0).pubdate);
-        assertEquals("264183487", response.data.DETAILS_BASIC.get(1).bid);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1168209653206851584", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("116", response.getData().getBID_COUNT());
+        assertNotNull(response.getData().getDETAILS_BASIC());
+        assertEquals(2, response.getData().getDETAILS_BASIC().size());
+        assertEquals("279380115", response.getData().getDETAILS_BASIC().get(0).getBid());
+        assertEquals("2025年红旗欧洲智能网联平台-短信平台续费立项报告", response.getData().getDETAILS_BASIC().get(0).getTitle());
+        assertEquals("IA-251110-0001-1", response.getData().getDETAILS_BASIC().get(0).getPronum());
+        assertEquals("", response.getData().getDETAILS_BASIC().get(0).getBidnum());
+        assertEquals("中国第一汽车集团进出口有限公司", response.getData().getDETAILS_BASIC().get(0).getTenderee());
+        assertEquals("吉林", response.getData().getDETAILS_BASIC().get(0).getRegion());
+        assertEquals("0", response.getData().getDETAILS_BASIC().get(0).getTotalamount());
+        assertEquals("中标公告", response.getData().getDETAILS_BASIC().get(0).getBidtype());
+        assertEquals("2025-11-19", response.getData().getDETAILS_BASIC().get(0).getPubdate());
+        assertEquals("264183487", response.getData().getDETAILS_BASIC().get(1).getBid());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/enterpriseBidding"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_bidding_001")));
@@ -1326,26 +1326,26 @@ class BusinessClientTest {
         EnterpriseOwnTaxResponse response = client.enterpriseOwnTax("APP_ID", "SECRET_KEY", request, "trace_owntax_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("fvId1168190516367695872", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals("1", response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals(Integer.valueOf(2), response.data.total);
-        assertNotNull(response.data.items);
-        assertEquals(2, response.data.items.size());
-        assertEquals("91140622058874536B", response.data.items.get(0).taxIdNumber);
-        assertEquals("0.0", response.data.items.get(0).newOwnTaxBalance);
-        assertEquals("5524.49", response.data.items.get(0).ownTaxBalance);
-        assertEquals("2025-10-28", response.data.items.get(0).publishDate);
-        assertEquals("地税", response.data.items.get(0).type);
-        assertEquals("城市维护建设税", response.data.items.get(0).taxCategory);
-        assertEquals("居民身份证", response.data.items.get(0).personIdName);
-        assertEquals("应县蓝天管业有限公司", response.data.items.get(0).name);
-        assertEquals("应县税务局", response.data.items.get(0).department);
-        assertEquals("**谦", response.data.items.get(0).legalpersonName);
-        assertEquals("657480.1", response.data.items.get(1).ownTaxBalance);
-        assertEquals("增值税", response.data.items.get(1).taxCategory);
+        assertEquals("success", response.getMsg());
+        assertEquals("fvId1168190516367695872", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals("1", response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals(Integer.valueOf(2), response.getData().getTotal());
+        assertNotNull(response.getData().getItems());
+        assertEquals(2, response.getData().getItems().size());
+        assertEquals("91140622058874536B", response.getData().getItems().get(0).getTaxIdNumber());
+        assertEquals("0.0", response.getData().getItems().get(0).getNewOwnTaxBalance());
+        assertEquals("5524.49", response.getData().getItems().get(0).getOwnTaxBalance());
+        assertEquals("2025-10-28", response.getData().getItems().get(0).getPublishDate());
+        assertEquals("地税", response.getData().getItems().get(0).getType());
+        assertEquals("城市维护建设税", response.getData().getItems().get(0).getTaxCategory());
+        assertEquals("居民身份证", response.getData().getItems().get(0).getPersonIdName());
+        assertEquals("应县蓝天管业有限公司", response.getData().getItems().get(0).getName());
+        assertEquals("应县税务局", response.getData().getItems().get(0).getDepartment());
+        assertEquals("**谦", response.getData().getItems().get(0).getLegalpersonName());
+        assertEquals("657480.1", response.getData().getItems().get(1).getOwnTaxBalance());
+        assertEquals("增值税", response.getData().getItems().get(1).getTaxCategory());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/gsxx/enterpriseOwnTax"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_owntax_001")));
@@ -1401,15 +1401,15 @@ class BusinessClientTest {
         FaceCheckResponse response = client.faceCheck("APP_ID", "SECRET_KEY", request, "trace_face_check_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("YQis1222128184616292352", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("", response.data.faceId);
-        assertEquals("1", response.data.isLived);
-        assertEquals(98.5f, response.data.score, 0.01f);
-        assertEquals("活体", response.data.msg);
+        assertEquals("success", response.getMsg());
+        assertEquals("YQis1222128184616292352", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("", response.getData().getFaceId());
+        assertEquals("1", response.getData().getIsLived());
+        assertEquals(98.5f, response.getData().getScore(), 0.01f);
+        assertEquals("活体", response.getData().getMsg());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/witness/face-check"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_face_check_001")));
@@ -1467,21 +1467,21 @@ class BusinessClientTest {
         LifeCheckResponse response = client.lifeCheck("APP_ID", "SECRET_KEY", request, "trace_lifecheck_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("Dkos1224047181397446656", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("Dkos1224047181397446656", response.data.request_id);
-        assertNotNull(response.data.result);
-        assertEquals("https://img2.jumdata.com/lifecheck-face/20260630/86/3fdfbb5acbd9403d9ee247bb385fbcc0.jpg", response.data.result.face_image_url);
-        assertEquals(0.2769989266716422, response.data.result.hack_score, 0.0001);
-        assertTrue(response.data.result.passed);
-        assertEquals("检测通过", response.data.result.desc);
-        assertNotNull(response.data.result.motions);
-        assertEquals(0.3465524733126413, response.data.result.motions.score, 0.0001);
-        assertEquals("BLINK", response.data.result.motions.motion);
-        assertTrue(response.data.result.motions.passed);
+        assertEquals("success", response.getMsg());
+        assertEquals("Dkos1224047181397446656", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("Dkos1224047181397446656", response.getData().getRequest_id());
+        assertNotNull(response.getData().getResult());
+        assertEquals("https://img2.jumdata.com/lifecheck-face/20260630/86/3fdfbb5acbd9403d9ee247bb385fbcc0.jpg", response.getData().getResult().getFace_image_url());
+        assertEquals(0.2769989266716422, response.getData().getResult().getHack_score(), 0.0001);
+        assertTrue(response.getData().getResult().getPassed());
+        assertEquals("检测通过", response.getData().getResult().getDesc());
+        assertNotNull(response.getData().getResult().getMotions());
+        assertEquals(0.3465524733126413, response.getData().getResult().getMotions().getScore(), 0.0001);
+        assertEquals("BLINK", response.getData().getResult().getMotions().getMotion());
+        assertTrue(response.getData().getResult().getMotions().getPassed());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/htjc/lifecheck"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_lifecheck_001")));
@@ -1553,19 +1553,19 @@ class BusinessClientTest {
         IdOcrResponse response = client.idOcr("APP_ID", "SECRET_KEY", request, "trace_ocr_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("成功", response.msg);
-        assertEquals("REQ_OCR_001", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertNotNull(response.data);
-        assertEquals("TRD001", response.data.tradeNo);
-        assertEquals("北京市朝阳区", response.data.address);
-        assertEquals("19900101", response.data.birth);
-        assertEquals("张三", response.data.name);
-        assertEquals("110101199001011234", response.data.cardNum);
-        assertEquals("男", response.data.sex);
-        assertEquals("汉", response.data.nation);
-        assertEquals("normal", response.data.imageStatus);
-        assertEquals("0", response.data.direction);
+        assertEquals("成功", response.getMsg());
+        assertEquals("REQ_OCR_001", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertNotNull(response.getData());
+        assertEquals("TRD001", response.getData().getTradeNo());
+        assertEquals("北京市朝阳区", response.getData().getAddress());
+        assertEquals("19900101", response.getData().getBirth());
+        assertEquals("张三", response.getData().getName());
+        assertEquals("110101199001011234", response.getData().getCardNum());
+        assertEquals("男", response.getData().getSex());
+        assertEquals("汉", response.getData().getNation());
+        assertEquals("normal", response.getData().getImageStatus());
+        assertEquals("0", response.getData().getDirection());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ocr/id-ocr-cl"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ocr_001")));
@@ -1592,11 +1592,11 @@ class BusinessClientTest {
         IdOcrResponse response = client.idOcr("APP_ID", "SECRET_KEY", request);
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals("TRD002", response.data.tradeNo);
-        assertEquals("北京市公安局", response.data.issuingAuthority);
-        assertEquals("20061008", response.data.issuingDate);
-        assertEquals("20251008", response.data.expiryDate);
+        assertNotNull(response.getData());
+        assertEquals("TRD002", response.getData().getTradeNo());
+        assertEquals("北京市公安局", response.getData().getIssuingAuthority());
+        assertEquals("20061008", response.getData().getIssuingDate());
+        assertEquals("20251008", response.getData().getExpiryDate());
     }
 
     @Test
@@ -1677,21 +1677,21 @@ class BusinessClientTest {
         IdOcrV2Response response = client.idOcrV2("APP_ID", "SECRET_KEY", request, "trace_ocrv2_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("success", response.msg);
-        assertEquals("HcmM1107622401224069120", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("front", response.data.side);
-        assertNotNull(response.data.result);
-        assertEquals("", response.data.result.number);
-        assertEquals("吉林省通榆县八区街团结委六组", response.data.result.address);
-        assertEquals("8", response.data.result.month);
-        assertEquals("汉", response.data.result.nation);
-        assertEquals("2002", response.data.result.year);
-        assertEquals("男", response.data.result.sex);
-        assertEquals("白*", response.data.result.name);
-        assertEquals("20", response.data.result.day);
+        assertEquals("success", response.getMsg());
+        assertEquals("HcmM1107622401224069120", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("front", response.getData().getSide());
+        assertNotNull(response.getData().getResult());
+        assertEquals("", response.getData().getResult().getNumber());
+        assertEquals("吉林省通榆县八区街团结委六组", response.getData().getResult().getAddress());
+        assertEquals("8", response.getData().getResult().getMonth());
+        assertEquals("汉", response.getData().getResult().getNation());
+        assertEquals("2002", response.getData().getResult().getYear());
+        assertEquals("男", response.getData().getResult().getSex());
+        assertEquals("白*", response.getData().getResult().getName());
+        assertEquals("20", response.getData().getResult().getDay());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ocr/id-ocrV2"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_ocrv2_001")));
@@ -1716,11 +1716,11 @@ class BusinessClientTest {
         IdOcrV2Response response = client.idOcrV2("APP_ID", "SECRET_KEY", request);
 
         assertTrue(response.isSuccess());
-        assertNotNull(response.data);
-        assertEquals("back", response.data.side);
-        assertNotNull(response.data.result);
-        assertEquals("平西路公安博", response.data.result.authority);
-        assertEquals("20231205-20410305", response.data.result.timelimit);
+        assertNotNull(response.getData());
+        assertEquals("back", response.getData().getSide());
+        assertNotNull(response.getData().getResult());
+        assertEquals("平西路公安博", response.getData().getResult().getAuthority());
+        assertEquals("20231205-20410305", response.getData().getResult().getTimelimit());
     }
 
     @Test
@@ -1788,24 +1788,24 @@ class BusinessClientTest {
         VehicleLicenseResponse response = client.vehicleLicense("APP_ID", "SECRET_KEY", request, "trace_vehicle_001");
 
         assertTrue(response.isSuccess());
-        assertEquals("成功", response.msg);
-        assertEquals("iUPw1155886614683373568", response.requestId);
-        assertEquals(Integer.valueOf(1), response.chargeStatus);
-        assertEquals(Integer.valueOf(1), response.chargeCount);
-        assertNotNull(response.data);
-        assertEquals("奥迪牌FV6481LA**", response.data.brandModel);
-        assertEquals("20210608", response.data.openingDate);
-        assertEquals("非营运", response.data.usingProperties);
-        assertEquals("C9*", response.data.engineNo);
-        assertEquals("沪EX**", response.data.plateNo);
-        assertEquals("张**", response.data.possessor);
-        assertEquals("上海市**", response.data.address);
-        assertEquals("20200819", response.data.registrationDate);
-        assertEquals("LFV3B2FYXL3**", response.data.vin);
-        assertEquals("小型普通客车", response.data.vehicleType);
-        assertEquals("0", response.data.code);
-        assertEquals("成功", response.data.msg);
-        assertEquals("iUPw1155886614683373568", response.data.tradeNo);
+        assertEquals("成功", response.getMsg());
+        assertEquals("iUPw1155886614683373568", response.getRequestId());
+        assertEquals(Integer.valueOf(1), response.getChargeStatus());
+        assertEquals(Integer.valueOf(1), response.getChargeCount());
+        assertNotNull(response.getData());
+        assertEquals("奥迪牌FV6481LA**", response.getData().getBrandModel());
+        assertEquals("20210608", response.getData().getOpeningDate());
+        assertEquals("非营运", response.getData().getUsingProperties());
+        assertEquals("C9*", response.getData().getEngineNo());
+        assertEquals("沪EX**", response.getData().getPlateNo());
+        assertEquals("张**", response.getData().getPossessor());
+        assertEquals("上海市**", response.getData().getAddress());
+        assertEquals("20200819", response.getData().getRegistrationDate());
+        assertEquals("LFV3B2FYXL3**", response.getData().getVin());
+        assertEquals("小型普通客车", response.getData().getVehicleType());
+        assertEquals("0", response.getData().getCode());
+        assertEquals("成功", response.getData().getMsg());
+        assertEquals("iUPw1155886614683373568", response.getData().getTradeNo());
 
         wireMockServer.verify(postRequestedFor(urlEqualTo("/api/v2/sdk/ocr/vehicle-license"))
                 .withHeader("X-Custom-TraceId", equalTo("trace_vehicle_001")));

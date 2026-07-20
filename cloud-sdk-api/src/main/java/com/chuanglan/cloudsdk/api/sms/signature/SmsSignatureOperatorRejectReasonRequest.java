@@ -10,9 +10,9 @@ import java.util.List;
 public class SmsSignatureOperatorRejectReasonRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 签名ID列表。 */
-    public List<String> signIds;
+    private List<String> signIds;
 
     public SmsSignatureOperatorRejectReasonRequest setProductType(String productType) {
         this.productType = productType;
@@ -22,5 +22,13 @@ public class SmsSignatureOperatorRejectReasonRequest extends CloudSdkModel {
     public SmsSignatureOperatorRejectReasonRequest setSignIds(List<String> signIds) {
         this.signIds = signIds;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public List<String> getSignIds() {
+        return this.signIds;
     }
 }

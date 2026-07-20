@@ -70,15 +70,15 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IdCardAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + ID_CARD_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + ID_CARD_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), IdCardAuthResponse.class);
     }
 
@@ -96,10 +96,10 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IdCardAuthV2Request 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
         if (appSecret == null || appSecret.isEmpty()) {
@@ -107,11 +107,11 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
 
         Map<String, Object> bodyMap = new LinkedHashMap<>();
-        bodyMap.put("name", request.name);
-        bodyMap.put("idNum", request.idNum);
-        bodyMap.put("sign", buildV2Sign(appId, appSecret, request.idNum, request.name));
+        bodyMap.put("name", request.getName());
+        bodyMap.put("idNum", request.getIdNum());
+        bodyMap.put("sign", buildV2Sign(appId, appSecret, request.getIdNum(), request.getName()));
         String body = serializeRequest(bodyMap);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + ID_CARD_AUTH_V2_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + ID_CARD_AUTH_V2_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), IdCardAuthResponse.class);
     }
 
@@ -129,16 +129,16 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "ForeignIdCardAuthRequest 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.nation == null || request.nation.isEmpty()) {
+        if (request.getNation() == null || request.getNation().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "nation 不能为空", null, 0);
         }
-        if (request.idType == null || request.idType.isEmpty()) {
+        if (request.getIdType() == null || request.getIdType().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idType 不能为空", null, 0);
         }
         if (appSecret == null || appSecret.isEmpty()) {
@@ -146,13 +146,13 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
 
         Map<String, Object> bodyMap = new LinkedHashMap<>();
-        bodyMap.put("idNum", request.idNum);
-        bodyMap.put("name", request.name);
-        bodyMap.put("nation", request.nation);
-        bodyMap.put("idType", request.idType);
+        bodyMap.put("idNum", request.getIdNum());
+        bodyMap.put("name", request.getName());
+        bodyMap.put("nation", request.getNation());
+        bodyMap.put("idType", request.getIdType());
         bodyMap.put("sign", buildForeignSign(appId, appSecret, request));
         String body = serializeRequest(bodyMap);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + FOREIGN_ID_CARD_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + FOREIGN_ID_CARD_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), ForeignIdCardAuthResponse.class);
     }
 
@@ -170,18 +170,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IdMatchRequest 不能为空", null, 0);
         }
-        if (request.image == null || request.image.isEmpty()) {
+        if (request.getImage() == null || request.getImage().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "image 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + ID_MATCH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + ID_MATCH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), IdMatchResponse.class);
     }
 
@@ -199,24 +199,24 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "ForeignIdMatchRequest 不能为空", null, 0);
         }
-        if (request.image == null || request.image.isEmpty()) {
+        if (request.getImage() == null || request.getImage().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "image 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.nation == null || request.nation.isEmpty()) {
+        if (request.getNation() == null || request.getNation().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "nation 不能为空", null, 0);
         }
-        if (request.type == null || request.type.isEmpty()) {
+        if (request.getType() == null || request.getType().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "type 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + FOREIGN_ID_MATCH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + FOREIGN_ID_MATCH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), ForeignIdMatchResponse.class);
     }
 
@@ -234,15 +234,15 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersTwoAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_TWO_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_TWO_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersTwoAuthResponse.class);
     }
 
@@ -260,15 +260,15 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersTwoAuthIdNumRequest 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_TWO_AUTH_ID_NUM_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_TWO_AUTH_ID_NUM_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersTwoAuthIdNumResponse.class);
     }
 
@@ -286,15 +286,15 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersTwoAuthMd5Request 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_TWO_AUTH_MD5_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_TWO_AUTH_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersTwoAuthResponse.class);
     }
 
@@ -312,18 +312,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthResponse.class);
     }
 
@@ -341,18 +341,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthMd5Request 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_AUTH_MD5_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthMd5Response.class);
     }
 
@@ -370,18 +370,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.apiEndpoint + CARRIERS_AUTH_DETAIL_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getApiEndpoint() + CARRIERS_AUTH_DETAIL_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailResponse.class);
     }
 
@@ -399,18 +399,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthDetailMd5Request 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.apiEndpoint + CARRIERS_AUTH_DETAIL_MD5_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getApiEndpoint() + CARRIERS_AUTH_DETAIL_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailMd5Response.class);
     }
 
@@ -428,18 +428,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthDetailSha256Request 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_AUTH_DETAIL_SHA256_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_DETAIL_SHA256_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailSha256Response.class);
     }
 
@@ -457,18 +457,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersAuthSha256Request 不能为空", null, 0);
         }
-        if (request.chName == null || request.chName.isEmpty()) {
+        if (request.getChName() == null || request.getChName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "chName 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.chTel == null || request.chTel.isEmpty()) {
+        if (request.getChTel() == null || request.getChTel().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "chTel 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + CARRIERS_AUTH_SHA256_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_SHA256_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthSha256Response.class);
     }
 
@@ -486,15 +486,15 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardTwoAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_TWO_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_TWO_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardTwoAuthResponse.class);
     }
 
@@ -512,18 +512,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardThreeAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_THREE_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_THREE_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardThreeAuthResponse.class);
     }
 
@@ -541,18 +541,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardThreeAuthTypeRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_THREE_AUTH_TYPE_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_THREE_AUTH_TYPE_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardThreeAuthTypeResponse.class);
     }
 
@@ -570,18 +570,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardThreeAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_THREE_AUTH_DETAIL_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_THREE_AUTH_DETAIL_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardThreeAuthDetailResponse.class);
     }
 
@@ -599,18 +599,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardThreeAuthPrecisionRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_THREE_AUTH_PRECISION_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_THREE_AUTH_PRECISION_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardThreeAuthPrecisionResponse.class);
     }
 
@@ -628,21 +628,21 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFourAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FOUR_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FOUR_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFourAuthResponse.class);
     }
 
@@ -660,16 +660,16 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFourSecretRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
         if (appSecret == null || appSecret.isEmpty()) {
@@ -680,7 +680,7 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         Map<String, Object> bodyMap = new LinkedHashMap<>();
         bodyMap.put("param", param);
         String body = serializeRequest(bodyMap);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FOUR_SECRET_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FOUR_SECRET_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFourSecretResponse.class);
     }
 
@@ -698,18 +698,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFourAuthDetailRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FOUR_AUTH_DETAIL_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FOUR_AUTH_DETAIL_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFourAuthDetailResponse.class);
     }
 
@@ -727,21 +727,21 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFourAuthTypeRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FOUR_AUTH_TYPE_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FOUR_AUTH_TYPE_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFourAuthTypeResponse.class);
     }
 
@@ -759,18 +759,18 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFourAuthPrecisionRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FOUR_AUTH_PRECISION_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FOUR_AUTH_PRECISION_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFourAuthPrecisionResponse.class);
     }
 
@@ -788,21 +788,21 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "BankCardFiveAuthRequest 不能为空", null, 0);
         }
-        if (request.name == null || request.name.isEmpty()) {
+        if (request.getName() == null || request.getName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "name 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
-        if (request.cardNo == null || request.cardNo.isEmpty()) {
+        if (request.getCardNo() == null || request.getCardNo().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "cardNo 不能为空", null, 0);
         }
-        if (request.mobile == null || request.mobile.isEmpty()) {
+        if (request.getMobile() == null || request.getMobile().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BANK_CARD_FIVE_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BANK_CARD_FIVE_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), BankCardFiveAuthResponse.class);
     }
 
@@ -820,12 +820,12 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "IpGsdQueryRequest 不能为空", null, 0);
         }
-        if (request.ip == null || request.ip.isEmpty()) {
+        if (request.getIp() == null || request.getIp().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "ip 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + IP_GSD_QUERY_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + IP_GSD_QUERY_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), IpGsdQueryResponse.class);
     }
 
@@ -843,27 +843,27 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "EnterpriseFourAuthRequest 不能为空", null, 0);
         }
-        if (request.entName == null || request.entName.isEmpty()) {
+        if (request.getEntName() == null || request.getEntName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "entName 不能为空", null, 0);
         }
-        if (request.legalPerName == null || request.legalPerName.isEmpty()) {
+        if (request.getLegalPerName() == null || request.getLegalPerName().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "legalPerName 不能为空", null, 0);
         }
-        if (request.creditCode == null || request.creditCode.isEmpty()) {
+        if (request.getCreditCode() == null || request.getCreditCode().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "creditCode 不能为空", null, 0);
         }
-        if (request.idNum == null || request.idNum.isEmpty()) {
+        if (request.getIdNum() == null || request.getIdNum().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "idNum 不能为空", null, 0);
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.endpoint + BUSINESS_FOUR_AUTH_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + BUSINESS_FOUR_AUTH_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), EnterpriseFourAuthResponse.class);
     }
 
     private String encryptBankCardFourSecretParam(String appSecret, BankCardFourSecretRequest request) throws CloudSdkException {
         try {
-            String raw = "name=" + request.name + "&idnum=" + request.idNum + "&cardnum=" + request.cardNo + "&mobilenum=" + request.mobile;
+            String raw = "name=" + request.getName() + "&idnum=" + request.getIdNum() + "&cardnum=" + request.getCardNo() + "&mobilenum=" + request.getMobile();
             String md5Hex = md5Hex(appSecret);
             String key = md5Hex.substring(0, 16);
             String iv = md5Hex.substring(16, 32);
@@ -901,8 +901,8 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
     }
 
     private String buildForeignSign(String appId, String appSecret, ForeignIdCardAuthRequest request) throws CloudSdkException {
-        String raw = "appId" + appId + "appKey" + appSecret + "idNum" + request.idNum
-                + "idType" + request.idType + "name" + request.name + "nation" + request.nation;
+        String raw = "appId" + appId + "appKey" + appSecret + "idNum" + request.getIdNum()
+                + "idType" + request.getIdType() + "name" + request.getName() + "nation" + request.getNation();
         try {
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(new SecretKeySpec(appSecret.getBytes(StandardCharsets.UTF_8), "HmacSHA1"));

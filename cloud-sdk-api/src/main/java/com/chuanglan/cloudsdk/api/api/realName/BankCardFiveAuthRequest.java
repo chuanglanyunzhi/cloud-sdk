@@ -12,22 +12,22 @@ public class BankCardFiveAuthRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 身份证号码。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 银行卡号。
      */
-    public String cardNo;
+    private String cardNo;
 
     /**
      * 银行预留手机号。
      */
-    public String mobile;
+    private String mobile;
 
     public BankCardFiveAuthRequest setName(String name) {
         this.name = name;
@@ -47,5 +47,21 @@ public class BankCardFiveAuthRequest extends CloudSdkModel {
     public BankCardFiveAuthRequest setMobile(String mobile) {
         this.mobile = mobile;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getCardNo() {
+        return this.cardNo;
+    }
+
+    public String getMobile() {
+        return this.mobile;
     }
 }

@@ -10,12 +10,12 @@ public class DrivingLicenseOcrV2Data extends CloudSdkModel {
     /**
      * 正页数据。
      */
-    public DrivingLicenseOcrV2FrontData front;
+    private DrivingLicenseOcrV2FrontData front;
 
     /**
      * 副页数据。
      */
-    public DrivingLicenseOcrV2BackData back;
+    private DrivingLicenseOcrV2BackData back;
 
     public DrivingLicenseOcrV2Data setFront(DrivingLicenseOcrV2FrontData front) {
         this.front = front;
@@ -25,5 +25,13 @@ public class DrivingLicenseOcrV2Data extends CloudSdkModel {
     public DrivingLicenseOcrV2Data setBack(DrivingLicenseOcrV2BackData back) {
         this.back = back;
         return this;
+    }
+
+    public DrivingLicenseOcrV2FrontData getFront() {
+        return this.front;
+    }
+
+    public DrivingLicenseOcrV2BackData getBack() {
+        return this.back;
     }
 }

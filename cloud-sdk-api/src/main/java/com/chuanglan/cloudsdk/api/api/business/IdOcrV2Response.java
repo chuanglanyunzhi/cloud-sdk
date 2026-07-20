@@ -8,17 +8,17 @@ public class IdOcrV2Response extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 扣费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public IdOcrV2Data data;
+    private IdOcrV2Data data;
 
     public IdOcrV2Response setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class IdOcrV2Response extends BusinessCommonResponse {
     public IdOcrV2Response setData(IdOcrV2Data data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public IdOcrV2Data getData() {
+        return this.data;
     }
 }

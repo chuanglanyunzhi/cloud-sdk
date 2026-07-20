@@ -10,82 +10,82 @@ public class AdministrativeSanctionItem extends CloudSdkModel {
     /**
      * 行政处罚决定书文号。
      */
-    public String pendecno;
+    private String pendecno;
 
     /**
      * 违法行为类型。
      */
-    public String casetype;
+    private String casetype;
 
     /**
      * 处罚种类。
      */
-    public String pentype;
+    private String pentype;
 
     /**
      * 主要违法事实。
      */
-    public String illegfact;
+    private String illegfact;
 
     /**
      * 行政处罚内容。
      */
-    public String content;
+    private String content;
 
     /**
      * 处罚金额。
      */
-    public String penam;
+    private String penam;
 
     /**
      * 没收金额。
      */
-    public String confiscate;
+    private String confiscate;
 
     /**
      * 作出行政处罚机关名称。
      */
-    public String penauth;
+    private String penauth;
 
     /**
      * 作出行政处罚决定日期。
      */
-    public String pendecissdate;
+    private String pendecissdate;
 
     /**
      * 公示日期。
      */
-    public String pubdate;
+    private String pubdate;
 
     /**
      * 处罚依据。
      */
-    public String penbasis;
+    private String penbasis;
 
     /**
      * 处罚结果。
      */
-    public String penresult;
+    private String penresult;
 
     /**
      * 处罚执行情况。
      */
-    public String penexest;
+    private String penexest;
 
     /**
      * 处罚有效期。
      */
-    public String peneffdate;
+    private String peneffdate;
 
     /**
      * 公示截止期。
      */
-    public String pubenddate;
+    private String pubenddate;
 
     /**
      * 是否公示(0:公示；1:源已不公示；2：已过公示期)。
      */
-    public String isUsed;
+    private String isUsed;
 
     public AdministrativeSanctionItem setPendecno(String pendecno) {
         this.pendecno = pendecno;
@@ -165,5 +165,69 @@ public class AdministrativeSanctionItem extends CloudSdkModel {
     public AdministrativeSanctionItem setIsUsed(String isUsed) {
         this.isUsed = isUsed;
         return this;
+    }
+
+    public String getPendecno() {
+        return this.pendecno;
+    }
+
+    public String getCasetype() {
+        return this.casetype;
+    }
+
+    public String getPentype() {
+        return this.pentype;
+    }
+
+    public String getIllegfact() {
+        return this.illegfact;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getPenam() {
+        return this.penam;
+    }
+
+    public String getConfiscate() {
+        return this.confiscate;
+    }
+
+    public String getPenauth() {
+        return this.penauth;
+    }
+
+    public String getPendecissdate() {
+        return this.pendecissdate;
+    }
+
+    public String getPubdate() {
+        return this.pubdate;
+    }
+
+    public String getPenbasis() {
+        return this.penbasis;
+    }
+
+    public String getPenresult() {
+        return this.penresult;
+    }
+
+    public String getPenexest() {
+        return this.penexest;
+    }
+
+    public String getPeneffdate() {
+        return this.peneffdate;
+    }
+
+    public String getPubenddate() {
+        return this.pubenddate;
+    }
+
+    public String getIsUsed() {
+        return this.isUsed;
     }
 }

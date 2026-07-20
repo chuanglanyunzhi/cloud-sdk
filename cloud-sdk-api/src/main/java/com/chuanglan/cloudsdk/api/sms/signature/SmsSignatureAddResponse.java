@@ -8,17 +8,29 @@ import com.chuanglan.cloudsdk.api.sms.SmsCommonResponse;
 public class SmsSignatureAddResponse extends SmsCommonResponse {
 
     /** 响应数据。 */
-    public Data data;
+    private Data data;
 
     public static class Data {
         /** 签名ID。 */
-        public String signId;
+        private String signId;
         /** 已存在的签名ID。 */
-        public String existedSignId;
+        private String existedSignId;
+
+        public String getSignId() {
+            return this.signId;
+        }
+
+        public String getExistedSignId() {
+            return this.existedSignId;
+        }
     }
 
     public SmsSignatureAddResponse setData(Data data) {
         this.data = data;
         return this;
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

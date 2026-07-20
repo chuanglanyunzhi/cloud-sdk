@@ -12,7 +12,7 @@ public class RcsSmsTemplateListResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsTemplateListResponse setData(Data data) {
         this.data = data;
@@ -27,12 +27,12 @@ public class RcsSmsTemplateListResponse extends RcsSmsCommonResponse {
         /**
          * 总数。
          */
-        public Long total;
+        private Long total;
 
         /**
          * 模板列表。
          */
-        public List<RcsSmsTemplateInfo> list;
+        private List<RcsSmsTemplateInfo> list;
 
         public Data setTotal(Long total) {
             this.total = total;
@@ -43,5 +43,17 @@ public class RcsSmsTemplateListResponse extends RcsSmsCommonResponse {
             this.list = list;
             return this;
         }
+
+        public Long getTotal() {
+            return this.total;
+        }
+
+        public List<RcsSmsTemplateInfo> getList() {
+            return this.list;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

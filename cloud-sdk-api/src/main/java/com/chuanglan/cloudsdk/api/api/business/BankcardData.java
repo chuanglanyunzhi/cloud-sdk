@@ -10,37 +10,37 @@ public class BankcardData extends CloudSdkModel {
     /**
      * 交易号，唯一。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     /**
      * 银行卡账号。
      */
-    public String cardNum;
+    private String cardNum;
 
     /**
      * 卡类型：0-未知银行；1-借记卡；2-信用卡；3-预付费卡。
      */
-    public String cardType;
+    private String cardType;
 
     /**
      * 银行卡名称（建设银行、招商银行等）。
      */
-    public String cardName;
+    private String cardName;
 
     /**
      * 有效期（格式：月/年）。
      */
-    public String validDate;
+    private String validDate;
 
     /**
      * 银行卡检测业务返回码，0 成功，其他失败。
      */
-    public String code;
+    private String code;
 
     /**
      * 银行卡检测业务返回码对应说明。
      */
-    public String msg;
+    private String msg;
 
     public BankcardData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
@@ -75,5 +75,33 @@ public class BankcardData extends CloudSdkModel {
     public BankcardData setMsg(String msg) {
         this.msg = msg;
         return this;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
+    }
+
+    public String getCardNum() {
+        return this.cardNum;
+    }
+
+    public String getCardType() {
+        return this.cardType;
+    }
+
+    public String getCardName() {
+        return this.cardName;
+    }
+
+    public String getValidDate() {
+        return this.validDate;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
     }
 }

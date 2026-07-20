@@ -7,8 +7,8 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsTemplateDeleteRequest extends CloudSdkModel {
 
-    public String productType;
-    public String templateCode;
+    private String productType;
+    private String templateCode;
 
     public SmsTemplateDeleteRequest setProductType(String productType) {
         this.productType = productType;
@@ -18,5 +18,13 @@ public class SmsTemplateDeleteRequest extends CloudSdkModel {
     public SmsTemplateDeleteRequest setTemplateCode(String templateCode) {
         this.templateCode = templateCode;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getTemplateCode() {
+        return this.templateCode;
     }
 }

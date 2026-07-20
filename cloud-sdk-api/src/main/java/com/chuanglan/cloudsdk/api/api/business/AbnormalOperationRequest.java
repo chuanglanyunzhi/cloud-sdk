@@ -12,22 +12,22 @@ public class AbnormalOperationRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entname;
+    private String entname;
 
     /**
      * 统一社会信用代码。
      */
-    public String creditcode;
+    private String creditcode;
 
     /**
      * 企业注册号。
      */
-    public String regno;
+    private String regno;
 
     /**
      * 组织机构代码。
      */
-    public String orgcode;
+    private String orgcode;
 
     public AbnormalOperationRequest setEntname(String entname) {
         this.entname = entname;
@@ -47,5 +47,21 @@ public class AbnormalOperationRequest extends CloudSdkModel {
     public AbnormalOperationRequest setOrgcode(String orgcode) {
         this.orgcode = orgcode;
         return this;
+    }
+
+    public String getEntname() {
+        return this.entname;
+    }
+
+    public String getCreditcode() {
+        return this.creditcode;
+    }
+
+    public String getRegno() {
+        return this.regno;
+    }
+
+    public String getOrgcode() {
+        return this.orgcode;
     }
 }

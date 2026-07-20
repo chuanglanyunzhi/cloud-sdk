@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class SmsTemplateTypeEnumResponse extends SmsCommonResponse {
 
-    public Data data;
+    private Data data;
 
     public SmsTemplateTypeEnumResponse setData(Data data) {
         this.data = data;
@@ -17,20 +17,60 @@ public class SmsTemplateTypeEnumResponse extends SmsCommonResponse {
     }
 
     public static class Data {
-        public List<TypeEnumItem> variableTypes;
-        public List<TypeEnumItem> mobileTypes;
-        public List<TypeEnumItem> urlTypes;
-        public List<BusinessTypeItem> businessTypes;
+        private List<TypeEnumItem> variableTypes;
+        private List<TypeEnumItem> mobileTypes;
+        private List<TypeEnumItem> urlTypes;
+        private List<BusinessTypeItem> businessTypes;
+
+        public List<TypeEnumItem> getVariableTypes() {
+            return this.variableTypes;
+        }
+
+        public List<TypeEnumItem> getMobileTypes() {
+            return this.mobileTypes;
+        }
+
+        public List<TypeEnumItem> getUrlTypes() {
+            return this.urlTypes;
+        }
+
+        public List<BusinessTypeItem> getBusinessTypes() {
+            return this.businessTypes;
+        }
     }
 
     public static class TypeEnumItem extends SmsCommonResponse {
-        public String id;
-        public String type;
+        private String id;
+        private String type;
+
+        public String getId() {
+            return this.id;
+        }
+
+        public String getType() {
+            return this.type;
+        }
     }
 
     public static class BusinessTypeItem extends SmsCommonResponse {
-        public String id;
-        public String type;
-        public List<TypeEnumItem> details;
+        private String id;
+        private String type;
+        private List<TypeEnumItem> details;
+
+        public String getId() {
+            return this.id;
+        }
+
+        public String getType() {
+            return this.type;
+        }
+
+        public List<TypeEnumItem> getDetails() {
+            return this.details;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

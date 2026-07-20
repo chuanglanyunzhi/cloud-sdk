@@ -10,17 +10,17 @@ public class ApiCommonResponse extends CloudSdkModel {
     /**
      * Return code, 000000 means success.
      */
-    public String code;
+    private String code;
 
     /**
      * Response message.
      */
-    public String msg;
+    private String msg;
 
     /**
      * Request ID.
      */
-    public String requestId;
+    private String requestId;
 
     public ApiCommonResponse setCode(String code) {
         this.code = code;
@@ -37,15 +37,15 @@ public class ApiCommonResponse extends CloudSdkModel {
         return this;
     }
 
-    protected String getCode() {
+    public String getCode() {
         return code;
     }
 
-    protected String getMsg() {
+    public String getMsg() {
         return msg;
     }
 
-    protected String getRequestId() {
+    public String getRequestId() {
         return requestId;
     }
 
@@ -53,6 +53,6 @@ public class ApiCommonResponse extends CloudSdkModel {
      * Check if request is successful.
      */
     public boolean isSuccess() {
-        return "000000".equals(code);
+        return "000000".equals(getCode());
     }
 }

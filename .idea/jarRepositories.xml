@@ -31,5 +31,10 @@
       <option name="name" value="nexus" />
       <option name="url" value="http://nexus-test.253.com/repository/maven-public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="http://nexus-test.253.com/" />
+    </remote-repository>
   </component>
 </project>

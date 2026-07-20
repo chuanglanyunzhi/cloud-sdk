@@ -8,12 +8,12 @@ public class MnpCarriersNewResponse extends MnpCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 业务数据。
      */
-    public MnpCarriersNewResponseData data;
+    private MnpCarriersNewResponseData data;
 
     public MnpCarriersNewResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -23,5 +23,13 @@ public class MnpCarriersNewResponse extends MnpCommonResponse {
     public MnpCarriersNewResponse setData(MnpCarriersNewResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public MnpCarriersNewResponseData getData() {
+        return this.data;
     }
 }

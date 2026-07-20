@@ -13,7 +13,7 @@ public class NumberConfig extends ApiConfig {
     public static final String DEFAULT_ENDPOINT = "https://wskh.253.com";
 
     public NumberConfig() {
-        this.endpoint = DEFAULT_ENDPOINT;
+        super.setEndpoint(DEFAULT_ENDPOINT);
     }
 
     @Override

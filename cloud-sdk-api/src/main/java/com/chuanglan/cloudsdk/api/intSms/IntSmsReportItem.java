@@ -10,52 +10,52 @@ public class IntSmsReportItem extends CloudSdkModel {
     /**
      * 短信唯一消息 ID。
      */
-    public String msgid;
+    private String msgid;
 
     /**
      * 接收手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 发送状态标识：0-成功，1-号码无效/用户关机，2-发送请求被拒绝，99-发送通用失败。
      */
-    public String status;
+    private String status;
 
     /**
      * 状态上报时间。
      */
-    public String reportTime;
+    private String reportTime;
 
     /**
      * 短信提交发送时间。
      */
-    public String requestTime;
+    private String requestTime;
 
     /**
      * 结果通知时间。
      */
-    public String notifyTime;
+    private String notifyTime;
 
     /**
      * 短信发送批次号。
      */
-    public String batchSeq;
+    private String batchSeq;
 
     /**
      * 单条短信扣费金额。
      */
-    public Double fee;
+    private Double fee;
 
     /**
      * 拆分短信条数。
      */
-    public Integer smsNum;
+    private Integer smsNum;
 
     /**
      * 实际计费条数。
      */
-    public Integer billCnt;
+    private Integer billCnt;
 
     public IntSmsReportItem setMsgid(String msgid) {
         this.msgid = msgid;
@@ -105,5 +105,45 @@ public class IntSmsReportItem extends CloudSdkModel {
     public IntSmsReportItem setBillCnt(Integer billCnt) {
         this.billCnt = billCnt;
         return this;
+    }
+
+    public String getMsgid() {
+        return this.msgid;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getReportTime() {
+        return this.reportTime;
+    }
+
+    public String getRequestTime() {
+        return this.requestTime;
+    }
+
+    public String getNotifyTime() {
+        return this.notifyTime;
+    }
+
+    public String getBatchSeq() {
+        return this.batchSeq;
+    }
+
+    public Double getFee() {
+        return this.fee;
+    }
+
+    public Integer getSmsNum() {
+        return this.smsNum;
+    }
+
+    public Integer getBillCnt() {
+        return this.billCnt;
     }
 }

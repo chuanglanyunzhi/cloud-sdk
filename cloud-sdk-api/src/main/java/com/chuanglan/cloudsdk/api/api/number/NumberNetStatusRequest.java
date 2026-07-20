@@ -12,22 +12,22 @@ public class NumberNetStatusRequest extends CloudSdkModel {
     /**
      * 预验证 11 位手机号码（与 encryptFields 二选一）。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 加密类型：md5（32 位小写）或 sha256。
      */
-    public String encrypt;
+    private String encrypt;
 
     /**
      * 加密数据字段，例如 mobile。
      */
-    public String encryptFields;
+    private String encryptFields;
 
     /**
      * 订单号。
      */
-    public String orderNo;
+    private String orderNo;
 
     public NumberNetStatusRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -47,5 +47,21 @@ public class NumberNetStatusRequest extends CloudSdkModel {
     public NumberNetStatusRequest setOrderNo(String orderNo) {
         this.orderNo = orderNo;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getEncrypt() {
+        return this.encrypt;
+    }
+
+    public String getEncryptFields() {
+        return this.encryptFields;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
     }
 }

@@ -12,17 +12,17 @@ public class RiskAntiHarassmentRequest extends CloudSdkModel {
     /**
      * 拦截等级（1：一般，2：敏感，3：高危）。
      */
-    public Integer forbidLevel;
+    private Integer forbidLevel;
 
     /**
      * 手机号 MD5（32 位小写），多个 MD5 以英文半角逗号分隔，最多支持 500 个号码。
      */
-    public String mobiles;
+    private String mobiles;
 
     /**
      * 加密类型：MD5 表示 MD5 加密；不填表示普通手机号（默认）。
      */
-    public String encryptType;
+    private String encryptType;
 
     public RiskAntiHarassmentRequest setForbidLevel(Integer forbidLevel) {
         this.forbidLevel = forbidLevel;
@@ -37,5 +37,17 @@ public class RiskAntiHarassmentRequest extends CloudSdkModel {
     public RiskAntiHarassmentRequest setEncryptType(String encryptType) {
         this.encryptType = encryptType;
         return this;
+    }
+
+    public Integer getForbidLevel() {
+        return this.forbidLevel;
+    }
+
+    public String getMobiles() {
+        return this.mobiles;
+    }
+
+    public String getEncryptType() {
+        return this.encryptType;
     }
 }

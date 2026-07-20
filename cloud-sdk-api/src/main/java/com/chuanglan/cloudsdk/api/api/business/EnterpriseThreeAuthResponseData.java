@@ -10,17 +10,17 @@ public class EnterpriseThreeAuthResponseData extends CloudSdkModel {
     /**
      * 企业名称核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String entNameMatch;
+    private String entNameMatch;
 
     /**
      * 统一社会信用代码核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String creditCodeMatch;
+    private String creditCodeMatch;
 
     /**
      * 法人姓名核验结果：1 一致；2 不一致；3 无法验证。
      */
-    public String legalPerNameMatch;
+    private String legalPerNameMatch;
 
     public EnterpriseThreeAuthResponseData setEntNameMatch(String entNameMatch) {
         this.entNameMatch = entNameMatch;
@@ -35,5 +35,17 @@ public class EnterpriseThreeAuthResponseData extends CloudSdkModel {
     public EnterpriseThreeAuthResponseData setLegalPerNameMatch(String legalPerNameMatch) {
         this.legalPerNameMatch = legalPerNameMatch;
         return this;
+    }
+
+    public String getEntNameMatch() {
+        return this.entNameMatch;
+    }
+
+    public String getCreditCodeMatch() {
+        return this.creditCodeMatch;
+    }
+
+    public String getLegalPerNameMatch() {
+        return this.legalPerNameMatch;
     }
 }

@@ -10,17 +10,17 @@ public class IpApplicationScenariosScenes extends CloudSdkModel {
     /**
      * 运营商。
      */
-    public String isp;
+    private String isp;
 
     /**
      * 应用场景类型。
      */
-    public String usage_type;
+    private String usage_type;
 
     /**
      * ASN 号。
      */
-    public String asn;
+    private String asn;
 
     public IpApplicationScenariosScenes setIsp(String isp) {
         this.isp = isp;
@@ -35,5 +35,17 @@ public class IpApplicationScenariosScenes extends CloudSdkModel {
     public IpApplicationScenariosScenes setAsn(String asn) {
         this.asn = asn;
         return this;
+    }
+
+    public String getIsp() {
+        return this.isp;
+    }
+
+    public String getUsage_type() {
+        return this.usage_type;
+    }
+
+    public String getAsn() {
+        return this.asn;
     }
 }

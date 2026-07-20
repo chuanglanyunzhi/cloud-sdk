@@ -12,12 +12,12 @@ public class CarriersTwoAuthMd5Request extends CloudSdkModel {
     /**
      * 姓名，MD5 加密形式（32 位小写）。
      */
-    public String name;
+    private String name;
 
     /**
      * 手机号，MD5 加密形式（32 位小写）。
      */
-    public String mobile;
+    private String mobile;
 
     public CarriersTwoAuthMd5Request setName(String name) {
         this.name = name;
@@ -27,5 +27,13 @@ public class CarriersTwoAuthMd5Request extends CloudSdkModel {
     public CarriersTwoAuthMd5Request setMobile(String mobile) {
         this.mobile = mobile;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getMobile() {
+        return this.mobile;
     }
 }

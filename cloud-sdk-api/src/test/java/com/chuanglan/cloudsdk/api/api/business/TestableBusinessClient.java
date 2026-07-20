@@ -13,7 +13,7 @@ class TestableBusinessClient extends BusinessClient {
     }
 
     public BusinessCommonResponse invoke(String appId, String appSecret, String path, String body, String traceId) throws CloudSdkException {
-        SyncResponse response = execute(appId, appSecret, config.endpoint + path, body, traceId);
+        SyncResponse response = execute(appId, appSecret, config.getEndpoint() + path, body, traceId);
         return parseResponse(response.getBody(), BusinessCommonResponse.class);
     }
 }

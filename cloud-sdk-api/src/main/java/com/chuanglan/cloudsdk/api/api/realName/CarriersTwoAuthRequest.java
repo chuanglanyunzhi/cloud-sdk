@@ -12,12 +12,12 @@ public class CarriersTwoAuthRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 手机号。
      */
-    public String mobile;
+    private String mobile;
 
     public CarriersTwoAuthRequest setName(String name) {
         this.name = name;
@@ -27,5 +27,13 @@ public class CarriersTwoAuthRequest extends CloudSdkModel {
     public CarriersTwoAuthRequest setMobile(String mobile) {
         this.mobile = mobile;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getMobile() {
+        return this.mobile;
     }
 }

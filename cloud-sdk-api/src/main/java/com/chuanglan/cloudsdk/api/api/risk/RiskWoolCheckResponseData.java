@@ -10,22 +10,22 @@ public class RiskWoolCheckResponseData extends CloudSdkModel {
     /**
      * 交易号，唯一。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     /**
      * 检测的手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 检测结果：W1 白名单；B1 黑名单；B2 可信用度低；N 库无。
      */
-    public String status;
+    private String status;
 
     /**
      * 检测分值，分值越高风险越高。W1:[0-60); B2:[60-90); B1:[90-100]。
      */
-    public Double score;
+    private Double score;
 
     public RiskWoolCheckResponseData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
@@ -45,5 +45,21 @@ public class RiskWoolCheckResponseData extends CloudSdkModel {
     public RiskWoolCheckResponseData setScore(Double score) {
         this.score = score;
         return this;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public Double getScore() {
+        return this.score;
     }
 }

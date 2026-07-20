@@ -8,17 +8,17 @@ public class IdMatchResponse extends RealNameCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public IdMatchResponseData data;
+    private IdMatchResponseData data;
 
     public IdMatchResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -37,6 +37,18 @@ public class IdMatchResponse extends RealNameCommonResponse {
 
     @Override
     public boolean isSuccess() {
-        return "200000".equals(code) || super.isSuccess();
+        return "200000".equals(getCode()) || super.isSuccess();
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public IdMatchResponseData getData() {
+        return this.data;
     }
 }

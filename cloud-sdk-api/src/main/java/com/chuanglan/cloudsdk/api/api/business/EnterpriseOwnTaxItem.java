@@ -10,77 +10,77 @@ public class EnterpriseOwnTaxItem extends CloudSdkModel {
     /**
      * 纳税人识别号。
      */
-    public String taxIdNumber;
+    private String taxIdNumber;
 
     /**
      * 当前新发生欠税余额。
      */
-    public String newOwnTaxBalance;
+    private String newOwnTaxBalance;
 
     /**
      * 欠税金额。
      */
-    public String ownTaxAmount;
+    private String ownTaxAmount;
 
     /**
      * 发布时间。
      */
-    public String publishDate;
+    private String publishDate;
 
     /**
      * 欠税余额。
      */
-    public String ownTaxBalance;
+    private String ownTaxBalance;
 
     /**
      * 税务类型。
      */
-    public String type;
+    private String type;
 
     /**
      * 证件号码。
      */
-    public String personIdNumber;
+    private String personIdNumber;
 
     /**
      * 欠税税种。
      */
-    public String taxCategory;
+    private String taxCategory;
 
     /**
      * 纳税人类型。
      */
-    public String taxpayerType;
+    private String taxpayerType;
 
     /**
      * 法人证件名称。
      */
-    public String personIdName;
+    private String personIdName;
 
     /**
      * 纳税人名称。
      */
-    public String name;
+    private String name;
 
     /**
      * 经营地点。
      */
-    public String location;
+    private String location;
 
     /**
      * 税务机关。
      */
-    public String department;
+    private String department;
 
     /**
      * 注册类型。
      */
-    public String regType;
+    private String regType;
 
     /**
      * 法人或负责人名称。
      */
-    public String legalpersonName;
+    private String legalpersonName;
 
     public EnterpriseOwnTaxItem setTaxIdNumber(String taxIdNumber) {
         this.taxIdNumber = taxIdNumber;
@@ -155,5 +155,65 @@ public class EnterpriseOwnTaxItem extends CloudSdkModel {
     public EnterpriseOwnTaxItem setLegalpersonName(String legalpersonName) {
         this.legalpersonName = legalpersonName;
         return this;
+    }
+
+    public String getTaxIdNumber() {
+        return this.taxIdNumber;
+    }
+
+    public String getNewOwnTaxBalance() {
+        return this.newOwnTaxBalance;
+    }
+
+    public String getOwnTaxAmount() {
+        return this.ownTaxAmount;
+    }
+
+    public String getPublishDate() {
+        return this.publishDate;
+    }
+
+    public String getOwnTaxBalance() {
+        return this.ownTaxBalance;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getPersonIdNumber() {
+        return this.personIdNumber;
+    }
+
+    public String getTaxCategory() {
+        return this.taxCategory;
+    }
+
+    public String getTaxpayerType() {
+        return this.taxpayerType;
+    }
+
+    public String getPersonIdName() {
+        return this.personIdName;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public String getRegType() {
+        return this.regType;
+    }
+
+    public String getLegalpersonName() {
+        return this.legalpersonName;
     }
 }

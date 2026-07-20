@@ -10,52 +10,52 @@ public class VehicleLicenseOcrV2FrontData extends CloudSdkModel {
     /**
      * 品牌型号。
      */
-    public String brandModel;
+    private String brandModel;
 
     /**
      * 发证日期。
      */
-    public String openingDate;
+    private String openingDate;
 
     /**
      * 使用性质。
      */
-    public String usingProperties;
+    private String usingProperties;
 
     /**
      * 发动机号码。
      */
-    public String engineNo;
+    private String engineNo;
 
     /**
      * 所有人。
      */
-    public String possessor;
+    private String possessor;
 
     /**
      * 住址。
      */
-    public String address;
+    private String address;
 
     /**
      * 注册日期。
      */
-    public String registrationDate;
+    private String registrationDate;
 
     /**
      * 车辆识别代号。
      */
-    public String vin;
+    private String vin;
 
     /**
      * 车辆类型。
      */
-    public String vehicleType;
+    private String vehicleType;
 
     /**
      * 号牌号码。
      */
-    public String plateNo;
+    private String plateNo;
 
     public VehicleLicenseOcrV2FrontData setBrandModel(String brandModel) {
         this.brandModel = brandModel;
@@ -105,5 +105,45 @@ public class VehicleLicenseOcrV2FrontData extends CloudSdkModel {
     public VehicleLicenseOcrV2FrontData setPlateNo(String plateNo) {
         this.plateNo = plateNo;
         return this;
+    }
+
+    public String getBrandModel() {
+        return this.brandModel;
+    }
+
+    public String getOpeningDate() {
+        return this.openingDate;
+    }
+
+    public String getUsingProperties() {
+        return this.usingProperties;
+    }
+
+    public String getEngineNo() {
+        return this.engineNo;
+    }
+
+    public String getPossessor() {
+        return this.possessor;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getRegistrationDate() {
+        return this.registrationDate;
+    }
+
+    public String getVin() {
+        return this.vin;
+    }
+
+    public String getVehicleType() {
+        return this.vehicleType;
+    }
+
+    public String getPlateNo() {
+        return this.plateNo;
     }
 }

@@ -13,7 +13,7 @@ public class NumberCarrierConfig extends ApiConfig {
     public static final String DEFAULT_ENDPOINT = "https://wscarrier.253.com";
 
     public NumberCarrierConfig() {
-        this.endpoint = DEFAULT_ENDPOINT;
+        super.setEndpoint(DEFAULT_ENDPOINT);
     }
 
     @Override

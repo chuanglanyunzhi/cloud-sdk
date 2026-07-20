@@ -13,7 +13,7 @@ public class MnpConfig extends ApiConfig {
     public static final String DEFAULT_ENDPOINT = "https://wsmnp.253.com";
 
     public MnpConfig() {
-        this.endpoint = DEFAULT_ENDPOINT;
+        super.setEndpoint(DEFAULT_ENDPOINT);
     }
 
     @Override

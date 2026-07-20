@@ -10,52 +10,52 @@ public class IdCardAuthResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 查询时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 省份。
      */
-    public String province;
+    private String province;
 
     /**
      * 市区。
      */
-    public String city;
+    private String city;
 
     /**
      * 县区。
      */
-    public String country;
+    private String country;
 
     /**
      * 生日，格式 yyyyMMdd。
      */
-    public String birthday;
+    private String birthday;
 
     /**
      * 年龄。
      */
-    public String age;
+    private String age;
 
     /**
      * 性别：1 男，2 女。
      */
-    public String gender;
+    private String gender;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     /**
      * 返回结果：01 一致（收费），02 不一致（收费），03 认证不确定（不收费），04 认证失败（不收费）。
      */
-    public String result;
+    private String result;
 
     public IdCardAuthResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -105,5 +105,45 @@ public class IdCardAuthResponseData extends CloudSdkModel {
     public IdCardAuthResponseData setResult(String result) {
         this.result = result;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getProvince() {
+        return this.province;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public String getCountry() {
+        return this.country;
+    }
+
+    public String getBirthday() {
+        return this.birthday;
+    }
+
+    public String getAge() {
+        return this.age;
+    }
+
+    public String getGender() {
+        return this.gender;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public String getResult() {
+        return this.result;
     }
 }

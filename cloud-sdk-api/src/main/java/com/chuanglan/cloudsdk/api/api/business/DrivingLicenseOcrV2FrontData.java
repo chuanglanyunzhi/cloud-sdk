@@ -10,52 +10,52 @@ public class DrivingLicenseOcrV2FrontData extends CloudSdkModel {
     /**
      * 驾驶证号。
      */
-    public String id;
+    private String id;
 
     /**
      * 有效期限。
      */
-    public String expiryTime;
+    private String expiryTime;
 
     /**
      * 准驾类型。
      */
-    public String carType;
+    private String carType;
 
     /**
      * 住址。
      */
-    public String address;
+    private String address;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 国籍。
      */
-    public String nationality;
+    private String nationality;
 
     /**
      * 出生日期，格式：yyyy-mm-dd。
      */
-    public String birth;
+    private String birth;
 
     /**
      * 性别。
      */
-    public String sex;
+    private String sex;
 
     /**
      * 初次领证时间。
      */
-    public String firstGetCard;
+    private String firstGetCard;
 
     /**
      * 发证单位。
      */
-    public String issueBy;
+    private String issueBy;
 
     public DrivingLicenseOcrV2FrontData setId(String id) {
         this.id = id;
@@ -105,5 +105,45 @@ public class DrivingLicenseOcrV2FrontData extends CloudSdkModel {
     public DrivingLicenseOcrV2FrontData setIssueBy(String issueBy) {
         this.issueBy = issueBy;
         return this;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getExpiryTime() {
+        return this.expiryTime;
+    }
+
+    public String getCarType() {
+        return this.carType;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getNationality() {
+        return this.nationality;
+    }
+
+    public String getBirth() {
+        return this.birth;
+    }
+
+    public String getSex() {
+        return this.sex;
+    }
+
+    public String getFirstGetCard() {
+        return this.firstGetCard;
+    }
+
+    public String getIssueBy() {
+        return this.issueBy;
     }
 }

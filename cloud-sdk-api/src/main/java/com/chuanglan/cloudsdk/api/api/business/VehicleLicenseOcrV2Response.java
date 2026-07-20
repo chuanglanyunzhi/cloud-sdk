@@ -8,17 +8,17 @@ public class VehicleLicenseOcrV2Response extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 扣费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public VehicleLicenseOcrV2Data data;
+    private VehicleLicenseOcrV2Data data;
 
     public VehicleLicenseOcrV2Response setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class VehicleLicenseOcrV2Response extends BusinessCommonResponse {
     public VehicleLicenseOcrV2Response setData(VehicleLicenseOcrV2Data data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public VehicleLicenseOcrV2Data getData() {
+        return this.data;
     }
 }

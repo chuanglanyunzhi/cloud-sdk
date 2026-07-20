@@ -10,27 +10,27 @@ public class ForeignIdCardAuthResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String orderNo;
+    private String orderNo;
 
     /**
      * 处理时间。
      */
-    public String handleTime;
+    private String handleTime;
 
     /**
      * 返回结果码：01 一致（收费），02 不一致（收费），03 认证不确定（不收费），04 认证失败（不收费）。
      */
-    public String result;
+    private String result;
 
     /**
      * 返回结果说明。
      */
-    public String remark;
+    private String remark;
 
     /**
      * 证件是否有效：0 证件无效，1 证件有效，2 无法确认。
      */
-    public String isValid;
+    private String isValid;
 
     public ForeignIdCardAuthResponseData setOrderNo(String orderNo) {
         this.orderNo = orderNo;
@@ -55,5 +55,25 @@ public class ForeignIdCardAuthResponseData extends CloudSdkModel {
     public ForeignIdCardAuthResponseData setIsValid(String isValid) {
         this.isValid = isValid;
         return this;
+    }
+
+    public String getOrderNo() {
+        return this.orderNo;
+    }
+
+    public String getHandleTime() {
+        return this.handleTime;
+    }
+
+    public String getResult() {
+        return this.result;
+    }
+
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public String getIsValid() {
+        return this.isValid;
     }
 }

@@ -12,12 +12,12 @@ public class MnpCarriersSftpResponseData extends CloudSdkModel {
     /**
      * 业务唯一流水号。
      */
-    public String batchNo;
+    private String batchNo;
 
     /**
      * 查询结果列表。
      */
-    public List<MnpCarriersSftpResult> queryResult;
+    private List<MnpCarriersSftpResult> queryResult;
 
     public MnpCarriersSftpResponseData setBatchNo(String batchNo) {
         this.batchNo = batchNo;
@@ -27,5 +27,13 @@ public class MnpCarriersSftpResponseData extends CloudSdkModel {
     public MnpCarriersSftpResponseData setQueryResult(List<MnpCarriersSftpResult> queryResult) {
         this.queryResult = queryResult;
         return this;
+    }
+
+    public String getBatchNo() {
+        return this.batchNo;
+    }
+
+    public List<MnpCarriersSftpResult> getQueryResult() {
+        return this.queryResult;
     }
 }

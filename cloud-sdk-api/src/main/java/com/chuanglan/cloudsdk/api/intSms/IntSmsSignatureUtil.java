@@ -25,7 +25,7 @@ public final class IntSmsSignatureUtil {
      * 当前 UTC 时间戳，秒级。
      */
     public static String currentTimestamp() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
+        return SignatureUtil.currentTimestamp();
     }
 
     /**

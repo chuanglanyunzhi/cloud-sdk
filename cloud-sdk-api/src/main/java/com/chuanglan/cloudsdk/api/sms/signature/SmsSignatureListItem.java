@@ -8,35 +8,99 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsSignatureListItem extends CloudSdkModel {
 
     /** 签名ID。 */
-    public String signId;
+    private String signId;
     /** 签名名称。 */
-    public String signName;
+    private String signName;
     /** 签名状态。 */
-    public String signaturestatus;
+    private String signaturestatus;
     /** 是否系统签名。 */
-    public String isSystemSignature;
+    private String isSystemSignature;
     /** 运营商状态。 */
-    public Integer operatorstatus;
+    private Integer operatorstatus;
     /** 实名状态。 */
-    public String realNameStatus;
+    private String realNameStatus;
     /** 企业名称。 */
-    public String companyName;
+    private String companyName;
     /** 企业营业执照号。 */
-    public String companyLicenseNo;
+    private String companyLicenseNo;
     /** 法人姓名。 */
-    public String legalName;
+    private String legalName;
     /** 身份证号。 */
-    public String identityNo;
+    private String identityNo;
     /** 证件姓名。 */
-    public String identityName;
+    private String identityName;
     /** 联系电话。 */
-    public String phoneNum;
+    private String phoneNum;
     /** 终端客户ID。 */
-    public String endCustomerId;
+    private String endCustomerId;
     /** 移动运营商状态。 */
-    public String cmoperatorstatus;
+    private String cmoperatorstatus;
     /** 电信运营商状态。 */
-    public String ctoperatorstatus;
+    private String ctoperatorstatus;
     /** 联通运营商状态。 */
-    public String cuoperatorstatus;
+    private String cuoperatorstatus;
+
+    public String getSignId() {
+        return this.signId;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getSignaturestatus() {
+        return this.signaturestatus;
+    }
+
+    public String getIsSystemSignature() {
+        return this.isSystemSignature;
+    }
+
+    public Integer getOperatorstatus() {
+        return this.operatorstatus;
+    }
+
+    public String getRealNameStatus() {
+        return this.realNameStatus;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public String getCompanyLicenseNo() {
+        return this.companyLicenseNo;
+    }
+
+    public String getLegalName() {
+        return this.legalName;
+    }
+
+    public String getIdentityNo() {
+        return this.identityNo;
+    }
+
+    public String getIdentityName() {
+        return this.identityName;
+    }
+
+    public String getPhoneNum() {
+        return this.phoneNum;
+    }
+
+    public String getEndCustomerId() {
+        return this.endCustomerId;
+    }
+
+    public String getCmoperatorstatus() {
+        return this.cmoperatorstatus;
+    }
+
+    public String getCtoperatorstatus() {
+        return this.ctoperatorstatus;
+    }
+
+    public String getCuoperatorstatus() {
+        return this.cuoperatorstatus;
+    }
 }

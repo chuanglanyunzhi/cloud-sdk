@@ -12,22 +12,22 @@ public class RcsSmsSignAddRequest extends CloudSdkModel {
     /**
      * 签名名称。
      */
-    public String signName;
+    private String signName;
 
     /**
      * 签名类型。
      */
-    public String type;
+    private String type;
 
     /**
      * 资质 ID。
      */
-    public String qualificationId;
+    private String qualificationId;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     public RcsSmsSignAddRequest setSignName(String signName) {
         this.signName = signName;
@@ -47,5 +47,21 @@ public class RcsSmsSignAddRequest extends CloudSdkModel {
     public RcsSmsSignAddRequest setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public String getQualificationId() {
+        return this.qualificationId;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

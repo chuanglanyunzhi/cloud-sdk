@@ -10,12 +10,12 @@ public class CompanyLevelData extends CloudSdkModel {
     /**
      * 企业级别。
      */
-    public String level;
+    private String level;
 
     /**
      * 划分说明。
      */
-    public String type;
+    private String type;
 
     public CompanyLevelData setLevel(String level) {
         this.level = level;
@@ -25,5 +25,13 @@ public class CompanyLevelData extends CloudSdkModel {
     public CompanyLevelData setType(String type) {
         this.type = type;
         return this;
+    }
+
+    public String getLevel() {
+        return this.level;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

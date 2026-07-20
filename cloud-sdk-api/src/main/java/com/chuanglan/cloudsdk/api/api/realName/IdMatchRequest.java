@@ -12,22 +12,22 @@ public class IdMatchRequest extends CloudSdkModel {
     /**
      * 人脸照，base64 字符串，需去掉头部描述（如 data:image/png;base64,），图片大小不能大于 100K。
      */
-    public String image;
+    private String image;
 
     /**
      * 身份证号。
      */
-    public String idNum;
+    private String idNum;
 
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 是否使用千分制。true：千分制分数；false：百分制分数。默认 false。
      */
-    public Boolean useThousandScale;
+    private Boolean useThousandScale;
 
     public IdMatchRequest setImage(String image) {
         this.image = image;
@@ -47,5 +47,21 @@ public class IdMatchRequest extends CloudSdkModel {
     public IdMatchRequest setUseThousandScale(Boolean useThousandScale) {
         this.useThousandScale = useThousandScale;
         return this;
+    }
+
+    public String getImage() {
+        return this.image;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Boolean getUseThousandScale() {
+        return this.useThousandScale;
     }
 }

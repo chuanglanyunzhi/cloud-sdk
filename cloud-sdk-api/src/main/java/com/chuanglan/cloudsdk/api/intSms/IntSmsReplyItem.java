@@ -10,22 +10,22 @@ public class IntSmsReplyItem extends CloudSdkModel {
     /**
      * 用户上行回复时间。
      */
-    public String moTime;
+    private String moTime;
 
     /**
      * 回复用户手机号。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 用户回复短信内容。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 短信接入号 / 目的接收号码。
      */
-    public String destcode;
+    private String destcode;
 
     public IntSmsReplyItem setMoTime(String moTime) {
         this.moTime = moTime;
@@ -45,5 +45,21 @@ public class IntSmsReplyItem extends CloudSdkModel {
     public IntSmsReplyItem setDestcode(String destcode) {
         this.destcode = destcode;
         return this;
+    }
+
+    public String getMoTime() {
+        return this.moTime;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getDestcode() {
+        return this.destcode;
     }
 }

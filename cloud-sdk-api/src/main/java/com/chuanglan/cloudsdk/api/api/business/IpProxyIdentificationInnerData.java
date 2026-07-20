@@ -10,10 +10,14 @@ public class IpProxyIdentificationInnerData extends CloudSdkModel {
     /**
      * 代理识别结果。
      */
-    public IpProxyIdentificationProxy proxy;
+    private IpProxyIdentificationProxy proxy;
 
     public IpProxyIdentificationInnerData setProxy(IpProxyIdentificationProxy proxy) {
         this.proxy = proxy;
         return this;
+    }
+
+    public IpProxyIdentificationProxy getProxy() {
+        return this.proxy;
     }
 }

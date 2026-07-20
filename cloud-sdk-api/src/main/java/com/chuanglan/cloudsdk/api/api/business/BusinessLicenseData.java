@@ -10,67 +10,67 @@ public class BusinessLicenseData extends CloudSdkModel {
     /**
      * 交易号。
      */
-    public String tradeNo;
+    private String tradeNo;
 
     /**
      * 营业执照识别业务返回码，0 成功，其他失败。
      */
-    public String code;
+    private String code;
 
     /**
      * 营业执照识别业务返回码对应说明。
      */
-    public String msg;
+    private String msg;
 
     /**
      * 编号。
      */
-    public String number;
+    private String number;
 
     /**
      * 单位地址。
      */
-    public String address;
+    private String address;
 
     /**
      * 社会信用代码。
      */
-    public String creditCode;
+    private String creditCode;
 
     /**
      * 有效时间。
      */
-    public String validDate;
+    private String validDate;
 
     /**
      * 单位名称。
      */
-    public String companyName;
+    private String companyName;
 
     /**
      * 法人代表。
      */
-    public String legalPerson;
+    private String legalPerson;
 
     /**
      * 经营范围。
      */
-    public String bussiness;
+    private String bussiness;
 
     /**
      * 注册资本。
      */
-    public String capital;
+    private String capital;
 
     /**
      * 注册日期。
      */
-    public String establishDate;
+    private String establishDate;
 
     /**
      * 公司类型。
      */
-    public String type;
+    private String type;
 
     public BusinessLicenseData setTradeNo(String tradeNo) {
         this.tradeNo = tradeNo;
@@ -135,5 +135,57 @@ public class BusinessLicenseData extends CloudSdkModel {
     public BusinessLicenseData setType(String type) {
         this.type = type;
         return this;
+    }
+
+    public String getTradeNo() {
+        return this.tradeNo;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getCreditCode() {
+        return this.creditCode;
+    }
+
+    public String getValidDate() {
+        return this.validDate;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public String getLegalPerson() {
+        return this.legalPerson;
+    }
+
+    public String getBussiness() {
+        return this.bussiness;
+    }
+
+    public String getCapital() {
+        return this.capital;
+    }
+
+    public String getEstablishDate() {
+        return this.establishDate;
+    }
+
+    public String getType() {
+        return this.type;
     }
 }

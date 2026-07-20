@@ -10,17 +10,17 @@ public class RiskAntiHarassmentResponse extends RiskCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回结果列表。
      */
-    public List<RiskAntiHarassmentResponseItem> data;
+    private List<RiskAntiHarassmentResponseItem> data;
 
     public RiskAntiHarassmentResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -35,5 +35,17 @@ public class RiskAntiHarassmentResponse extends RiskCommonResponse {
     public RiskAntiHarassmentResponse setData(List<RiskAntiHarassmentResponseItem> data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public List<RiskAntiHarassmentResponseItem> getData() {
+        return this.data;
     }
 }

@@ -10,12 +10,12 @@ public class IdOcrV2Data extends CloudSdkModel {
     /**
      * front 正面，back 背面。
      */
-    public String side;
+    private String side;
 
     /**
      * 返回结果。
      */
-    public IdOcrV2Result result;
+    private IdOcrV2Result result;
 
     public IdOcrV2Data setSide(String side) {
         this.side = side;
@@ -25,5 +25,13 @@ public class IdOcrV2Data extends CloudSdkModel {
     public IdOcrV2Data setResult(IdOcrV2Result result) {
         this.result = result;
         return this;
+    }
+
+    public String getSide() {
+        return this.side;
+    }
+
+    public IdOcrV2Result getResult() {
+        return this.result;
     }
 }

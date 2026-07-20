@@ -10,17 +10,17 @@ public class NumberOnlineDurationResult extends CloudSdkModel {
     /**
      * 在网时长范围起始值（含），单位为月。
      */
-    public Integer rangeStart;
+    private Integer rangeStart;
 
     /**
      * 在网时长范围结束值（不含），单位为月；-1 代表超过 24 个月。
      */
-    public Integer rangeEnd;
+    private Integer rangeEnd;
 
     /**
      * 运营商：1 移动，2 电信，3 联通，4 广电；携号转网对应负数：-1 移动，-2 电信，-3 联通，-4 广电。
      */
-    public Integer provider;
+    private Integer provider;
 
     public NumberOnlineDurationResult setRangeStart(Integer rangeStart) {
         this.rangeStart = rangeStart;
@@ -35,5 +35,17 @@ public class NumberOnlineDurationResult extends CloudSdkModel {
     public NumberOnlineDurationResult setProvider(Integer provider) {
         this.provider = provider;
         return this;
+    }
+
+    public Integer getRangeStart() {
+        return this.rangeStart;
+    }
+
+    public Integer getRangeEnd() {
+        return this.rangeEnd;
+    }
+
+    public Integer getProvider() {
+        return this.provider;
     }
 }

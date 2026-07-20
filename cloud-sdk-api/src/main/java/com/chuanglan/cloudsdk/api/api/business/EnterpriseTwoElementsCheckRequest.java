@@ -12,12 +12,12 @@ public class EnterpriseTwoElementsCheckRequest extends CloudSdkModel {
     /**
      * 注册号/社会统一信用代码。
      */
-    public String credit_code;
+    private String credit_code;
 
     /**
      * 企业名称。
      */
-    public String ent_name;
+    private String ent_name;
 
     public EnterpriseTwoElementsCheckRequest setCredit_code(String credit_code) {
         this.credit_code = credit_code;
@@ -27,5 +27,13 @@ public class EnterpriseTwoElementsCheckRequest extends CloudSdkModel {
     public EnterpriseTwoElementsCheckRequest setEnt_name(String ent_name) {
         this.ent_name = ent_name;
         return this;
+    }
+
+    public String getCredit_code() {
+        return this.credit_code;
+    }
+
+    public String getEnt_name() {
+        return this.ent_name;
     }
 }

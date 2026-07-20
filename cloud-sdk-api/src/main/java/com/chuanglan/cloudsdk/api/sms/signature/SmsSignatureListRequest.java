@@ -8,15 +8,15 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsSignatureListRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 页码。 */
-    public Integer pageNo;
+    private Integer pageNo;
     /** 每页条数。 */
-    public Integer pageSize;
+    private Integer pageSize;
     /** 签名名称。 */
-    public String signName;
+    private String signName;
     /** 签名状态。 */
-    public String signaturestatus;
+    private String signaturestatus;
 
     public SmsSignatureListRequest setProductType(String productType) {
         this.productType = productType;
@@ -41,5 +41,25 @@ public class SmsSignatureListRequest extends CloudSdkModel {
     public SmsSignatureListRequest setSignaturestatus(String signaturestatus) {
         this.signaturestatus = signaturestatus;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public Integer getPageNo() {
+        return this.pageNo;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getSignaturestatus() {
+        return this.signaturestatus;
     }
 }

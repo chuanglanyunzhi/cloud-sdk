@@ -12,42 +12,42 @@ public class RcsSmsTemplateInfo extends CloudSdkModel {
     /**
      * 模板 ID。
      */
-    public String templateId;
+    private String templateId;
 
     /**
      * 模板名称。
      */
-    public String templateName;
+    private String templateName;
 
     /**
      * 模板签名。
      */
-    public String sign;
+    private String sign;
 
     /**
      * 视频短信文本内容。
      */
-    public String content;
+    private String content;
 
     /**
      * 视频资源 URL 列表。
      */
-    public List<String> videoUrls;
+    private List<String> videoUrls;
 
     /**
      * 封面 URL 列表。
      */
-    public List<String> coverUrls;
+    private List<String> coverUrls;
 
     /**
      * 模板状态。
      */
-    public String status;
+    private String status;
 
     /**
      * 创建时间。
      */
-    public String createTime;
+    private String createTime;
 
     public RcsSmsTemplateInfo setTemplateId(String templateId) {
         this.templateId = templateId;
@@ -87,5 +87,37 @@ public class RcsSmsTemplateInfo extends CloudSdkModel {
     public RcsSmsTemplateInfo setCreateTime(String createTime) {
         this.createTime = createTime;
         return this;
+    }
+
+    public String getTemplateId() {
+        return this.templateId;
+    }
+
+    public String getTemplateName() {
+        return this.templateName;
+    }
+
+    public String getSign() {
+        return this.sign;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public List<String> getVideoUrls() {
+        return this.videoUrls;
+    }
+
+    public List<String> getCoverUrls() {
+        return this.coverUrls;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
     }
 }

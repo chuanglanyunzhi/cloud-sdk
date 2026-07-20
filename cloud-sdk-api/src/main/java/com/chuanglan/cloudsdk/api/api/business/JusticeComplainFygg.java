@@ -10,27 +10,27 @@ public class JusticeComplainFygg extends CloudSdkModel {
     /**
      * 公告日期。
      */
-    public String sdate;
+    private String sdate;
 
     /**
      * 公告标题。
      */
-    public String title;
+    private String title;
 
     /**
      * 当事人。
      */
-    public String pname;
+    private String pname;
 
     /**
      * 公告类型。
      */
-    public String gtype;
+    private String gtype;
 
     /**
      * 法院名称。
      */
-    public String court;
+    private String court;
 
     public JusticeComplainFygg setSdate(String sdate) {
         this.sdate = sdate;
@@ -55,5 +55,25 @@ public class JusticeComplainFygg extends CloudSdkModel {
     public JusticeComplainFygg setCourt(String court) {
         this.court = court;
         return this;
+    }
+
+    public String getSdate() {
+        return this.sdate;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getPname() {
+        return this.pname;
+    }
+
+    public String getGtype() {
+        return this.gtype;
+    }
+
+    public String getCourt() {
+        return this.court;
     }
 }

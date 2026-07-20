@@ -10,7 +10,7 @@ public class RcsSmsBalanceResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsBalanceResponse setData(Data data) {
         this.data = data;
@@ -25,12 +25,12 @@ public class RcsSmsBalanceResponse extends RcsSmsCommonResponse {
         /**
          * 余额。
          */
-        public String balance;
+        private String balance;
 
         /**
          * 余额单位。
          */
-        public String unit;
+        private String unit;
 
         public Data setBalance(String balance) {
             this.balance = balance;
@@ -41,5 +41,17 @@ public class RcsSmsBalanceResponse extends RcsSmsCommonResponse {
             this.unit = unit;
             return this;
         }
+
+        public String getBalance() {
+            return this.balance;
+        }
+
+        public String getUnit() {
+            return this.unit;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

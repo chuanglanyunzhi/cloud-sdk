@@ -7,10 +7,14 @@ import com.chuanglan.cloudsdk.api.sms.SmsCommonResponse;
  */
 public class SmsTemplateGetResponse extends SmsCommonResponse {
 
-    public SmsTemplateInfo data;
+    private SmsTemplateInfo data;
 
     public SmsTemplateGetResponse setData(SmsTemplateInfo data) {
         this.data = data;
         return this;
+    }
+
+    public SmsTemplateInfo getData() {
+        return this.data;
     }
 }

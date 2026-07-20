@@ -1,0 +1,3 @@
+# Spring Boot 2.x auto-configuration entry point
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.chuanglan.cloudsdk.spring.CloudSdkAutoConfiguration

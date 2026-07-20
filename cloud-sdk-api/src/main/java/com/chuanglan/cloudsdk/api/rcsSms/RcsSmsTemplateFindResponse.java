@@ -10,7 +10,7 @@ public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsTemplateFindResponse setData(Data data) {
         this.data = data;
@@ -25,42 +25,42 @@ public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
         /**
          * 模板 ID。
          */
-        public String templateId;
+        private String templateId;
 
         /**
          * 模板名称。
          */
-        public String templateName;
+        private String templateName;
 
         /**
          * 模板签名。
          */
-        public String sign;
+        private String sign;
 
         /**
          * 文本内容。
          */
-        public String content;
+        private String content;
 
         /**
          * 视频资源 URL 列表。
          */
-        public java.util.List<String> videoUrls;
+        private java.util.List<String> videoUrls;
 
         /**
          * 封面 URL 列表。
          */
-        public java.util.List<String> coverUrls;
+        private java.util.List<String> coverUrls;
 
         /**
          * 模板状态。
          */
-        public String status;
+        private String status;
 
         /**
          * 创建时间。
          */
-        public String createTime;
+        private String createTime;
 
         public Data setTemplateId(String templateId) {
             this.templateId = templateId;
@@ -101,5 +101,41 @@ public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
             this.createTime = createTime;
             return this;
         }
+
+        public String getTemplateId() {
+            return this.templateId;
+        }
+
+        public String getTemplateName() {
+            return this.templateName;
+        }
+
+        public String getSign() {
+            return this.sign;
+        }
+
+        public String getContent() {
+            return this.content;
+        }
+
+        public java.util.List<String> getVideoUrls() {
+            return this.videoUrls;
+        }
+
+        public java.util.List<String> getCoverUrls() {
+            return this.coverUrls;
+        }
+
+        public String getStatus() {
+            return this.status;
+        }
+
+        public String getCreateTime() {
+            return this.createTime;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

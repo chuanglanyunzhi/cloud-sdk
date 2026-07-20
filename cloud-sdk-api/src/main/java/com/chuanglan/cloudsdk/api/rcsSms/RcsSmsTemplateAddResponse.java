@@ -10,7 +10,7 @@ public class RcsSmsTemplateAddResponse extends RcsSmsCommonResponse {
     /**
      * 业务返回数据。
      */
-    public Data data;
+    private Data data;
 
     public RcsSmsTemplateAddResponse setData(Data data) {
         this.data = data;
@@ -25,12 +25,12 @@ public class RcsSmsTemplateAddResponse extends RcsSmsCommonResponse {
         /**
          * 模板 ID。
          */
-        public String templateId;
+        private String templateId;
 
         /**
          * 模板状态。
          */
-        public String status;
+        private String status;
 
         public Data setTemplateId(String templateId) {
             this.templateId = templateId;
@@ -41,5 +41,17 @@ public class RcsSmsTemplateAddResponse extends RcsSmsCommonResponse {
             this.status = status;
             return this;
         }
+
+        public String getTemplateId() {
+            return this.templateId;
+        }
+
+        public String getStatus() {
+            return this.status;
+        }
+    }
+
+    public Data getData() {
+        return this.data;
     }
 }

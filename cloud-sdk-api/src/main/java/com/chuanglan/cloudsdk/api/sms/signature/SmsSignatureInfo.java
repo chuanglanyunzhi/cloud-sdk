@@ -11,43 +11,123 @@ import java.util.List;
 public class SmsSignatureInfo extends CloudSdkModel {
 
     /** 是否系统签名。 */
-    public String isSystemSignature;
+    private String isSystemSignature;
     /** 签名ID。 */
-    public String signId;
+    private String signId;
     /** 签名名称。 */
-    public String signName;
+    private String signName;
     /** 签名状态。 */
-    public String signaturestatus;
+    private String signaturestatus;
     /** 运营商状态。 */
-    public Integer operatorstatus;
+    private Integer operatorstatus;
     /** 实名状态。 */
-    public String realNamestatus;
+    private String realNamestatus;
     /** 审核原因。 */
-    public String auditReason;
+    private String auditReason;
     /** 移动运营商状态。 */
-    public String cmOperatorstatus;
+    private String cmOperatorstatus;
     /** 电信运营商状态。 */
-    public String ctOperatorstatus;
+    private String ctOperatorstatus;
     /** 联通运营商状态。 */
-    public String cuOperatorstatus;
+    private String cuOperatorstatus;
     /** 移动运营商驳回原因列表。 */
-    public List<SmsOperatorRejectReason> cmOperatorRejectReason;
+    private List<SmsOperatorRejectReason> cmOperatorRejectReason;
     /** 电信运营商驳回原因列表。 */
-    public List<SmsOperatorRejectReason> ctOperatorRejectReason;
+    private List<SmsOperatorRejectReason> ctOperatorRejectReason;
     /** 联通运营商驳回原因列表。 */
-    public List<SmsOperatorRejectReason> cuOperatorRejectReason;
+    private List<SmsOperatorRejectReason> cuOperatorRejectReason;
     /** 企业名称。 */
-    public String companyName;
+    private String companyName;
     /** 企业营业执照号。 */
-    public String companyLicenseNo;
+    private String companyLicenseNo;
     /** 法人姓名。 */
-    public String legalName;
+    private String legalName;
     /** 身份证号。 */
-    public String identityNo;
+    private String identityNo;
     /** 证件姓名。 */
-    public String identityName;
+    private String identityName;
     /** 联系电话。 */
-    public String phoneNum;
+    private String phoneNum;
     /** 终端客户ID。 */
-    public String endCustomerid;
+    private String endCustomerid;
+
+    public String getIsSystemSignature() {
+        return this.isSystemSignature;
+    }
+
+    public String getSignId() {
+        return this.signId;
+    }
+
+    public String getSignName() {
+        return this.signName;
+    }
+
+    public String getSignaturestatus() {
+        return this.signaturestatus;
+    }
+
+    public Integer getOperatorstatus() {
+        return this.operatorstatus;
+    }
+
+    public String getRealNamestatus() {
+        return this.realNamestatus;
+    }
+
+    public String getAuditReason() {
+        return this.auditReason;
+    }
+
+    public String getCmOperatorstatus() {
+        return this.cmOperatorstatus;
+    }
+
+    public String getCtOperatorstatus() {
+        return this.ctOperatorstatus;
+    }
+
+    public String getCuOperatorstatus() {
+        return this.cuOperatorstatus;
+    }
+
+    public List<SmsOperatorRejectReason> getCmOperatorRejectReason() {
+        return this.cmOperatorRejectReason;
+    }
+
+    public List<SmsOperatorRejectReason> getCtOperatorRejectReason() {
+        return this.ctOperatorRejectReason;
+    }
+
+    public List<SmsOperatorRejectReason> getCuOperatorRejectReason() {
+        return this.cuOperatorRejectReason;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public String getCompanyLicenseNo() {
+        return this.companyLicenseNo;
+    }
+
+    public String getLegalName() {
+        return this.legalName;
+    }
+
+    public String getIdentityNo() {
+        return this.identityNo;
+    }
+
+    public String getIdentityName() {
+        return this.identityName;
+    }
+
+    public String getPhoneNum() {
+        return this.phoneNum;
+    }
+
+    public String getEndCustomerid() {
+        return this.endCustomerid;
+    }
 }

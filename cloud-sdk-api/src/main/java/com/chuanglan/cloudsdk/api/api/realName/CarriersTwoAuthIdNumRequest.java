@@ -12,12 +12,12 @@ public class CarriersTwoAuthIdNumRequest extends CloudSdkModel {
     /**
      * 手机号，明文或 MD5 加密形式（32 位小写）。
      */
-    public String mobile;
+    private String mobile;
 
     /**
      * 身份证号，明文或 MD5 加密形式（32 位小写）。
      */
-    public String idNum;
+    private String idNum;
 
     public CarriersTwoAuthIdNumRequest setMobile(String mobile) {
         this.mobile = mobile;
@@ -27,5 +27,13 @@ public class CarriersTwoAuthIdNumRequest extends CloudSdkModel {
     public CarriersTwoAuthIdNumRequest setIdNum(String idNum) {
         this.idNum = idNum;
         return this;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
     }
 }

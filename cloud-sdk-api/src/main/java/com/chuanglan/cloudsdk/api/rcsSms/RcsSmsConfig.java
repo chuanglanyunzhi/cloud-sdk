@@ -7,25 +7,23 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class RcsSmsConfig extends CloudSdkModel {
 
-    /**
-     * 视频短信默认接入地址。
-     */
     public static final String DEFAULT_ENDPOINT = "https://rcs.253.com";
 
-    /**
-     * 视频短信接入地址，默认为 {@link #DEFAULT_ENDPOINT}。
-     */
-    public String endpoint = DEFAULT_ENDPOINT;
+    private String endpoint = DEFAULT_ENDPOINT;
+    private Integer connectTimeout = 10000;
+    private Integer readTimeout = 10000;
 
-    /**
-     * 连接超时，单位毫秒。
-     */
-    public Integer connectTimeout = 10000;
+    public String getEndpoint() {
+        return endpoint;
+    }
 
-    /**
-     * 读取超时，单位毫秒。
-     */
-    public Integer readTimeout = 10000;
+    public Integer getConnectTimeout() {
+        return connectTimeout;
+    }
+
+    public Integer getReadTimeout() {
+        return readTimeout;
+    }
 
     public RcsSmsConfig setEndpoint(String endpoint) {
         this.endpoint = endpoint;

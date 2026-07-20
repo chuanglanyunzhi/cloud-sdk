@@ -10,12 +10,12 @@ public class IntSmsCostRequest extends CloudSdkModel {
     /**
      * 开始日期，格式：yyyy-MM-dd。
      */
-    public String startDate;
+    private String startDate;
 
     /**
      * 结束日期，格式：yyyy-MM-dd。
      */
-    public String endDate;
+    private String endDate;
 
     public IntSmsCostRequest setStartDate(String startDate) {
         this.startDate = startDate;
@@ -25,5 +25,13 @@ public class IntSmsCostRequest extends CloudSdkModel {
     public IntSmsCostRequest setEndDate(String endDate) {
         this.endDate = endDate;
         return this;
+    }
+
+    public String getStartDate() {
+        return this.startDate;
+    }
+
+    public String getEndDate() {
+        return this.endDate;
     }
 }

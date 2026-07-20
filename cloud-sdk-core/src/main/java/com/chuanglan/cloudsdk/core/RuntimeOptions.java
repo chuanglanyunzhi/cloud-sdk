@@ -7,35 +7,31 @@ import java.time.Duration;
  */
 public class RuntimeOptions extends CloudSdkModel {
 
-    /**
-     * 整个请求的最大时长（含 DNS、连接、TLS、传输、重试），超过即取消。
-     * 防止服务端假死时请求永久挂起。
-     */
     public static final int DEFAULT_CALL_TIMEOUT_MS = 30000;
 
     @NameInMap("autoretry")
-    public Boolean autoretry = true;
+    private Boolean autoretry = true;
 
     @NameInMap("maxAttempts")
-    public Integer maxAttempts = 3;
+    private Integer maxAttempts = 3;
 
     @NameInMap("connectTimeout")
-    public Integer connectTimeout = 10000;
+    private Integer connectTimeout = 10000;
 
     @NameInMap("readTimeout")
-    public Integer readTimeout = 10000;
+    private Integer readTimeout = 10000;
 
     @NameInMap("callTimeout")
-    public Integer callTimeout = DEFAULT_CALL_TIMEOUT_MS;
+    private Integer callTimeout = DEFAULT_CALL_TIMEOUT_MS;
 
     @NameInMap("backoffPolicy")
-    public String backoffPolicy = "exponential";
+    private String backoffPolicy = "exponential";
 
     @NameInMap("backoffPeriod")
-    public Integer backoffPeriod = 1000;
+    private Integer backoffPeriod = 1000;
 
     @NameInMap("maxBackoff")
-    public Integer maxBackoff = 20000;
+    private Integer maxBackoff = 20000;
 
     public boolean isAutoretry() {
         return autoretry != null && autoretry;
@@ -64,5 +60,45 @@ public class RuntimeOptions extends CloudSdkModel {
 
     public int getMaxBackoff() {
         return maxBackoff != null ? maxBackoff : 20000;
+    }
+
+    public RuntimeOptions setAutoretry(Boolean autoretry) {
+        this.autoretry = autoretry;
+        return this;
+    }
+
+    public RuntimeOptions setMaxAttempts(Integer maxAttempts) {
+        this.maxAttempts = maxAttempts;
+        return this;
+    }
+
+    public RuntimeOptions setConnectTimeout(Integer connectTimeout) {
+        this.connectTimeout = connectTimeout;
+        return this;
+    }
+
+    public RuntimeOptions setReadTimeout(Integer readTimeout) {
+        this.readTimeout = readTimeout;
+        return this;
+    }
+
+    public RuntimeOptions setCallTimeout(Integer callTimeout) {
+        this.callTimeout = callTimeout;
+        return this;
+    }
+
+    public RuntimeOptions setBackoffPolicy(String backoffPolicy) {
+        this.backoffPolicy = backoffPolicy;
+        return this;
+    }
+
+    public RuntimeOptions setBackoffPeriod(Integer backoffPeriod) {
+        this.backoffPeriod = backoffPeriod;
+        return this;
+    }
+
+    public RuntimeOptions setMaxBackoff(Integer maxBackoff) {
+        this.maxBackoff = maxBackoff;
+        return this;
     }
 }

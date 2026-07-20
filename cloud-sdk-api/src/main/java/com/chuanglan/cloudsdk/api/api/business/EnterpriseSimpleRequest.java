@@ -12,22 +12,22 @@ public class EnterpriseSimpleRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    public String entName;
+    private String entName;
 
     /**
      * 企业注册号。
      */
-    public String regNo;
+    private String regNo;
 
     /**
      * 统一信用代码。
      */
-    public String creditCode;
+    private String creditCode;
 
     /**
      * 组织机构代码。
      */
-    public String orgCode;
+    private String orgCode;
 
     public EnterpriseSimpleRequest setEntName(String entName) {
         this.entName = entName;
@@ -47,5 +47,21 @@ public class EnterpriseSimpleRequest extends CloudSdkModel {
     public EnterpriseSimpleRequest setOrgCode(String orgCode) {
         this.orgCode = orgCode;
         return this;
+    }
+
+    public String getEntName() {
+        return this.entName;
+    }
+
+    public String getRegNo() {
+        return this.regNo;
+    }
+
+    public String getCreditCode() {
+        return this.creditCode;
+    }
+
+    public String getOrgCode() {
+        return this.orgCode;
     }
 }

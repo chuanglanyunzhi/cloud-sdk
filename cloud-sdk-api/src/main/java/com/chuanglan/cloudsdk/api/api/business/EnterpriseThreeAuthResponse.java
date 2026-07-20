@@ -8,12 +8,12 @@ public class EnterpriseThreeAuthResponse extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 返回数据。
      */
-    public EnterpriseThreeAuthResponseData data;
+    private EnterpriseThreeAuthResponseData data;
 
     public EnterpriseThreeAuthResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -27,6 +27,14 @@ public class EnterpriseThreeAuthResponse extends BusinessCommonResponse {
 
     @Override
     public boolean isSuccess() {
-        return "200000".equals(code) || super.isSuccess();
+        return "200000".equals(getCode()) || super.isSuccess();
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public EnterpriseThreeAuthResponseData getData() {
+        return this.data;
     }
 }

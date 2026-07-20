@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.chuanglan.com/schema/cloudsdk"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.chuanglan.com/schema/cloudsdk"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:annotation>
+        <xsd:documentation><![CDATA[ 创蓝云 SDK Spring XML 命名空间支持。 ]]></xsd:documentation>
+    </xsd:annotation>
+
+    <!-- <cloudsdk:config/> : 注册 CloudApiConfig Bean -->
+    <xsd:element name="config">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+                注册 com.chuanglan.cloudsdk.api.CloudApiConfig Bean，
+                装配各业务线接入地址与超时配置。所有属性可选。
+            ]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" use="optional">
+                <xsd:annotation><xsd:documentation>Bean 名称。</xsd:documentation></xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="number-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="number-carrier-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="risk-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="mnp-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="sms-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="sms-api-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="int-sms-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="rcs-sms-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="real-name-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="real-name-api-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="wool-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="business-endpoint" type="xsd:string" use="optional"/>
+            <xsd:attribute name="connect-timeout" type="xsd:string" use="optional">
+                <xsd:annotation><xsd:documentation>连接超时（毫秒）。</xsd:documentation></xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="read-timeout" type="xsd:string" use="optional">
+                <xsd:annotation><xsd:documentation>读取超时（毫秒）。</xsd:documentation></xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- <cloudsdk:client/> : 注册 CloudApiClient Bean -->
+    <xsd:element name="client">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+                注册 com.chuanglan.cloudsdk.api.CloudApiClient Bean。
+                通过 CloudSdkFactoryBean 创建，容器销毁时自动 close()。
+            ]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" use="optional">
+                <xsd:annotation><xsd:documentation>Bean 名称。</xsd:documentation></xsd:annotation>
+            </xsd:attribute>
+            <xsd:attribute name="config-ref" type="xsd:string" use="optional">
+                <xsd:annotation><xsd:documentation>引用 CloudApiConfig Bean。未指定时使用默认配置。</xsd:documentation></xsd:annotation>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

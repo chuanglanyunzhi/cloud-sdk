@@ -12,22 +12,22 @@ public class EnterpriseSimpleData extends CloudSdkModel {
     /**
      * 基本信息。
      */
-    public EnterpriseSimpleBasic basic;
+    private EnterpriseSimpleBasic basic;
 
     /**
      * 股东信息。
      */
-    public List<EnterpriseSimpleShareholder> shareholders;
+    private List<EnterpriseSimpleShareholder> shareholders;
 
     /**
      * 分支机构。
      */
-    public List<EnterpriseSimpleFiliation> filiations;
+    private List<EnterpriseSimpleFiliation> filiations;
 
     /**
      * 变更记录。
      */
-    public List<EnterpriseSimpleAlter> alters;
+    private List<EnterpriseSimpleAlter> alters;
 
     public EnterpriseSimpleData setBasic(EnterpriseSimpleBasic basic) {
         this.basic = basic;
@@ -47,5 +47,21 @@ public class EnterpriseSimpleData extends CloudSdkModel {
     public EnterpriseSimpleData setAlters(List<EnterpriseSimpleAlter> alters) {
         this.alters = alters;
         return this;
+    }
+
+    public EnterpriseSimpleBasic getBasic() {
+        return this.basic;
+    }
+
+    public List<EnterpriseSimpleShareholder> getShareholders() {
+        return this.shareholders;
+    }
+
+    public List<EnterpriseSimpleFiliation> getFiliations() {
+        return this.filiations;
+    }
+
+    public List<EnterpriseSimpleAlter> getAlters() {
+        return this.alters;
     }
 }

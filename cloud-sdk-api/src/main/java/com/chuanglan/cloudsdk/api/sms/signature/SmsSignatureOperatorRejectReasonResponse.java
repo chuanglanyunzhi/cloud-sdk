@@ -11,7 +11,7 @@ import java.util.List;
 public class SmsSignatureOperatorRejectReasonResponse extends SmsCommonResponse {
 
     /** 签名运营商驳回原因列表。 */
-    public List<SmsSignatureRejectReasonInfo> data;
+    private List<SmsSignatureRejectReasonInfo> data;
 
     public SmsSignatureOperatorRejectReasonResponse setData(List<SmsSignatureRejectReasonInfo> data) {
         this.data = data;
@@ -20,12 +20,32 @@ public class SmsSignatureOperatorRejectReasonResponse extends SmsCommonResponse 
 
     public static class SmsSignatureRejectReasonInfo extends SmsCommonResponse {
         /** 签名ID。 */
-        public String signId;
+        private String signId;
         /** 移动运营商驳回原因列表。 */
-        public List<SmsOperatorRejectReason> cmOperatorRejectReason;
+        private List<SmsOperatorRejectReason> cmOperatorRejectReason;
         /** 电信运营商驳回原因列表。 */
-        public List<SmsOperatorRejectReason> ctOperatorRejectReason;
+        private List<SmsOperatorRejectReason> ctOperatorRejectReason;
         /** 联通运营商驳回原因列表。 */
-        public List<SmsOperatorRejectReason> cuOperatorRejectReason;
+        private List<SmsOperatorRejectReason> cuOperatorRejectReason;
+
+        public String getSignId() {
+            return this.signId;
+        }
+
+        public List<SmsOperatorRejectReason> getCmOperatorRejectReason() {
+            return this.cmOperatorRejectReason;
+        }
+
+        public List<SmsOperatorRejectReason> getCtOperatorRejectReason() {
+            return this.ctOperatorRejectReason;
+        }
+
+        public List<SmsOperatorRejectReason> getCuOperatorRejectReason() {
+            return this.cuOperatorRejectReason;
+        }
+    }
+
+    public List<SmsSignatureRejectReasonInfo> getData() {
+        return this.data;
     }
 }

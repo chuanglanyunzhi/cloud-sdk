@@ -8,17 +8,17 @@ public class IpAddressOriginV6Response extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public IpAddressOriginV6ResponseData data;
+    private IpAddressOriginV6ResponseData data;
 
     public IpAddressOriginV6Response setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class IpAddressOriginV6Response extends BusinessCommonResponse {
     public IpAddressOriginV6Response setData(IpAddressOriginV6ResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public IpAddressOriginV6ResponseData getData() {
+        return this.data;
     }
 }

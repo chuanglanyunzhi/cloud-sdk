@@ -8,9 +8,9 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsSignatureDeleteRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 签名ID。 */
-    public String signId;
+    private String signId;
 
     public SmsSignatureDeleteRequest setProductType(String productType) {
         this.productType = productType;
@@ -20,5 +20,13 @@ public class SmsSignatureDeleteRequest extends CloudSdkModel {
     public SmsSignatureDeleteRequest setSignId(String signId) {
         this.signId = signId;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getSignId() {
+        return this.signId;
     }
 }

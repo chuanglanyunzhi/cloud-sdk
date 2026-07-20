@@ -12,10 +12,14 @@ public class EnterpriseQueryRequest extends CloudSdkModel {
     /**
      * 企业名称关键字。
      */
-    public String entName;
+    private String entName;
 
     public EnterpriseQueryRequest setEntName(String entName) {
         this.entName = entName;
         return this;
+    }
+
+    public String getEntName() {
+        return this.entName;
     }
 }

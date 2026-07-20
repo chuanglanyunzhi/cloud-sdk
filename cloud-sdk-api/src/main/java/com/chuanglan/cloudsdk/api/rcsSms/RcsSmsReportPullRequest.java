@@ -12,32 +12,32 @@ public class RcsSmsReportPullRequest extends CloudSdkModel {
     /**
      * 当前页码，从 1 开始。
      */
-    public Integer page;
+    private Integer page;
 
     /**
      * 每页数量。
      */
-    public Integer size;
+    private Integer size;
 
     /**
      * 开始时间，yyyy-MM-dd HH:mm:ss。
      */
-    public String startTime;
+    private String startTime;
 
     /**
      * 结束时间，yyyy-MM-dd HH:mm:ss。
      */
-    public String endTime;
+    private String endTime;
 
     /**
      * 接收手机号。
      */
-    public String phone;
+    private String phone;
 
     /**
      * 消息 ID。
      */
-    public String messageId;
+    private String messageId;
 
     public RcsSmsReportPullRequest setPage(Integer page) {
         this.page = page;
@@ -67,5 +67,29 @@ public class RcsSmsReportPullRequest extends CloudSdkModel {
     public RcsSmsReportPullRequest setMessageId(String messageId) {
         this.messageId = messageId;
         return this;
+    }
+
+    public Integer getPage() {
+        return this.page;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public String getMessageId() {
+        return this.messageId;
     }
 }

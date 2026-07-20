@@ -15,6 +15,7 @@
     <modules>
         <module>cloud-sdk-core</module>
         <module>cloud-sdk-api</module>
+        <module>cloud-sdk-spring</module>
     </modules>
 
     <properties>

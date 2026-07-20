@@ -11,17 +11,17 @@ public class TableOcrTableData extends CloudSdkModel {
     /**
      * 表头信息。
      */
-    public List<Object> head;
+    private List<Object> head;
 
     /**
      * 表格行数据。
      */
-    public List<TableOcrTableRows> tableRows;
+    private List<TableOcrTableRows> tableRows;
 
     /**
      * 表尾信息。
      */
-    public List<Object> tail;
+    private List<Object> tail;
 
     public TableOcrTableData setHead(List<Object> head) {
         this.head = head;
@@ -36,5 +36,17 @@ public class TableOcrTableData extends CloudSdkModel {
     public TableOcrTableData setTail(List<Object> tail) {
         this.tail = tail;
         return this;
+    }
+
+    public List<Object> getHead() {
+        return this.head;
+    }
+
+    public List<TableOcrTableRows> getTableRows() {
+        return this.tableRows;
+    }
+
+    public List<Object> getTail() {
+        return this.tail;
     }
 }

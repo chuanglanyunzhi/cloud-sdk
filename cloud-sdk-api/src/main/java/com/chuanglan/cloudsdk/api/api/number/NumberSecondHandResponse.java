@@ -8,17 +8,17 @@ public class NumberSecondHandResponse extends NumberCommonResponse {
     /**
      * 1：收费；0：不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 二次号业务数据。
      */
-    public NumberSecondHandResponseData data;
+    private NumberSecondHandResponseData data;
 
     public NumberSecondHandResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class NumberSecondHandResponse extends NumberCommonResponse {
     public NumberSecondHandResponse setData(NumberSecondHandResponseData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public NumberSecondHandResponseData getData() {
+        return this.data;
     }
 }

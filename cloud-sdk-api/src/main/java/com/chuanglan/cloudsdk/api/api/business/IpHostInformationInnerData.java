@@ -10,10 +10,14 @@ public class IpHostInformationInnerData extends CloudSdkModel {
     /**
      * IP 宿主信息。
      */
-    public IpHostInformation host_information;
+    private IpHostInformation host_information;
 
     public IpHostInformationInnerData setHost_information(IpHostInformation host_information) {
         this.host_information = host_information;
         return this;
+    }
+
+    public IpHostInformation getHost_information() {
+        return this.host_information;
     }
 }

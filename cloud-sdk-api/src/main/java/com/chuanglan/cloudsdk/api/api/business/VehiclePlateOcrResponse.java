@@ -8,17 +8,17 @@ public class VehiclePlateOcrResponse extends BusinessCommonResponse {
     /**
      * 是否收费：1 收费，0 不收费。
      */
-    public Integer chargeStatus;
+    private Integer chargeStatus;
 
     /**
      * 计费条数。
      */
-    public Integer chargeCount;
+    private Integer chargeCount;
 
     /**
      * 返回数据。
      */
-    public VehiclePlateOcrData data;
+    private VehiclePlateOcrData data;
 
     public VehiclePlateOcrResponse setChargeStatus(Integer chargeStatus) {
         this.chargeStatus = chargeStatus;
@@ -33,5 +33,17 @@ public class VehiclePlateOcrResponse extends BusinessCommonResponse {
     public VehiclePlateOcrResponse setData(VehiclePlateOcrData data) {
         this.data = data;
         return this;
+    }
+
+    public Integer getChargeStatus() {
+        return this.chargeStatus;
+    }
+
+    public Integer getChargeCount() {
+        return this.chargeCount;
+    }
+
+    public VehiclePlateOcrData getData() {
+        return this.data;
     }
 }

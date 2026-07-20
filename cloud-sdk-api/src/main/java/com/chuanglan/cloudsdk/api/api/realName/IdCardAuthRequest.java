@@ -12,12 +12,12 @@ public class IdCardAuthRequest extends CloudSdkModel {
     /**
      * 姓名。
      */
-    public String name;
+    private String name;
 
     /**
      * 身份证号码，限单个。
      */
-    public String idNum;
+    private String idNum;
 
     public IdCardAuthRequest setName(String name) {
         this.name = name;
@@ -27,5 +27,13 @@ public class IdCardAuthRequest extends CloudSdkModel {
     public IdCardAuthRequest setIdNum(String idNum) {
         this.idNum = idNum;
         return this;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getIdNum() {
+        return this.idNum;
     }
 }

@@ -8,9 +8,9 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsQualificationDeleteRequest extends CloudSdkModel {
 
     /** 产品类型。 */
-    public String productType;
+    private String productType;
     /** 终端客户ID。 */
-    public String endCustomerId;
+    private String endCustomerId;
 
     public SmsQualificationDeleteRequest setProductType(String productType) {
         this.productType = productType;
@@ -20,5 +20,13 @@ public class SmsQualificationDeleteRequest extends CloudSdkModel {
     public SmsQualificationDeleteRequest setEndCustomerId(String endCustomerId) {
         this.endCustomerId = endCustomerId;
         return this;
+    }
+
+    public String getProductType() {
+        return this.productType;
+    }
+
+    public String getEndCustomerId() {
+        return this.endCustomerId;
     }
 }

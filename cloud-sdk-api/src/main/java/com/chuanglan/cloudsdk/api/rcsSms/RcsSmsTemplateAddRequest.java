@@ -12,32 +12,32 @@ public class RcsSmsTemplateAddRequest extends CloudSdkModel {
     /**
      * 模板名称。
      */
-    public String templateName;
+    private String templateName;
 
     /**
      * 模板签名。
      */
-    public String sign;
+    private String sign;
 
     /**
      * 视频资源 URL。
      */
-    public String videoUrl;
+    private String videoUrl;
 
     /**
      * 视频封面 URL。
      */
-    public String coverUrl;
+    private String coverUrl;
 
     /**
      * 视频短信文本内容。
      */
-    public String content;
+    private String content;
 
     /**
      * 备注。
      */
-    public String remark;
+    private String remark;
 
     public RcsSmsTemplateAddRequest setTemplateName(String templateName) {
         this.templateName = templateName;
@@ -67,5 +67,29 @@ public class RcsSmsTemplateAddRequest extends CloudSdkModel {
     public RcsSmsTemplateAddRequest setRemark(String remark) {
         this.remark = remark;
         return this;
+    }
+
+    public String getTemplateName() {
+        return this.templateName;
+    }
+
+    public String getSign() {
+        return this.sign;
+    }
+
+    public String getVideoUrl() {
+        return this.videoUrl;
+    }
+
+    public String getCoverUrl() {
+        return this.coverUrl;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public String getRemark() {
+        return this.remark;
     }
 }

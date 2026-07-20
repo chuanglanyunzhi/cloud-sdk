@@ -12,17 +12,17 @@ public class SmsBatchSendResponseData extends CloudSdkModel {
     /**
      * 提交成功条数。
      */
-    public String successNum;
+    private String successNum;
 
     /**
      * 提交失败条数。
      */
-    public String failNum;
+    private String failNum;
 
     /**
      * 消息 id（32 位纯数字）。
      */
-    public String msgId;
+    private String msgId;
 
     public static SmsBatchSendResponseData build(Map<String, ?> map) throws Exception {
         return build(map, SmsBatchSendResponseData.class);
@@ -41,5 +41,17 @@ public class SmsBatchSendResponseData extends CloudSdkModel {
     public SmsBatchSendResponseData setMsgId(String msgId) {
         this.msgId = msgId;
         return this;
+    }
+
+    public String getSuccessNum() {
+        return this.successNum;
+    }
+
+    public String getFailNum() {
+        return this.failNum;
+    }
+
+    public String getMsgId() {
+        return this.msgId;
     }
 }
