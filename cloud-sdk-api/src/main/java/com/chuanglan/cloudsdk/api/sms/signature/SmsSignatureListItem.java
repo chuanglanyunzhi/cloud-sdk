@@ -12,11 +12,11 @@ public class SmsSignatureListItem extends CloudSdkModel {
     /** 签名名称。 */
     private String signName;
     /** 签名状态。 */
-    private String signaturestatus;
+    private String signatureStatus;
     /** 是否系统签名。 */
     private String isSystemSignature;
     /** 运营商状态。 */
-    private Integer operatorstatus;
+    private Integer operatorStatus;
     /** 实名状态。 */
     private String realNameStatus;
     /** 企业名称。 */
@@ -34,11 +34,11 @@ public class SmsSignatureListItem extends CloudSdkModel {
     /** 终端客户ID。 */
     private String endCustomerId;
     /** 移动运营商状态。 */
-    private String cmoperatorstatus;
+    private String cmOperatorStatus;
     /** 电信运营商状态。 */
-    private String ctoperatorstatus;
+    private String ctOperatorStatus;
     /** 联通运营商状态。 */
-    private String cuoperatorstatus;
+    private String cuOperatorStatus;
 
     public String getSignId() {
         return this.signId;
@@ -48,16 +48,16 @@ public class SmsSignatureListItem extends CloudSdkModel {
         return this.signName;
     }
 
-    public String getSignaturestatus() {
-        return this.signaturestatus;
+    public String getSignatureStatus() {
+        return this.signatureStatus;
     }
 
     public String getIsSystemSignature() {
         return this.isSystemSignature;
     }
 
-    public Integer getOperatorstatus() {
-        return this.operatorstatus;
+    public Integer getOperatorStatus() {
+        return this.operatorStatus;
     }
 
     public String getRealNameStatus() {
@@ -92,15 +92,15 @@ public class SmsSignatureListItem extends CloudSdkModel {
         return this.endCustomerId;
     }
 
-    public String getCmoperatorstatus() {
-        return this.cmoperatorstatus;
+    public String getCmOperatorStatus() {
+        return this.cmOperatorStatus;
     }
 
-    public String getCtoperatorstatus() {
-        return this.ctoperatorstatus;
+    public String getCtOperatorStatus() {
+        return this.ctOperatorStatus;
     }
 
-    public String getCuoperatorstatus() {
-        return this.cuoperatorstatus;
+    public String getCuOperatorStatus() {
+        return this.cuOperatorStatus;
     }
 }

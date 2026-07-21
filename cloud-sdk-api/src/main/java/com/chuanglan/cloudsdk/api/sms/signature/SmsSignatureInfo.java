@@ -17,19 +17,21 @@ public class SmsSignatureInfo extends CloudSdkModel {
     /** 签名名称。 */
     private String signName;
     /** 签名状态。 */
-    private String signaturestatus;
+    private String signatureStatus;
     /** 运营商状态。 */
-    private Integer operatorstatus;
+    private Integer operatorStatus;
     /** 实名状态。 */
-    private String realNamestatus;
+    private String realNameStatus;
     /** 审核原因。 */
     private String auditReason;
+    /** 实名审核原因。 */
+    private String realNameAuditReason;
     /** 移动运营商状态。 */
-    private String cmOperatorstatus;
+    private String cmOperatorStatus;
     /** 电信运营商状态。 */
-    private String ctOperatorstatus;
+    private String ctOperatorStatus;
     /** 联通运营商状态。 */
-    private String cuOperatorstatus;
+    private String cuOperatorStatus;
     /** 移动运营商驳回原因列表。 */
     private List<SmsOperatorRejectReason> cmOperatorRejectReason;
     /** 电信运营商驳回原因列表。 */
@@ -49,7 +51,7 @@ public class SmsSignatureInfo extends CloudSdkModel {
     /** 联系电话。 */
     private String phoneNum;
     /** 终端客户ID。 */
-    private String endCustomerid;
+    private String endCustomerId;
 
     public String getIsSystemSignature() {
         return this.isSystemSignature;
@@ -63,32 +65,36 @@ public class SmsSignatureInfo extends CloudSdkModel {
         return this.signName;
     }
 
-    public String getSignaturestatus() {
-        return this.signaturestatus;
+    public String getSignatureStatus() {
+        return this.signatureStatus;
     }
 
-    public Integer getOperatorstatus() {
-        return this.operatorstatus;
+    public Integer getOperatorStatus() {
+        return this.operatorStatus;
     }
 
-    public String getRealNamestatus() {
-        return this.realNamestatus;
+    public String getRealNameStatus() {
+        return this.realNameStatus;
     }
 
     public String getAuditReason() {
         return this.auditReason;
     }
 
-    public String getCmOperatorstatus() {
-        return this.cmOperatorstatus;
+    public String getRealNameAuditReason() {
+        return this.realNameAuditReason;
     }
 
-    public String getCtOperatorstatus() {
-        return this.ctOperatorstatus;
+    public String getCmOperatorStatus() {
+        return this.cmOperatorStatus;
     }
 
-    public String getCuOperatorstatus() {
-        return this.cuOperatorstatus;
+    public String getCtOperatorStatus() {
+        return this.ctOperatorStatus;
+    }
+
+    public String getCuOperatorStatus() {
+        return this.cuOperatorStatus;
     }
 
     public List<SmsOperatorRejectReason> getCmOperatorRejectReason() {
@@ -127,7 +133,7 @@ public class SmsSignatureInfo extends CloudSdkModel {
         return this.phoneNum;
     }
 
-    public String getEndCustomerid() {
-        return this.endCustomerid;
+    public String getEndCustomerId() {
+        return this.endCustomerId;
     }
 }

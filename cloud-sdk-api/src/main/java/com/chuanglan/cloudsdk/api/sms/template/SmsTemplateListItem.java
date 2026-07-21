@@ -21,9 +21,10 @@ public class SmsTemplateListItem extends CloudSdkModel {
     private Integer remoteId;
     private String signatureName;
     private String contentName;
-    private String cmOperatorstatus;
-    private String ctOperatorstatus;
-    private String cuOperatorstatus;
+    private String appkey;
+    private String cmOperatorStatus;
+    private String ctOperatorStatus;
+    private String cuOperatorStatus;
 
     public String getTemplateCode() {
         return this.templateCode;
@@ -81,15 +82,19 @@ public class SmsTemplateListItem extends CloudSdkModel {
         return this.contentName;
     }
 
-    public String getCmOperatorstatus() {
-        return this.cmOperatorstatus;
+    public String getAppkey() {
+        return this.appkey;
     }
 
-    public String getCtOperatorstatus() {
-        return this.ctOperatorstatus;
+    public String getCmOperatorStatus() {
+        return this.cmOperatorStatus;
     }
 
-    public String getCuOperatorstatus() {
-        return this.cuOperatorstatus;
+    public String getCtOperatorStatus() {
+        return this.ctOperatorStatus;
+    }
+
+    public String getCuOperatorStatus() {
+        return this.cuOperatorStatus;
     }
 }

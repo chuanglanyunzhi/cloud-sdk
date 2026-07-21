@@ -14,7 +14,7 @@ public class SmsTemplateInfo extends CloudSdkModel {
     private String accountId;
     private String type;
     private String contentTask;
-    private String Content;
+    private String content;
     private String remark;
     private String createTime;
     private String status;
@@ -22,7 +22,7 @@ public class SmsTemplateInfo extends CloudSdkModel {
     private String auditReason;
     private String unsubscribe;
     private String statusDesc;
-    private String contentname;
+    private String contentName;
     private String signName;
     private String needUnsubscribe;
     private String businessCategory;
@@ -52,7 +52,7 @@ public class SmsTemplateInfo extends CloudSdkModel {
     }
 
     public String getContent() {
-        return this.Content;
+        return this.content;
     }
 
     public String getRemark() {
@@ -83,8 +83,8 @@ public class SmsTemplateInfo extends CloudSdkModel {
         return this.statusDesc;
     }
 
-    public String getContentname() {
-        return this.contentname;
+    public String getContentName() {
+        return this.contentName;
     }
 
     public String getSignName() {

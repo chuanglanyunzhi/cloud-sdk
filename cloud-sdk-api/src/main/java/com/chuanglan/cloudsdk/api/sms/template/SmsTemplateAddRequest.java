@@ -8,8 +8,8 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class SmsTemplateAddRequest extends CloudSdkModel {
 
     private String productType;
-    private String Content;
-    private String contentname;
+    private String content;
+    private String contentName;
     private String signName;
     private String needUnsubscribe;
     private String businessCategory;
@@ -25,12 +25,12 @@ public class SmsTemplateAddRequest extends CloudSdkModel {
     }
 
     public SmsTemplateAddRequest setContent(String content) {
-        Content = content;
+        this.content = content;
         return this;
     }
 
-    public SmsTemplateAddRequest setContentname(String contentname) {
-        this.contentname = contentname;
+    public SmsTemplateAddRequest setContentName(String contentName) {
+        this.contentName = contentName;
         return this;
     }
 
@@ -79,11 +79,12 @@ public class SmsTemplateAddRequest extends CloudSdkModel {
     }
 
     public String getContent() {
-        return this.Content;
+        return this.content;
     }
 
-    public String getContentname() {
-        return this.contentname;
+
+    public String getContentName() {
+        return contentName;
     }
 
     public String getSignName() {

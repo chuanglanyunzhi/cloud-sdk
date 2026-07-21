@@ -1,6 +1,7 @@
 package com.chuanglan.cloudsdk.core;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.lang.reflect.Field;
@@ -12,7 +13,8 @@ import java.util.Map;
  */
 public abstract class CloudSdkModel {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static final ObjectMapper MAPPER = new ObjectMapper()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     /**
      * 将当前对象转换为 Map，key 使用 @NameInMap 指定的线上参数名。

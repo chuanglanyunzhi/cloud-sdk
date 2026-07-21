@@ -549,6 +549,157 @@ public class CloudApiClient implements AutoCloseable {
         return intSmsClient.submit(appId, appSecret, endpoint, request, traceId);
     }
 
+    /**
+     * 国际短信账户余额查询，使用默认配置节点。
+     */
+    public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret) throws CloudSdkException {
+        return queryIntSmsBalance(appId, appSecret, intSmsEndpoint);
+    }
+
+    /**
+     * 国际短信账户余额查询，使用默认配置节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret, String traceId) throws CloudSdkException {
+        return queryIntSmsBalance(appId, appSecret, intSmsEndpoint, traceId);
+    }
+
+    /**
+     * 国际短信账户余额查询，由调用方指定节点。
+     */
+    public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret, String endpoint, String traceId) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.balanceQuery(appId, appSecret, endpoint, traceId);
+    }
+
+    /**
+     * 国际短信账户消耗查询，使用默认配置节点。
+     */
+    public IntSmsCostResponse queryIntSmsCost(String appId, String appSecret, IntSmsCostRequest request) throws CloudSdkException {
+        return queryIntSmsCost(appId, appSecret, intSmsEndpoint, request);
+    }
+
+    /**
+     * 国际短信账户消耗查询，使用默认配置节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsCostResponse queryIntSmsCost(String appId, String appSecret, IntSmsCostRequest request, String traceId) throws CloudSdkException {
+        return queryIntSmsCost(appId, appSecret, intSmsEndpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信账户消耗查询，由调用方指定节点。
+     */
+    public IntSmsCostResponse queryIntSmsCost(String appId, String appSecret, String endpoint, IntSmsCostRequest request) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.costQuery(appId, appSecret, endpoint, request);
+    }
+
+    /**
+     * 国际短信账户消耗查询，由调用方指定节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsCostResponse queryIntSmsCost(String appId, String appSecret, String endpoint, IntSmsCostRequest request, String traceId) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.costQuery(appId, appSecret, endpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信发送价格查询（查询全部国家），使用默认配置节点。
+     */
+    public IntSmsPriceResponse queryIntSmsPrice(String appId, String appSecret) throws CloudSdkException {
+        return queryIntSmsPrice(appId, appSecret, intSmsEndpoint, null, null);
+    }
+
+    /**
+     * 国际短信发送价格查询（可指定国家），使用默认配置节点。
+     */
+    public IntSmsPriceResponse queryIntSmsPrice(String appId, String appSecret, IntSmsPriceRequest request) throws CloudSdkException {
+        return queryIntSmsPrice(appId, appSecret, intSmsEndpoint, request, null);
+    }
+
+    /**
+     * 国际短信发送价格查询（可指定国家），使用默认配置节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsPriceResponse queryIntSmsPrice(String appId, String appSecret, IntSmsPriceRequest request, String traceId) throws CloudSdkException {
+        return queryIntSmsPrice(appId, appSecret, intSmsEndpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信发送价格查询，由调用方指定节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsPriceResponse queryIntSmsPrice(String appId, String appSecret, String endpoint, IntSmsPriceRequest request, String traceId) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.priceQuery(appId, appSecret, endpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信状态报告拉取，使用默认配置节点。
+     */
+    public IntSmsReportPullResponse pullIntSmsReport(String appId, String appSecret) throws CloudSdkException {
+        return pullIntSmsReport(appId, appSecret, intSmsEndpoint, null, null);
+    }
+
+    /**
+     * 国际短信状态报告拉取（可指定条数），使用默认配置节点。
+     */
+    public IntSmsReportPullResponse pullIntSmsReport(String appId, String appSecret, IntSmsReportPullRequest request) throws CloudSdkException {
+        return pullIntSmsReport(appId, appSecret, intSmsEndpoint, request, null);
+    }
+
+    /**
+     * 国际短信状态报告拉取（可指定条数），使用默认配置节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsReportPullResponse pullIntSmsReport(String appId, String appSecret, IntSmsReportPullRequest request, String traceId) throws CloudSdkException {
+        return pullIntSmsReport(appId, appSecret, intSmsEndpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信状态报告拉取，由调用方指定节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsReportPullResponse pullIntSmsReport(String appId, String appSecret, String endpoint, IntSmsReportPullRequest request, String traceId) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.reportPull(appId, appSecret, endpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信上行回复拉取，使用默认配置节点。
+     */
+    public IntSmsReplyPullResponse pullIntSmsReply(String appId, String appSecret) throws CloudSdkException {
+        return pullIntSmsReply(appId, appSecret, intSmsEndpoint, null, null);
+    }
+
+    /**
+     * 国际短信上行回复拉取（可指定条数），使用默认配置节点。
+     */
+    public IntSmsReplyPullResponse pullIntSmsReply(String appId, String appSecret, IntSmsReplyPullRequest request) throws CloudSdkException {
+        return pullIntSmsReply(appId, appSecret, intSmsEndpoint, request, null);
+    }
+
+    /**
+     * 国际短信上行回复拉取（可指定条数），使用默认配置节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsReplyPullResponse pullIntSmsReply(String appId, String appSecret, IntSmsReplyPullRequest request, String traceId) throws CloudSdkException {
+        return pullIntSmsReply(appId, appSecret, intSmsEndpoint, request, traceId);
+    }
+
+    /**
+     * 国际短信上行回复拉取，由调用方指定节点，支持自定义链路追踪 ID。
+     */
+    public IntSmsReplyPullResponse pullIntSmsReply(String appId, String appSecret, String endpoint, IntSmsReplyPullRequest request, String traceId) throws CloudSdkException {
+        if (endpoint == null || endpoint.isEmpty()) {
+            endpoint = intSmsEndpoint;
+        }
+        return intSmsClient.replyPull(appId, appSecret, endpoint, request, traceId);
+    }
+
     // ================== 视频短信（RCS）业务 ==================
 
     /**

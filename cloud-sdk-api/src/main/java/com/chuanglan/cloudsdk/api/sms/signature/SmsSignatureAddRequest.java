@@ -18,7 +18,7 @@ public class SmsSignatureAddRequest extends CloudSdkModel {
     /** 签名场景类型。 */
     private Integer signatureSceneType;
     /** 终端客户ID/资质ID。 */
-    private String endCustomerid;
+    private String endCustomerId;
     /** 应用/网站URL。 */
     private String appUrl;
     /** 应用图片。 */
@@ -60,8 +60,8 @@ public class SmsSignatureAddRequest extends CloudSdkModel {
         return this;
     }
 
-    public SmsSignatureAddRequest setEndCustomerid(String endCustomerid) {
-        this.endCustomerid = endCustomerid;
+    public SmsSignatureAddRequest setEndCustomerId(String endCustomerId) {
+        this.endCustomerId = endCustomerId;
         return this;
     }
 
@@ -131,8 +131,8 @@ public class SmsSignatureAddRequest extends CloudSdkModel {
         return this.signatureSceneType;
     }
 
-    public String getEndCustomerid() {
-        return this.endCustomerid;
+    public String getEndCustomerId() {
+        return this.endCustomerId;
     }
 
     public String getAppUrl() {

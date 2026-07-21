@@ -12,9 +12,9 @@ public class SmsSignatureRealNameUpdateRequest extends CloudSdkModel {
     /** 签名ID。 */
     private String signId;
     /** 终端客户ID。 */
-    private String endCustomerid;
+    private String endCustomerId;
     /** 变更类型。 */
-    private String Type;
+    private String type;
     /** 签名场景类型。 */
     private Integer signatureSceneType;
     /** 备注。 */
@@ -46,13 +46,13 @@ public class SmsSignatureRealNameUpdateRequest extends CloudSdkModel {
         return this;
     }
 
-    public SmsSignatureRealNameUpdateRequest setEndCustomerid(String endCustomerid) {
-        this.endCustomerid = endCustomerid;
+    public SmsSignatureRealNameUpdateRequest setEndCustomerId(String endCustomerId) {
+        this.endCustomerId = endCustomerId;
         return this;
     }
 
     public SmsSignatureRealNameUpdateRequest setType(String type) {
-        Type = type;
+        this.type = type;
         return this;
     }
 
@@ -114,12 +114,12 @@ public class SmsSignatureRealNameUpdateRequest extends CloudSdkModel {
         return this.signId;
     }
 
-    public String getEndCustomerid() {
-        return this.endCustomerid;
+    public String getEndCustomerId() {
+        return this.endCustomerId;
     }
 
     public String getType() {
-        return this.Type;
+        return this.type;
     }
 
     public Integer getSignatureSceneType() {

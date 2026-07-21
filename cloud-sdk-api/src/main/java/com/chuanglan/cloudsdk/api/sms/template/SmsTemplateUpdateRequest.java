@@ -7,17 +7,56 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
  */
 public class SmsTemplateUpdateRequest extends CloudSdkModel {
 
+    /**
+     * 产品类型，必填。可选值：notify（通知短信）、market（营销短信）、verify（验证码短信）、
+     * 2ec（CS短信/二类电商）、finance（DK短信/金融）、game（BK短信/游戏）、acquisition（HK短信/拉新）
+     */
     private String productType;
+
+    /** 模板ID，必填 */
     private String templateCode;
-    private String Content;
-    private String contentname;
+
+    /**
+     * 模板内容，必填。不包含短信签名和退订语，长度不超过500字；包含链接时需在链接前后各加一个空格；变量用 {s} 标识。
+     * 示例：您的验证码是123456，请在5分钟内使用
+     */
+    private String content;
+
+    /** 模板名称，必填。长度限2-20个字符 */
+    private String contentName;
+
+    /** 关联签名名称，必填 */
     private String signName;
+
+    /** 退订语，可选。0不需要，1需要（营销必填） */
     private String needUnsubscribe;
+
+    /** 业务大类，必填。从类型枚举接口获取 */
     private String businessCategory;
+
+    /** 业务细类，必填。从类型枚举接口获取 */
     private String businessSubcategory;
+
+    /**
+     * 引流链接，可选。JSON 数组字符串格式，包含 guideType、content、domainExample、icpImg、
+     * originLinkAuthImg、redirectLinkAuthImg 等字段。
+     * 示例：[{"guideType":"2","content":"https://api.253.com","domainExample":"https://api.253.com/ZKPDCasdasdfT","icpImg":"...","originLinkAuthImg":"...","redirectLinkAuthImg":"..."}]
+     */
     private String guideUrl;
+
+    /**
+     * 联系方式，可选。JSON 数组字符串格式，包含 guideType、content、phoneMaterialImg 等字段。
+     * 示例：[{"guideType":"1","content":"130XXXXXXXX","phoneMaterialImg":"..."}]
+     */
     private String guidePhone;
+
+    /**
+     * 变量属性，可选。JSON 数组字符串格式，包含 name、type、length、position 等字段。运营商建议3个变量，最大不超过20个。
+     * 示例：[{"name":"变量1","type":"3","length":"30","position":0}]
+     */
     private String variableParams;
+
+    /** 备注内容，可选。描述对审核者的建议，有利于加速模板审核 */
     private String remark;
 
     public SmsTemplateUpdateRequest setProductType(String productType) {
@@ -31,12 +70,12 @@ public class SmsTemplateUpdateRequest extends CloudSdkModel {
     }
 
     public SmsTemplateUpdateRequest setContent(String content) {
-        Content = content;
+        this.content = content;
         return this;
     }
 
-    public SmsTemplateUpdateRequest setContentname(String contentname) {
-        this.contentname = contentname;
+    public SmsTemplateUpdateRequest setContentName(String contentName) {
+        this.contentName = contentName;
         return this;
     }
 
@@ -89,11 +128,11 @@ public class SmsTemplateUpdateRequest extends CloudSdkModel {
     }
 
     public String getContent() {
-        return this.Content;
+        return this.content;
     }
 
-    public String getContentname() {
-        return this.contentname;
+    public String getContentName() {
+        return this.contentName;
     }
 
     public String getSignName() {
