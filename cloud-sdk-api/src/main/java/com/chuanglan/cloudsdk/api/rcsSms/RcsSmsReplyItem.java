@@ -8,58 +8,100 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class RcsSmsReplyItem extends CloudSdkModel {
 
     /**
-     * 消息 ID。
-     */
-    private String messageId;
-
-    /**
-     * 接收手机号。
+     * 手机号。
      */
     private String phone;
 
     /**
-     * 回复内容。
+     * 端口号地址。
      */
-    private String content;
+    private String codeNoAddress;
 
     /**
-     * 回复时间。
+     * 消息 ID。
      */
-    private String replyTime;
+    private String msgId;
 
-    public RcsSmsReplyItem setMessageId(String messageId) {
-        this.messageId = messageId;
-        return this;
-    }
+    /**
+     * 上行回复内容。
+     */
+    private String upContent;
+
+    /**
+     * 创建时间（毫秒时间戳）。
+     */
+    private Long createTime;
+
+    /**
+     * 批次号。
+     */
+    private String batchId;
+
+    /**
+     * 提交号。
+     */
+    private String submitNo;
 
     public RcsSmsReplyItem setPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public RcsSmsReplyItem setContent(String content) {
-        this.content = content;
+    public RcsSmsReplyItem setCodeNoAddress(String codeNoAddress) {
+        this.codeNoAddress = codeNoAddress;
         return this;
     }
 
-    public RcsSmsReplyItem setReplyTime(String replyTime) {
-        this.replyTime = replyTime;
+    public RcsSmsReplyItem setMsgId(String msgId) {
+        this.msgId = msgId;
         return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public RcsSmsReplyItem setUpContent(String upContent) {
+        this.upContent = upContent;
+        return this;
+    }
+
+    public RcsSmsReplyItem setCreateTime(Long createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public RcsSmsReplyItem setBatchId(String batchId) {
+        this.batchId = batchId;
+        return this;
+    }
+
+    public RcsSmsReplyItem setSubmitNo(String submitNo) {
+        this.submitNo = submitNo;
+        return this;
     }
 
     public String getPhone() {
         return this.phone;
     }
 
-    public String getContent() {
-        return this.content;
+    public String getCodeNoAddress() {
+        return this.codeNoAddress;
     }
 
-    public String getReplyTime() {
-        return this.replyTime;
+    public String getMsgId() {
+        return this.msgId;
+    }
+
+    public String getUpContent() {
+        return this.upContent;
+    }
+
+    public Long getCreateTime() {
+        return this.createTime;
+    }
+
+    public String getBatchId() {
+        return this.batchId;
+    }
+
+    public String getSubmitNo() {
+        return this.submitNo;
     }
 }

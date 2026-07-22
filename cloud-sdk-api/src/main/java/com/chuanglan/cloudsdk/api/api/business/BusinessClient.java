@@ -4,6 +4,11 @@ import com.chuanglan.cloudsdk.api.api.ApiClient;
 import com.chuanglan.cloudsdk.core.CloudSdkException;
 import com.chuanglan.cloudsdk.core.HttpTransport;
 
+import java.net.URI;
+import java.util.Base64;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * 业务线 SDK 入口。
  */
@@ -128,8 +133,8 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public EnterpriseTwoElementsCheckResponse enterpriseTwoElementsCheck(String appId, String appSecret, EnterpriseTwoElementsCheckRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "EnterpriseTwoElementsCheckRequest");
-        requireNonEmpty(request.getCredit_code(), "credit_code");
-        requireNonEmpty(request.getEnt_name(), "ent_name");
+        requireNonEmpty(request.getCreditCode(), "creditCode");
+        requireNonEmpty(request.getEntName(), "entName");
         return call(appId, appSecret, url(ENTERPRISE_TWO_ELEMENTS_CHECK_PATH), request, EnterpriseTwoElementsCheckResponse.class, traceId);
     }
 
@@ -174,7 +179,13 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public AbnormalOperationResponse abnormalOperation(String appId, String appSecret, AbnormalOperationRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "AbnormalOperationRequest");
-        return call(appId, appSecret, url(ABNORMAL_OPERATION_PATH), request, AbnormalOperationResponse.class, traceId);
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("AppId", appId);
+        putIfNotNull(body, "entname", request.getEntName());
+        putIfNotNull(body, "creditcode", request.getCreditCode());
+        putIfNotNull(body, "regno", request.getRegNo());
+        putIfNotNull(body, "orgcode", request.getOrgCode());
+        return call(appId, appSecret, url(ABNORMAL_OPERATION_PATH), body, AbnormalOperationResponse.class, traceId);
     }
 
     public AdministrativeSanctionQueryResponse administrativeSanctionQuery(String appId, String appSecret, AdministrativeSanctionQueryRequest request) throws CloudSdkException {
@@ -183,10 +194,15 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public AdministrativeSanctionQueryResponse administrativeSanctionQuery(String appId, String appSecret, AdministrativeSanctionQueryRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "AdministrativeSanctionQueryRequest");
-        if (isEmpty(request.getEntname()) && isEmpty(request.getUniscid()) && isEmpty(request.getRegno())) {
-            throw new CloudSdkException("ParameterMissing", "entname、uniscid、regno 至少填写一个", null, 0);
+        if (isEmpty(request.getEntName()) && isEmpty(request.getUniscId()) && isEmpty(request.getRegNo())) {
+            throw new CloudSdkException("ParameterMissing", "entName、uniscId、regNo 至少填写一个", null, 0);
         }
-        return call(appId, appSecret, url(ADMINISTRATIVE_SANCTION_QUERY_PATH), request, AdministrativeSanctionQueryResponse.class, traceId);
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("AppId", appId);
+        putIfNotNull(body, "entname", request.getEntName());
+        putIfNotNull(body, "uniscid", request.getUniscId());
+        putIfNotNull(body, "regno", request.getRegNo());
+        return call(appId, appSecret, url(ADMINISTRATIVE_SANCTION_QUERY_PATH), body, AdministrativeSanctionQueryResponse.class, traceId);
     }
 
     public JusticeComplainResponse justiceComplain(String appId, String appSecret, JusticeComplainRequest request) throws CloudSdkException {
@@ -215,10 +231,19 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public EnterpriseBiddingResponse enterpriseBidding(String appId, String appSecret, EnterpriseBiddingRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "EnterpriseBiddingRequest");
-        if (isEmpty(request.getEntname()) && isEmpty(request.getRegno())) {
-            throw new CloudSdkException("ParameterMissing", "entname、regno 至少填写一个", null, 0);
+        if (isEmpty(request.getEntName()) && isEmpty(request.getRegNo())) {
+            throw new CloudSdkException("ParameterMissing", "entName、regNo 至少填写一个", null, 0);
         }
-        return call(appId, appSecret, url(ENTERPRISE_BIDDING_PATH), request, EnterpriseBiddingResponse.class, traceId);
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("AppId", appId);
+        putIfNotNull(body, "entname", request.getEntName());
+        putIfNotNull(body, "regno", request.getRegNo());
+        putIfNotNull(body, "btype", request.getBType());
+        putIfNotNull(body, "publishStartTime", request.getPublishStartTime());
+        putIfNotNull(body, "publishEndTime", request.getPublishEndTime());
+        putIfNotNull(body, "page", request.getPage());
+        putIfNotNull(body, "size", request.getSize());
+        return call(appId, appSecret, url(ENTERPRISE_BIDDING_PATH), body, EnterpriseBiddingResponse.class, traceId);
     }
 
     public EnterpriseOwnTaxResponse enterpriseOwnTax(String appId, String appSecret, EnterpriseOwnTaxRequest request) throws CloudSdkException {
@@ -228,7 +253,12 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
     public EnterpriseOwnTaxResponse enterpriseOwnTax(String appId, String appSecret, EnterpriseOwnTaxRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "EnterpriseOwnTaxRequest");
         requireNonEmpty(request.getKeyword(), "keyword");
-        return call(appId, appSecret, url(ENTERPRISE_OWN_TAX_PATH), request, EnterpriseOwnTaxResponse.class, traceId);
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("AppId", appId);
+        putIfNotNull(body, "keyword", request.getKeyword());
+        putIfNotNull(body, "pageSize", request.getPageSize());
+        putIfNotNull(body, "pageNum", request.getPageNum());
+        return call(appId, appSecret, url(ENTERPRISE_OWN_TAX_PATH), body, EnterpriseOwnTaxResponse.class, traceId);
     }
 
     // ==================== 人脸/活体检测 ====================
@@ -239,8 +269,17 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public FaceCheckResponse faceCheck(String appId, String appSecret, FaceCheckRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "FaceCheckRequest");
+        requireNonEmpty(appId, "appId");
+        requireNonEmpty(appSecret, "appKey");
         requireNonEmpty(request.getImage(), "image");
-        return call(appId, appSecret, url(FACE_CHECK_PATH), request, FaceCheckResponse.class, traceId);
+        requireNonEmpty(request.getImageType(), "imageType");
+        validateFaceCheckImage(request.getImage(), request.getImageType());
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("appId", appId);
+        body.put("appKey", appSecret);
+        body.put("image", request.getImage());
+        body.put("imageType", request.getImageType());
+        return call(appId, appSecret, url(FACE_CHECK_PATH), body, FaceCheckResponse.class, traceId);
     }
 
     public LifeCheckResponse lifeCheck(String appId, String appSecret, LifeCheckRequest request) throws CloudSdkException {
@@ -249,11 +288,19 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
 
     public LifeCheckResponse lifeCheck(String appId, String appSecret, LifeCheckRequest request, String traceId) throws CloudSdkException {
         requireNonNull(request, "LifeCheckRequest");
+        requireNonEmpty(appId, "appId");
+        requireNonEmpty(appSecret, "appKey");
         requireNonEmpty(request.getMotions(), "motions");
         if (isEmpty(request.getFile()) && isEmpty(request.getUrl())) {
             throw new CloudSdkException("ParameterMissing", "file 和 url 至少填写一个", null, 0);
         }
-        return call(appId, appSecret, url(LIFE_CHECK_PATH), request, LifeCheckResponse.class, traceId);
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("appId", appId);
+        body.put("appKey", appSecret);
+        putIfNotNull(body, "motions", request.getMotions());
+        putIfNotNull(body, "file", request.getFile());
+        putIfNotNull(body, "url", request.getUrl());
+        return call(appId, appSecret, url(LIFE_CHECK_PATH), body, LifeCheckResponse.class, traceId);
     }
 
     // ==================== OCR 类接口 ====================
@@ -535,6 +582,57 @@ public class BusinessClient extends ApiClient<BusinessConfig> {
         if (value == null || value.isEmpty()) {
             throw new CloudSdkException("ParameterMissing", name + " 不能为空", null, 0);
         }
+    }
+
+    private static void putIfNotNull(Map<String, Object> body, String name, Object value) {
+        if (value != null) {
+            body.put(name, value);
+        }
+    }
+
+    private static void validateFaceCheckImage(String image, String imageType) {
+        if ("URL".equals(imageType)) {
+            validateHttpUrl(image);
+            return;
+        }
+        if ("BASE64".equals(imageType)) {
+            validateBase64Image(image);
+            return;
+        }
+        throw new CloudSdkException("ParameterInvalid", "imageType 仅支持 URL 或 BASE64", null, 0);
+    }
+
+    private static void validateHttpUrl(String image) {
+        try {
+            URI uri = new URI(image);
+            if (!uri.isAbsolute() || (!"http".equalsIgnoreCase(uri.getScheme()) && !"https".equalsIgnoreCase(uri.getScheme()))) {
+                throw new IllegalArgumentException();
+            }
+        } catch (Exception e) {
+            throw new CloudSdkException("ParameterInvalid", "imageType 为 URL 时 image 必须为 HTTP 或 HTTPS 地址", null, 0);
+        }
+    }
+
+    private static void validateBase64Image(String image) {
+        final byte[] imageBytes;
+        try {
+            imageBytes = Base64.getDecoder().decode(image);
+        } catch (IllegalArgumentException e) {
+            throw new CloudSdkException("ParameterInvalid", "image 不是合法的 Base64 图片", null, 0);
+        }
+        if (imageBytes.length > 2 * 1024 * 1024) {
+            throw new CloudSdkException("ParameterInvalid", "image 图片大小不能超过 2M", null, 0);
+        }
+        if (!isSupportedImage(imageBytes)) {
+            throw new CloudSdkException("ParameterInvalid", "image 仅支持 JPG、PNG 或 BMP 格式", null, 0);
+        }
+    }
+
+    private static boolean isSupportedImage(byte[] imageBytes) {
+        return (imageBytes.length >= 3 && (imageBytes[0] & 0xFF) == 0xFF && (imageBytes[1] & 0xFF) == 0xD8 && (imageBytes[2] & 0xFF) == 0xFF)
+                || (imageBytes.length >= 8 && (imageBytes[0] & 0xFF) == 0x89 && imageBytes[1] == 'P' && imageBytes[2] == 'N' && imageBytes[3] == 'G'
+                && imageBytes[4] == 0x0D && imageBytes[5] == 0x0A && imageBytes[6] == 0x1A && imageBytes[7] == 0x0A)
+                || (imageBytes.length >= 2 && imageBytes[0] == 'B' && imageBytes[1] == 'M');
     }
 
     private static boolean isEmpty(String value) {

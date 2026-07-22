@@ -8,86 +8,86 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class RcsSmsReportItem extends CloudSdkModel {
 
     /**
-     * 消息 ID。
-     */
-    private String messageId;
-
-    /**
-     * 接收手机号。
+     * 手机号。
      */
     private String phone;
 
     /**
-     * 发送状态。
+     * 批次号。
      */
-    private String status;
+    private String batchId;
 
     /**
-     * 状态码。
+     * 提交号。
      */
-    private String statusCode;
+    private String submitNo;
 
     /**
-     * 发送时间。
+     * 投递状态：1 成功 2 失败。
      */
-    private String sendTime;
+    private String deliveryStatus;
 
     /**
-     * 回执时间。
+     * 创建时间（毫秒时间戳）。
      */
-    private String receiveTime;
+    private Long createTime;
 
-    public RcsSmsReportItem setMessageId(String messageId) {
-        this.messageId = messageId;
-        return this;
-    }
+    /**
+     * 创蓝错误码。
+     */
+    private String clErrorCode;
 
     public RcsSmsReportItem setPhone(String phone) {
         this.phone = phone;
         return this;
     }
 
-    public RcsSmsReportItem setStatus(String status) {
-        this.status = status;
+    public RcsSmsReportItem setBatchId(String batchId) {
+        this.batchId = batchId;
         return this;
     }
 
-    public RcsSmsReportItem setStatusCode(String statusCode) {
-        this.statusCode = statusCode;
+    public RcsSmsReportItem setSubmitNo(String submitNo) {
+        this.submitNo = submitNo;
         return this;
     }
 
-    public RcsSmsReportItem setSendTime(String sendTime) {
-        this.sendTime = sendTime;
+    public RcsSmsReportItem setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
         return this;
     }
 
-    public RcsSmsReportItem setReceiveTime(String receiveTime) {
-        this.receiveTime = receiveTime;
+    public RcsSmsReportItem setCreateTime(Long createTime) {
+        this.createTime = createTime;
         return this;
     }
 
-    public String getMessageId() {
-        return this.messageId;
+    public RcsSmsReportItem setClErrorCode(String clErrorCode) {
+        this.clErrorCode = clErrorCode;
+        return this;
     }
 
     public String getPhone() {
         return this.phone;
     }
 
-    public String getStatus() {
-        return this.status;
+    public String getBatchId() {
+        return this.batchId;
     }
 
-    public String getStatusCode() {
-        return this.statusCode;
+    public String getSubmitNo() {
+        return this.submitNo;
     }
 
-    public String getSendTime() {
-        return this.sendTime;
+    public String getDeliveryStatus() {
+        return this.deliveryStatus;
     }
 
-    public String getReceiveTime() {
-        return this.receiveTime;
+    public Long getCreateTime() {
+        return this.createTime;
+    }
+
+    public String getClErrorCode() {
+        return this.clErrorCode;
     }
 }

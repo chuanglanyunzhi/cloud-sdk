@@ -5,7 +5,7 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 import java.util.List;
 
 /**
- * 发送视频模板短信响应。
+ * 发送视频短信模板响应。
  */
 public class RcsSmsTemplateSubmitResponse extends RcsSmsCommonResponse {
 
@@ -20,50 +20,50 @@ public class RcsSmsTemplateSubmitResponse extends RcsSmsCommonResponse {
     }
 
     /**
-     * 发送视频模板短信业务数据。
+     * 发送视频短信模板业务数据。
      */
     public static class Data extends CloudSdkModel {
 
         /**
-         * 消息 ID。
+         * 提交失败的号码。
          */
-        private String messageId;
+        private List<String> errPhone;
 
         /**
-         * 错误手机号列表。
+         * 提交号。
          */
-        private List<String> errorPhone;
+        private String submitNo;
 
         /**
-         * 成功发送数量。
+         * 批次号，一次提交算一个。
          */
-        private Integer total;
+        private String batchId;
 
-        public Data setMessageId(String messageId) {
-            this.messageId = messageId;
+        public Data setErrPhone(List<String> errPhone) {
+            this.errPhone = errPhone;
             return this;
         }
 
-        public Data setErrorPhone(List<String> errorPhone) {
-            this.errorPhone = errorPhone;
+        public Data setSubmitNo(String submitNo) {
+            this.submitNo = submitNo;
             return this;
         }
 
-        public Data setTotal(Integer total) {
-            this.total = total;
+        public Data setBatchId(String batchId) {
+            this.batchId = batchId;
             return this;
         }
 
-        public String getMessageId() {
-            return this.messageId;
+        public List<String> getErrPhone() {
+            return this.errPhone;
         }
 
-        public List<String> getErrorPhone() {
-            return this.errorPhone;
+        public String getSubmitNo() {
+            return this.submitNo;
         }
 
-        public Integer getTotal() {
-            return this.total;
+        public String getBatchId() {
+            return this.batchId;
         }
     }
 

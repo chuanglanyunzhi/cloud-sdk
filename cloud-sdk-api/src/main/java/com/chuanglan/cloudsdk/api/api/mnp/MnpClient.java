@@ -10,8 +10,6 @@ import com.chuanglan.cloudsdk.core.SyncResponse;
  */
 public class MnpClient extends ApiClient<MnpConfig> {
 
-    private static final String CARRIERS_SFTP_PATH = "/api/v2/auth/carriers/sftp";
-
     private static final String CARRIERS_NEW_SFTP_PATH = "/api/v2/mnp/carriers/sftp";
 
     public MnpClient(MnpConfig config) {
@@ -41,30 +39,8 @@ public class MnpClient extends ApiClient<MnpConfig> {
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_SFTP_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_NEW_SFTP_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), MnpCarriersSftpResponse.class);
     }
 
-    /**
-     * 携号转网 V1 查询（新接口）。
-     */
-    public MnpCarriersNewResponse carriersNew(String appId, String appSecret, MnpCarriersNewRequest request) throws CloudSdkException {
-        return carriersNew(appId, appSecret, request, null);
-    }
-
-    /**
-     * 携号转网 V1 查询（新接口），支持自定义链路追踪 ID。
-     */
-    public MnpCarriersNewResponse carriersNew(String appId, String appSecret, MnpCarriersNewRequest request, String traceId) throws CloudSdkException {
-        if (request == null) {
-            throw new CloudSdkException("ParameterMissing", "MnpCarriersNewRequest 不能为空", null, 0);
-        }
-        if (request.getMobile() == null || request.getMobile().isEmpty()) {
-            throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
-        }
-
-        String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_NEW_SFTP_PATH, body, traceId);
-        return parseResponse(syncResponse.getBody(), MnpCarriersNewResponse.class);
-    }
 }

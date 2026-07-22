@@ -2,8 +2,10 @@ package com.chuanglan.cloudsdk.api.rcsSms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
 
+import java.util.List;
+
 /**
- * 查询视频模板响应。
+ * 查询视频模板状态响应。
  */
 public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
 
@@ -18,9 +20,19 @@ public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
     }
 
     /**
-     * 查询视频模板业务数据。
+     * 查询视频模板状态业务数据。
      */
     public static class Data extends CloudSdkModel {
+
+        /**
+         * 模板状态说明。
+         */
+        private String statusName;
+
+        /**
+         * 模板状态：1 平台审核中 2 运营商审核中 3 审核成功 4 审核失败。
+         */
+        private Integer status;
 
         /**
          * 模板 ID。
@@ -28,110 +40,86 @@ public class RcsSmsTemplateFindResponse extends RcsSmsCommonResponse {
         private String templateId;
 
         /**
-         * 模板名称。
+         * 模板可发运营商标识：1 移动 2 联通 3 电信。
          */
-        private String templateName;
+        private List<String> operator;
 
         /**
-         * 模板签名。
+         * 审核驳回原因。
          */
-        private String sign;
+        private String rejectReason;
 
         /**
-         * 文本内容。
+         * 模板有效性：0 失效 1 有效。
          */
-        private String content;
+        private String expireFlag;
 
         /**
-         * 视频资源 URL 列表。
+         * 动参或非动参标识：0 非动参 1 动参。
          */
-        private java.util.List<String> videoUrls;
+        private String isDynamic;
 
-        /**
-         * 封面 URL 列表。
-         */
-        private java.util.List<String> coverUrls;
+        public Data setStatusName(String statusName) {
+            this.statusName = statusName;
+            return this;
+        }
 
-        /**
-         * 模板状态。
-         */
-        private String status;
-
-        /**
-         * 创建时间。
-         */
-        private String createTime;
+        public Data setStatus(Integer status) {
+            this.status = status;
+            return this;
+        }
 
         public Data setTemplateId(String templateId) {
             this.templateId = templateId;
             return this;
         }
 
-        public Data setTemplateName(String templateName) {
-            this.templateName = templateName;
+        public Data setOperator(List<String> operator) {
+            this.operator = operator;
             return this;
         }
 
-        public Data setSign(String sign) {
-            this.sign = sign;
+        public Data setRejectReason(String rejectReason) {
+            this.rejectReason = rejectReason;
             return this;
         }
 
-        public Data setContent(String content) {
-            this.content = content;
+        public Data setExpireFlag(String expireFlag) {
+            this.expireFlag = expireFlag;
             return this;
         }
 
-        public Data setVideoUrls(java.util.List<String> videoUrls) {
-            this.videoUrls = videoUrls;
+        public Data setIsDynamic(String isDynamic) {
+            this.isDynamic = isDynamic;
             return this;
         }
 
-        public Data setCoverUrls(java.util.List<String> coverUrls) {
-            this.coverUrls = coverUrls;
-            return this;
+        public String getStatusName() {
+            return this.statusName;
         }
 
-        public Data setStatus(String status) {
-            this.status = status;
-            return this;
-        }
-
-        public Data setCreateTime(String createTime) {
-            this.createTime = createTime;
-            return this;
+        public Integer getStatus() {
+            return this.status;
         }
 
         public String getTemplateId() {
             return this.templateId;
         }
 
-        public String getTemplateName() {
-            return this.templateName;
+        public List<String> getOperator() {
+            return this.operator;
         }
 
-        public String getSign() {
-            return this.sign;
+        public String getRejectReason() {
+            return this.rejectReason;
         }
 
-        public String getContent() {
-            return this.content;
+        public String getExpireFlag() {
+            return this.expireFlag;
         }
 
-        public java.util.List<String> getVideoUrls() {
-            return this.videoUrls;
-        }
-
-        public java.util.List<String> getCoverUrls() {
-            return this.coverUrls;
-        }
-
-        public String getStatus() {
-            return this.status;
-        }
-
-        public String getCreateTime() {
-            return this.createTime;
+        public String getIsDynamic() {
+            return this.isDynamic;
         }
     }
 

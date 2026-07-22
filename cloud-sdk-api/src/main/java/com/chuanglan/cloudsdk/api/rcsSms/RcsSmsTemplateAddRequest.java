@@ -3,8 +3,13 @@ package com.chuanglan.cloudsdk.api.rcsSms;
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 /**
- * 添加视频模板请求。
+ * 添加视频短信模板请求。
+ *
+ * <p>提交模板是变量模板时，变量模板仅文本可添加变量，且最多包含 5 个变量，
+ * 顺序依次为：${v1}、${v2}、${v3}、${v4}、${v5}。
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RcsSmsTemplateAddRequest extends CloudSdkModel {
@@ -15,29 +20,24 @@ public class RcsSmsTemplateAddRequest extends CloudSdkModel {
     private String templateName;
 
     /**
-     * 模板签名。
+     * 已经在平台创建的签名。
      */
     private String sign;
 
     /**
-     * 视频资源 URL。
+     * 模板内容列表。
      */
-    private String videoUrl;
+    private List<RcsSmsTemplateBodyItem> body;
 
     /**
-     * 视频封面 URL。
+     * 动态模板标记，当创建动态模板时此字段为必须。
      */
-    private String coverUrl;
+    private Integer isDynamic;
 
     /**
-     * 视频短信文本内容。
+     * 模板链接，创建带链接模板时为必须。
      */
-    private String content;
-
-    /**
-     * 备注。
-     */
-    private String remark;
+    private String templateLink;
 
     public RcsSmsTemplateAddRequest setTemplateName(String templateName) {
         this.templateName = templateName;
@@ -49,23 +49,18 @@ public class RcsSmsTemplateAddRequest extends CloudSdkModel {
         return this;
     }
 
-    public RcsSmsTemplateAddRequest setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
+    public RcsSmsTemplateAddRequest setBody(List<RcsSmsTemplateBodyItem> body) {
+        this.body = body;
         return this;
     }
 
-    public RcsSmsTemplateAddRequest setCoverUrl(String coverUrl) {
-        this.coverUrl = coverUrl;
+    public RcsSmsTemplateAddRequest setIsDynamic(Integer isDynamic) {
+        this.isDynamic = isDynamic;
         return this;
     }
 
-    public RcsSmsTemplateAddRequest setContent(String content) {
-        this.content = content;
-        return this;
-    }
-
-    public RcsSmsTemplateAddRequest setRemark(String remark) {
-        this.remark = remark;
+    public RcsSmsTemplateAddRequest setTemplateLink(String templateLink) {
+        this.templateLink = templateLink;
         return this;
     }
 
@@ -77,19 +72,15 @@ public class RcsSmsTemplateAddRequest extends CloudSdkModel {
         return this.sign;
     }
 
-    public String getVideoUrl() {
-        return this.videoUrl;
+    public List<RcsSmsTemplateBodyItem> getBody() {
+        return this.body;
     }
 
-    public String getCoverUrl() {
-        return this.coverUrl;
+    public Integer getIsDynamic() {
+        return this.isDynamic;
     }
 
-    public String getContent() {
-        return this.content;
-    }
-
-    public String getRemark() {
-        return this.remark;
+    public String getTemplateLink() {
+        return this.templateLink;
     }
 }

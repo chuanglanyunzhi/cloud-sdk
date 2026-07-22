@@ -107,6 +107,7 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
 
         Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("appId", appId);
         bodyMap.put("name", request.getName());
         bodyMap.put("idNum", request.getIdNum());
         bodyMap.put("sign", buildV2Sign(appId, appSecret, request.getIdNum(), request.getName()));
@@ -146,6 +147,7 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
 
         Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("appId", appId);
         bodyMap.put("idNum", request.getIdNum());
         bodyMap.put("name", request.getName());
         bodyMap.put("nation", request.getNation());
@@ -275,14 +277,14 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
     /**
      * 运营商二要素 MD5 核验。
      */
-    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request) throws CloudSdkException {
+    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request) throws Exception {
         return carriersTwoAuthMd5(appId, appSecret, request, null);
     }
 
     /**
      * 运营商二要素 MD5 核验，支持自定义链路追踪 ID。
      */
-    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request, String traceId) throws CloudSdkException {
+    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request, String traceId) throws Exception {
         if (request == null) {
             throw new CloudSdkException("ParameterMissing", "CarriersTwoAuthMd5Request 不能为空", null, 0);
         }
@@ -293,7 +295,10 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
-        String body = serializeRequest(request);
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", md5Hex(request.getName()));
+        bodyMap.put("mobile", md5Hex(request.getMobile()));
+        String body = serializeRequest(bodyMap);
         SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_TWO_AUTH_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersTwoAuthResponse.class);
     }
@@ -351,7 +356,11 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
-        String body = serializeRequest(request);
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", md5Hex(request.getName()));
+        bodyMap.put("idNum", md5Hex(request.getIdNum()));
+        bodyMap.put("mobile", md5Hex(request.getMobile()));
+        String body = serializeRequest(bodyMap);
         SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthMd5Response.class);
     }
@@ -381,7 +390,7 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
 
         String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.getApiEndpoint() + CARRIERS_AUTH_DETAIL_PATH, body, traceId);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_DETAIL_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailResponse.class);
     }
 
@@ -409,8 +418,12 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
-        String body = serializeRequest(request);
-        SyncResponse syncResponse = execute(appId, appSecret, config.getApiEndpoint() + CARRIERS_AUTH_DETAIL_MD5_PATH, body, traceId);
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", md5Hex(request.getName()));
+        bodyMap.put("idNum", md5Hex(request.getIdNum()));
+        bodyMap.put("mobile", md5Hex(request.getMobile()));
+        String body = serializeRequest(bodyMap);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_DETAIL_MD5_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailMd5Response.class);
     }
 
@@ -438,7 +451,11 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
-        String body = serializeRequest(request);
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", sha256Hex(request.getName()));
+        bodyMap.put("idNum", sha256Hex(request.getIdNum()));
+        bodyMap.put("mobile", sha256Hex(request.getMobile()));
+        String body = serializeRequest(bodyMap);
         SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + CARRIERS_AUTH_DETAIL_SHA256_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), CarriersAuthDetailSha256Response.class);
     }
@@ -878,14 +895,32 @@ public class RealNameClient extends ApiClient<RealNameConfig> {
         }
     }
 
-    private String md5Hex(String input) throws Exception {
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
-        StringBuilder sb = new StringBuilder();
-        for (byte b : digest) {
-            sb.append(String.format("%02x", b));
+    private String sha256Hex(String input) throws CloudSdkException {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            throw new CloudSdkException("EncryptError", "SHA256 加密失败: " + e.getMessage(), null, 0, e);
         }
-        return sb.toString();
+    }
+
+    private String md5Hex(String input) throws CloudSdkException {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            throw new CloudSdkException("EncryptError", "MD5 加密失败: " + e.getMessage(), null, 0, e);
+        }
     }
 
     private String buildV2Sign(String appId, String appSecret, String idNum, String name) throws CloudSdkException {

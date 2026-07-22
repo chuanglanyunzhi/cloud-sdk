@@ -550,6 +550,20 @@ public class CloudApiClient implements AutoCloseable {
     }
 
     /**
+     * 国际短信账户余额查询，使用默认配置节点（供测试接口统一调用）。
+     */
+    public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret, IntSmsBalanceRequest request) throws CloudSdkException {
+        return queryIntSmsBalance(appId, appSecret, intSmsEndpoint);
+    }
+
+    /**
+     * 国际短信账户余额查询，使用默认配置节点，支持自定义链路追踪 ID（供测试接口统一调用）。
+     */
+    public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret, IntSmsBalanceRequest request, String traceId) throws CloudSdkException {
+        return queryIntSmsBalance(appId, appSecret, intSmsEndpoint, traceId);
+    }
+
+    /**
      * 国际短信账户余额查询，使用默认配置节点。
      */
     public IntSmsBalanceResponse queryIntSmsBalance(String appId, String appSecret) throws CloudSdkException {
@@ -731,48 +745,6 @@ public class CloudApiClient implements AutoCloseable {
     }
 
     /**
-     * 查询视频模板列表。
-     */
-    public RcsSmsTemplateListResponse listVideoTemplate(String appId, String appSecret, RcsSmsTemplateListRequest request) throws CloudSdkException {
-        return rcsSmsClient.listVideoTemplate(appId, appSecret, request);
-    }
-
-    /**
-     * 查询视频模板列表，支持自定义链路追踪 ID。
-     */
-    public RcsSmsTemplateListResponse listVideoTemplate(String appId, String appSecret, RcsSmsTemplateListRequest request, String traceId) throws CloudSdkException {
-        return rcsSmsClient.listVideoTemplate(appId, appSecret, request, traceId);
-    }
-
-    /**
-     * 查询签名列表。
-     */
-    public RcsSmsSignListResponse listSign(String appId, String appSecret, RcsSmsSignListRequest request) throws CloudSdkException {
-        return rcsSmsClient.listSign(appId, appSecret, request);
-    }
-
-    /**
-     * 查询签名列表，支持自定义链路追踪 ID。
-     */
-    public RcsSmsSignListResponse listSign(String appId, String appSecret, RcsSmsSignListRequest request, String traceId) throws CloudSdkException {
-        return rcsSmsClient.listSign(appId, appSecret, request, traceId);
-    }
-
-    /**
-     * 更新视频模板。
-     */
-    public RcsSmsTemplateUpdateResponse updateVideoTemplate(String appId, String appSecret, RcsSmsTemplateUpdateRequest request) throws CloudSdkException {
-        return rcsSmsClient.updateVideoTemplate(appId, appSecret, request);
-    }
-
-    /**
-     * 更新视频模板，支持自定义链路追踪 ID。
-     */
-    public RcsSmsTemplateUpdateResponse updateVideoTemplate(String appId, String appSecret, RcsSmsTemplateUpdateRequest request, String traceId) throws CloudSdkException {
-        return rcsSmsClient.updateVideoTemplate(appId, appSecret, request, traceId);
-    }
-
-    /**
      * 发送视频短信。
      */
     public RcsSmsTemplateSubmitResponse submitVideoTemplate(String appId, String appSecret, RcsSmsTemplateSubmitRequest request) throws CloudSdkException {
@@ -815,20 +787,6 @@ public class CloudApiClient implements AutoCloseable {
     }
 
     /**
-     * 查询余额。
-     */
-    public RcsSmsBalanceResponse getBalance(String appId, String appSecret, RcsSmsBalanceRequest request) throws CloudSdkException {
-        return rcsSmsClient.getBalance(appId, appSecret, request);
-    }
-
-    /**
-     * 查询余额，支持自定义链路追踪 ID。
-     */
-    public RcsSmsBalanceResponse getBalance(String appId, String appSecret, RcsSmsBalanceRequest request, String traceId) throws CloudSdkException {
-        return rcsSmsClient.getBalance(appId, appSecret, request, traceId);
-    }
-
-    /**
      * 新增签名。
      */
     public RcsSmsSignAddResponse addSign(String appId, String appSecret, RcsSmsSignAddRequest request) throws CloudSdkException {
@@ -840,20 +798,6 @@ public class CloudApiClient implements AutoCloseable {
      */
     public RcsSmsSignAddResponse addSign(String appId, String appSecret, RcsSmsSignAddRequest request, String traceId) throws CloudSdkException {
         return rcsSmsClient.addSign(appId, appSecret, request, traceId);
-    }
-
-    /**
-     * 更新账户地址。
-     */
-    public RcsSmsAccountAddressUpdateResponse updateAccountAddress(String appId, String appSecret, RcsSmsAccountAddressUpdateRequest request) throws CloudSdkException {
-        return rcsSmsClient.updateAccountAddress(appId, appSecret, request);
-    }
-
-    /**
-     * 更新账户地址，支持自定义链路追踪 ID。
-     */
-    public RcsSmsAccountAddressUpdateResponse updateAccountAddress(String appId, String appSecret, RcsSmsAccountAddressUpdateRequest request, String traceId) throws CloudSdkException {
-        return rcsSmsClient.updateAccountAddress(appId, appSecret, request, traceId);
     }
 
     // ================== 实名认证业务 ==================
@@ -959,7 +903,7 @@ public class CloudApiClient implements AutoCloseable {
     /**
      * 运营商二要素 MD5 核验。
      */
-    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request) throws CloudSdkException {
+    public CarriersTwoAuthResponse carriersTwoAuthMd5(String appId, String appSecret, CarriersTwoAuthMd5Request request) throws Exception {
         return realNameClient.carriersTwoAuthMd5(appId, appSecret, request);
     }
 

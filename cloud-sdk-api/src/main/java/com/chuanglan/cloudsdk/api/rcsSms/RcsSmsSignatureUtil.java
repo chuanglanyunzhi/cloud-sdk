@@ -1,28 +1,19 @@
 package com.chuanglan.cloudsdk.api.rcsSms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkException;
-import com.chuanglan.cloudsdk.core.CloudSdkModel;
+import com.chuanglan.cloudsdk.core.SignatureAlgorithm;
 import com.chuanglan.cloudsdk.core.SignatureUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
- * 253 视频短信（RCS）签名工具：HmacSHA256 签名。
+ * 253 视频短信（RCS）签名工具：SHA1 签名。
  *
  * <p>签名规则：
  * <ol>
- *     <li>将所有参与签名的参数按键名 ASCII 码从小到大排序；</li>
- *     <li>剔除 {@code body} 与 {@code signature} 两个字段；</li>
- *     <li>将键值对拼接为 {@code key1=value1&key2=value2...} 形式的明文；</li>
- *     <li>以 {@code appSecret} 为密钥，对明文计算 HmacSHA256，结果为小写 16 进制字符串。</li>
+ *     <li>拼接字符串 {@code appSecret + nonce + curTime}；</li>
+ *     <li>对拼接结果计算 SHA1，结果为大写 16 进制字符串。</li>
  * </ol>
  */
 public final class RcsSmsSignatureUtil {
-
-    private static final ObjectMapper MAPPER = CloudSdkModel.getMapper();
 
     private RcsSmsSignatureUtil() {
     }
@@ -42,49 +33,17 @@ public final class RcsSmsSignatureUtil {
     }
 
     /**
-     * 计算 HmacSHA256 签名。
+     * 计算 CheckSum：SHA1(AppSecret + Nonce + CurTime)，结果为大写 16 进制字符串。
      *
      * @param appSecret 应用密钥
-     * @param params    待签名参数，自动剔除 {@code body} 与 {@code signature}
-     * @return 小写 16 进制签名值
+     * @param nonce     随机字符串
+     * @param curTime   当前时间戳（秒级）
+     * @return 大写 16 进制签名值
      */
-    public static String checksum(String appSecret, Map<String, Object> params) throws CloudSdkException {
-        if (appSecret == null || appSecret.isEmpty()) {
-            throw new CloudSdkException("ChecksumError", "appSecret 不能为空", null, 0);
+    public static String checksum(String appSecret, String nonce, String curTime) throws CloudSdkException {
+        if (appSecret == null || nonce == null || curTime == null) {
+            throw new CloudSdkException("ChecksumError", "签名参数不能为空", null, 0);
         }
-        try {
-            TreeMap<String, Object> sorted = new TreeMap<>();
-            if (params != null) {
-                for (Map.Entry<String, Object> entry : params.entrySet()) {
-                    String key = entry.getKey();
-                    if ("body".equals(key) || "signature".equals(key)) {
-                        continue;
-                    }
-                    sorted.put(key, entry.getValue());
-                }
-            }
-
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, Object> entry : sorted.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                sb.append(entry.getKey()).append("=").append(formatValue(entry.getValue()));
-            }
-
-            return SignatureUtil.hmac(appSecret, sb.toString());
-        } catch (Exception e) {
-            throw new CloudSdkException("ChecksumError", "签名计算失败: " + e.getMessage(), null, 0, e);
-        }
-    }
-
-    private static String formatValue(Object value) throws Exception {
-        if (value == null) {
-            return "";
-        }
-        if (value instanceof Collection) {
-            return MAPPER.writeValueAsString(value);
-        }
-        return value.toString();
+        return SignatureUtil.digest(appSecret, nonce, curTime, SignatureAlgorithm.SHA1);
     }
 }

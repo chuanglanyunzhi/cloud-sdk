@@ -97,8 +97,8 @@ public class NumberCarrierClient extends ApiClient<NumberCarrierConfig> {
             throw new CloudSdkException("ParameterMissing", "mobile 不能为空", null, 0);
         }
 
-        String body = buildFormBody(request.toMap());
-        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + ONLINE_DURATION_PATH, body, traceId, "application/x-www-form-urlencoded");
+        String body = serializeRequest(request);
+        SyncResponse syncResponse = execute(appId, appSecret, config.getEndpoint() + ONLINE_DURATION_PATH, body, traceId);
         return parseResponse(syncResponse.getBody(), NumberOnlineDurationResponse.class);
     }
 

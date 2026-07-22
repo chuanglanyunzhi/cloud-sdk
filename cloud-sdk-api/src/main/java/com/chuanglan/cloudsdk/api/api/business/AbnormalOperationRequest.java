@@ -12,56 +12,56 @@ public class AbnormalOperationRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    private String entname;
+    private String entName;
 
     /**
      * 统一社会信用代码。
      */
-    private String creditcode;
+    private String creditCode;
 
     /**
      * 企业注册号。
      */
-    private String regno;
+    private String regNo;
 
     /**
      * 组织机构代码。
      */
-    private String orgcode;
+    private String orgCode;
 
-    public AbnormalOperationRequest setEntname(String entname) {
-        this.entname = entname;
+    public AbnormalOperationRequest setEntName(String entName) {
+        this.entName = entName;
         return this;
     }
 
-    public AbnormalOperationRequest setCreditcode(String creditcode) {
-        this.creditcode = creditcode;
+    public AbnormalOperationRequest setCreditCode(String creditCode) {
+        this.creditCode = creditCode;
         return this;
     }
 
-    public AbnormalOperationRequest setRegno(String regno) {
-        this.regno = regno;
+    public AbnormalOperationRequest setRegNo(String regNo) {
+        this.regNo = regNo;
         return this;
     }
 
-    public AbnormalOperationRequest setOrgcode(String orgcode) {
-        this.orgcode = orgcode;
+    public AbnormalOperationRequest setOrgCode(String orgCode) {
+        this.orgCode = orgCode;
         return this;
     }
 
-    public String getEntname() {
-        return this.entname;
+    public String getEntName() {
+        return this.entName;
     }
 
-    public String getCreditcode() {
-        return this.creditcode;
+    public String getCreditCode() {
+        return this.creditCode;
     }
 
-    public String getRegno() {
-        return this.regno;
+    public String getRegNo() {
+        return this.regNo;
     }
 
-    public String getOrgcode() {
-        return this.orgcode;
+    public String getOrgCode() {
+        return this.orgCode;
     }
 }

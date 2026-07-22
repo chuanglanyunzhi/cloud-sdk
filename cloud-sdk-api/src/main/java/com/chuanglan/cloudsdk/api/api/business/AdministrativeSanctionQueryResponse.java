@@ -1,5 +1,7 @@
 package com.chuanglan.cloudsdk.api.api.business;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.List;
 
 /**
@@ -20,6 +22,7 @@ public class AdministrativeSanctionQueryResponse extends BusinessCommonResponse 
     /**
      * 行政处罚列表。
      */
+    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
     private List<AdministrativeSanctionItem> data;
 
     public AdministrativeSanctionQueryResponse setChargeStatus(Integer chargeStatus) {

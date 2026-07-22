@@ -27,27 +27,13 @@ public class RcsSmsSignAddResponse extends RcsSmsCommonResponse {
          */
         private String signId;
 
-        /**
-         * 签名状态。
-         */
-        private String status;
-
         public Data setSignId(String signId) {
             this.signId = signId;
             return this;
         }
 
-        public Data setStatus(String status) {
-            this.status = status;
-            return this;
-        }
-
         public String getSignId() {
             return this.signId;
-        }
-
-        public String getStatus() {
-            return this.status;
         }
     }
 

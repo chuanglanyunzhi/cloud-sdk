@@ -2,6 +2,7 @@ package com.chuanglan.cloudsdk.api.api.business;
 
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 企业二要素核验请求。
@@ -12,28 +13,30 @@ public class EnterpriseTwoElementsCheckRequest extends CloudSdkModel {
     /**
      * 注册号/社会统一信用代码。
      */
-    private String credit_code;
+    @JsonProperty("credit_code")
+    private String creditCode;
 
     /**
      * 企业名称。
      */
-    private String ent_name;
+    @JsonProperty("ent_name")
+    private String entName;
 
-    public EnterpriseTwoElementsCheckRequest setCredit_code(String credit_code) {
-        this.credit_code = credit_code;
+    public EnterpriseTwoElementsCheckRequest setCreditCode(String creditCode) {
+        this.creditCode = creditCode;
         return this;
     }
 
-    public EnterpriseTwoElementsCheckRequest setEnt_name(String ent_name) {
-        this.ent_name = ent_name;
+    public EnterpriseTwoElementsCheckRequest setEntName(String entName) {
+        this.entName = entName;
         return this;
     }
 
-    public String getCredit_code() {
-        return this.credit_code;
+    public String getCreditCode() {
+        return this.creditCode;
     }
 
-    public String getEnt_name() {
-        return this.ent_name;
+    public String getEntName() {
+        return this.entName;
     }
 }

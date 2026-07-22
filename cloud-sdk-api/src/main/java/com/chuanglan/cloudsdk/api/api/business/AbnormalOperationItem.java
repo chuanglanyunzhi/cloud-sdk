@@ -37,6 +37,20 @@ public class AbnormalOperationItem extends CloudSdkModel {
      */
     private String outreason;
 
+    /**
+     * 无记录时的说明。
+     */
+    private String reason;
+
+    public AbnormalOperationItem setReason(String reason) {
+        this.reason = reason;
+        return this;
+    }
+
+    public String getReason() {
+        return this.reason;
+    }
+
     public AbnormalOperationItem setIndate(String indate) {
         this.indate = indate;
         return this;

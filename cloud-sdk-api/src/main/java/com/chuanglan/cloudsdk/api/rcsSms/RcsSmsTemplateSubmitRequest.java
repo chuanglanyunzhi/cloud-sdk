@@ -1,43 +1,44 @@
 package com.chuanglan.cloudsdk.api.rcsSms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
+import com.chuanglan.cloudsdk.core.NameInMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
 
 /**
- * 发送视频模板短信请求。
+ * 发送视频短信模板请求。
+ *
+ * <p>支持静态模板（phoneNumbers 手机号列表）和动态模板（phoneNumberJson 带变量）两种发送方式，
+ * 二者互斥：静态模板发送时 {@link #phoneNumbers} 必填；动态模板发送时 {@link #phoneNumberJson} 必填。
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RcsSmsTemplateSubmitRequest extends CloudSdkModel {
+
+    /**
+     * 提交号，客户端提供，作为客户端的提交标识，长度不超过 32 位。
+     */
+    private String submitNo;
+
+    /**
+     * 手机号列表，静态模板发送时此字段必填。
+     */
+    @NameInMap("phoneNumbers")
+    private List<String> phoneNumbers;
+
+    /**
+     * 动态模板变量列表，动态模板发送时此字段必填。
+     */
+    @NameInMap("phoneNumberJson")
+    private List<RcsSmsDynamicVar> phoneNumberJson;
 
     /**
      * 模板 ID。
      */
     private String templateId;
 
-    /**
-     * 接收手机号列表，多个手机号使用英文逗号分隔或传入列表。
-     */
-    private List<String> phoneNumbers;
-
-    /**
-     * 模板变量参数，JSON 字符串。
-     */
-    private String params;
-
-    /**
-     * 状态回执回调地址。
-     */
-    private String callbackUrl;
-
-    /**
-     * 业务方自定义流水号。
-     */
-    private String outId;
-
-    public RcsSmsTemplateSubmitRequest setTemplateId(String templateId) {
-        this.templateId = templateId;
+    public RcsSmsTemplateSubmitRequest setSubmitNo(String submitNo) {
+        this.submitNo = submitNo;
         return this;
     }
 
@@ -46,38 +47,29 @@ public class RcsSmsTemplateSubmitRequest extends CloudSdkModel {
         return this;
     }
 
-    public RcsSmsTemplateSubmitRequest setParams(String params) {
-        this.params = params;
+    public RcsSmsTemplateSubmitRequest setPhoneNumberJson(List<RcsSmsDynamicVar> phoneNumberJson) {
+        this.phoneNumberJson = phoneNumberJson;
         return this;
     }
 
-    public RcsSmsTemplateSubmitRequest setCallbackUrl(String callbackUrl) {
-        this.callbackUrl = callbackUrl;
+    public RcsSmsTemplateSubmitRequest setTemplateId(String templateId) {
+        this.templateId = templateId;
         return this;
     }
 
-    public RcsSmsTemplateSubmitRequest setOutId(String outId) {
-        this.outId = outId;
-        return this;
-    }
-
-    public String getTemplateId() {
-        return this.templateId;
+    public String getSubmitNo() {
+        return this.submitNo;
     }
 
     public List<String> getPhoneNumbers() {
         return this.phoneNumbers;
     }
 
-    public String getParams() {
-        return this.params;
+    public List<RcsSmsDynamicVar> getPhoneNumberJson() {
+        return this.phoneNumberJson;
     }
 
-    public String getCallbackUrl() {
-        return this.callbackUrl;
-    }
-
-    public String getOutId() {
-        return this.outId;
+    public String getTemplateId() {
+        return this.templateId;
     }
 }

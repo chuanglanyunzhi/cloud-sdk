@@ -11,17 +11,12 @@ import java.util.Map;
  */
 public class RcsSmsClient implements AutoCloseable {
 
-    private static final String ADD_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/addVideo";
-    private static final String FIND_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/findTemplate";
-    private static final String LIST_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/listVideoTemplate";
-    private static final String LIST_SIGN_PATH = "/rcs/api/v2/template/listSign";
-    private static final String UPDATE_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/template/updateVideo";
-    private static final String SUBMIT_VIDEO_TEMPLATE_PATH = "/rcs/api/v2/msg/submitVideoTemplate";
-    private static final String PULL_REPORT_PATH = "/rcs/api/v2/report/pull";
-    private static final String PULL_REPLY_PATH = "/rcs/api/v2/reply/pull";
-    private static final String GET_BALANCE_PATH = "/rcs/api/internal/balance/getBalance";
-    private static final String ADD_SIGN_PATH = "/rcs/api/sign/add_sign";
-    private static final String UPDATE_ADDRESS_PATH = "/rcs/api/account/update_address";
+    private static final String ADD_VIDEO_TEMPLATE_PATH = "/videosms/api/v2/template/add";
+    private static final String FIND_VIDEO_TEMPLATE_PATH = "/videosms/api/v2/template/getSingleTemplateInfo";
+    private static final String SUBMIT_VIDEO_TEMPLATE_PATH = "/videosms/api/v2/template/send";
+    private static final String PULL_REPORT_PATH = "/videosms/api/v2/report/pull";
+    private static final String PULL_REPLY_PATH = "/videosms/api/v2/reply/pull";
+    private static final String ADD_SIGN_PATH = "/videosms/api/v2/sign/add";
 
     private final RcsSmsConfig config;
     private final String endpoint;
@@ -79,36 +74,6 @@ public class RcsSmsClient implements AutoCloseable {
         return parseResponse(syncResponse.getBody(), RcsSmsTemplateFindResponse.class);
     }
 
-    public RcsSmsTemplateListResponse listVideoTemplate(String appId, String appSecret, RcsSmsTemplateListRequest request) throws CloudSdkException {
-        return listVideoTemplate(appId, appSecret, request, null);
-    }
-
-    public RcsSmsTemplateListResponse listVideoTemplate(String appId, String appSecret, RcsSmsTemplateListRequest request, String traceId) throws CloudSdkException {
-        validateRequest(request, "RcsSmsTemplateListRequest");
-        SyncResponse syncResponse = execute(appId, appSecret, endpoint + LIST_VIDEO_TEMPLATE_PATH, request, traceId);
-        return parseResponse(syncResponse.getBody(), RcsSmsTemplateListResponse.class);
-    }
-
-    public RcsSmsSignListResponse listSign(String appId, String appSecret, RcsSmsSignListRequest request) throws CloudSdkException {
-        return listSign(appId, appSecret, request, null);
-    }
-
-    public RcsSmsSignListResponse listSign(String appId, String appSecret, RcsSmsSignListRequest request, String traceId) throws CloudSdkException {
-        validateRequest(request, "RcsSmsSignListRequest");
-        SyncResponse syncResponse = execute(appId, appSecret, endpoint + LIST_SIGN_PATH, request, traceId);
-        return parseResponse(syncResponse.getBody(), RcsSmsSignListResponse.class);
-    }
-
-    public RcsSmsTemplateUpdateResponse updateVideoTemplate(String appId, String appSecret, RcsSmsTemplateUpdateRequest request) throws CloudSdkException {
-        return updateVideoTemplate(appId, appSecret, request, null);
-    }
-
-    public RcsSmsTemplateUpdateResponse updateVideoTemplate(String appId, String appSecret, RcsSmsTemplateUpdateRequest request, String traceId) throws CloudSdkException {
-        validateRequest(request, "RcsSmsTemplateUpdateRequest");
-        SyncResponse syncResponse = execute(appId, appSecret, endpoint + UPDATE_VIDEO_TEMPLATE_PATH, request, traceId);
-        return parseResponse(syncResponse.getBody(), RcsSmsTemplateUpdateResponse.class);
-    }
-
     // ================== 视频短信发送 ==================
 
     public RcsSmsTemplateSubmitResponse submitVideoTemplate(String appId, String appSecret, RcsSmsTemplateSubmitRequest request) throws CloudSdkException {
@@ -117,11 +82,16 @@ public class RcsSmsClient implements AutoCloseable {
 
     public RcsSmsTemplateSubmitResponse submitVideoTemplate(String appId, String appSecret, RcsSmsTemplateSubmitRequest request, String traceId) throws CloudSdkException {
         validateRequest(request, "RcsSmsTemplateSubmitRequest");
+        if (request.getSubmitNo() == null || request.getSubmitNo().isEmpty()) {
+            throw new CloudSdkException("ParameterMissing", "submitNo 不能为空", null, 0);
+        }
         if (request.getTemplateId() == null || request.getTemplateId().isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "templateId 不能为空", null, 0);
         }
-        if (request.getPhoneNumbers() == null || request.getPhoneNumbers().isEmpty()) {
-            throw new CloudSdkException("ParameterMissing", "phoneNumbers 不能为空", null, 0);
+        boolean hasPhones = request.getPhoneNumbers() != null && !request.getPhoneNumbers().isEmpty();
+        boolean hasDynamicVars = request.getPhoneNumberJson() != null && !request.getPhoneNumberJson().isEmpty();
+        if (!hasPhones && !hasDynamicVars) {
+            throw new CloudSdkException("ParameterMissing", "静态模板发送时 phoneNumbers 必填，动态模板发送时 phoneNumberJson 必填", null, 0);
         }
         SyncResponse syncResponse = execute(appId, appSecret, endpoint + SUBMIT_VIDEO_TEMPLATE_PATH, request, traceId);
         return parseResponse(syncResponse.getBody(), RcsSmsTemplateSubmitResponse.class);
@@ -149,19 +119,7 @@ public class RcsSmsClient implements AutoCloseable {
         return parseResponse(syncResponse.getBody(), RcsSmsReplyPullResponse.class);
     }
 
-    // ================== 余额与签名、账户 ==================
-
-    public RcsSmsBalanceResponse getBalance(String appId, String appSecret, RcsSmsBalanceRequest request) throws CloudSdkException {
-        return getBalance(appId, appSecret, request, null);
-    }
-
-    public RcsSmsBalanceResponse getBalance(String appId, String appSecret, RcsSmsBalanceRequest request, String traceId) throws CloudSdkException {
-        if (request == null) {
-            request = new RcsSmsBalanceRequest();
-        }
-        SyncResponse syncResponse = execute(appId, appSecret, endpoint + GET_BALANCE_PATH, request, traceId);
-        return parseResponse(syncResponse.getBody(), RcsSmsBalanceResponse.class);
-    }
+    // ================== 签名 ==================
 
     public RcsSmsSignAddResponse addSign(String appId, String appSecret, RcsSmsSignAddRequest request) throws CloudSdkException {
         return addSign(appId, appSecret, request, null);
@@ -169,24 +127,20 @@ public class RcsSmsClient implements AutoCloseable {
 
     public RcsSmsSignAddResponse addSign(String appId, String appSecret, RcsSmsSignAddRequest request, String traceId) throws CloudSdkException {
         validateRequest(request, "RcsSmsSignAddRequest");
-        if (request.getSignName() == null || request.getSignName().isEmpty()) {
-            throw new CloudSdkException("ParameterMissing", "signName 不能为空", null, 0);
+        if (request.getSign() == null || request.getSign().isEmpty()) {
+            throw new CloudSdkException("ParameterMissing", "sign 不能为空", null, 0);
+        }
+        if (request.getCustomerCode() == null || request.getCustomerCode().isEmpty()) {
+            throw new CloudSdkException("ParameterMissing", "customerCode 不能为空", null, 0);
+        }
+        if (request.getIndustryCode() == null || request.getIndustryCode().isEmpty()) {
+            throw new CloudSdkException("ParameterMissing", "industryCode 不能为空", null, 0);
+        }
+        if (request.getSignType() == null || request.getSignType().isEmpty()) {
+            throw new CloudSdkException("ParameterMissing", "signType 不能为空", null, 0);
         }
         SyncResponse syncResponse = execute(appId, appSecret, endpoint + ADD_SIGN_PATH, request, traceId);
         return parseResponse(syncResponse.getBody(), RcsSmsSignAddResponse.class);
-    }
-
-    public RcsSmsAccountAddressUpdateResponse updateAccountAddress(String appId, String appSecret, RcsSmsAccountAddressUpdateRequest request) throws CloudSdkException {
-        return updateAccountAddress(appId, appSecret, request, null);
-    }
-
-    public RcsSmsAccountAddressUpdateResponse updateAccountAddress(String appId, String appSecret, RcsSmsAccountAddressUpdateRequest request, String traceId) throws CloudSdkException {
-        validateRequest(request, "RcsSmsAccountAddressUpdateRequest");
-        if (request.getAddress() == null || request.getAddress().isEmpty()) {
-            throw new CloudSdkException("ParameterMissing", "address 不能为空", null, 0);
-        }
-        SyncResponse syncResponse = execute(appId, appSecret, endpoint + UPDATE_ADDRESS_PATH, request, traceId);
-        return parseResponse(syncResponse.getBody(), RcsSmsAccountAddressUpdateResponse.class);
     }
 
     // ================== 通用方法 ==================
@@ -215,14 +169,7 @@ public class RcsSmsClient implements AutoCloseable {
         String nonce = RcsSmsSignatureUtil.generateNonce();
         String curTime = RcsSmsSignatureUtil.currentTimestamp();
 
-        Map<String, Object> params = new HashMap<>();
-        params.put("appId", appId);
-        params.put("nonce", nonce);
-        params.put("curTime", curTime);
-        if (request != null) {
-            params.putAll(request.toMap());
-        }
-        String checksum = RcsSmsSignatureUtil.checksum(appSecret, params);
+        String checksum = RcsSmsSignatureUtil.checksum(appSecret, nonce, curTime);
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json; charset=utf-8");

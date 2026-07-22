@@ -3,6 +3,7 @@ package com.chuanglan.cloudsdk.core;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -14,7 +15,8 @@ import java.util.Map;
 public abstract class CloudSdkModel {
 
     private static final ObjectMapper MAPPER = new ObjectMapper()
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 
     /**
      * 将当前对象转换为 Map，key 使用 @NameInMap 指定的线上参数名。
@@ -57,27 +59,34 @@ public abstract class CloudSdkModel {
     }
 
     /**
-     * 从 Map 构建模型对象，key 使用 @NameInMap 指定的线上参数名。
+     * 从 Map 构建模型对象，key 使用 @NameInMap 指定的线上参数名（未指定时回退为 Java 字段名）。
+     *
+     * <p>直接通过反射按字段赋值，不经过 {@code MAPPER.convertValue(Map, Class)}：
+     * 后者会按字段上的 {@code @JsonProperty} 重新解析 key，若字段名（如 creditCode）与
+     * {@code @JsonProperty}（如 credit_code）不一致，会导致该字段在反序列化时被静默丢弃。
      */
     public static <T extends CloudSdkModel> T build(Map<String, ?> map, Class<T> clazz) throws CloudSdkException {
         if (map == null) {
             return null;
         }
         try {
-            Map<String, String> fieldNameMap = new HashMap<>();
+            T instance = clazz.getDeclaredConstructor().newInstance();
+            Map<String, Field> fieldByKey = new HashMap<>();
             for (Field field : collectFields(clazz)) {
                 NameInMap annotation = field.getAnnotation(NameInMap.class);
                 String key = annotation != null ? annotation.value() : field.getName();
-                fieldNameMap.put(key, field.getName());
+                fieldByKey.put(key, field);
             }
-            Map<String, Object> converted = new HashMap<>();
             for (Map.Entry<String, ?> entry : map.entrySet()) {
-                String fieldName = fieldNameMap.get(entry.getKey());
-                if (fieldName != null) {
-                    converted.put(fieldName, entry.getValue());
+                Field field = fieldByKey.get(entry.getKey());
+                if (field == null || entry.getValue() == null) {
+                    continue;
                 }
+                field.setAccessible(true);
+                Object value = MAPPER.convertValue(entry.getValue(), MAPPER.getTypeFactory().constructType(field.getGenericType()));
+                field.set(instance, value);
             }
-            return MAPPER.convertValue(converted, clazz);
+            return instance;
         } catch (Exception e) {
             throw new CloudSdkException("MapToModelError", "Map 转模型失败: " + e.getMessage(), null, 0, e);
         }

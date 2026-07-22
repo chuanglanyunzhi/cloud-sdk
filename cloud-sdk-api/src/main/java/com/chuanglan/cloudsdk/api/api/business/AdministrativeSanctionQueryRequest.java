@@ -12,42 +12,42 @@ public class AdministrativeSanctionQueryRequest extends CloudSdkModel {
     /**
      * 企业名称。
      */
-    private String entname;
+    private String entName;
 
     /**
      * 统一社会信用代码。
      */
-    private String uniscid;
+    private String uniscId;
 
     /**
      * 注册号。
      */
-    private String regno;
+    private String regNo;
 
-    public AdministrativeSanctionQueryRequest setEntname(String entname) {
-        this.entname = entname;
+    public AdministrativeSanctionQueryRequest setEntName(String entName) {
+        this.entName = entName;
         return this;
     }
 
-    public AdministrativeSanctionQueryRequest setUniscid(String uniscid) {
-        this.uniscid = uniscid;
+    public AdministrativeSanctionQueryRequest setUniscId(String uniscId) {
+        this.uniscId = uniscId;
         return this;
     }
 
-    public AdministrativeSanctionQueryRequest setRegno(String regno) {
-        this.regno = regno;
+    public AdministrativeSanctionQueryRequest setRegNo(String regNo) {
+        this.regNo = regNo;
         return this;
     }
 
-    public String getEntname() {
-        return this.entname;
+    public String getEntName() {
+        return this.entName;
     }
 
-    public String getUniscid() {
-        return this.uniscid;
+    public String getUniscId() {
+        return this.uniscId;
     }
 
-    public String getRegno() {
-        return this.regno;
+    public String getRegNo() {
+        return this.regNo;
     }
 }
