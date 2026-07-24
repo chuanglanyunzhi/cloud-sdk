@@ -8,6 +8,11 @@ import com.chuanglan.cloudsdk.core.CloudSdkModel;
 public class IntSmsBalanceResponseData extends CloudSdkModel {
 
     /**
+     * 应用 ID。
+     */
+    private String appId;
+
+    /**
      * 账号。
      */
     private String account;
@@ -17,6 +22,11 @@ public class IntSmsBalanceResponseData extends CloudSdkModel {
      */
     private Double balance;
 
+    public IntSmsBalanceResponseData setAppId(String appId) {
+        this.appId = appId;
+        return this;
+    }
+
     public IntSmsBalanceResponseData setAccount(String account) {
         this.account = account;
         return this;
@@ -25,6 +35,10 @@ public class IntSmsBalanceResponseData extends CloudSdkModel {
     public IntSmsBalanceResponseData setBalance(Double balance) {
         this.balance = balance;
         return this;
+    }
+
+    public String getAppId() {
+        return this.appId;
     }
 
     public String getAccount() {
