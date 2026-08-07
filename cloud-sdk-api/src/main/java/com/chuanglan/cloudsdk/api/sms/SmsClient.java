@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class SmsClient implements AutoCloseable {
 
-    private static final String BATCH_SEND_PATH = "/sms/v2/batchSend";
+    private static final String BATCH_SEND_PATH = "/sms/v2/batch-send";
 
     private final SmsConfig config;
     private final HttpTransport httpTransport;
@@ -136,7 +136,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsSignatureGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/signature/getSingleSignatureInfo", body, traceId);
+                config.getEndpoint() + "/sms/v2/signature/get-single-signature-info", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureGetResponse.class);
     }
 
@@ -160,7 +160,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsSignatureOperatorRejectReasonRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/signature/operatorRejectReason", body, traceId);
+                config.getEndpoint() + "/sms/v2/signature/operator-reject-reason", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureOperatorRejectReasonResponse.class);
     }
 
@@ -172,7 +172,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsSignatureRealNameUpdateRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/signature/realNameUpdate", body, traceId);
+                config.getEndpoint() + "/sms/v2/signature/real-name-update", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureRealNameUpdateResponse.class);
     }
 
@@ -210,7 +210,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsTemplateTypeEnumRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/template/queryTypeEnum", body, traceId);
+                config.getEndpoint() + "/sms/v2/template/query-type-enum", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateTypeEnumResponse.class);
     }
 
@@ -234,7 +234,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsTemplateGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/template/getSingleTemplateInfo", body, traceId);
+                config.getEndpoint() + "/sms/v2/template/get-single-template-info", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateGetResponse.class);
     }
 
@@ -246,7 +246,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsTemplateOperatorRejectReasonRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/template/operatorRejectReason", body, traceId);
+                config.getEndpoint() + "/sms/v2/template/operator-reject-reason", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateOperatorRejectReasonResponse.class);
     }
 
