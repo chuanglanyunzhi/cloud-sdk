@@ -20,6 +20,7 @@ public class SmsConfig extends CloudSdkModel {
         return apiEndpoint;
     }
 
+
     public Integer getConnectTimeout() {
         return connectTimeout;
     }
@@ -37,6 +38,7 @@ public class SmsConfig extends CloudSdkModel {
         this.apiEndpoint = apiEndpoint;
         return this;
     }
+
 
     public SmsConfig setConnectTimeout(Integer connectTimeout) {
         this.connectTimeout = connectTimeout;

@@ -121,6 +121,7 @@ public class CloudApiConfig extends CloudSdkModel {
         return this;
     }
 
+
     public CloudApiConfig setIntSmsEndpoint(String intSmsEndpoint) {
         this.intSmsEndpoint = intSmsEndpoint;
         return this;

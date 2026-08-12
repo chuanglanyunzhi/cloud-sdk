@@ -136,7 +136,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsSignatureGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/signature/get-single-signature-info", body, traceId);
+                config.getEndpoint() + "/sms/v2/signature/detail", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsSignatureGetResponse.class);
     }
 
@@ -234,7 +234,7 @@ public class SmsClient implements AutoCloseable {
         validateBaseRequest(request, "SmsTemplateGetRequest");
         String body = serializeRequest(request);
         SyncResponse syncResponse = execute(appId, appSecret,
-                config.getEndpoint() + "/sms/v2/template/get-single-template-info", body, traceId);
+                config.getEndpoint() + "/sms/v2/template/detail", body, traceId);
         return parseResponse(syncResponse.getBody(), SmsTemplateGetResponse.class);
     }
 

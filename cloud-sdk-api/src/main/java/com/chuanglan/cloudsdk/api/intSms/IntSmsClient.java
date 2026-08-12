@@ -234,7 +234,6 @@ public class IntSmsClient implements AutoCloseable {
             throw new CloudSdkException("ParameterMissing", "productType 不能为空", null, 0);
         }
     }
-
     private void validateEndpoint(String endpoint) {
         if (endpoint == null || endpoint.isEmpty()) {
             throw new CloudSdkException("ParameterMissing", "endpoint 不能为空", null, 0);

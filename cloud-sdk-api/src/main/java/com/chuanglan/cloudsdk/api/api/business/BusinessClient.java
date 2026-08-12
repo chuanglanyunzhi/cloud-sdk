@@ -3,6 +3,7 @@ package com.chuanglan.cloudsdk.api.api.business;
 import com.chuanglan.cloudsdk.api.api.ApiClient;
 import com.chuanglan.cloudsdk.core.CloudSdkException;
 import com.chuanglan.cloudsdk.core.HttpTransport;
+import com.chuanglan.cloudsdk.core.SyncResponse;
 
 import java.net.URI;
 import java.util.Base64;

@@ -1,6 +1,7 @@
 package com.chuanglan.cloudsdk.api.sms;
 
 import com.chuanglan.cloudsdk.core.CloudSdkModel;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 /**
  * 253 短信接口通用响应基类。
@@ -20,6 +21,7 @@ public class SmsCommonResponse extends CloudSdkModel {
     /**
      * 提示信息。
      */
+    @JsonAlias("message")
     private String msg;
 
     /**

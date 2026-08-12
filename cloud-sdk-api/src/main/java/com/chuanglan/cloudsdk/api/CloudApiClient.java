@@ -1401,6 +1401,103 @@ public class CloudApiClient implements AutoCloseable {
     }
 
     /**
+     * 银行卡 OCR 识别。
+     */
+    public BankcardResponse bankcard(String appId, String appSecret, BankcardRequest request) throws CloudSdkException {
+        return businessClient.bankcard(appId, appSecret, request);
+    }
+
+    /**
+     * 银行卡 OCR 识别，支持自定义链路追踪 ID。
+     */
+    public BankcardResponse bankcard(String appId, String appSecret, BankcardRequest request, String traceId) throws CloudSdkException {
+        return businessClient.bankcard(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 驾驶证 OCR 识别。
+     */
+    public DrivingLicenseResponse drivingLicense(String appId, String appSecret, DrivingLicenseRequest request) throws CloudSdkException {
+        return businessClient.drivingLicense(appId, appSecret, request);
+    }
+
+    /**
+     * 驾驶证 OCR 识别，支持自定义链路追踪 ID。
+     */
+    public DrivingLicenseResponse drivingLicense(String appId, String appSecret, DrivingLicenseRequest request, String traceId) throws CloudSdkException {
+        return businessClient.drivingLicense(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 驾驶证 OCR V2 识别。
+     */
+    public DrivingLicenseOcrV2Response drivingLicenseOcrV2(String appId, String appSecret, DrivingLicenseOcrV2Request request) throws CloudSdkException {
+        return businessClient.drivingLicenseOcrV2(appId, appSecret, request);
+    }
+
+    /**
+     * 驾驶证 OCR V2 识别，支持自定义链路追踪 ID。
+     */
+    public DrivingLicenseOcrV2Response drivingLicenseOcrV2(String appId, String appSecret, DrivingLicenseOcrV2Request request, String traceId) throws CloudSdkException {
+        return businessClient.drivingLicenseOcrV2(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 车牌 OCR 识别。
+     */
+    public VehiclePlateOcrResponse vehiclePlateOcr(String appId, String appSecret, VehiclePlateOcrRequest request) throws CloudSdkException {
+        return businessClient.vehiclePlateOcr(appId, appSecret, request);
+    }
+
+    /**
+     * 车牌 OCR 识别，支持自定义链路追踪 ID。
+     */
+    public VehiclePlateOcrResponse vehiclePlateOcr(String appId, String appSecret, VehiclePlateOcrRequest request, String traceId) throws CloudSdkException {
+        return businessClient.vehiclePlateOcr(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 营业执照 OCR 识别。
+     */
+    public BusinessLicenseResponse businessLicense(String appId, String appSecret, BusinessLicenseRequest request) throws CloudSdkException {
+        return businessClient.businessLicense(appId, appSecret, request);
+    }
+
+    /**
+     * 营业执照 OCR 识别，支持自定义链路追踪 ID。
+     */
+    public BusinessLicenseResponse businessLicense(String appId, String appSecret, BusinessLicenseRequest request, String traceId) throws CloudSdkException {
+        return businessClient.businessLicense(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 发票 OCR 识别。
+     */
+    public InvoiceOcrResponse invoiceOcr(String appId, String appSecret, InvoiceOcrRequest request) throws CloudSdkException {
+        return businessClient.invoiceOcr(appId, appSecret, request);
+    }
+
+    /**
+     * 发票 OCR 识别，支持自定义链路追踪 ID。
+     */
+    public InvoiceOcrResponse invoiceOcr(String appId, String appSecret, InvoiceOcrRequest request, String traceId) throws CloudSdkException {
+        return businessClient.invoiceOcr(appId, appSecret, request, traceId);
+    }
+
+    /**
+     * 行驶证 OCR V2 识别。
+     */
+    public VehicleLicenseOcrV2Response vehicleLicenseOcrV2(String appId, String appSecret, VehicleLicenseOcrV2Request request) throws CloudSdkException {
+        return businessClient.vehicleLicenseOcrV2(appId, appSecret, request);
+    }
+
+    /**
+     * 行驶证 OCR V2 识别，支持自定义链路追踪 ID。
+     */
+    public VehicleLicenseOcrV2Response vehicleLicenseOcrV2(String appId, String appSecret, VehicleLicenseOcrV2Request request, String traceId) throws CloudSdkException {
+        return businessClient.vehicleLicenseOcrV2(appId, appSecret, request, traceId);
+    }
+    /**
      * 获取业务线 Client 实例，后续业务接口通过此实例调用。
      */
     public BusinessClient businessClient() {
