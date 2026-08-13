@@ -1,0 +1,1092 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] cloud-sdk                                                          [pom]
+[INFO] cloud-sdk-core                                                     [jar]
+[INFO] cloud-sdk-api                                                      [jar]
+[INFO] 
+[INFO] ----------------------< com.chuanglan:cloud-sdk >-----------------------
+[INFO] Building cloud-sdk 1.0.0-SNAPSHOT                                  [1/3]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.chuanglan:cloud-sdk-core >--------------------
+[INFO] Building cloud-sdk-core 1.0.0-SNAPSHOT                             [2/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cloud-sdk-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\wangxun\workspace\cloud-sdk\cloud-sdk-core\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ cloud-sdk-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cloud-sdk-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\wangxun\workspace\cloud-sdk\cloud-sdk-core\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ cloud-sdk-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.1.2:test (default-test) @ cloud-sdk-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.chuanglan.cloudsdk.core.CloudSdkModelTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s -- in com.chuanglan.cloudsdk.core.CloudSdkModelTest
+[INFO] Running com.chuanglan.cloudsdk.core.ExponentialBackoffRetryPolicyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.chuanglan.cloudsdk.core.ExponentialBackoffRetryPolicyTest
+[INFO] Running com.chuanglan.cloudsdk.core.HttpTransportTest
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=GET, url=http://localhost:23373/error, bodySize=0
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=24
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=GET, url=http://localhost:23373/error, bodySize=0
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=24
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=GET, url=http://localhost:23379/async, bodySize=0
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=14
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=GET, url=http://localhost:23385/ok, bodySize=0
+七月 20, 2026 9:10:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=11
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.121 s -- in com.chuanglan.cloudsdk.core.HttpTransportTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------------< com.chuanglan:cloud-sdk-api >---------------------
+[INFO] Building cloud-sdk-api 1.0.0-SNAPSHOT                              [3/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cloud-sdk-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\wangxun\workspace\cloud-sdk\cloud-sdk-api\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ cloud-sdk-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cloud-sdk-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\wangxun\workspace\cloud-sdk\cloud-sdk-api\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:testCompile (default-testCompile) @ cloud-sdk-api ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.1.2:test (default-test) @ cloud-sdk-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.chuanglan.cloudsdk.api.api.business.BusinessClientTest
+七月 20, 2026 9:10:31 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19351/api/v2/sdk/ocr/id-ocrV2, bodySize=41
+七月 20, 2026 9:10:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19351/api/v2/sdk/ocr/id-ocrV2, bodySize=41
+七月 20, 2026 9:10:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19351/api/v2/sdk/ocr/id-ocrV2, bodySize=41
+七月 20, 2026 9:10:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51192/api/v2/sdk/gsxx/administrativeSanctionQuery, bodySize=32
+七月 20, 2026 9:10:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51192/api/v2/sdk/gsxx/administrativeSanctionQuery, bodySize=32
+七月 20, 2026 9:10:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51192/api/v2/sdk/gsxx/administrativeSanctionQuery, bodySize=32
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:64164/api/v2/sdk/gsxx/business-three-auth, bodySize=82
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=158
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:64170/api/v2/sdk/gsxx/enterpriseBidding, bodySize=53
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=626
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26249/api/v2/sdk/gsxx/justiceComplain, bodySize=74
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=533
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26255/api/v2/sdk/ipgsdcx/proxyIdentification, bodySize=22
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=223
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26273/api/v2/sdk/witness/face-check, bodySize=36
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=163
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26289/api/v2/sdk/gsxx/business-three-auth, bodySize=82
+七月 20, 2026 9:10:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26289/api/v2/sdk/gsxx/business-three-auth, bodySize=82
+七月 20, 2026 9:10:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:26289/api/v2/sdk/gsxx/business-three-auth, bodySize=82
+七月 20, 2026 9:10:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:25132/api/v2/sdk/ipgsdcx/addressOriginV4, bodySize=22
+七月 20, 2026 9:10:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:25132/api/v2/sdk/ipgsdcx/addressOriginV4, bodySize=22
+七月 20, 2026 9:10:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:25132/api/v2/sdk/ipgsdcx/addressOriginV4, bodySize=22
+七月 20, 2026 9:10:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1445/api/v2/sdk/ocr/vehicle-license, bodySize=41
+七月 20, 2026 9:10:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1445/api/v2/sdk/ocr/vehicle-license, bodySize=41
+七月 20, 2026 9:10:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1445/api/v2/sdk/ocr/vehicle-license, bodySize=41
+七月 20, 2026 9:10:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:23556/api/v2/sdk/ipgsdcx/addressOriginV6, bodySize=48
+七月 20, 2026 9:10:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:23556/api/v2/sdk/ipgsdcx/addressOriginV6, bodySize=48
+七月 20, 2026 9:10:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:23556/api/v2/sdk/ipgsdcx/addressOriginV6, bodySize=48
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=91
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34121/api/v2/sdk/dynamic2/gsxx/twoElementsCheck, bodySize=64
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=156
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34127/api/v2/sdk/gsxx/enterpriseOwnTax, bodySize=54
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=812
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34138/api/v2/sdk/gsxx/abnormalOperation, bodySize=2
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=116
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34154/api/v2/sdk/gsxx/enterpriseBidding, bodySize=30
+七月 20, 2026 9:10:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34154/api/v2/sdk/gsxx/enterpriseBidding, bodySize=30
+七月 20, 2026 9:10:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:34154/api/v2/sdk/gsxx/enterpriseBidding, bodySize=30
+七月 20, 2026 9:10:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:8079/api/v2/sdk/gsxx/justiceComplain, bodySize=26
+七月 20, 2026 9:10:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:8079/api/v2/sdk/gsxx/justiceComplain, bodySize=26
+七月 20, 2026 9:10:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:8079/api/v2/sdk/gsxx/justiceComplain, bodySize=26
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:9091/api/v2/sdk/ipgsdcx/facialRecognition, bodySize=22
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=208
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:9103/api/v2/sdk/gsxx/enterpriseSimple, bodySize=26
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=1130
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:9109/api/v2/sdk/ipgsdcx/facialRecognition, bodySize=22
+七月 20, 2026 9:10:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:10:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:9109/api/v2/sdk/ipgsdcx/facialRecognition, bodySize=22
+七月 20, 2026 9:10:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:10:59 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:9109/api/v2/sdk/ipgsdcx/facialRecognition, bodySize=22
+七月 20, 2026 9:10:59 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:10:59 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33179/api/v2/sdk/ipgsdcx/proxyIdentification, bodySize=22
+七月 20, 2026 9:11:00 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33179/api/v2/sdk/ipgsdcx/proxyIdentification, bodySize=22
+七月 20, 2026 9:11:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33179/api/v2/sdk/ipgsdcx/proxyIdentification, bodySize=22
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:62076/api/v2/sdk/gsxx/administrativeSanctionQuery, bodySize=24
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=448
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:62082/api/v2/sdk/ocr/id-ocr-cl, bodySize=55
+七月 20, 2026 9:11:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:62082/api/v2/sdk/ocr/id-ocr-cl, bodySize=55
+七月 20, 2026 9:11:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:62082/api/v2/sdk/ocr/id-ocr-cl, bodySize=55
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:21279/api/v2/sdk/ocr/id-ocrV2, bodySize=65
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=191
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:21286/api/v2/sdk/gsxx/abnormalOperation, bodySize=35
+七月 20, 2026 9:11:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:21286/api/v2/sdk/gsxx/abnormalOperation, bodySize=35
+七月 20, 2026 9:11:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:21286/api/v2/sdk/gsxx/abnormalOperation, bodySize=35
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18318/api/v2/sdk/ipgsdcx/riskPortrait, bodySize=22
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=393
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18324/api/v2/business/demo, bodySize=15
+七月 20, 2026 9:11:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=61
+七月 20, 2026 9:11:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18324/api/v2/business/demo, bodySize=15
+七月 20, 2026 9:11:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=61
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18324/api/v2/business/demo, bodySize=15
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=61
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1908/api/v2/sdk/ipgsdcx/addressOriginV6, bodySize=48
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=510
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1923/api/v2/sdk/witness/face-check, bodySize=36
+七月 20, 2026 9:11:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1923/api/v2/sdk/witness/face-check, bodySize=36
+七月 20, 2026 9:11:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1923/api/v2/sdk/witness/face-check, bodySize=36
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28100/api/v2/sdk/ocr/id-ocr-cl, bodySize=63
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=242
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28136/api/v2/sdk/gsxx/abnormalOperation, bodySize=35
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=543
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28148/api/v2/sdk/gsxx/enterpriseSimple, bodySize=35
+七月 20, 2026 9:11:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28148/api/v2/sdk/gsxx/enterpriseSimple, bodySize=35
+七月 20, 2026 9:11:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28148/api/v2/sdk/gsxx/enterpriseSimple, bodySize=35
+七月 20, 2026 9:11:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10637/api/v2/sdk/gsxx/enterpriseOwnTax, bodySize=24
+七月 20, 2026 9:11:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:19 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10637/api/v2/sdk/gsxx/enterpriseOwnTax, bodySize=24
+七月 20, 2026 9:11:19 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10637/api/v2/sdk/gsxx/enterpriseOwnTax, bodySize=24
+七月 20, 2026 9:11:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53741/api/v2/sdk/ipgsdcx/applicationScenarios, bodySize=22
+七月 20, 2026 9:11:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:22 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53741/api/v2/sdk/ipgsdcx/applicationScenarios, bodySize=22
+七月 20, 2026 9:11:22 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53741/api/v2/sdk/ipgsdcx/applicationScenarios, bodySize=22
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=94
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53836/api/v2/sdk/gsxx/companyLevel, bodySize=22
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=166
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53842/api/v2/business/demo, bodySize=15
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=64
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53868/api/v2/sdk/gsxx/enterpriseQuery, bodySize=16
+七月 20, 2026 9:11:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:25 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53868/api/v2/sdk/gsxx/enterpriseQuery, bodySize=16
+七月 20, 2026 9:11:25 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:53868/api/v2/sdk/gsxx/enterpriseQuery, bodySize=16
+七月 20, 2026 9:11:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50148/api/v2/sdk/htjc/lifecheck, bodySize=57
+七月 20, 2026 9:11:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50148/api/v2/sdk/htjc/lifecheck, bodySize=57
+七月 20, 2026 9:11:28 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50148/api/v2/sdk/htjc/lifecheck, bodySize=57
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35194/api/v2/sdk/ipgsdcx/addressOriginV4, bodySize=22
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=480
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35205/api/v2/sdk/gsxx/enterpriseQuery, bodySize=16
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=219
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35211/api/v2/sdk/dynamic2/gsxx/twoElementsCheck, bodySize=64
+七月 20, 2026 9:11:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:31 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35211/api/v2/sdk/dynamic2/gsxx/twoElementsCheck, bodySize=64
+七月 20, 2026 9:11:31 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35211/api/v2/sdk/dynamic2/gsxx/twoElementsCheck, bodySize=64
+七月 20, 2026 9:11:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:7056/api/v2/sdk/ipgsdcx/hostInformation, bodySize=22
+七月 20, 2026 9:11:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:34 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:7056/api/v2/sdk/ipgsdcx/hostInformation, bodySize=22
+七月 20, 2026 9:11:34 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:7056/api/v2/sdk/ipgsdcx/hostInformation, bodySize=22
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6789/api/v2/sdk/ocr/vehicle-license, bodySize=49
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=390
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6795/api/v2/sdk/gsxx/companyLevel, bodySize=22
+七月 20, 2026 9:11:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:37 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6795/api/v2/sdk/gsxx/companyLevel, bodySize=22
+七月 20, 2026 9:11:37 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6795/api/v2/sdk/gsxx/companyLevel, bodySize=22
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32080/api/v2/sdk/ipgsdcx/applicationScenarios, bodySize=22
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=206
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32101/api/v2/sdk/ocr/id-ocr-cl, bodySize=79
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=215
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32107/api/v2/sdk/ocr/id-ocrV2, bodySize=49
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=250
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32113/api/v2/sdk/ipgsdcx/riskPortrait, bodySize=22
+七月 20, 2026 9:11:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=93
+七月 20, 2026 9:11:40 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32113/api/v2/sdk/ipgsdcx/riskPortrait, bodySize=22
+七月 20, 2026 9:11:40 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=93
+七月 20, 2026 9:11:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:32113/api/v2/sdk/ipgsdcx/riskPortrait, bodySize=22
+七月 20, 2026 9:11:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=93
+七月 20, 2026 9:11:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59167/api/v2/sdk/htjc/lifecheck, bodySize=57
+七月 20, 2026 9:11:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=401
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59173/api/v2/sdk/ipgsdcx/hostInformation, bodySize=22
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=237
+[ERROR] Tests run: 80, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 73.50 s <<< FAILURE! -- in com.chuanglan.cloudsdk.api.api.business.BusinessClientTest
+[ERROR] com.chuanglan.cloudsdk.api.api.business.BusinessClientTest.testEnterpriseBiddingSuccess -- Time elapsed: 0.026 s <<< ERROR!
+CloudSdkException{code='ParseResponseError', message='响应解析失败: Unrecognized field "DETAILS_BASIC" (class com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData), not marked as ignorable (2 known properties: "details_BASIC", "bid_COUNT"])
+ at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingResponse["data"]->com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData["DETAILS_BASIC"])', requestId='null', statusCode=0}
+	at com.chuanglan.cloudsdk.api.api.ApiClient.parseResponse(ApiClient.java:103)
+	at com.chuanglan.cloudsdk.api.api.ApiClient.call(ApiClient.java:115)
+	at com.chuanglan.cloudsdk.api.api.business.BusinessClient.enterpriseBidding(BusinessClient.java:221)
+	at com.chuanglan.cloudsdk.api.api.business.BusinessClientTest.testEnterpriseBiddingSuccess(BusinessClientTest.java:1250)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+Caused by: java.lang.IllegalArgumentException: Unrecognized field "DETAILS_BASIC" (class com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData), not marked as ignorable (2 known properties: "details_BASIC", "bid_COUNT"])
+ at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingResponse["data"]->com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData["DETAILS_BASIC"])
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4544)
+	at com.fasterxml.jackson.databind.ObjectMapper.convertValue(ObjectMapper.java:4475)
+	at com.chuanglan.cloudsdk.api.api.ApiClient.parseResponse(ApiClient.java:101)
+	... 6 more
+Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "DETAILS_BASIC" (class com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData), not marked as ignorable (2 known properties: "details_BASIC", "bid_COUNT"])
+ at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingResponse["data"]->com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData["DETAILS_BASIC"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1138)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2224)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1709)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1687)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.ObjectMapper._convert(ObjectMapper.java:4539)
+	... 8 more
+
+[INFO] Running com.chuanglan.cloudsdk.api.api.mnp.MnpClientTest
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59179/api/v2/auth/carriers/sftp, bodySize=35
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=212
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59190/api/v2/auth/carriers/sftp, bodySize=35
+七月 20, 2026 9:11:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59190/api/v2/auth/carriers/sftp, bodySize=35
+七月 20, 2026 9:11:44 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:11:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:59190/api/v2/auth/carriers/sftp, bodySize=35
+七月 20, 2026 9:11:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.085 s -- in com.chuanglan.cloudsdk.api.api.mnp.MnpClientTest
+[INFO] Running com.chuanglan.cloudsdk.api.api.realName.RealNameClientTest
+七月 20, 2026 9:11:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33283/api/v2/auth/carriers/carriers-two-auth, bodySize=36
+七月 20, 2026 9:11:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33283/api/v2/auth/carriers/carriers-two-auth, bodySize=36
+七月 20, 2026 9:11:47 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:33283/api/v2/auth/carriers/carriers-two-auth, bodySize=36
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55104/api/v2/auth/carriers/carriers-two-auth-idnum, bodySize=53
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=243
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55124/api/v2/auth/carriers/carriers-auth-detail-sha256, bodySize=226
+七月 20, 2026 9:11:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:11:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55124/api/v2/auth/carriers/carriers-auth-detail-sha256, bodySize=226
+七月 20, 2026 9:11:50 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55124/api/v2/auth/carriers/carriers-auth-detail-sha256, bodySize=226
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1225/api/v2/auth/carriers/carriers-auth-detail-md5, bodySize=130
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=282
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1241/api/v2/auth/idcard/id-card-auth-foreign-sign, bodySize=118
+七月 20, 2026 9:11:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=85
+七月 20, 2026 9:11:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1241/api/v2/auth/idcard/id-card-auth-foreign-sign, bodySize=118
+七月 20, 2026 9:11:53 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=85
+七月 20, 2026 9:11:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1241/api/v2/auth/idcard/id-card-auth-foreign-sign, bodySize=118
+七月 20, 2026 9:11:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=85
+七月 20, 2026 9:11:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:40928/api/v2/auth/idmatch/idmatch-new, bodySize=70
+七月 20, 2026 9:11:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:40928/api/v2/auth/idmatch/idmatch-new, bodySize=70
+七月 20, 2026 9:11:56 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:40928/api/v2/auth/idmatch/idmatch-new, bodySize=70
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43843/api/v2/auth/idmatch/idmatch-abroad, bodySize=115
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=222
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43879/api/v2/auth/bankcard/card-auth-detail, bodySize=70
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=302
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43893/api/v2/auth/bankcard/card-auth-type, bodySize=107
+七月 20, 2026 9:11:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:11:59 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43893/api/v2/auth/bankcard/card-auth-type, bodySize=107
+七月 20, 2026 9:11:59 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:12:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43893/api/v2/auth/bankcard/card-auth-type, bodySize=107
+七月 20, 2026 9:12:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:12:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:65045/api/v2/auth/bankcard/card-auth-detail, bodySize=93
+七月 20, 2026 9:12:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:02 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:65045/api/v2/auth/bankcard/card-auth-detail, bodySize=93
+七月 20, 2026 9:12:02 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:65045/api/v2/auth/bankcard/card-auth-detail, bodySize=93
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19705/api/v2/auth/bankcard/card-auth-type, bodySize=107
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=300
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19711/api/v2/auth/carriers/carriers-auth-md5, bodySize=130
+七月 20, 2026 9:12:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=103
+七月 20, 2026 9:12:05 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19711/api/v2/auth/carriers/carriers-auth-md5, bodySize=130
+七月 20, 2026 9:12:05 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=103
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19711/api/v2/auth/carriers/carriers-auth-md5, bodySize=130
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=103
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:42052/api/v2/auth/bankcard/card-auth, bodySize=93
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=295
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:42063/api/v2/auth/bankcard/card-three-auth-precision, bodySize=70
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=306
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:42069/api/v2/auth/bankcard/card-three-auth-type, bodySize=84
+七月 20, 2026 9:12:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=106
+七月 20, 2026 9:12:08 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:42069/api/v2/auth/bankcard/card-three-auth-type, bodySize=84
+七月 20, 2026 9:12:08 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=106
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:42069/api/v2/auth/bankcard/card-three-auth-type, bodySize=84
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=106
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4903/api/v2/auth/carriers/carriers-auth-detail-sha256, bodySize=226
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=285
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4909/api/v2/auth/bankcard/card-three-auth-type, bodySize=70
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=301
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4930/api/v2/auth/bankcard/card-three-auth-precision, bodySize=84
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=306
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4936/api/v2/auth/ipgsdcx/ipgsd, bodySize=22
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=296
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4943/api/v2/auth/bankcard/card-auth, bodySize=93
+七月 20, 2026 9:12:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:11 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4943/api/v2/auth/bankcard/card-auth, bodySize=93
+七月 20, 2026 9:12:11 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:4943/api/v2/auth/bankcard/card-auth, bodySize=93
+七月 20, 2026 9:12:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10358/api/v2/auth/bankcard/card-auth-precision, bodySize=107
+七月 20, 2026 9:12:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:14 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10358/api/v2/auth/bankcard/card-auth-precision, bodySize=107
+七月 20, 2026 9:12:14 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:10358/api/v2/auth/bankcard/card-auth-precision, bodySize=107
+七月 20, 2026 9:12:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:16341/api/v2/auth/idcard/id-card-auth, bodySize=42
+七月 20, 2026 9:12:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=289
+七月 20, 2026 9:12:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:16373/api/v2/auth/bankcard/card-three-auth-detail, bodySize=70
+七月 20, 2026 9:12:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:12:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:16373/api/v2/auth/bankcard/card-three-auth-detail, bodySize=70
+七月 20, 2026 9:12:18 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:16373/api/v2/auth/bankcard/card-three-auth-detail, bodySize=70
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=108
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50483/api/v2/auth/carriers/carriers-auth-detail, bodySize=65
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=244
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50499/api/v2/auth/idcard/id-card-auth-foreign-sign, bodySize=118
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=210
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50520/api/v2/auth/bankcard/card-auth-detail, bodySize=93
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=302
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50536/api/v2/auth/carriers/carriers-two-auth, bodySize=36
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=213
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50547/api/v2/auth/bankcard/card-five-auth, bodySize=93
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=298
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50574/api/v2/auth/idmatch/idmatch-abroad, bodySize=115
+七月 20, 2026 9:12:20 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=96
+七月 20, 2026 9:12:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50574/api/v2/auth/idmatch/idmatch-abroad, bodySize=115
+七月 20, 2026 9:12:21 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=96
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:50574/api/v2/auth/idmatch/idmatch-abroad, bodySize=115
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=96
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45745/api/v2/auth/bankcard/card-auth-precision, bodySize=84
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=305
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45751/api/v2/auth/carriers/carriers-auth-md5, bodySize=130
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=222
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45757/api/v2/auth/carriers/carriersAuthSha256, bodySize=227
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=223
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45768/api/v2/auth/bankcard/card-auth-type, bodySize=93
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=300
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45784/api/v2/auth/bankcard/card-five-auth, bodySize=93
+七月 20, 2026 9:12:23 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45784/api/v2/auth/bankcard/card-five-auth, bodySize=93
+七月 20, 2026 9:12:24 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:26 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:45784/api/v2/auth/bankcard/card-five-auth, bodySize=93
+七月 20, 2026 9:12:26 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=100
+七月 20, 2026 9:12:26 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51226/api/v2/auth/ipgsdcx/ipgsd, bodySize=22
+七月 20, 2026 9:12:26 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=92
+七月 20, 2026 9:12:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51226/api/v2/auth/ipgsdcx/ipgsd, bodySize=22
+七月 20, 2026 9:12:27 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=92
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:51226/api/v2/auth/ipgsdcx/ipgsd, bodySize=22
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=92
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22018/api/v2/auth/bankcard/card-three-auth-type, bodySize=84
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=301
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22039/api/v2/auth/carriers/carriers-auth-detail, bodySize=65
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=302
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22045/api/v2/auth/carriers/carriers-auth, bodySize=65
+七月 20, 2026 9:12:29 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22045/api/v2/auth/carriers/carriers-auth, bodySize=65
+七月 20, 2026 9:12:30 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22045/api/v2/auth/carriers/carriers-auth, bodySize=65
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=110
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:36655/api/v2/auth/gsxx/business-four-auth, bodySize=101
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=298
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:36686/api/v2/auth/carriers/carriers-auth-detail, bodySize=65
+七月 20, 2026 9:12:32 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:36686/api/v2/auth/carriers/carriers-auth-detail, bodySize=65
+七月 20, 2026 9:12:33 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:36686/api/v2/auth/carriers/carriers-auth-detail, bodySize=65
+七月 20, 2026 9:12:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19955/api/v2/auth/bankcard/card-three-auth, bodySize=70
+七月 20, 2026 9:12:35 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19955/api/v2/auth/bankcard/card-three-auth, bodySize=70
+七月 20, 2026 9:12:36 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:19955/api/v2/auth/bankcard/card-three-auth, bodySize=70
+七月 20, 2026 9:12:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55510/api/v2/auth/bankcard/card-auth-secret, bodySize=140
+七月 20, 2026 9:12:38 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55510/api/v2/auth/bankcard/card-auth-secret, bodySize=140
+七月 20, 2026 9:12:39 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:55510/api/v2/auth/bankcard/card-auth-secret, bodySize=140
+七月 20, 2026 9:12:41 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=107
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:24816/api/v2/auth/carriers/carriers-auth-detail-md5, bodySize=130
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=224
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:24822/api/v2/auth/bankcard/card-auth-secret, bodySize=140
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=302
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:24833/api/v2/auth/carriers/carriers-auth-detail-md5, bodySize=130
+七月 20, 2026 9:12:42 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:12:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:24833/api/v2/auth/carriers/carriers-auth-detail-md5, bodySize=130
+七月 20, 2026 9:12:43 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:24833/api/v2/auth/carriers/carriers-auth-detail-md5, bodySize=130
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=105
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18046/api/v2/auth/bankcard/card-three-auth-detail, bodySize=70
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=303
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18072/api/v2/auth/bankcard/card-three-auth, bodySize=70
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=296
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18083/api/v2/auth/carriers/carriersAuthSha256, bodySize=227
+七月 20, 2026 9:12:45 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18083/api/v2/auth/carriers/carriersAuthSha256, bodySize=227
+七月 20, 2026 9:12:46 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18083/api/v2/auth/carriers/carriersAuthSha256, bodySize=227
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22658/api/v2/auth/carriers/carriers-two-auth-md5, bodySize=87
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=217
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22664/api/v2/auth/carriers/carriers-auth-detail-sha256, bodySize=226
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=227
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22685/api/v2/auth/idcard/id-card-auth/vs, bodySize=81
+七月 20, 2026 9:12:48 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=80
+七月 20, 2026 9:12:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22685/api/v2/auth/idcard/id-card-auth/vs, bodySize=81
+七月 20, 2026 9:12:49 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=80
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:22685/api/v2/auth/idcard/id-card-auth/vs, bodySize=81
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=80
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28406/api/v2/auth/bankcard/card-auth-precision, bodySize=107
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=305
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28422/api/v2/auth/bankcard/card-two-auth, bodySize=41
+七月 20, 2026 9:12:51 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:12:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28422/api/v2/auth/bankcard/card-two-auth, bodySize=41
+七月 20, 2026 9:12:52 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:12:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:28422/api/v2/auth/bankcard/card-two-auth, bodySize=41
+七月 20, 2026 9:12:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=95
+七月 20, 2026 9:12:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:15269/api/v2/auth/carriers/carriers-two-auth-md5, bodySize=87
+七月 20, 2026 9:12:54 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=98
+七月 20, 2026 9:12:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:15269/api/v2/auth/carriers/carriers-two-auth-md5, bodySize=87
+七月 20, 2026 9:12:55 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=98
+七月 20, 2026 9:12:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:15269/api/v2/auth/carriers/carriers-two-auth-md5, bodySize=87
+七月 20, 2026 9:12:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=98
+七月 20, 2026 9:12:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35989/api/v2/auth/carriers/carriers-two-auth-idnum, bodySize=53
+七月 20, 2026 9:12:57 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:12:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35989/api/v2/auth/carriers/carriers-two-auth-idnum, bodySize=53
+七月 20, 2026 9:12:58 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:13:00 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:35989/api/v2/auth/carriers/carriers-two-auth-idnum, bodySize=53
+七月 20, 2026 9:13:00 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:13:00 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:38978/api/v2/auth/gsxx/business-four-auth, bodySize=101
+七月 20, 2026 9:13:00 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:13:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:38978/api/v2/auth/gsxx/business-four-auth, bodySize=101
+七月 20, 2026 9:13:01 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:13:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:38978/api/v2/auth/gsxx/business-four-auth, bodySize=101
+七月 20, 2026 9:13:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=101
+七月 20, 2026 9:13:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43861/api/v2/auth/bankcard/card-three-auth-precision, bodySize=84
+七月 20, 2026 9:13:03 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:13:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43861/api/v2/auth/bankcard/card-three-auth-precision, bodySize=84
+七月 20, 2026 9:13:04 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:43861/api/v2/auth/bankcard/card-three-auth-precision, bodySize=84
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=111
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6913/api/v2/auth/idcard/id-card-auth/vs, bodySize=81
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=279
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6919/api/v2/auth/carriers/carriers-auth, bodySize=65
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=242
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6925/api/v2/auth/bankcard/card-two-auth, bodySize=41
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=269
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6931/api/v2/auth/idmatch/idmatch-new, bodySize=94
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=275
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6947/api/v2/auth/idcard/id-card-auth, bodySize=42
+七月 20, 2026 9:13:06 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+七月 20, 2026 9:13:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6947/api/v2/auth/idcard/id-card-auth, bodySize=42
+七月 20, 2026 9:13:07 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+七月 20, 2026 9:13:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:6947/api/v2/auth/idcard/id-card-auth, bodySize=42
+七月 20, 2026 9:13:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+[INFO] Tests run: 148, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 83.64 s -- in com.chuanglan.cloudsdk.api.api.realName.RealNameClientTest
+[INFO] Running com.chuanglan.cloudsdk.api.intSms.IntSmsClientTest
+七月 20, 2026 9:13:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18503/intsms/v2/sms/submit, bodySize=181
+七月 20, 2026 9:13:09 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18503/intsms/v2/sms/submit, bodySize=181
+七月 20, 2026 9:13:10 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18503/intsms/v2/sms/submit, bodySize=181
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18861/intsms/v2/sms/submit, bodySize=237
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=108
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18872/intsms/v2/sms/submit, bodySize=186
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=142
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.120 s -- in com.chuanglan.cloudsdk.api.intSms.IntSmsClientTest
+[INFO] Running com.chuanglan.cloudsdk.api.intSms.IntSmsSignatureUtilTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.chuanglan.cloudsdk.api.intSms.IntSmsSignatureUtilTest
+[INFO] Running com.chuanglan.cloudsdk.api.rcsSms.RcsSmsClientTest
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18883/rcs/api/v2/template/addVideo, bodySize=54
+七月 20, 2026 9:13:12 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18883/rcs/api/v2/template/addVideo, bodySize=54
+七月 20, 2026 9:13:13 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:18883/rcs/api/v2/template/addVideo, bodySize=54
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=43
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1389/rcs/api/internal/balance/getBalance, bodySize=21
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=100
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1395/rcs/api/v2/template/addVideo, bodySize=144
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=105
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1401/rcs/api/v2/msg/submitVideoTemplate, bodySize=149
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=117
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.104 s -- in com.chuanglan.cloudsdk.api.rcsSms.RcsSmsClientTest
+[INFO] Running com.chuanglan.cloudsdk.api.rcsSms.RcsSmsSignatureUtilTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.chuanglan.cloudsdk.api.rcsSms.RcsSmsSignatureUtilTest
+[INFO] Running com.chuanglan.cloudsdk.api.sms.SmsClientTest
+七月 20, 2026 9:13:15 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1417/sms/v2/batchSend, bodySize=150
+七月 20, 2026 9:13:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=200, bodySize=163
+七月 20, 2026 9:13:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1428/sms/v2/batchSend, bodySize=78
+七月 20, 2026 9:13:16 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+七月 20, 2026 9:13:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1428/sms/v2/batchSend, bodySize=78
+七月 20, 2026 9:13:17 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+七月 20, 2026 9:13:19 上午 com.chuanglan.cloudsdk.core.HttpTransport logRequest
+信息: [CloudSdk HTTP Request] method=POST, url=http://localhost:1428/sms/v2/batchSend, bodySize=78
+七月 20, 2026 9:13:19 上午 com.chuanglan.cloudsdk.core.HttpTransport logResponse
+信息: [CloudSdk HTTP Response] status=500, bodySize=45
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.080 s -- in com.chuanglan.cloudsdk.api.sms.SmsClientTest
+[INFO] Running com.chuanglan.cloudsdk.api.sms.SmsSignatureUtilTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in com.chuanglan.cloudsdk.api.sms.SmsSignatureUtilTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   BusinessClientTest.testEnterpriseBiddingSuccess:1250 ? CloudSdk 响应解析失败: Unrecognized field "DETAILS_BASIC" (class com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData), not marked as ignorable (2 known properties: "details_BASIC", "bid_COUNT"])
+ at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingResponse["data"]->com.chuanglan.cloudsdk.api.api.business.EnterpriseBiddingData["DETAILS_BASIC"])
+[INFO] 
+[ERROR] Tests run: 261, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for cloud-sdk 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] cloud-sdk .......................................... SUCCESS [  0.003 s]
+[INFO] cloud-sdk-core ..................................... SUCCESS [  4.968 s]
+[INFO] cloud-sdk-api ...................................... FAILURE [02:50 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:55 min
+[INFO] Finished at: 2026-07-20T09:13:19+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project cloud-sdk-api: 
+[ERROR] 
+[ERROR] Please refer to D:\wangxun\workspace\cloud-sdk\cloud-sdk-api\target\surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :cloud-sdk-api
