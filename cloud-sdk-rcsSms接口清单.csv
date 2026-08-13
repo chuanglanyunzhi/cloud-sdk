@@ -1,12 +1,1 @@
-汉字名称,方法名,API路径
-视频模板新增,addVideoTemplate,/rcs/api/v2/template/addVideo
-视频模板查询,findVideoTemplate,/rcs/api/v2/template/findTemplate
-视频模板列表查询,listVideoTemplate,/rcs/api/v2/template/listVideoTemplate
-签名列表查询,listSign,/rcs/api/v2/template/listSign
-视频模板修改,updateVideoTemplate,/rcs/api/v2/template/updateVideo
-视频模板提交发送,submitVideoTemplate,/rcs/api/v2/msg/submitVideoTemplate
-拉取发送报告,pullReport,/rcs/api/v2/report/pull
-拉取上行回复,pullReply,/rcs/api/v2/reply/pull
-查询账户余额,getBalance,/rcs/api/internal/balance/getBalance
-签名新增,addSign,/rcs/api/sign/add_sign
-账户地址修改,updateAccountAddress,/rcs/api/account/update_address
+
