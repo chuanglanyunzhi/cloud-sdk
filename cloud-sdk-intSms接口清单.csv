@@ -1,7 +1,1 @@
-汉字名称,方法名,API路径
-国际短信发送,submit,/intsms/v2/sms/submit
-账户余额查询,balanceQuery,/intsms/v2/accounts/balance/getinfo
-账户消耗查询,costQuery,/intsms/v2/accounts/costs/getlist
-发送价格查询,priceQuery,/intsms/v2/prices/getlist
-状态报告拉取,reportPull,/intsms/v2/pull/report
-上行回复拉取,replyPull,/intsms/v2/pull/mo
+
